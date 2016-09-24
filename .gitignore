@@ -3,6 +3,13 @@
 /node_modules
 /eslint-cache
 /chat-plugins/private.js
+/chat-plugins/permaban.js
+/chat-plugins/sg.js
+/chat-plugins/misc.js
+/chat-plugins/survey.js
+/chat-plugins/development.js
+/chat-plugins/reports.js
+/chat-plugins/maintenance.js
 npm-debug.log
 .eslintcache
 
