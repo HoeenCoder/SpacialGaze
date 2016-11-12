@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 exports.commands = {
 	helpleader: 'leaderhelp',
@@ -31,7 +31,33 @@ exports.commands = {
 			'<b>/hiddenroom [on/off]</b> - Makes a room hidden that is visible to % and inherit global ranks <br />' +
 			'<b>/makechatroom [name]</b> - creates a public chat room for the server <br />' +
 			'<b>/deleteroom [name]</b> - automatically deletes a chat room <br />' +
-			'<b>/icon [user], [image URL]</b> - gives the user a set icon in the userlist</font>'
+			'<b>/icon [user], [image URL]</b> - gives the user a set icon in the userlist</font> <br />' +
+			'<b>/viewlogs</b> - makes you have access to any log from any room from any date <br />' +
+			'<b>/setavatar [username], [URL]</b> - Sets the avatar for the user <br />' +
+			'<b>/deleteavatar [username]</b> - Deletes the user\'s avatar <br />' +
+			'<b>/moveavatar [username1], [username2]</b> - Moves the custom avatar from original username to a different username <br />' +
+			'<b>/emote add, [name], [url]</b> - Adds an emoticon <br />' +
+			'<b>/emote del/delete/remove/rem, [name]</b> - Removes an emoticon <br />' +
+			'<b>/emote enable/on/disable/off</b> - Enables or disables emoticons in the current room <br />' +
+			'<b>/emote list/view</b> - Displays the list of emoticons <br />' +
+			'<b>/emote ignore</b> - Ignores emoticons in chat messages<br />' +
+			'<b>/emote unignore</b> - Unignores emoticons in chat messages <br />' +
+			'<b>/emote help</b> - Displays the help command.<br />' +
+			'<b>/voucher give [user], [voucher], (item/amount)</b> - Give a user a voucher.<br />' +
+			'<b>/voucher take [user], [id]</b> - Take a user\'s voucher away.<br />' +
+			'<b>/voucher list (user)</b> - List the vouchers of a user.<br />' +
+			'<b>/clearall</b> - clears the entire chat of a room (use it only if needed)<br />' +
+			'<b>/roomlist</b> - displays the list of public/private/official/battle rooms and the total amount of users connected on the server<br />' +
+			'<b>/hide [rank]</b> - Hides user\'s global rank to specified rank. [none/+/%/@/&]<br />' +
+			'<b>/show</b> - Displays user\'s global rank.<br />' +
+			'<b>/givecurrency [user], [amount]</b> - gives a special amount of Stardust to a user.<br />' +
+			'<b>/takecurrency [user], [amount]</b> - removes a special amount of Stardust from a user (needs a reason).<br />' +
+			'<b>/moneylog [number]</b> - to view the last x lines.<br />' +  
+			'<b>/moneylog [text]</b> - to search for text.<br />' +
+			'<b>/pmall [message]</b> - sends a pm to all users connected to SG. <br />' +
+			'<b>/pmallstaff [message] or /staffpm [message]</b> - sends a pm to all staff members connected to SG.<br />' +
+			'<b>/greendeclare [message] or /reddeclare [message]</b> - Anonymously announces a message in a room.<br />' +
+			'& all lower commands.'
 		);
 	},
 };
