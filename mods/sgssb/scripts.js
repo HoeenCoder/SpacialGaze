@@ -161,6 +161,12 @@ exports.BattleScripts = {
                 signatureMove: 'Ancient Orb',
                 evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
             },
+            '%Desokoro': {
+                species: 'Gyarados', ability: 'Guts', item: 'Leftovers', gender: 'M',
+                moves: [ 'Substitute', 'Dragon Dance', 'Bounce'],
+                signatureMove: 'Tsunami Crash',
+                evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
+},
         };
         // convert moves to ids.
         for (var k in sets) {
