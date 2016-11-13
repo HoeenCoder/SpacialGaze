@@ -161,6 +161,12 @@ exports.BattleScripts = {
                 signatureMove: 'Ancient Orb',
                 evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
             },
+            '+CelestialTater': {
+                species: 'Armaldo', ability: 'Unburden', item: 'White Herb', gender: 'M',
+                moves: ['Drain Punch', 'Stone Edge', 'MegaHorn'],
+                signatureMove: 'Shell Break',
+                evs: {atk: 128, spe: 128, hp: 252}, nature: 'Adamant',
+            },
         };
         // convert moves to ids.
         for (var k in sets) {
