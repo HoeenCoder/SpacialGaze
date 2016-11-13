@@ -452,7 +452,7 @@ exports.BattleMovedex = {
      isNonstandard: true,
      name: "Shell Break",
      boosts: {spa: 2, atk: 2, spe: 2, def: -1, spd: -1, accuracy: 1},
-     pp: 8,
+     pp: 5,
      priority: 1,  
      onPrepareHit: function (target, source) {
          this.add('-anim', source, "Brick Break", source);
