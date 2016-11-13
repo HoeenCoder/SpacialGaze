@@ -29,6 +29,12 @@ exports.BattleScripts = {
                 signatureMove: 'Crystallized Ukaku',
                 evs: {atk: 252, spe: 252, spa: 4}, nature: 'Hasty',
             },
+            '&Kraken Mare': {
+                species: 'Gardevoir', ability: 'Moody', shiny: true, item: 'Gardevoirite', gender: 'F',
+                moves: ['Moonblast', 'Calm Mind', 'Psychic'],
+                signatureMove: 'Mega Rage',
+                evs: {hp: 248, spa: 252, def: 8}, nature: 'Modest',
+            },
             // Moderators:
             '@Almighty Bronzong': {
                 species: 'Bronzong', ability: 'Levitate', item: 'Leftovers', gender: (variant === 1) ? 'M' : 'F',
@@ -54,13 +60,7 @@ exports.BattleScripts = {
                 signatureMove: 'Charm Up',
                 evs: {atk: 252, spe: 252, def: 4}, nature: 'Jolly',
             },
-            '@Kraken Mare': {
-                species: 'Gardevoir', ability: 'Moody', shiny: true, item: 'Gardevoirite', gender: 'F',
-                moves: ['Moonblast', 'Calm Mind', 'Psychic'],
-                signatureMove: 'Mega Rage',
-                evs: {hp: 248, spa: 252, def: 8}, nature: 'Modest',
-            },
-            '@Vacuo': {
+             '@Vacuo': {
                 species: 'Magnezone', ability: 'Levitate', item: 'Choice Specs',
                 moves: [['Volt Switch', 'Thunderbolt'][this.random(2)], 'Hidden Power Ice', 'Aura Sphere'],
                 signatureMove: 'Mechanical Dysfunction',
