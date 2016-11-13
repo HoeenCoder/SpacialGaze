@@ -163,7 +163,7 @@ exports.BattleScripts = {
             },
             '+CelestialTater': {
                 species: 'Armaldo', ability: 'Unburden', item: 'White Herb', gender: 'M',
-                moves: ['Drain Punch', 'Stone Edge', 'MegaHorn'],
+                moves: ['Drain Punch', 'Stone Edge', 'Megahorn'],
                 signatureMove: 'Shell Break',
                 evs: {atk: 128, spe: 128, hp: 252}, nature: 'Adamant',
             },
