@@ -445,5 +445,20 @@ exports.BattleMovedex = {
         target: "Normal",
         type: "Electric",
     },
-
+    //CelestialTater
+     shellbreak: {
+     category: "Status",
+     id: "shellbreak",
+     isNonstandard: true,
+     name: "Shell Break",
+     boosts: {spa: 2, atk: 2, spe: 2, def: -1, spd: -1, accuracy: 1},
+     pp: 8,
+     priority: 1,  
+     onPrepareHit: function (target, source) {
+         this.add('-anim', source, "Brick Break", source);
+         this.add('-anim', source, "Shell Smash", source);
+        },
+     target: "self",
+     type: "Water",
+  },
 };
