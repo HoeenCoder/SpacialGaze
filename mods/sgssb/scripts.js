@@ -4,21 +4,21 @@
 
 exports.BattleScripts = {
     randomSeasonalRegStaffTeam: function (side) {
-        var team = [];
-        var variant = this.random(2);
+        let team = [];
+        let variant = this.random(2);
 
-        var sets = {
+        let sets = {
             // Admins.
             '~HoeenHero': {
                 species: 'Ludicolo', ability: 'Swift Swim', item: 'Leftovers', gender: 'M',
-                moves: [['Hydro Pump', 'Scald'][this.random(2)], 'Ice Beam', 'Giga Drain'],
+                moves: [['Hydro Pump', 'Scald'][variant], 'Ice Beam', 'Giga Drain'],
                 signatureMove: 'Scripting',
                 evs: {spa: 252, spe: 252, hp: 4}, nature: 'Modest',
             },
             '~Mystifi': {
                 species: 'Clefairy', ability: 'Analytic', item: 'Eviolite', gender: 'F',
-                moves: ['Calm Mind', 'Softboiled', 'Stored Power'],
-                signatureMove: 'Cuteness Spell',
+                moves: [['Calm Mind', 'Cosmic Power'][variant], 'Soft-Boiled', 'Stored Power'],
+                signatureMove: 'Mystic Mirage',
                 evs: {hp: 252, def: 252, spd: 4}, nature: 'Bold',
             },
 
@@ -29,7 +29,7 @@ exports.BattleScripts = {
                 signatureMove: 'Crystallized Ukaku',
                 evs: {atk: 252, spe: 252, spa: 4}, nature: 'Hasty',
             },
-            '&Kraken Mare': {
+			'&Kraken Mare': {
                 species: 'Gardevoir', ability: 'Moody', shiny: true, item: 'Gardevoirite', gender: 'F',
                 moves: ['Moonblast', 'Calm Mind', 'Psychic'],
                 signatureMove: 'Mega Rage',
@@ -50,7 +50,7 @@ exports.BattleScripts = {
             },
             '@BDH93': {
                 species: 'Dunsparce', ability: 'Serene Grace', item: 'Kings Rock', gender: 'M',
-                moves: ['Roost', 'Coil', 'Rock Slide', ['Glare', 'Body Slam'][this.random(2)]],
+                moves: ['Roost', 'Coil', 'Rock Slide', ['Glare', 'Body Slam'][variant]],
                 signatureMove: 'Getting Trolled',
                 evs: {hp: 252, atk: 252, def: 4}, nature: 'Naughty',
             },
@@ -60,7 +60,7 @@ exports.BattleScripts = {
                 signatureMove: 'Charm Up',
                 evs: {atk: 252, spe: 252, def: 4}, nature: 'Jolly',
             },
-             '@Vacuo': {
+            '@Vacuo': {
                 species: 'Magnezone', ability: 'Levitate', item: 'Choice Specs',
                 moves: [['Volt Switch', 'Thunderbolt'][this.random(2)], 'Hidden Power Ice', 'Aura Sphere'],
                 signatureMove: 'Mechanical Dysfunction',
@@ -86,6 +86,12 @@ exports.BattleScripts = {
                 signatureMove: 'Troll',
                 evs: {hp: 252, def: 252, spd: 4}, nature: 'Impish',
             },
+	     	'%Desokoro': {
+                species: 'Gyarados', ability: 'Guts', item: 'Leftovers', gender: 'M',
+                moves: [ 'Substitute', 'Dragon Dance', 'Bounce'],
+                signatureMove: 'Tsunami Crash',
+                evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
+            },
             // Former Bots
             '*SpaceGazer': {
                 species: 'Registeel', ability: 'No Guard', item: 'Weakness Policy',
@@ -95,7 +101,7 @@ exports.BattleScripts = {
             },
             '*Spacial Bot': {
                 species: 'Regirock', ability: 'Wonder Guard', item: 'Leftovers',
-                moves: [['Stone Edge', 'Earthquake'][this.random(2)], 'Explosion', 'Iron Head'],
+                moves: [['Stone Edge', 'Earthquake'][variant], 'Explosion', 'Iron Head'],
                 signatureMove: 'Ancient Ritual',
                 evs: {atk: 252, spd: 252, hp: 4}, nature: 'Adamant',
             },
@@ -161,7 +167,7 @@ exports.BattleScripts = {
                 signatureMove: 'Ancient Orb',
                 evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
             },
-            '+CelestialTater': {
+			'+CelestialTater': {
                 species: 'Armaldo', ability: 'Unburden', item: 'White Herb', gender: 'M',
                 moves: ['Drain Punch', 'Stone Edge', 'Megahorn'],
                 signatureMove: 'Shell Break',
@@ -193,7 +199,6 @@ exports.BattleScripts = {
             set.moves = [this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves)].concat(set.signatureMove);
             team.push(set);
         }
-
         return team;
     },
 };
