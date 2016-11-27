@@ -326,33 +326,22 @@ exports.commands = {
 		"/poll display - Displays the poll",
 		"/poll end - Ends a poll and displays the results. Requires: % @ * # & ~",
 	],
-	 tpoll: 'tierpoll',
-    tierpoll: function (target, room, user, connection, cmd, message) {
-        if (!this.can('minigame', null, room)) return false;
-        if (room.poll) return this.errorReply("There is already a poll in progress in this room.");
-        let options = [];
-        for (let key in Tools.data.Formats) {
-            options.push(Tools.data.Formats[key].name);
-        }
-        room.poll = new Poll(room, {source: 'What should the next tournament tier be?', supportHTML: false}, options);
-        room.poll.display();
-        this.logEntry("" + user.name + " used " + message);
+	tpoll: 'tierpoll',
+    	tierpoll: function (target, room, user, connection, cmd, message) {
+        	if (!this.can('minigame', null, room)) return false;
+        	if (room.poll) return this.errorReply("There is already a poll in progress in this room.");
+        	let options = [];
+        	for (let key in Tools.data.Formats) {
+            		options.push(Tools.data.Formats[key].name);
+        	}
+        	room.poll = new Poll(room, {source: 'What should the next tournament tier be?', supportHTML: false}, options);
+        	room.poll.display();
+        	this.logEntry("" + user.name + " used " + message);
 		return this.privateModCommand("(A tier poll was started by " + user.name + ".)");
-    },
-    tierpollhelp: ["/tierpoll - Creates a poll with all the formats as options. Requires: % @ * # & ~"],
-	
-
+    	},
+    	tierpollhelp: ["/tierpoll - Creates a poll with all the formats as options. Requires: % @ * # & ~"],
 },
-
-
-
-
 
 process.nextTick(() => {
 	Chat.multiLinePattern.register('/poll (new|create|htmlcreate) ');
 });
-
-
-
-
-
