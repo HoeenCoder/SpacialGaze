@@ -29,6 +29,18 @@ exports.BattleScripts = {
                 signatureMove: 'Crystallized Ukaku',
                 evs: {atk: 252, spe: 252, spa: 4}, nature: 'Hasty',
             },
+            '&Opple': {
+                species: 'Dragonite', ability: 'Multiscale', item: 'Weakness Policy', gender: 'M',
+                moves: [ 'Fire Punch', 'Dragon Claw', 'Waterfall'],
+                signatureMove: 'Ancient Orb',
+                evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
+            },
+            '&Kraken Mare': {
+                species: 'Gardevoir', ability: 'Moody', shiny: true, item: 'Gardevoirite', gender: 'F',
+                moves: ['Moonblast', 'Calm Mind', 'Psychic'],
+                signatureMove: 'Mega Rage',
+                evs: {hp: 248, spa: 252, def: 8}, nature: 'Modest',
+            },
             // Moderators:
             '@Almighty Bronzong': {
                 species: 'Bronzong', ability: 'Levitate', item: 'Leftovers', gender: (variant === 1) ? 'M' : 'F',
@@ -53,12 +65,6 @@ exports.BattleScripts = {
                 moves: ['Fake out', 'Return', 'High Jump Kick'],
                 signatureMove: 'Charm Up',
                 evs: {atk: 252, spe: 252, def: 4}, nature: 'Jolly',
-            },
-            '&Kraken Mare': {
-                species: 'Gardevoir', ability: 'Moody', shiny: true, item: 'Gardevoirite', gender: 'F',
-                moves: ['Moonblast', 'Calm Mind', 'Psychic'],
-                signatureMove: 'Mega Rage',
-                evs: {hp: 248, spa: 252, def: 8}, nature: 'Modest',
             },
             '@Vacuo': {
                 species: 'Magnezone', ability: 'Levitate', item: 'Choice Specs',
@@ -155,12 +161,6 @@ exports.BattleScripts = {
                 signatureMove: 'Rainbust Orb',
                 evs: {spa: 252, spe: 252, hp: 4}, nature: 'Bold',
             },
-            '&Opple': {
-                species: 'Dragonite', ability: 'Multiscale', item: 'Weakness Policy', gender: 'M',
-                moves: [ 'Fire Punch', 'Dragon Claw', 'Waterfall'],
-                signatureMove: 'Ancient Orb',
-                evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
-            }, //Not moving Opple up to avoid Github being dumb *insert flashbacks*
             '%Desokoro': {
                 species: 'Gyarados', ability: 'Guts', item: 'Leftovers', gender: 'M',
                 moves: [ 'Substitute', 'Dragon Dance', 'Bounce'],
