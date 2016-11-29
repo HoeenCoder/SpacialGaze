@@ -54,7 +54,7 @@ exports.BattleScripts = {
                 signatureMove: 'Charm Up',
                 evs: {atk: 252, spe: 252, def: 4}, nature: 'Jolly',
             },
-            '@Kraken Mare': {
+            '&Kraken Mare': {
                 species: 'Gardevoir', ability: 'Moody', shiny: true, item: 'Gardevoirite', gender: 'F',
                 moves: ['Moonblast', 'Calm Mind', 'Psychic'],
                 signatureMove: 'Mega Rage',
@@ -125,9 +125,9 @@ exports.BattleScripts = {
                 signatureMove: 'Nature\'s Fury',
                 evs: {spa: 252, spe: 252, hp: 4}, nature: 'Jolly',
             },
-            '+Saber Ran': {
+            '+Ranfen': {
                 species: 'Flygon', ability: 'Levitate', item: 'Choice Band',
-                moves: [ 'Outrage', 'U-turn', 'Earthquake'],
+                moves: [ 'Outrage', 'Dragon Dance', 'Earthquake'],
                 signatureMove: 'Out Ripper',
                 evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
             },
@@ -155,12 +155,12 @@ exports.BattleScripts = {
                 signatureMove: 'Rainbust Orb',
                 evs: {spa: 252, spe: 252, hp: 4}, nature: 'Bold',
             },
-            '+Opple': {
+            '&Opple': {
                 species: 'Dragonite', ability: 'Multiscale', item: 'Weakness Policy', gender: 'M',
                 moves: [ 'Fire Punch', 'Dragon Claw', 'Waterfall'],
                 signatureMove: 'Ancient Orb',
                 evs: {atk: 252, spe: 252, hp: 4}, nature: 'Adamant',
-            },
+            }, //Not moving Opple up to avoid Github being dumb *insert flashbacks*
             '%Desokoro': {
                 species: 'Gyarados', ability: 'Guts', item: 'Leftovers', gender: 'M',
                 moves: [ 'Substitute', 'Dragon Dance', 'Bounce'],
