@@ -264,7 +264,7 @@ class SSB {
 		if (!species.exists) return false;
 		if (!species.learnset && species.id !== 'oricoriosensu' && species.id !== 'oricoriopau' && species.id !== 'oricoriopompom') return false;
 		if (species.gen < 1) return false;
-                if (species.battleOnly) return false;
+		if (species.battleOnly) return false;
 		if (species.tier === 'Uber' || species.teir === 'Bank-Uber') {
 			//Most are banned a few arent
 			if (species.id !== 'aegislash' && species.id !== 'blaziken' && species.id !== 'greninja') return false;
