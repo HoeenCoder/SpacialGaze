@@ -1,11 +1,10 @@
 /**
-* profile.js
-* Displays to users a profile of a given user.
-* For order's sake:
-* - vip, dev, customtitle, friendcode, and profie were placed in here.
-* Updated and restyled by Mystifi; main profile restyle goes out to panpawn/jd/other contributors.
-**/
-
+ * profile.js
+ * Displays to users a profile of a given user.
+ * For order's sake:
+ * - vip, dev, customtitle, friendcode, and profie were placed in here.
+ * Updated and restyled by Mystifi; main profile restyle goes out to panpawn/jd/other contributors.
+ **/
 'use strict';
 
 let fs = require('fs');
@@ -37,7 +36,7 @@ global.isDev = function (user) {
 function formatTitle(user) {
 	if (Db('customtitles').has(toId(user)) && Db('titlecolors').has(toId(user))) {
 		return '<font color="' + Db('titlecolors').get(toId(user)) +
-		'">(<b>' + Db('customtitles').get(toId(user)) + '</b>)</font>';
+			'">(<b>' + Db('customtitles').get(toId(user)) + '</b>)</font>';
 	}
 	return '';
 }
@@ -62,7 +61,7 @@ function vipCheck(user) {
 function showBadges(user) {
 	if (Db('userBadges').has(toId(user))) {
 		return '<button style="border-radius: 5px; background-color: transparent; color: #24678d;' +
-		' font-size: 11px;" name="send" value="/badges user, ' + toId(user) + '">Badges</button>';
+			' font-size: 11px;" name="send" value="/badges user, ' + toId(user) + '">Badges</button>';
 	}
 	return '';
 }
@@ -276,17 +275,20 @@ exports.commands = {
 			}
 			showProfile();
 		});
+
 		function getFlag(flagee) {
 			if (!Users(flagee)) return false;
 			let geo = geoip.lookupCountry(Users(flagee).latestIp);
 			return (Users(flagee) && geo ? '<img src="https://github.com/kevogod/cachechu/blob/master/flags/' + geo.toLowerCase() + '.png?raw=true" height=10 title="' + geo + '">' : false);
 		}
+
 		function getLastSeen(useid) {
 			if (Users(userid) && Users(userid).connected) return '<font color = green><strong>Currently Online</strong>';
 			let seen = Db('seen').get(userid);
 			if (!seen) return false;
 			return moment(seen).fromNow();
 		}
+
 		function showProfile() {
 			Economy.readMoney(toId(username), currency => {
 				let profile = '';
