@@ -10,7 +10,10 @@ exports.BattleMovedex = {
 		name: "Oran Berry",
 		pp: 0.625,
 		priority: 0,
-		flags: {heal: 1, snatch: 1},
+		flags: {
+			heal: 1,
+			snatch: 1
+		},
 		secondary: false,
 		heal: [1, 4],
 		target: "self",
@@ -28,8 +31,12 @@ exports.BattleMovedex = {
 		name: "Apple",
 		pp: 0.625,
 		priority: 0,
-		flags: {snatch: 1},
-		boosts: {spe: 2},
+		flags: {
+			snatch: 1
+		},
+		boosts: {
+			spe: 2
+		},
 		secondary: false,
 		heal: [1, 10],
 		target: "self",
@@ -49,7 +56,10 @@ exports.BattleMovedex = {
 		name: "Blast Seed",
 		pp: 0.625,
 		priority: 0,
-		flags: {protect: 1, bullet: 1},
+		flags: {
+			protect: 1,
+			bullet: 1
+		},
 		secondary: false,
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -69,7 +79,11 @@ exports.BattleMovedex = {
 		name: "Gravelrock",
 		pp: 0.625,
 		priority: 0,
-		flags: {protect: 1, distance: 1, gravity: 1},
+		flags: {
+			protect: 1,
+			distance: 1,
+			gravity: 1
+		},
 		multihit: [4, 7],
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -88,7 +102,9 @@ exports.BattleMovedex = {
 		name: "Heal Seed",
 		pp: 0.625,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {
+			snatch: 1
+		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Refresh", target);
@@ -110,7 +126,10 @@ exports.BattleMovedex = {
 		name: "Trap Orb",
 		pp: 0.625,
 		priority: 0,
-		flags: {reflectable: 1, nonsky: 1},
+		flags: {
+			reflectable: 1,
+			nonsky: 1
+		},
 		sideCondition: 'stealthrock',
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -135,7 +154,12 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Defog", target);
 		},
 		onHit: function (target, source) {
-			let removeAll = {spikes:1, toxicspikes:1, stealthrock:1, stickyweb:1};
+			let removeAll = {
+				spikes: 1,
+				toxicspikes: 1,
+				stealthrock: 1,
+				stickyweb: 1
+			};
 			for (let sideCondition in removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
 					this.add('-sideend', source.side, this.getEffect(sideCondition).name, '[from] move: TrapBust Orb', '[of] ' + source);
@@ -155,7 +179,11 @@ exports.BattleMovedex = {
 		name: "Stun Seed",
 		pp: 0.625,
 		priority: 0,
-		flags: {authentic: 1, bullet: 1, snatch: 1},
+		flags: {
+			authentic: 1,
+			bullet: 1,
+			snatch: 1
+		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bullet Seed", target);
@@ -174,7 +202,11 @@ exports.BattleMovedex = {
 		name: "Totter Seed",
 		pp: 0.625,
 		priority: 0,
-		flags: {authentic: 1, bullet: 1, snatch: 1},
+		flags: {
+			authentic: 1,
+			bullet: 1,
+			snatch: 1
+		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bullet Seed", target);
@@ -193,12 +225,19 @@ exports.BattleMovedex = {
 		name: "Vile Seed",
 		pp: 0.625,
 		priority: 0,
-		flags: {authentic: 1, bullet: 1, snatch: 1},
+		flags: {
+			authentic: 1,
+			bullet: 1,
+			snatch: 1
+		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bullet Seed", target);
 		},
-		boosts: {def: -1, spd: -1},
+		boosts: {
+			def: -1,
+			spd: -1
+		},
 		target: "normal",
 		type: "Normal",
 	},
@@ -211,12 +250,19 @@ exports.BattleMovedex = {
 		name: "Violent Seed",
 		pp: 0.625,
 		priority: 0,
-		flags: {authentic: 1, bullet: 1, snatch: 1},
+		flags: {
+			authentic: 1,
+			bullet: 1,
+			snatch: 1
+		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bullet Seed", target);
 		},
-		boosts: {atk: 1, spa: 1},
+		boosts: {
+			atk: 1,
+			spa: 1
+		},
 		target: "self",
 		type: "Normal",
 	},
@@ -293,25 +339,27 @@ exports.BattleMovedex = {
 		type: "Ice",
 	},
 	//One Shot Orb
-    oneshotorb: {
-    accuracy: 30,
-    category: "Physical",
+	oneshotorb: {
+		accuracy: 30,
+		category: "Physical",
 		basePower: 10000,
-    id: "oneshotorb",
-    isNonstandard: true,
-    name: "One Shot Orb",
-    pp: 0.625,
-    priority: 0,
-    flags: {protect: 1},
-    onPrepareHit: function (target, source) {
-      this.attrLastMove('[still]');
-      this.add('-anim', source, "Water Spout", target);
-    },
+		id: "oneshotorb",
+		isNonstandard: true,
+		name: "One Shot Orb",
+		pp: 0.625,
+		priority: 0,
+		flags: {
+			protect: 1
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Water Spout", target);
+		},
 		ignoreImmunity: true,
-    secondary: false,
-    target: "normal",
-    type: "Normal",
-  },
+		secondary: false,
+		target: "normal",
+		type: "Normal",
+	},
 	//Warp Orb
 	warporb: {
 		accuracy: true,
@@ -360,7 +408,10 @@ exports.BattleMovedex = {
 		name: "Stick",
 		pp: 0.625,
 		priority: 0,
-		flags: {protect: 1, gravity: 1},
+		flags: {
+			protect: 1,
+			gravity: 1
+		},
 		multihit: [5, 10],
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -380,7 +431,10 @@ exports.BattleMovedex = {
 		name: "Iron Thorn",
 		pp: 0.625,
 		priority: 0,
-		flags: {protect: 1, gravity: 1},
+		flags: {
+			protect: 1,
+			gravity: 1
+		},
 		multihit: [4, 7],
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -399,8 +453,12 @@ exports.BattleMovedex = {
 		name: "Evasion Orb",
 		pp: 0.625,
 		priority: 0,
-		flags: {snatch: 1},
-		boosts: {evasion: 1},
+		flags: {
+			snatch: 1
+		},
+		boosts: {
+			evasion: 1
+		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Calm Mind", target);
@@ -418,7 +476,9 @@ exports.BattleMovedex = {
 		name: "Mug Orb",
 		pp: 0.625,
 		priority: 4,
-		flags: {authentic: 1},
+		flags: {
+			authentic: 1
+		},
 		volatileStatus: 'snatch',
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
