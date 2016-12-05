@@ -261,5 +261,5 @@ exports.commands = {
 		delete user.customSymbol;
 		user.updateIdentity();
 		this.sendReply('Your symbol has been removed.');
-	}
-}
+	},
+};
