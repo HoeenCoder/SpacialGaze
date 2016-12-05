@@ -9,9 +9,10 @@ let fs = require('fs');
 let path = require('path');
 
 function hasAvatar(user) {
-	if (Config.customavatars[toId(user)] && fs.existsSync('config/avatars/' + Config.customavatars[toId(user)]))
+	if (Config.customavatars[toId(user)] && fs.existsSync('config/avatars/' + Config.customavatars[toId(user)])){
 		return Config.customavatars[toId(user)];
 	return false;
+	}
 }
 
 function loadAvatars() {
@@ -56,7 +57,7 @@ let cmds = {
 
 		let allowedFormats = ['png', 'jpg', 'jpeg', 'gif'];
 		new Promise((resolve, reject) => {
-				require("request").get(link)
+			require("request").get(link)
 					.on('error', err => {
 						console.log(err);
 						reject("Avatar unavailable. Try choosing a different one.");
@@ -72,7 +73,7 @@ let cmds = {
 						response.pipe(fs.createWriteStream('config/avatars/' + file));
 						resolve(file);
 					});
-			})
+		})
 			.then(file => {
 				Config.customavatars[toId(targetUser)] = file;
 				let getUser = Users.getExact(targetUser);
@@ -131,7 +132,7 @@ let cmds = {
 			Users.getExact(user2).send(user.name + ' has moved ' + user1 + '\'s custom avatar to you. Refresh your page if you don\'t see it under your username.');
 		}
 		return this.sendReply('Successfully moved ' + user1 + '\'s custom avatar to ' + user2 + '.');
-	}
+	},
 };
 
 exports.commands = {
@@ -140,5 +141,5 @@ exports.commands = {
 	moveavatar: cmds.move,
 	deleteavatar: 'removeavatar',
 	removeavatar: cmds.delete,
-	setavatar: cmds.set
+	setavatar: cmds.set,
 };
