@@ -45,7 +45,7 @@ try {
 		if (err) {
 			console.error('Error while loading eShop: ' + err);
 			SG.eShop = {
-				closed: true
+				closed: true,
 			};
 			writeJSON = false;
 		} else {
@@ -179,6 +179,6 @@ exports.commands = {
 			if (!allowThisShop) return this.errorReply('This shop is closed');
 			if (cmd === 'reopen') return user.sendTo(room, '|uhtmlchange|eshop' + user.userid + '|' + shopDisplay());
 			return user.sendTo(room, '|uhtml|eshop' + user.userid + '|' + shopDisplay());
-		}
-	}
-}
+		},
+	},
+};
