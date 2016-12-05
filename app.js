@@ -39,7 +39,6 @@
  *
  * @license MIT license
  */
-
 'use strict';
 
 const fs = require('fs');
@@ -59,7 +58,9 @@ try {
 
 	let command = 'npm install --production';
 	console.log('Installing dependencies: `' + command + '`...');
-	require('child_process').spawnSync('sh', ['-c', command], {stdio: 'inherit'});
+	require('child_process').spawnSync('sh', ['-c', command], {
+		stdio: 'inherit'
+	});
 }
 
 /*********************************************************
