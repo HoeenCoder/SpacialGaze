@@ -167,7 +167,7 @@ if (Config.crashguard) {
 			let exitInfo = 'Unused Error Code';
 			if (exitCodes[code]) {
 				exitInfo = exitCodes[code];
-			} else if (code > 128) { 
+			} else if (code > 128) {
 				exitInfo = 'Signal Exit';
 				console.log('');
 				console.error('WARNING: Process exiting with code ' + code);
