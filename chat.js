@@ -846,7 +846,7 @@ Chat.parse = function (message, room, user, connection) {
 		message,
 		room,
 		user,
-		connection
+		connection,
 	});
 
 	return context.parse();
