@@ -170,7 +170,6 @@ exports.BattleScripts = {
 				nature: 'Adamant'
 			},
 
-
 			'Vulpix': {
 				species: 'Vulpix',
 				ability: 'Flash Fire',
@@ -275,7 +274,6 @@ exports.BattleScripts = {
 				},
 				nature: 'Timid'
 			},
-
 
 			'Totodile': {
 				species: 'Totodile',
@@ -521,12 +519,12 @@ exports.BattleScripts = {
 				};
 			} else {
 				for (let iv in {
-						hp: 31,
-						atk: 31,
-						def: 31,
-						spa: 31,
-						spd: 31,
-						spe: 31
+					hp: 31,
+					atk: 31,
+					def: 31,
+					spa: 31,
+					spd: 31,
+					spe: 31
 					}) {
 					set.ivs[iv] = iv in set.ivs ? set.ivs[iv] : 31;
 				}
@@ -540,7 +538,6 @@ exports.BattleScripts = {
 				spd: 31,
 				spe: 31
 			}
-
 
 			let sigItems = ['Oran Berry', 'Apple', 'Blast Seed', 'Gravelrock', 'Heal Seed', 'Trap Orb', 'TrapBust Orb', 'Stun Seed', 'Totter Seed', 'Vile Seed', 'Violent Seed', 'Rainy Orb', 'Sunny Orb', 'Sandy Orb', 'Hail Orb', 'One Shot Orb', 'Warp Orb', 'Escape Orb', 'Stick', 'Iron Thorn', 'Evasion Orb', 'Mug Orb', 'Awakening', 'Wonder Orb'];
 			let choosenItems = [];
@@ -576,7 +573,6 @@ exports.BattleScripts = {
 				}
 				if (h === 3 && choosenItems.length !== 4) h--;
 			}
-
 
 			set.moves = set.moves.concat(choosenItems);
 			team.push(set);
