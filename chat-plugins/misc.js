@@ -6,7 +6,6 @@
  * Some of this code was borrowed from panpawn/jd/other contributors; as
  * such, credits go to them as well.
  */
-
 'use strict';
 
 let fs = require('fs');
@@ -27,8 +26,7 @@ function saveRegdateCache() {
 	fs.writeFileSync('config/regdate.json', JSON.stringify(regdateCache));
 }
 
-
-function getLastSeen (userid) {
+function getLastSeen(userid) {
 	if (!global.LastSeen) return "(not available)";
 	if (!LastSeen[userid]) return null;
 	let f = new Date(LastSeen[userid]);
@@ -77,7 +75,10 @@ exports.commands = {
 			let rank = Users.usergroups[u].charAt(0);
 			if (ranks.indexOf(rank) >= 0) {
 				let name = Users.usergroups[u].substr(1);
-				persons.push({name: name, rank: rank});
+				persons.push({
+					name: name,
+					rank: rank
+				});
 			}
 		}
 		let staff = {
@@ -89,7 +90,7 @@ exports.commands = {
 			"voices": []
 		};
 		persons = persons.sort((a, b) => toId(a.name).localeCompare(toId(b.name))); // No need to return, arrow functions with single lines have an implicit return
-		function nameColor (name) {
+		function nameColor(name) {
 			if (Users.getExact(name) && Users(name).connected) {
 				return '<b><i><font color="' + hashColorWithCustoms(name) + '">' + Chat.escapeHTML(Users.getExact(name).name) + '</font></i></b>';
 			} else {
@@ -100,26 +101,26 @@ exports.commands = {
 			let rank = persons[j].rank;
 			let person = persons[j].name;
 			switch (rank) {
-				case '~':
-					staff['admins'].push(nameColor(person));
-					break;
-				case '&':
-					staff['leaders'].push(nameColor(person));
-					break;
-				case '*':
-					staff['bots'].push(nameColor(person));
-					break;
-				case '@':
-					staff['mods'].push(nameColor(person));
-					break;
-				case '%':
-					staff['drivers'].push(nameColor(person));
-					break;
-				case '+':
-					staff['voices'].push(nameColor(person));
-					break;
-				default:
-					continue;
+			case '~':
+				staff['admins'].push(nameColor(person));
+				break;
+			case '&':
+				staff['leaders'].push(nameColor(person));
+				break;
+			case '*':
+				staff['bots'].push(nameColor(person));
+				break;
+			case '@':
+				staff['mods'].push(nameColor(person));
+				break;
+			case '%':
+				staff['drivers'].push(nameColor(person));
+				break;
+			case '+':
+				staff['voices'].push(nameColor(person));
+				break;
+			default:
+				continue;
 
 			}
 		}
@@ -158,12 +159,12 @@ exports.commands = {
 		this.privateModCommand(`(${user.name} used /globalclearall.)`);
 	},
 
-	contact:'whotocontact',
+	contact: 'whotocontact',
 	wtc: 'whotocontact',
 	whotocontact: function (target, room, user) {
 		return this.sendReplyBox(
 			'<b><u><font color="#008ae6"><h2>Who to Contact</u></b></font></h2>' +
-			'<h3>For those who don\'t exactly know who to contact about a certain situation, this guide will help you contact the right person!</h3>'  +
+			'<h3>For those who don\'t exactly know who to contact about a certain situation, this guide will help you contact the right person!</h3>' +
 			'<hr>' +
 			'<b>Global Drivers (%):</b> - Its best to contact a Global Driver if there are any forms of trolling, spamming, or severely negative behavior. If you ever witness this, please contact them as soon as possible. <br />' +
 			'<hr>' +
@@ -228,7 +229,7 @@ exports.commands = {
 					tar = target;
 				} else {
 					this.sendReply('The group symbol you have tried to use is of a higher authority than you have access to. Defaulting to \' \' instead.');
-			}
+				}
 			} else {
 				this.sendReply('You have tried to use an invalid character as your auth symbol. Defaulting to \' \' instead.');
 			}
@@ -250,7 +251,7 @@ exports.commands = {
 	showhelp: ["/show - Displays user's global rank. Requires: & ~"],
 
 	credits: function (target, room, user) {
-		function name (name, bold) {
+		function name(name, bold) {
 			if (bold) {
 				return "<b><font color=" + hashColorWithCustoms(name) + ">" + Chat.escapeHTML(name) + "</font></b>";
 			} else {
@@ -530,12 +531,12 @@ exports.commands = {
 
 		let color = 'blue';
 		switch (cmd) {
-			case 'reddeclare':
-				color = 'red';
-				break;
-			case 'greendeclare':
-				color = 'green';
-				break;
+		case 'reddeclare':
+			color = 'red';
+			break;
+		case 'greendeclare':
+			color = 'green';
+			break;
 		}
 		this.add('|raw|<div class="broadcast-' + color + '"><b>' + Chat.escapeHTML(target) + '</b></div>');
 		this.logModCommand(user.name + " declared " + target);
@@ -553,12 +554,12 @@ exports.commands = {
 
 		let color = 'blue';
 		switch (cmd) {
-			case 'redhtmldeclare':
-				color = 'red';
-				break;
-			case 'greenhtmldeclare':
-				color = 'green';
-				break;
+		case 'redhtmldeclare':
+			color = 'red';
+			break;
+		case 'greenhtmldeclare':
+			color = 'green';
+			break;
 		}
 		this.add('|raw|<div class="broadcast-' + color + '">' + target + '</div>');
 		this.logModCommand(user.name + " declared " + target);
@@ -578,14 +579,14 @@ exports.commands = {
 
 		let color = 'blue';
 		switch (cmd) {
-			case 'redglobaldeclare':
-			case 'redgdeclare':
-				color = 'red';
-				break;
-			case 'greenglobaldeclare':
-			case 'greengdeclare':
-				color = 'green';
-				break;
+		case 'redglobaldeclare':
+		case 'redgdeclare':
+			color = 'red';
+			break;
+		case 'greenglobaldeclare':
+		case 'greengdeclare':
+			color = 'green';
+			break;
 		}
 		Rooms.rooms.forEach((curRoom, id) => {
 			if (id !== 'global') curRoom.addRaw('<div class="broadcast-' + color + '">' + target + '</div>').update();
@@ -607,12 +608,12 @@ exports.commands = {
 
 		let color = 'blue';
 		switch (cmd) {
-			case 'reddeclare':
-				color = 'red';
-				break;
-			case 'greendeclare':
-				color = 'green';
-				break;
+		case 'reddeclare':
+			color = 'red';
+			break;
+		case 'greendeclare':
+			color = 'green';
+			break;
 		}
 		Rooms.rooms.forEach((curRoom, id) => {
 			if (id !== 'global' && curRoom.type !== 'battle') curRoom.addRaw('<div class="broadcast-' + color + '">' + target + '</div>').update();
