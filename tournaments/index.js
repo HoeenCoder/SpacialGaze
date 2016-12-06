@@ -924,9 +924,6 @@ class Tournament {
 
 		let color = '#088cc7';
 		let sizeRequiredToEarn = 4;
-		let currencyName = function (amount) {
-			return amount === 1 ? (" " + global.currencyName) : (" " + global.currencyPlural);
-		};
 		let data = this.generator.getResults().map(usersToNames).toString();
 		let winner, runnerUp;
 
