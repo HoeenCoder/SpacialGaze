@@ -202,4 +202,4 @@ exports.BattleScripts = {
 		}
 		return team;
 	}
-};
+}
