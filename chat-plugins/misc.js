@@ -26,24 +26,6 @@ function saveRegdateCache() {
 	fs.writeFileSync('config/regdate.json', JSON.stringify(regdateCache));
 }
 
-function getLastSeen(userid) {
-	if (!global.LastSeen) return "(not available)";
-	if (!LastSeen[userid]) return null;
-	let f = new Date(LastSeen[userid]);
-	let n = new Date(); // Now
-	let diff = (Date.now() - LastSeen[userid]) / 1000;
-	let text;
-	if (diff > 24 * 60 * 60) {
-		let days = Math.floor(diff / (24 * 60 * 60));
-		text = days + " " + (days === 1 ? "day" : "days");
-		let hours = Math.floor(diff / (60 * 60)) - days * 24;
-		if (hours) text += ", " + hours + " " + (hours === 1 ? "hour" : "hours");
-	} else {
-		text = diff.seconds().duration();
-	}
-	return f.toString().substr(0, 25) + " (" + text + " ago)";
-}
-
 function clearRoom(room) {
 	let len = (room.log && room.log.length) || 0;
 	let users = [];
@@ -68,7 +50,6 @@ exports.commands = {
 	authlist: 'gal',
 	auth: 'gal',
 	gal: function (target, room, user, connection) {
-		let rankLists = {};
 		let ranks = Object.keys(Config.groups);
 		let persons = [];
 		for (let u in Users.usergroups) {
@@ -77,7 +58,7 @@ exports.commands = {
 				let name = Users.usergroups[u].substr(1);
 				persons.push({
 					name: name,
-					rank: rank
+					rank: rank,
 				});
 			}
 		}
@@ -87,7 +68,7 @@ exports.commands = {
 			"bots": [],
 			"mods": [],
 			"drivers": [],
-			"voices": []
+			"voices": [],
 		};
 		persons = persons.sort((a, b) => toId(a.name).localeCompare(toId(b.name))); // No need to return, arrow functions with single lines have an implicit return
 		function nameColor(name) {
@@ -182,7 +163,7 @@ exports.commands = {
 			nonOfficial = ['<hr><b><u><font color="#005ce6" size="2">Public Rooms:</font></u></b><br />'],
 			privateRoom = ['<hr><b><u><font color="#ff0066" size="2">Private Rooms:</font></u></b><br />'],
 			groupChats = ['<hr><b><u><font color="#00b386" size="2">Group Chats:</font></u></b><br />'],
-			battleRooms = ['<hr><b><u><font color="#cc0000" size="2">Battle Rooms:</font></u></b><br />']
+			battleRooms = ['<hr><b><u><font color="#cc0000" size="2">Battle Rooms:</font></u></b><br />'];
 
 		let rooms = [];
 
@@ -224,7 +205,7 @@ exports.commands = {
 		let tar = ' ';
 		if (target) {
 			target = target.trim();
-			if (Config.groupsranking.indexOf(target) > -1 && target != '#') {
+			if (Config.groupsranking.indexOf(target) > -1 && target !== '#') {
 				if (Config.groupsranking.indexOf(target) <= Config.groupsranking.indexOf(user.group)) {
 					tar = target;
 				} else {
@@ -441,7 +422,7 @@ exports.commands = {
 			} else {
 				return "<b><font color=\"" + hashColorWithCustoms(targetUser) + "\">" + Chat.escapeHTML(target) + "</font></b> was registered on " + moment(date).format("dddd, MMMM DD, YYYY HH:mm A") + ".";
 			}
-			room.update();
+			//room.update();
 		}
 	},
 	regdatehelp: ["/regdate - Gets the regdate (register date) of a username."],
