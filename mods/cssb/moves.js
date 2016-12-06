@@ -271,30 +271,31 @@ exports.BattleMovedex = {
 				this.boost({
 					evasion: -1,
 				});
-			let removeTarget = {
-				reflect: 1,
-				lightscreen: 1,
-				safeguard: 1,
-				mist: 1,
-			};
-			let removeAll = {
-				spikes: 1,
-				toxicspikes: 1,
-				stealthrock: 1,
-				stickyweb: 1,
-			};
-			for (let targetCondition in removeTarget) {
-				if (target.side.removeSideCondition(targetCondition)) {
-					if (!removeAll[targetCondition]) continue;
-					this.add('-sideend', target.side, this.getEffect(targetCondition).name, '[from] move: Ventilation', '[of] ' + target);
+				let removeTarget = {
+					reflect: 1,
+					lightscreen: 1,
+					safeguard: 1,
+					mist: 1,
+				};
+				let removeAll = {
+					spikes: 1,
+					toxicspikes: 1,
+					stealthrock: 1,
+					stickyweb: 1,
+				};
+				for (let targetCondition in removeTarget) {
+					if (target.side.removeSideCondition(targetCondition)) {
+						if (!removeAll[targetCondition]) continue;
+						this.add('-sideend', target.side, this.getEffect(targetCondition).name, '[from] move: Ventilation', '[of] ' + target);
+					}
 				}
-			}
-			for (let sideCondition in removeAll) {
-				if (source.side.removeSideCondition(sideCondition)) {
-					this.add('-sideend', source.side, this.getEffect(sideCondition).name, '[from] move: Ventilation', '[of] ' + source);
+				for (let sideCondition in removeAll) {
+					if (source.side.removeSideCondition(sideCondition)) {
+						this.add('-sideend', source.side, this.getEffect(sideCondition).name, '[from] move: Ventilation', '[of] ' + source);
+					}
 				}
+				this.clearWeather();
 			}
-			this.clearWeather();
 		},
 		target: "normal",
 		type: "Flying",
