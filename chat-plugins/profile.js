@@ -13,7 +13,6 @@ let geoip = require('geoip-ultralight');
 
 // fill in '' with the server IP
 let serverIp = Config.serverIp;
-let regdateCache = {};
 geoip.startWatchingDataUpdate();
 
 global.isVIP = function (user) {
@@ -264,7 +263,6 @@ exports.commands = {
 		if (!this.runBroadcast()) return;
 		let self = this;
 		let targetUser = Users.get(target);
-		let online = (targetUser ? targetUser.connected : false);
 		let username = (targetUser ? targetUser.name : target);
 		let userid = (targetUser ? targetUser.userid : toId(target));
 		let avatar = (targetUser ? (isNaN(targetUser.avatar) ? "http://" + serverIp + ":" + Config.port + "/avatars/" + targetUser.avatar : "http://play.pokemonshowdown.com/sprites/trainers/" + targetUser.avatar + ".png") : (Config.customavatars[userid] ? "http://" + serverIp + ":" + Config.port + "/avatars/" + Config.customavatars[userid] : "http://play.pokemonshowdown.com/sprites/trainers/1.png"));
