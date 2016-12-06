@@ -9,9 +9,9 @@ let fs = require('fs');
 let path = require('path');
 
 function hasAvatar(user) {
-	if (Config.customavatars[toId(user)] && fs.existsSync('config/avatars/' + Config.customavatars[toId(user)])){
+	if (Config.customavatars[toId(user)] && fs.existsSync('config/avatars/' + Config.customavatars[toId(user)])) {
 		return Config.customavatars[toId(user)];
-	return false;
+		return false;
 	}
 }
 
