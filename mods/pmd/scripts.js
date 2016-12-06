@@ -1,4 +1,4 @@
-,"use strict";
+"use strict";
 
 exports.BattleScripts = {
 	randomPmdTeam: function (side) {
