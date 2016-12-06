@@ -86,7 +86,7 @@ exports.BattleMovedex = {
 					this.add('-end', pokemon, 'Bide');
 					let target = this.effectData.sourceSide.active[this.effectData.sourcePosition];
 					this.moveHit(target, pokemon, 'bide', {
-						damage: this.effectData.totalDamage * 2
+						damage: this.effectData.totalDamage * 2,
 					});
 					return false;
 				}
@@ -196,9 +196,9 @@ exports.BattleMovedex = {
 			// That means that, if opponent switches, counter will use last counter damage * 2.
 			let lastUsedMove = this.getMove(target.side.lastMove);
 			if (lastUsedMove && lastUsedMove.basePower > 0 && lastUsedMove.type in {
-					'Normal': 1,
-					'Fighting': 1
-				} && target.battle.lastDamage > 0 && !this.willMove(target)) {
+				'Normal': 1,
+				'Fighting': 1,
+			} && target.battle.lastDamage > 0 && !this.willMove(target)) {
 				return 2 * target.battle.lastDamage;
 			}
 			this.add('-fail', pokemon);
@@ -591,14 +591,14 @@ exports.BattleMovedex = {
 			onTryHit: function (target, source, move) {
 				if (target.boosts.atk < 6 && move.id === 'disable') {
 					this.boost({
-						atk: 1
+						atk: 1,
 					});
 				}
 			},
 			onHit: function (target, source, move) {
 				if (target.boosts.atk < 6 && move.category !== 'Status') {
 					this.boost({
-						atk: 1
+						atk: 1,
 					});
 				}
 			},
@@ -816,10 +816,12 @@ exports.BattleMovedex = {
 				}
 				this.runEvent('AfterSubDamage', target, source, move, damage);
 				// Add here counter damage
-				if (!target.lastAttackedBy) target.lastAttackedBy = {
-					pokemon: source,
-					thisTurn: true
-				};
+				if (!target.lastAttackedBy) {
+					target.lastAttackedBy = {
+						pokemon: source,
+						thisTurn: true,
+					};
+				}
 				target.lastAttackedBy.move = move.id;
 				target.lastAttackedBy.damage = damage;
 				return 0;
@@ -913,7 +915,7 @@ exports.BattleMovedex = {
 		flags: {
 			protect: 1,
 			heal: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		volatileStatus: 'leechseed',
 		effect: {
@@ -953,7 +955,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			snatch: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		self: {
 			boosts: {
@@ -961,9 +963,9 @@ exports.BattleMovedex = {
 				atk: 1,
 				def: -1,
 				spd: -1,
-				spa: -1
+				spa: -1,
 			},
-			heal: [1, 5]
+			heal: [1, 5],
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -983,12 +985,12 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			snatch: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		boosts: {
 			atk: 1,
 			spa: 1,
-			spd: 1
+			spd: 1,
 		},
 		secondary: false,
 		target: "self",
@@ -1007,7 +1009,7 @@ exports.BattleMovedex = {
 			def: 6,
 			spa: 6,
 			spd: 6,
-			spe: 6
+			spe: 6,
 		},
 		heal: [1, 10],
 		secondary: false,
@@ -1026,7 +1028,7 @@ exports.BattleMovedex = {
 		boosts: {
 			atk: 1,
 			spa: 1,
-			spe: 1
+			spe: 1,
 		},
 		heal: [1, 10],
 		secondary: false,
@@ -1044,12 +1046,12 @@ exports.BattleMovedex = {
 		priority: 0,
 		self: {
 			boosts: {
-				atk: 1
+				atk: 1,
 			}
 		},
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: false,
 		target: "normal",
@@ -1070,12 +1072,12 @@ exports.BattleMovedex = {
 				spe: 1,
 				spa: -1,
 				spd: -1,
-				def: -1
+				def: -1,
 			}
 		},
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: false,
 		target: "normal",
@@ -1092,7 +1094,7 @@ exports.BattleMovedex = {
 		flags: {},
 		boosts: {
 			atk: 1,
-			def: 1
+			def: 1,
 		},
 		secondary: false,
 		target: "self",
@@ -1109,11 +1111,11 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'flinch'
+			volatileStatus: 'flinch',
 		},
 		target: "normal",
 		type: "Psychic",
@@ -1129,12 +1131,12 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: false,
 		self: {
 			boosts: {
-				spe: 1
+				spe: 1,
 			}
 		},
 		target: "normal",
@@ -1149,7 +1151,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		priority: 1,
 		boosts: {
-			atk: 2
+			atk: 2,
 		},
 		target: "self",
 		type: "Normal",
@@ -1165,7 +1167,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: {
 			chance: 20,
@@ -1185,7 +1187,7 @@ exports.BattleMovedex = {
 		priority: -1,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: {
 			chance: 50,
@@ -1205,7 +1207,7 @@ exports.BattleMovedex = {
 		secondary: false,
 		boosts: {
 			spa: 1,
-			spd: 1
+			spd: 1,
 		},
 		target: "self",
 		type: "Water",
@@ -1219,7 +1221,7 @@ exports.BattleMovedex = {
 		priority: 3,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: {
 			chance: 100,
@@ -1238,7 +1240,7 @@ exports.BattleMovedex = {
 		priority: 1,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: false,
 		target: "normal",
@@ -1254,7 +1256,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: {
 			chance: 20,
@@ -1262,7 +1264,7 @@ exports.BattleMovedex = {
 				boosts: {
 					def: 1,
 					spa: 1,
-					spd: 1
+					spd: 1,
 				}
 			},
 		},
@@ -1279,7 +1281,7 @@ exports.BattleMovedex = {
 		priority: 1,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: false,
 		target: "normal",
@@ -1295,12 +1297,12 @@ exports.BattleMovedex = {
 		priority: 1,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		self: {
 			boosts: {
 				spa: 1,
-				spd: 1
+				spd: 1,
 			}
 		},
 		secondary: false,
@@ -1317,7 +1319,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		secondary: {
 			chance: 70,
@@ -1337,7 +1339,7 @@ exports.BattleMovedex = {
 			def: 1,
 			spa: 1,
 			spd: 1,
-			spe: 1
+			spe: 1,
 		},
 		secondary: false,
 		target: "self",
