@@ -12,7 +12,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			heal: 1,
-			snatch: 1
+			snatch: 1,
 		},
 		secondary: false,
 		heal: [1, 4],
@@ -20,7 +20,7 @@ exports.BattleMovedex = {
 		type: "Normal",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
-		}
+		},
 	},
 	//Apple
 	apple: {
@@ -32,10 +32,10 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		priority: 0,
 		flags: {
-			snatch: 1
+			snatch: 1,
 		},
 		boosts: {
-			spe: 2
+			spe: 2,
 		},
 		secondary: false,
 		heal: [1, 10],
@@ -58,14 +58,13 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			bullet: 1
+			bullet: 1,
 		},
 		secondary: false,
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bullet Seed", target);
 		},
-		secondary: false,
 		target: "normal",
 		type: "Normal",
 	},
@@ -82,7 +81,7 @@ exports.BattleMovedex = {
 		flags: {
 			protect: 1,
 			distance: 1,
-			gravity: 1
+			gravity: 1,
 		},
 		multihit: [4, 7],
 		onPrepareHit: function (target, source) {
@@ -103,7 +102,7 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		priority: 0,
 		flags: {
-			snatch: 1
+			snatch: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -128,7 +127,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			reflectable: 1,
-			nonsky: 1
+			nonsky: 1,
 		},
 		sideCondition: 'stealthrock',
 		onPrepareHit: function (target, source) {
@@ -158,7 +157,7 @@ exports.BattleMovedex = {
 				spikes: 1,
 				toxicspikes: 1,
 				stealthrock: 1,
-				stickyweb: 1
+				stickyweb: 1,
 			};
 			for (let sideCondition in removeAll) {
 				if (source.side.removeSideCondition(sideCondition)) {
@@ -182,7 +181,7 @@ exports.BattleMovedex = {
 		flags: {
 			authentic: 1,
 			bullet: 1,
-			snatch: 1
+			snatch: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -205,7 +204,7 @@ exports.BattleMovedex = {
 		flags: {
 			authentic: 1,
 			bullet: 1,
-			snatch: 1
+			snatch: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -228,7 +227,7 @@ exports.BattleMovedex = {
 		flags: {
 			authentic: 1,
 			bullet: 1,
-			snatch: 1
+			snatch: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -236,7 +235,7 @@ exports.BattleMovedex = {
 		},
 		boosts: {
 			def: -1,
-			spd: -1
+			spd: -1,
 		},
 		target: "normal",
 		type: "Normal",
@@ -253,7 +252,7 @@ exports.BattleMovedex = {
 		flags: {
 			authentic: 1,
 			bullet: 1,
-			snatch: 1
+			snatch: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -261,7 +260,7 @@ exports.BattleMovedex = {
 		},
 		boosts: {
 			atk: 1,
-			spa: 1
+			spa: 1,
 		},
 		target: "self",
 		type: "Normal",
@@ -349,7 +348,7 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		priority: 0,
 		flags: {
-			protect: 1
+			protect: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -410,7 +409,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			gravity: 1
+			gravity: 1,
 		},
 		multihit: [5, 10],
 		onPrepareHit: function (target, source) {
@@ -433,7 +432,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			gravity: 1
+			gravity: 1,
 		},
 		multihit: [4, 7],
 		onPrepareHit: function (target, source) {
@@ -454,10 +453,10 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		priority: 0,
 		flags: {
-			snatch: 1
+			snatch: 1,
 		},
 		boosts: {
-			evasion: 1
+			evasion: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -477,7 +476,7 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		priority: 4,
 		flags: {
-			authentic: 1
+			authentic: 1,
 		},
 		volatileStatus: 'snatch',
 		onPrepareHit: function (target, source) {
