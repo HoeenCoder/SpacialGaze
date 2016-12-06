@@ -994,7 +994,7 @@ exports.BattleMovedex = {
 		},
 		secondary: false,
 		target: "self",
-,		type: "Fire",
+		type: "Fire",
 	},
 	abusepower: {
 		accuracy: 100,
