@@ -277,7 +277,6 @@ exports.commands = {
 					return this.sendReply("The poll timer is off.");
 				}
 			}
-
 		},
 		timerhelp: ["/poll timer [minutes] - Sets the poll to automatically end after [minutes] minutes. Requires: % @ * # & ~", "/poll timer clear - Clears the poll's timer. Requires: % @ * # & ~"],
 
@@ -347,7 +346,7 @@ exports.commands = {
 		}
 		room.poll = new Poll(room, {
 			source: 'What should the next tournament tier be?',
-			supportHTML: false
+			supportHTML: false,
 		}, options);
 		room.poll.display();
 		this.logEntry("" + user.name + " used " + message);
