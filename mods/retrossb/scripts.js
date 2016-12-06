@@ -214,10 +214,10 @@ exports.BattleScripts = {
 		// Store 0 damage for last damage if move failed or dealt 0 damage.
 		// This only happens on moves that don't deal damage but call GetDamageVarsForPlayerAttack (disassembly).
 		if (!damage && (move.category !== 'Status' || (move.category === 'Status' && !(move.status in {
-				'psn': 1,
-				'tox': 1,
-				'par': 1
-			}))) &&
+			'psn': 1,
+			'tox': 1,
+			'par': 1,
+		}))) &&
 			!(move.id in {
 				'conversion': 1,
 				'haze': 1,
@@ -233,7 +233,7 @@ exports.BattleScripts = {
 				'splash': 1,
 				'softboiled': 1,
 				'recover': 1,
-				'rest': 1
+				'rest': 1,
 			})) {
 			pokemon.battle.lastDamage = 0;
 		}
@@ -578,10 +578,10 @@ exports.BattleScripts = {
 				// That means that a move that does not share the type of the target can status it.
 				// If a move that was not fire-type would exist on Gen 1, it could burn a Pokémon.
 				if (!(moveData.secondaries[i].status && moveData.secondaries[i].status in {
-						'par': 1,
-						'brn': 1,
-						'frz': 1
-					} && target && target.hasType(move.type))) {
+					'par': 1,
+					'brn': 1,
+					'frz': 1,
+				} && target && target.hasType(move.type))) {
 					let effectChance = Math.floor(moveData.secondaries[i].chance * 255 / 100);
 					if (typeof moveData.secondaries[i].chance === 'undefined' || this.random(256) < effectChance) {
 						this.moveHit(target, pokemon, move, moveData.secondaries[i], true, isSelf);
@@ -663,9 +663,9 @@ exports.BattleScripts = {
 		}
 		if (damage !== 0) damage = this.clampIntRange(damage, 1);
 		if (!(effect.id in {
-				'recoil': 1,
-				'drain': 1
-			}) && effect.effectType !== 'Status') target.battle.lastDamage = damage;
+			'recoil': 1,
+			'drain': 1,
+		}) && effect.effectType !== 'Status') target.battle.lastDamage = damage;
 		damage = target.damage(damage, source, effect);
 		if (source) source.lastDamage = damage;
 		let name = effect.fullname;
@@ -716,9 +716,9 @@ exports.BattleScripts = {
 		// Check here for Substitute on confusion since it's not exactly a move that causes the damage and thus it can't TryMoveHit.
 		// The hi jump kick recoil also hits the sub.
 		if (effect.id in {
-				'confusion': 1,
-				'highjumpkick': 1
-			} && target.volatiles['substitute']) {
+			'confusion': 1,
+			'highjumpkick': 1,
+		} && target.volatiles['substitute']) {
 			target.volatiles['substitute'].hp -= damage;
 			if (target.volatiles['substitute'].hp <= 0) {
 				target.removeVolatile('substitute');
@@ -964,10 +964,10 @@ exports.BattleScripts = {
 		return Math.floor(damage);
 	},
 	randomRetroStaffTeam: function (side) {
-		var team = [];
+		let team = [];
 		//var variant = this.random(2);
 
-		var sets = {
+		let sets = {
 			//Admins
 			'~Legit Button': {
 				species: 'Haunter',
@@ -983,7 +983,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'~Aston Rasen': {
@@ -999,7 +999,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'~codelegend': {
@@ -1015,7 +1015,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'~supersonicx': {
@@ -1031,7 +1031,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			/*'~Keckleon Market': {
@@ -1053,7 +1053,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			//Leaders
@@ -1070,7 +1070,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			/*'&BDH93': {
@@ -1098,7 +1098,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'&FernBoy': {
@@ -1114,7 +1114,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			//Mods
@@ -1131,7 +1131,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			/*'@Almighty Bronzong': {
@@ -1153,7 +1153,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'@Mimiroppu': {
@@ -1169,7 +1169,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'@NoNickHere': {
@@ -1185,7 +1185,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'@yungSensory': {
@@ -1201,7 +1201,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'@Revinton': {
@@ -1217,7 +1217,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'@Frontier B. Kathey': {
@@ -1233,7 +1233,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			//Drivers
@@ -1250,7 +1250,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'%BattleDragon': {
@@ -1266,7 +1266,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			/*'%Mystifi': {
@@ -1294,7 +1294,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			//Voices
@@ -1311,7 +1311,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'+Regional Bot': {
@@ -1327,7 +1327,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 			'+coldgenisis': {
@@ -1343,7 +1343,7 @@ exports.BattleScripts = {
 					def: 255,
 					spa: 255,
 					spd: 255,
-					spe: 255
+					spe: 255,
 				},
 			},
 		};
@@ -1360,16 +1360,18 @@ exports.BattleScripts = {
 				def: 30,
 				spa: 30,
 				spd: 30,
-				spe: 30
+				spe: 30,
 			};
-			if (!set.evs) set.evs = {
-				hp: 255,
-				atk: 255,
-				def: 255,
-				spa: 255,
-				spd: 255,
-				spe: 255
-			};
+			if (!set.evs) 
+				set.evs = {
+					hp: 255,
+					atk: 255,
+					def: 255,
+					spa: 255,
+					spd: 255,
+					spe: 255,
+				};
+			}
 			set.moves = set.moves.concat(set.signatureMove);
 			team.push(set);
 		}
