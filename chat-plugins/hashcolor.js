@@ -7,9 +7,7 @@
 'use strict';
 
 let fs = require('fs');
-let path = require('path');
 let http = require('http');
-let request = require('request');
 
 let customColors = {};
 const FILE_PATH = 'config/customcolors.json';
