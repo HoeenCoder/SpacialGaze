@@ -9,8 +9,8 @@
 'use strict';
 
 const fs = require('fs');
-var allowThisShop = false; //Change to true to make these command work
-var writeJSON = true;
+let allowThisShop = false; //Change to true to make these command work
+let writeJSON = true;
 SG.eShop = {};
 
 function newItem(name, desc, price, isSSB) {
@@ -75,7 +75,7 @@ exports.commands = {
 			if (!target[2]) return this.parse('/eshop help');
 			if (SG.eShop[toId(target[0])]) return this.errorReply(target[0] + ' is already in the shop.');
 			if (isNaN(Number(target[2]))) return this.parse('/eshop help');
-			var isSSB = false;
+			let isSSB = false;
 			if (toId(target[0]) === 'shiny' || toId(target[0]) === 'ffacustomsymbol' || toId(target[0]) === 'customability' || toId(target[0]) === 'customitem' || toId(target[0]) === 'custommove') isSSB = true;
 			SG.eShop[toId(target[0])] = new newItem(target[0], target[1], target[2], isSSB);
 			writeShop();
