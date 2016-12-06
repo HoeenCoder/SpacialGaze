@@ -990,7 +990,7 @@ exports.BattleMovedex = {
 		boosts: {
 			atk: 1,
 			spa: 1,
-,			spd: 1,
+			spd: 1,
 		},
 		secondary: false,
 		target: "self",
