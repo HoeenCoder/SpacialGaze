@@ -34,7 +34,7 @@ exports.commands = {
 		let reportId = (Object.keys(Reports).length + 1);
 		console.log(reportId);
 		while (Reports[reportId]) reportId--;
-		Reports[reportId] = new Object();
+		Reports[reportId] = {};
 		Reports[reportId].reporter = user.name;
 		Reports[reportId].message = target.trim();
 		Reports[reportId].id = reportId;
@@ -123,5 +123,5 @@ exports.commands = {
 		default:
 			this.sendReply("/reports " + target + " - Command not found.");
 		}
-	}
+	},
 };
