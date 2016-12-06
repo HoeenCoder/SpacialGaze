@@ -97,7 +97,7 @@ exports.commands = {
 	},
 	customcolorhelp: ["Commands Include:",
 		"/customcolor [user], [hex] - Gives [user] a custom color of [hex]",
-		"/customcolor [user], delete - Deletes a user's custom color"
+		"/customcolor [user], delete - Deletes a user's custom color",
 	],
 
 	cp: 'colorpreview',
@@ -167,9 +167,11 @@ function hashColor(name) {
 	}
 	let lum = (R1 + m) * 0.2126 + (G1 + m) * 0.7152 + (B1 + m) * 0.0722; // 0.05 (dark blue) to 0.93 (yellow)
 	let HLmod = (lum - 0.5) * -100; // -43 (yellow) to 45 (dark blue)
-	if (HLmod > 12) HLmod -= 12;
-	else if (HLmod < -10) HLmod = (HLmod + 10) * 2 / 3;
-	else HLmod = 0;
+	if (HLmod > 12) {
+		HLmod -= 12;
+	} else if (HLmod < -10) {
+		HLmod = (HLmod + 10) * 2 / 3;
+	} else HLmod = 0;
 
 	L += HLmod;
 	let Smod = 10 - Math.abs(50 - L);
@@ -235,9 +237,9 @@ function rgbToHex(R, G, B) {
 }
 
 function toHex(N) {
-	if (N == null) return "00";
+	if (N === null || N === undefined) return "00";
 	N = parseInt(N);
-	if (N == 0 || isNaN(N)) return "00";
+	if (N === 0 || isNaN(N)) return "00";
 	N = Math.max(0, N);
 	N = Math.min(N, 255);
 	N = Math.round(N);
