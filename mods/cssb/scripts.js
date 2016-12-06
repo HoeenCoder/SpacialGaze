@@ -199,7 +199,7 @@ exports.BattleScripts = {
 				set.moves = [this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves)].concat(set.signatureMove);
 			}
 			team.push(set);
-		},
+		}
 		return team;
 	}
 };
