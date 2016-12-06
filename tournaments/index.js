@@ -240,7 +240,7 @@ class Tournament {
 			});
 			this.availableMatchesCache.challengeBys.forEach((opponents, player) => {
 				player.sendRoom('|tournament|update|' + JSON.stringify({
-					challengeBys: usersToNames(opponents)
+					challengeBys: usersToNames(opponents),
 				}));
 			});
 		}
