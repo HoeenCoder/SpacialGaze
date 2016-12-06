@@ -46,7 +46,7 @@ exports.BattleScripts = {
 				species: 'Genesect',
 				ability: 'Download',
 				item: 'Choice Scarf',
-				moves: ['U-turn', 'Ice Beam', 'Explosion',],
+				moves: ['U-turn', 'Ice Beam', 'Explosion', ],
 				signatureMove: 'Crystallized Ukaku',
 				evs: {
 					atk: 252,
@@ -60,7 +60,7 @@ exports.BattleScripts = {
 				ability: 'Multiscale',
 				item: 'Weakness Policy',
 				gender: 'M',
-				moves: ['Fire Punch', 'Dragon Claw', 'Waterfall',],
+				moves: ['Fire Punch', 'Dragon Claw', 'Waterfall', ],
 				signatureMove: 'Ancient Orb',
 				evs: {
 					atk: 252,
@@ -75,7 +75,7 @@ exports.BattleScripts = {
 				shiny: true,
 				item: 'Gardevoirite',
 				gender: 'F',
-				moves: ['Moonblast', 'Calm Mind', 'Psychic',],
+				moves: ['Moonblast', 'Calm Mind', 'Psychic', ],
 				signatureMove: 'Mega Rage',
 				evs: {
 					hp: 248,
@@ -90,7 +90,7 @@ exports.BattleScripts = {
 				ability: 'Levitate',
 				item: 'Leftovers',
 				gender: (variant === 1) ? 'M' : 'F',
-				moves: ['Gyro Ball', 'Confuse Ray', 'Toxic', 'Earthquake',],
+				moves: ['Gyro Ball', 'Confuse Ray', 'Toxic', 'Earthquake', ],
 				signatureMove: 'Blast Furnace',
 				evs: {
 					hp: 252,
@@ -104,7 +104,7 @@ exports.BattleScripts = {
 				ability: 'Bulletproof',
 				item: 'Safety Goggles',
 				gender: 'M',
-				moves: ['Assist', 'Beat Up', 'Sucker Punch', 'Heavy Slam',],
+				moves: ['Assist', 'Beat Up', 'Sucker Punch', 'Heavy Slam', ],
 				signatureMove: 'Lightshot Giga-Lance',
 				evs: {
 					hp: 252,
@@ -117,7 +117,7 @@ exports.BattleScripts = {
 				ability: 'Serene Grace',
 				item: 'Kings Rock',
 				gender: 'M',
-				moves: ['Roost', 'Coil', 'Rock Slide', ['Glare', 'Body Slam'][variant],],
+				moves: ['Roost', 'Coil', 'Rock Slide', ['Glare', 'Body Slam'][variant], ],
 				signatureMove: 'Getting Trolled',
 				evs: {
 					hp: 252,
@@ -131,7 +131,7 @@ exports.BattleScripts = {
 				ability: 'Limber',
 				item: 'Lopunnite',
 				gender: 'F',
-				moves: ['Fake out', 'Return', 'High Jump Kick',],
+				moves: ['Fake out', 'Return', 'High Jump Kick', ],
 				signatureMove: 'Charm Up',
 				evs: {
 					atk: 252,
@@ -162,7 +162,7 @@ exports.BattleScripts = {
 				ability: 'Cloud Nine',
 				item: 'Leftovers',
 				gender: 'M',
-				moves: ['Scald', 'Ice Beam', 'Psychic',],
+				moves: ['Scald', 'Ice Beam', 'Psychic', ],
 				signatureMove: 'Duck Power',
 				evs: {
 					spa: 252,
@@ -176,7 +176,7 @@ exports.BattleScripts = {
 				ability: 'Sturdy',
 				item: 'Leftovers',
 				gender: 'M',
-				moves: ['Psychic', 'Aura Sphere', 'Dark Pulse',],
+				moves: ['Psychic', 'Aura Sphere', 'Dark Pulse', ],
 				signatureMove: 'Saber Strike',
 				evs: {
 					spa: 252,
@@ -190,7 +190,7 @@ exports.BattleScripts = {
 				ability: 'Prankster',
 				item: 'Eviolite',
 				gender: 'M',
-				moves: ['Thunder Wave', 'Mean Look', 'Confuse Ray',],
+				moves: ['Thunder Wave', 'Mean Look', 'Confuse Ray', ],
 				signatureMove: 'Troll',
 				evs: {
 					hp: 252,
@@ -204,7 +204,7 @@ exports.BattleScripts = {
 				species: 'Registeel',
 				ability: 'No Guard',
 				item: 'Weakness Policy',
-				moves: ['Zap Cannon', 'Iron Head', 'Stone Edge',],
+				moves: ['Zap Cannon', 'Iron Head', 'Stone Edge', ],
 				signatureMove: 'Spacial Blast',
 				evs: {
 					atk: 252,
@@ -232,7 +232,7 @@ exports.BattleScripts = {
 				species: 'Regice',
 				ability: 'Flash Fire',
 				item: 'Leftovers',
-				moves: ['Ice Beam', 'Ancient Power', 'Thunderbolt',],
+				moves: ['Ice Beam', 'Ancient Power', 'Thunderbolt', ],
 				signatureMove: 'Frostbite',
 				evs: {
 					spa: 252,
@@ -246,7 +246,7 @@ exports.BattleScripts = {
 				species: 'Mew',
 				ability: 'Protean',
 				item: 'Expert Belt',
-				moves: ['Earth Power', 'Oblivion Wing', 'Shadow Ball',],
+				moves: ['Earth Power', 'Oblivion Wing', 'Shadow Ball', ],
 				signatureMove: 'Mewtation',
 				evs: {
 					spa: 252,
@@ -261,7 +261,7 @@ exports.BattleScripts = {
 				ability: 'Water Absorb',
 				item: 'Leftovers',
 				gender: 'M',
-				moves: ['Swords Dance', 'Sacred Sword', 'Shadow Sneak', 'Kings Shield',],
+				moves: ['Swords Dance', 'Sacred Sword', 'Shadow Sneak', 'Kings Shield', ],
 				signatureMove: 'Zeo-Bash',
 				evs: {
 					atk: 252,
@@ -275,7 +275,7 @@ exports.BattleScripts = {
 				ability: 'Solar Power',
 				item: 'Charizardite X',
 				gender: 'M',
-				moves: ['Outrage', 'Flare Blitz', 'Thunder Punch',],
+				moves: ['Outrage', 'Flare Blitz', 'Thunder Punch', ],
 				signatureMove: 'Nature\'s Fury',
 				evs: {
 					spa: 252,
@@ -288,7 +288,7 @@ exports.BattleScripts = {
 				species: 'Flygon',
 				ability: 'Levitate',
 				item: 'Choice Band',
-				moves: ['Outrage', 'Dragon Dance', 'Earthquake',],
+				moves: ['Outrage', 'Dragon Dance', 'Earthquake', ],
 				signatureMove: 'Out Ripper',
 				evs: {
 					atk: 252,
@@ -301,7 +301,7 @@ exports.BattleScripts = {
 				species: 'Volcanion',
 				ability: 'Protean',
 				item: 'Life Orb',
-				moves: ['Fire Blast', 'Steam Eruption', 'Recover',],
+				moves: ['Fire Blast', 'Steam Eruption', 'Recover', ],
 				signatureMove: 'Vapor Boost',
 				evs: {
 					spa: 252,
@@ -315,7 +315,7 @@ exports.BattleScripts = {
 				ability: 'Guts',
 				item: 'Flame Orb',
 				gender: 'M',
-				moves: ['Fire Punch', 'Thunder Punch', 'Facade',],
+				moves: ['Fire Punch', 'Thunder Punch', 'Facade', ],
 				signatureMove: 'Vacation Time',
 				evs: {
 					atk: 252,
@@ -328,7 +328,7 @@ exports.BattleScripts = {
 				species: 'Porygon2',
 				ability: 'Prankster',
 				item: 'Eviolite',
-				moves: ['Tri Attack', 'Recover', 'Ice Beam',],
+				moves: ['Tri Attack', 'Recover', 'Ice Beam', ],
 				signatureMove: 'Xavier Hax',
 				evs: {
 					hp: 252,
@@ -343,7 +343,7 @@ exports.BattleScripts = {
 				ability: 'Gale Wings',
 				item: 'Rocky Helmet',
 				gender: 'M',
-				moves: ['Aura Sphere', 'Taunt', 'Hurricane',],
+				moves: ['Aura Sphere', 'Taunt', 'Hurricane', ],
 				signatureMove: 'Rainbust Orb',
 				evs: {
 					spa: 252,
@@ -357,7 +357,7 @@ exports.BattleScripts = {
 				ability: 'Guts',
 				item: 'Leftovers',
 				gender: 'M',
-				moves: ['Substitute', 'Dragon Dance', 'Bounce',],
+				moves: ['Substitute', 'Dragon Dance', 'Bounce', ],
 				signatureMove: 'Tsunami Crash',
 				evs: {
 					atk: 252,
@@ -371,7 +371,7 @@ exports.BattleScripts = {
 				ability: 'Unburden',
 				item: 'White Herb',
 				gender: 'M',
-				moves: ['Drain Punch', 'Stone Edge', 'Megahorn',],
+				moves: ['Drain Punch', 'Stone Edge', 'Megahorn', ],
 				signatureMove: 'Shell Break',
 				evs: {
 					atk: 128,
