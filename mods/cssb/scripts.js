@@ -127,7 +127,7 @@ exports.BattleScripts = {
 		}
 
 		//var sets = extend(baseSets, ssbSets);
-		var backupSet = {
+		let backupSet = {
 			'Unown': {
 				species: 'Unown',
 				ability: 'Levitate',
@@ -186,20 +186,20 @@ exports.BattleScripts = {
 				}
 			}
 			// Assuming the hardcoded set evs are all legal.
-			if (!set.evs) set.evs = {
-				hp: 84,
-				atk: 84,
-				def: 84,
-				spa: 84,
-				spd: 84,
-				spe: 84
-			};
+			if (!set.evs) {
+				set.evs = {
+					hp: 84,
+					atk: 84,
+					def: 84,
+					spa: 84,
+					spd: 84,
+					spe: 84,
+				};
 			if (set.signatureMove) {
 				set.moves = [this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves)].concat(set.signatureMove);
 			}
 			team.push(set);
 		}
-
 		return team;
-	}
+	},
 };
