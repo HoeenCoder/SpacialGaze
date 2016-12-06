@@ -11,8 +11,8 @@ exports.BattleMovedex = {
 		priority: 0,
 		self: {
 			boosts: {
-				spa: 2
-			}
+				spa: 2,
+			},
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -38,8 +38,8 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				spa: 2,
-				spd: 1
-			}
+				spd: 1,
+			},
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -65,9 +65,9 @@ exports.BattleMovedex = {
 		priority: 0,
 		self: {
 			boosts: {
-				evasion: 1
+				evasion: 1,
 			},
-			heal: [6, 20]
+			heal: [6, 20],
 		},
 		onHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -87,9 +87,9 @@ exports.BattleMovedex = {
 		priority: 0,
 		self: {
 			boosts: {
-				def: 1
+				def: 1,
 			},
-			heal: [7, 20]
+			heal: [7, 20],
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -118,7 +118,7 @@ exports.BattleMovedex = {
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Blizzard", target);
-		}
+		},
 	},
 	// Kraken Mare
 	megarage: {
@@ -132,7 +132,7 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				def: -1,
-				spd: -1
+				spd: -1,
 			}
 		},
 		onPrepareHit: function (target, source, move) {
@@ -160,8 +160,8 @@ exports.BattleMovedex = {
 					spe: 1,
 					spd: 1,
 					atk: 1,
-					def: 1
-				}
+					def: 1,
+				},
 			},
 		},
 		pp: 15,
@@ -184,9 +184,9 @@ exports.BattleMovedex = {
 			chance: 100,
 			self: {
 				boosts: {
-					spa: 2
+					spa: 2,
 				},
-				heal: [1, 5]
+				heal: [1, 5],
 			},
 		},
 		pp: 10,
@@ -210,8 +210,8 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				spe: 1,
-				atk: 1
-			}
+				atk: 1,
+			},
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -232,10 +232,7 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 30,
 			status: 'par',
-			chance: 30,
-			volatileStatus: 'flinch',
-			chance: 30,
-			volatileStatus: 'confusion',
+			volatileStatus: ['flinch', 'confusion',], 
 		},
 		priority: 0,
 		onPrepareHit: function (target, source) {
@@ -255,8 +252,8 @@ exports.BattleMovedex = {
 			boosts: {
 				def: 1,
 				spa: 1,
-				spd: 1
-			}
+				spd: 1,
+			},
 		},
 		pp: 10,
 		priority: 0,
@@ -280,8 +277,8 @@ exports.BattleMovedex = {
 		priority: 0,
 		self: {
 			boosts: {
-				atk: 1
-			}
+				atk: 1,
+			},
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -317,9 +314,9 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				spe: 1,
-				atk: 1
+				atk: 1,
 			},
-			heal: [5, 20]
+			heal: [5, 20],
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -339,8 +336,8 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				spe: 2,
-				atk: 1
-			}
+				atk: 1,
+			},
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -360,8 +357,8 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				spa: 8,
-				spd: 8
-			}
+				spd: 8,
+			},
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -381,7 +378,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		boosts: {
 			spa: 2,
-			def: 2
+			def: 2,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -401,7 +398,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		boosts: {
 			atk: 2,
-			spe: 1
+			spe: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -454,7 +451,7 @@ exports.BattleMovedex = {
 		boosts: {
 			spd: 1,
 			spa: 1,
-			def: 1
+			def: 1,
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
