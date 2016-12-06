@@ -8,7 +8,6 @@
 'use strict';
 
 let fs = require('fs');
-let http = require('http');
 let moment = require('moment');
 let geoip = require('geoip-ultralight');
 
@@ -77,9 +76,9 @@ function loadRegdateCache() {
 }
 loadRegdateCache();
 
-function saveRegdateCache() {
+/*function saveRegdateCache() {
 	fs.writeFileSync('config/regdate.json', JSON.stringify(regdateCache));
-}
+}*/
 
 exports.commands = {
 	vip: {
@@ -167,11 +166,13 @@ exports.commands = {
 			if (color.charAt(0) !== '#') return this.errorReply("The color needs to be a hex starting with '#'.");
 			Db('titlecolors').set(userid, color);
 			Db('customtitles').set(userid, title);
-			if (Users.get(targetUser)) Users(targetUser).popup(
-				'|html|You have recieved a custom title from ' + SG.nameColor(user.name, true) + '.' +
-				'<br />Title: ' + formatTitle(toId(targetUser)) +
-				'<br />Title Hex Color: ' + Db('titlecolors').get(toId(targetUser))
-			);
+			if (Users.get(targetUser)) {
+				Users(targetUser).popup(
+					'|html|You have recieved a custom title from ' + SG.nameColor(user.name, true) + '.' +
+					'<br />Title: ' + formatTitle(toId(targetUser)) +
+					'<br />Title Hex Color: ' + Db('titlecolors').get(toId(targetUser))
+				);
+			}
 			this.logModCommand(user.name + " set a custom title to " + userid + "'s profile.");
 			return this.sendReply("Title '" + title + "' and color '" + color + "' for " + userid + "'s custom title have been set.");
 		},
@@ -185,9 +186,11 @@ exports.commands = {
 			}
 			Db('titlecolors').delete(userid);
 			Db('customtitles').delete(userid);
-			if (Users.get(userid)) Users(userid).popup(
-				'|html|' + SG.nameColor(user.name, true) + " has removed your custom title."
-			);
+			if (Users.get(userid)) {
+				Users(userid).popup(
+					'|html|' + SG.nameColor(user.name, true) + " has removed your custom title."
+				);
+			}
 			this.logModCommand(user.name + " removed " + userid + "'s custom title.");
 			return this.sendReply(userid + "'s custom title and title color were removed from the server memory.");
 		},
@@ -203,7 +206,7 @@ exports.commands = {
 				'- <code>[set|give] [username], [title], [hex color]</code>: Sets a user\'s custom title. Requires: & ~' +
 				'- <code>[take|remove] [username]</code>: Removes a user\'s custom title and erases it from the server. Requires: & ~'
 			);
-		}
+		},
 	},
 	fc: 'friendcode',
 	friendcode: {
@@ -253,7 +256,7 @@ exports.commands = {
 				'<br />' +
 				'<code>help</code>: Displays this help command.'
 			);
-		}
+		},
 	},
 	profile: function (target, room, user) {
 		if (!target) target = user.name;
