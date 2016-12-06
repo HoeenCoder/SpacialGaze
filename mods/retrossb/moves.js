@@ -990,7 +990,7 @@ exports.BattleMovedex = {
 		boosts: {
 			atk: 1,
 			spa: 1,
-			spd: 1,
+,			spd: 1,
 		},
 		secondary: false,
 		target: "self",
@@ -1073,7 +1073,7 @@ exports.BattleMovedex = {
 				spa: -1,
 				spd: -1,
 				def: -1,
-			}
+			},
 		},
 		flags: {
 			protect: 1,
@@ -1137,7 +1137,7 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				spe: 1,
-			}
+			},
 		},
 		target: "normal",
 		type: "Ice",
@@ -1171,7 +1171,7 @@ exports.BattleMovedex = {
 		},
 		secondary: {
 			chance: 20,
-			status: 'psn'
+			status: 'psn',
 		},
 		target: "normal",
 		type: "Poison",
@@ -1191,7 +1191,7 @@ exports.BattleMovedex = {
 		},
 		secondary: {
 			chance: 50,
-			status: 'par'
+			status: 'par',
 		},
 		target: "normal",
 		type: "Normal",
@@ -1225,7 +1225,7 @@ exports.BattleMovedex = {
 		},
 		secondary: {
 			chance: 100,
-			status: 'par'
+			status: 'par',
 		},
 		target: "normal",
 		type: "Normal",
@@ -1265,7 +1265,7 @@ exports.BattleMovedex = {
 					def: 1,
 					spa: 1,
 					spd: 1,
-				}
+				},
 			},
 		},
 		target: "normal",
@@ -1303,7 +1303,7 @@ exports.BattleMovedex = {
 			boosts: {
 				spa: 1,
 				spd: 1,
-			}
+			},
 		},
 		secondary: false,
 		target: "normal",
@@ -1323,7 +1323,7 @@ exports.BattleMovedex = {
 		},
 		secondary: {
 			chance: 70,
-			status: 'par'
+			status: 'par',
 		},
 		target: "normal",
 		type: "Ghost",
