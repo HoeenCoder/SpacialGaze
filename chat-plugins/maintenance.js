@@ -15,7 +15,7 @@ exports.commands = {
 				'<div class="broadcast-red"><b>The server will be under maintenance mode in a few hours.</b><br />' +
 				'The development team will be busy; as such, limit PMs to upper staff members until maintenance is finished.</div>'
 			).update();
-		};)
+		});
 
 		this.logEntry(user.name + " used /maintenance");
 	},
