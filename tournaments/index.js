@@ -98,7 +98,7 @@ class Tournament {
 
 		this.generator = generator;
 		this.room.send('|tournament|update|' + JSON.stringify({
-			generator: generator.name
+			generator: generator.name,
 		}));
 		this.isBracketInvalidated = true;
 		this.update();
@@ -196,11 +196,11 @@ class Tournament {
 			if (pendingChallenge) {
 				if (pendingChallenge.to) {
 					connection.sendTo(this.room, '|tournament|update|' + JSON.stringify({
-						challenging: pendingChallenge.to.name
+						challenging: pendingChallenge.to.name,
 					}));
 				} else if (pendingChallenge.from) {
 					connection.sendTo(this.room, '|tournament|update|' + JSON.stringify({
-						challenged: pendingChallenge.from.name
+						challenged: pendingChallenge.from.name,
 					}));
 				}
 			}
@@ -224,7 +224,7 @@ class Tournament {
 				this.bracketCache = this.getBracketData();
 				this.isBracketInvalidated = false;
 				this.room.send('|tournament|update|' + JSON.stringify({
-					bracketData: this.bracketCache
+					bracketData: this.bracketCache,
 				}));
 			}
 		}
@@ -235,7 +235,7 @@ class Tournament {
 
 			this.availableMatchesCache.challenges.forEach((opponents, player) => {
 				player.sendRoom('|tournament|update|' + JSON.stringify({
-					challenges: usersToNames(opponents)
+					challenges: usersToNames(opponents),
 				}));
 			});
 			this.availableMatchesCache.challengeBys.forEach((opponents, player) => {
@@ -732,17 +732,17 @@ class Tournament {
 		this.lastActionTimes.set(to, Date.now());
 		this.pendingChallenges.set(from, {
 			to: to,
-			team: user.team
+			team: user.team,
 		});
 		this.pendingChallenges.set(to, {
 			from: from,
-			team: user.team
+			team: user.team,
 		});
 		from.sendRoom('|tournament|update|' + JSON.stringify({
-			challenging: to.name
+			challenging: to.name,
 		}));
 		to.sendRoom('|tournament|update|' + JSON.stringify({
-			challenged: from.name
+			challenged: from.name,
 		}));
 
 		this.isBracketInvalidated = true;
@@ -805,7 +805,7 @@ class Tournament {
 
 		let room = Rooms.global.startBattle(from, user, this.format, challenge.team, user.team, {
 			rated: this.isRated,
-			tour: this
+			tour: this,
 		});
 		if (!room) return;
 
@@ -816,7 +816,7 @@ class Tournament {
 
 		this.inProgressMatches.set(challenge.from, {
 			to: player,
-			room: room
+			room: room,
 		});
 		this.room.add('|tournament|battlestart|' + from.name + '|' + user.name + '|' + room.id).update();
 
@@ -997,7 +997,7 @@ function createTournamentGenerator(generator, args, output) {
 		return;
 	}
 	args.unshift(null);
-	return new(Generator.bind.apply(Generator, args))();
+	return new (Generator.bind.apply(Generator, args))();
 }
 
 function createTournament(room, format, generator, playerCap, isRated, args, output) {
@@ -1337,7 +1337,7 @@ Chat.commands.tournament = function (paramString, room, user) {
 				title: tournament.room.title,
 				format: tournament.format,
 				generator: tournament.generator.name,
-				isStarted: tournament.isTournamentStarted
+				isStarted: tournament.isTournamentStarted,
 			};
 		})));
 	} else if (cmd === 'help') {
