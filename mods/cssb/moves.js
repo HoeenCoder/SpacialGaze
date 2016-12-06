@@ -11,7 +11,7 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		flags: {
 			snatch: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -22,11 +22,11 @@ exports.BattleMovedex = {
 			boosts: {
 				atk: 1,
 				spa: 1,
-				spe: 1
-			}
+				spe: 1,
+			},
 		},
 		target: "Self",
-		type: "Normal"
+		type: "Normal",
 	},
 	//Fire
 	flametower: {
@@ -44,12 +44,12 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		volatileStatus: 'partiallytrapped',
 		secondary: {
 			chance: 50,
-			status: 'brn'
+			status: 'brn',
 		},
 		target: "normal",
 		type: "Fire",
@@ -70,12 +70,12 @@ exports.BattleMovedex = {
 		priority: 1,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		weather: 'raindance',
 		secondary: {
 			chance: 20,
-			volatileStatus: 'Flinch'
+			volatileStatus: 'Flinch',
 		},
 		target: "normal",
 		type: "Water",
@@ -89,7 +89,7 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		flags: {
 			mirror: 1,
-			snatch: 1
+			snatch: 1,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -99,7 +99,7 @@ exports.BattleMovedex = {
 			this.useMove('Aromatherapy', pokemon);
 		},
 		self: {
-			heal: [1, 4]
+			heal: [1, 4],
 		},
 		pp: 5,
 		priority: 0,
@@ -138,11 +138,11 @@ exports.BattleMovedex = {
 		flags: {
 			bullet: 1,
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		self: {
 			boosts: {
-				spe: 1
+				spe: 1,
 			}
 		},
 		pp: 10,
@@ -158,7 +158,7 @@ exports.BattleMovedex = {
 		name: "Hailstorm",
 		isNonstandard: true,
 		flags: {
-			protect: 1
+			protect: 1,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -188,14 +188,14 @@ exports.BattleMovedex = {
 		flags: {
 			recharge: 1,
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		self: {
 			volatileStatus: 'mustrecharge',
 		},
 		secondary: {
 			chance: 50,
-			status: 'par'
+			status: 'par',
 		},
 		pp: 5,
 		priority: -1,
@@ -211,7 +211,7 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		flags: {
 			protect: true,
-			reflectable: true
+			reflectable: true,
 		},
 		status: 'tox',
 		onPrepareHit: function (target, source, move) {
@@ -220,7 +220,7 @@ exports.BattleMovedex = {
 			this.add('-anim', target, "Fire Blast", target);
 		},
 		boosts: {
-			atk: -1
+			atk: -1,
 		},
 		pp: 20,
 		priority: 0,
@@ -236,7 +236,7 @@ exports.BattleMovedex = {
 		name: "Terratremor",
 		isNonstandard: true,
 		flags: {
-			protect: true
+			protect: true,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -246,7 +246,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		secondary: {
 			chance: 15,
-			volatileStatus: 'Flinch'
+			volatileStatus: 'Flinch',
 		},
 		target: "normal",
 		type: "Ground",
@@ -262,7 +262,7 @@ exports.BattleMovedex = {
 			protect: 1,
 			reflectable: 1,
 			mirror: 1,
-			authentic: 1
+			authentic: 1,
 		},
 		priority: 0,
 		pp: 15,
@@ -274,13 +274,13 @@ exports.BattleMovedex = {
 				reflect: 1,
 				lightscreen: 1,
 				safeguard: 1,
-				mist: 1
+				mist: 1,
 			};
 			let removeAll = {
 				spikes: 1,
 				toxicspikes: 1,
 				stealthrock: 1,
-				stickyweb: 1
+				stickyweb: 1,
 			};
 			for (let targetCondition in removeTarget) {
 				if (target.side.removeSideCondition(targetCondition)) {
@@ -327,7 +327,7 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -338,9 +338,9 @@ exports.BattleMovedex = {
 			self: {
 				boosts: {
 					atk: 1,
-					spe: 1
-				}
-			}
+					spe: 1,
+				},
+			},
 		},
 		pp: 10,
 		target: "normal",
