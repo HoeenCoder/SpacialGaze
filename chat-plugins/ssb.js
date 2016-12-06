@@ -779,7 +779,7 @@ exports.commands = {
 				default:
 					return this.sendReply('/ssb edit details [level|gender|happiness|shiny], (argument) - edit your pokemon\'s details.');
 				}
-			}
+			},
 		},
 		toggle: function (target, room, user, connection, cmd, message) {
 			if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
@@ -800,7 +800,9 @@ exports.commands = {
 					user.sendTo(room, '|uhtmlchange|ssb' + user.userid + '|' + buildMenu(user.userid));
 					return this.sendReply('Your pokemon was deactivated. Your pokemon will no longer appear in battles.');
 				}
-			} else return this.errorReply('Could not activate your pokemon, all pokemon must have at least 1 move.');
+			} else {
+				return this.errorReply('Could not activate your pokemon, all pokemon must have at least 1 move.');
+			}
 		},
 		custommoves: 'custom',
 		cmoves: 'custom',
