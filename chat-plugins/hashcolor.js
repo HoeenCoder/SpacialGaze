@@ -171,7 +171,9 @@ function hashColor(name) {
 		HLmod -= 12;
 	} else if (HLmod < -10) {
 		HLmod = (HLmod + 10) * 2 / 3;
-	} else HLmod = 0;
+	} else {
+		HLmod = 0;
+	}
 
 	L += HLmod;
 	let Smod = 10 - Math.abs(50 - L);
