@@ -1330,7 +1330,7 @@ exports.BattleScripts = {
 					spe: 255,
 				},
 			},
-,			'+coldgenisis': {
+			'+coldgenisis': {
 				species: 'Clefable',
 				ability: 'None',
 				item: '',
