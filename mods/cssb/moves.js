@@ -143,7 +143,7 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				spe: 1,
-			}
+			},
 		},
 		pp: 10,
 		priority: 0,
@@ -267,8 +267,10 @@ exports.BattleMovedex = {
 		priority: 0,
 		pp: 15,
 		onHit: function (target, source, move) {
-			if (!target.volatiles['substitute'] || move.infiltrates) this.boost({
-				evasion: -1
+			if (!target.volatiles['substitute'] || move.infiltrates) {
+				this.boost({
+					evasion: -1,
+				}
 			});
 			let removeTarget = {
 				reflect: 1,
@@ -356,7 +358,7 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -364,7 +366,7 @@ exports.BattleMovedex = {
 		},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'Flinch'
+			volatileStatus: 'Flinch',
 		},
 		pp: 10,
 		priority: 0,
@@ -385,12 +387,12 @@ exports.BattleMovedex = {
 		},
 		flags: {
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		willCrit: true,
 		secondary: {
 			chance: 10,
-			volatileStatus: 'Flinch'
+			volatileStatus: 'Flinch',
 		},
 		pp: 10,
 		priority: 0,
@@ -416,7 +418,7 @@ exports.BattleMovedex = {
 			if (pokemon.volatiles['lockedmove'] && pokemon.volatiles['lockedmove'].duration === 1) {
 				pokemon.removeVolatile('lockedmove');
 				this.boost({
-					atk: -2
+					atk: -2,
 				});
 			}
 		},
@@ -424,7 +426,7 @@ exports.BattleMovedex = {
 		flags: {
 			contact: 1,
 			protect: 1,
-			mirror: 1
+			mirror: 1,
 		},
 		priority: 0,
 		target: "normal",
@@ -477,7 +479,7 @@ exports.BattleMovedex = {
 		},
 		pp: 10,
 		target: "normal",
-		type: "Steel"
+		type: "Steel",
 	},
 	//Fairy
 	majesticdust: {
@@ -489,7 +491,7 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		flags: {
 			protect: true,
-			powder: true
+			powder: true,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -497,7 +499,7 @@ exports.BattleMovedex = {
 		},
 		secondary: {
 			chance: 10,
-			status: 'par'
+			status: 'par',
 		},
 		pp: 10,
 		target: "normal",
