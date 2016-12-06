@@ -3,7 +3,7 @@
 const fs = require('fs');
 
 function extend(obj, src) {
-	for (var key in src) {
+	for (let key in src) {
 		if (src.hasOwnProperty(key)) obj[key] = src[key];
 	}
 	return obj;
@@ -13,9 +13,9 @@ function extend(obj, src) {
 
 exports.BattleScripts = {
 	randomCustomSSBTeam: function (side) {
-		var SGSSB = JSON.parse(fs.readFileSync('config/ssb.json', 'utf-8'));
-		var team = [];
-		var variant = this.random(2);
+		let SGSSB = JSON.parse(fs.readFileSync('config/ssb.json', 'utf-8'));
+		let team = [];
+		let variant = this.random(2);
 
 		//Save these incase we decide to readd base sets
 		/*var baseSets = {
@@ -107,7 +107,7 @@ exports.BattleScripts = {
 			}
 		};*/
 		//Parse player objects into sets.
-		var ssbSets = {};
+		let ssbSets = {};
 		for (let key in SGSSB) {
 			if (!SGSSB[key].active) continue; //This pokemon is not to be used yet.
 			ssbSets[(SGSSB[key].symbol + SGSSB[key].name)] = {};
@@ -136,18 +136,18 @@ exports.BattleScripts = {
 				evs: {
 					spa: 252,
 					spd: 252,
-					hp: 4
+					hp: 4,
 				},
 				nature: 'Modest',
-			}
-		}
+			},
+		};
 		if (Object.keys(ssbSets).length === 0) {
-			var sets = extend(ssbSets, backupSet);
+			let sets = extend(ssbSets, backupSet);
 		} else {
-			var sets = ssbSets;
+			let sets = ssbSets;
 		}
 
-		for (var k in sets) {
+		for (let k in sets) {
 			sets[k].moves = sets[k].moves.map(toId);
 			if (sets[k].baseSignatureMove) sets[k].baseSignatureMove = toId(sets[k].baseSignatureMove);
 		}
@@ -171,17 +171,17 @@ exports.BattleScripts = {
 					def: 31,
 					spa: 31,
 					spd: 31,
-					spe: 31
+					spe: 31,
 				};
 			} else {
 				for (let iv in {
-						hp: 31,
-						atk: 31,
-						def: 31,
-						spa: 31,
-						spd: 31,
-						spe: 31
-					}) {
+					hp: 31,
+					atk: 31,
+					def: 31,
+					spa: 31,
+					spd: 31,
+					spe: 31,
+				}) {
 					set.ivs[iv] = iv in set.ivs ? set.ivs[iv] : 31;
 				}
 			}
