@@ -1,4 +1,3 @@
-﻿
 'use strict';
 
 const BRACKET_MINIMUM_UPDATE_INTERVAL = 2 * 1000;
@@ -926,7 +925,7 @@ class Tournament {
 		let color = '#088cc7';
 		let sizeRequiredToEarn = 4;
 		let currencyName = function (amount) {
-			return amount === 1 ? (" " + global.currencyName) : (" " + global.currenyPlural);
+			return amount === 1 ? (" " + global.currencyName) : (" " + global.currencyPlural);
 		};
 		let data = this.generator.getResults().map(usersToNames).toString();
 		let winner, runnerUp;
@@ -969,7 +968,7 @@ class Tournament {
 			if (runnerUp) {
 				Economy.writeMoney(rid, secondMoney, () => {
 					Economy.readMoney(rid, newAmount => {
-						if (Users(rid) && Users(targetUser).connected) {
+						if (Users(rid) && Users(rid).connected) {
 							Users.get(rid).popup('|html|You have received ' + secondMoney + ' ' + (secondMoney === 1 ? global.currencyName : global.currenyPlural) + ' from winning the tournament.');
 						}
 						Economy.logTransaction(Chat.escapeHTML(runnerUp) + ' has won ' + secondMoney + ' ' + (secondMoney === 1 ? global.currencyName : global.currenyPlural) + ' from a tournament.');
