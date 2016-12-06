@@ -1374,7 +1374,7 @@ exports.BattleScripts = {
 			}
 			set.moves = set.moves.concat(set.signatureMove);
 			team.push(set);
-		};
+		}
 		return team;
 	},
 };
