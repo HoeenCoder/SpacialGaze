@@ -440,13 +440,13 @@ exports.BattleScripts = {
 			// Assuming the hardcoded set evs are all legal.
 			if (!set.evs) {
 				set.evs = {
-				hp: 84,
-				atk: 84,
-				def: 84,
-				spa: 84,
-				spd: 84,
-				spe: 84,
-			};
+					hp: 84,
+					atk: 84,
+					def: 84,
+					spa: 84,
+					spd: 84,
+					spe: 84,
+				};
 			}
 			set.moves = [this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves)].concat(set.signatureMove);
 			team.push(set);
