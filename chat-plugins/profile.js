@@ -68,14 +68,14 @@ function getLeague(userid) {
 	return SG.getLeague(userid);
 }
 
-function loadRegdateCache() {
+/*function loadRegdateCache() {
 	try {
 		regdateCache = JSON.parse(fs.readFileSync('config/regdate.json', 'utf8'));
 	} catch (e) {}
 }
 loadRegdateCache();
 
-/*function saveRegdateCache() {
+function saveRegdateCache() {
 	fs.writeFileSync('config/regdate.json', JSON.stringify(regdateCache));
 }*/
 
