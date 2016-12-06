@@ -45,7 +45,7 @@ exports.BattleScripts = {
 				evs: {
 					atk: 100,
 					spa: 156,
-					spe: 252
+					spe: 252,
 				},
 				nature: 'Hardy',
 			},
@@ -525,9 +525,9 @@ exports.BattleScripts = {
 					spa: 31,
 					spd: 31,
 					spe: 31,
-					}) {
-			set.ivs[iv] = iv in set.ivs ? set.ivs[iv] : 31;
-					}
+				}) {
+		set.ivs[iv] = iv in set.ivs ? set.ivs[iv] : 31;
+				}
 			}
 			//Assume the hardcoded set evs are all legal.
 			if (!set.evs) {
