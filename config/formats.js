@@ -1364,10 +1364,10 @@ exports.Formats = [
 		onBegin: function () {
 			this.add('message', 'GET READY FOR THE NEXT BATTLE!');
 
-			var allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
-			for (var i = 0, len = allPokemon.length; i < len; i++) {
-				var pokemon = allPokemon[i];
-				var last = pokemon.moves.length - 1;
+			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
+			for (let i = 0, len = allPokemon.length; i < len; i++) {
+				let pokemon = allPokemon[i];
+				let last = pokemon.moves.length - 1;
 				if (pokemon.moves[last]) {
 					pokemon.moves[last] = toId(pokemon.set.signatureMove);
 					pokemon.moveset[last].move = pokemon.set.signatureMove;
@@ -1376,7 +1376,7 @@ exports.Formats = [
 			}
 		},
 		onSwitchIn: function (pokemon) {
-			var name = toId(pokemon.illusion ? pokemon.illusion.name : pokemon.name);
+			let name = toId(pokemon.illusion ? pokemon.illusion.name : pokemon.name);
 
 			// stat boosts.
 
@@ -1450,7 +1450,7 @@ exports.Formats = [
 		},
 		onSwitchOut: function (pokemon) {
 			if (!pokemon.hp) return;
-			var name = toId(pokemon.name);
+			let name = toId(pokemon.name);
 
 			if (name === 'therun') {
 				this.add('c', '+The Run', 'I\'ll be back faster than the speed of light');
@@ -1512,11 +1512,11 @@ exports.Formats = [
 			}
 		},
 		onModifyPokemon: function (pokemon) {
-			var name = toId(pokemon.name);
+			let name = toId(pokemon.name);
 			// Enforce choice item locking on custom moves.
-			var moves = pokemon.moveset;
+			let moves = pokemon.moveset;
 			if (pokemon.getItem().isChoice && pokemon.lastMove === moves[3].id) {
-				for (var i = 0; i < 3; i++) {
+				for (let i = 0; i < 3; i++) {
 					if (!moves[i].disabled) {
 						pokemon.disableMove(moves[i].id, false);
 						moves[i].disabled = true;
@@ -1525,7 +1525,7 @@ exports.Formats = [
 			}
 		},
 		onFaint: function (pokemon) {
-			var name = toId(pokemon.name);
+			let name = toId(pokemon.name);
 
 			// custom messages.
 
@@ -1611,7 +1611,7 @@ exports.Formats = [
 				allPokemon[i].maxhp *= 5;
 				allPokemon[i].hp = allPokemon[i].maxhp;
 			}
-		}
+		},
 	}, {
 		section: 'Spacialgaze Metagames',
 		column: 2,
@@ -1656,7 +1656,7 @@ exports.Formats = [
 		name: "[Gen 7] Super Staff Bros Free For All",
 		desc: ['Duke it out with other users custom made pokemon.',
 			'Make your own as well! Get started with <button class="button" name="send" value="/ssb edit">/ssb edit</button>.',
-			'Use <button class="button" name="send" value="/ssb">/ssb</button> for the commands you can use.'
+			'Use <button class="button" name="send" value="/ssb">/ssb</button> for the commands you can use.',
 		],
 
 		mod: 'cssb',
@@ -1668,7 +1668,7 @@ exports.Formats = [
 			this.add("raw|<h3>2</h3>");
 			this.add("raw|<h3>1</h3>");
 			this.add("raw|<h1>BATTLE!</h1>");
-		}
+		},
 	},
 
 	// Other Metagames
@@ -1836,7 +1836,7 @@ exports.Formats = [
 				'Pure Power': 1,
 				'Simple': 1,
 				'Water Bubble': 1,
-				'Wonder Guard': 1
+				'Wonder Guard': 1,
 			};
 			if (set.ability in bannedAbilities) {
 				let template = this.getTemplate(set.species || set.name);
@@ -2183,7 +2183,7 @@ exports.Formats = [
 				'Kyurem': 1,
 				'Xerneas': 1,
 				'Yveltal': 1,
-				'Zygarde': 1
+				'Zygarde': 1,
 			};
 			let n = 0;
 			for (let i = 0; i < team.length; i++) {
