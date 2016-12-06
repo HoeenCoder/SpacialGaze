@@ -295,7 +295,7 @@ exports.BattleMovedex = {
 				}
 			}
 			this.clearWeather();
-		},
+		}
 		target: "normal",
 		type: "Flying",
 	},
