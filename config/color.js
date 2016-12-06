@@ -1,10 +1,8 @@
-'use strict';
-
 module.exports = hashColor;
 
 function MD5(e) {
 	function t(e, t) {
-		let n, r, i, s, o;
+		var n, r, i, s, o;
 		i = e & 2147483648;
 		s = t & 2147483648;
 		n = e & 1073741824;
@@ -34,24 +32,24 @@ function MD5(e) {
 	}
 
 	function o(e) {
-		let t = "",
+		var t = "",
 			n = "",
 			r;
 		for (r = 0; r <= 3; r++) n = e >>> r * 8 & 255, n = "0" + n.toString(16), t += n.substr(n.length - 2, 2);
 		return t
 	}
-	let u = [],
-		a, f, l, c, h, p, d, v, e = function (e) {
-			for (let e = e.replace(/\r\n/g, "\n"), t = "", n = 0; n < e.length; n++) {
-				let r = e.charCodeAt(n);
+	var u = [],
+		a, f, l, c, h, p, d, v, e = function(e) {
+			for (var e = e.replace(/\r\n/g, "\n"), t = "", n = 0; n < e.length; n++) {
+				var r = e.charCodeAt(n);
 				r < 128 ? t += String.fromCharCode(r) : (r > 127 && r < 2048 ? t += String.fromCharCode(r >> 6 | 192) : (t += String.fromCharCode(r >> 12 | 224), t += String.fromCharCode(r >> 6 & 63 | 128)), t += String.fromCharCode(r & 63 | 128));
 			}
 			return t;
 		}(e),
-		u = function (e) {
-			let t, n = e.length;
+		u = function(e) {
+			var t, n = e.length;
 			t = n + 8;
-			for (let r = ((t - t % 64) / 64 + 1) * 16, i = Array(r - 1), s = 0, o = 0; o < n;) t = (o - o % 4) / 4, s = o % 4 * 8, i[t] |= e.charCodeAt(o) << s, o++;
+			for (var r = ((t - t % 64) / 64 + 1) * 16, i = Array(r - 1), s = 0, o = 0; o < n;) t = (o - o % 4) / 4, s = o % 4 * 8, i[t] |= e.charCodeAt(o) << s, o++;
 			i[(o - o % 4) / 4] |= 128 << o % 4 * 8;
 			i[r - 2] = n << 3;
 			i[r - 1] = n >>> 29;
@@ -66,7 +64,7 @@ function MD5(e) {
 }
 
 function hslToRgb(e, t, n) {
-	let r, i, s, o, u, a;
+	var r, i, s, o, u, a;
 	if (!isFinite(e)) e = 0;
 	if (!isFinite(t)) t = 0;
 	if (!isFinite(n)) n = 0;
@@ -127,65 +125,40 @@ function toHex(e) {
 	return "0123456789ABCDEF".charAt((e - e % 16) / 16) + "0123456789ABCDEF".charAt(e % 16);
 }
 
-let colorCache = {};
+var colorCache = {};
 
 function hashColor(name) {
 	name = toId(name);
 	if (colorCache[name]) return colorCache[name];
-	let hash = MD5(name);
-	let H = parseInt(hash.substr(4, 4), 16) % 360; // 0 to 360
-	let S = parseInt(hash.substr(0, 4), 16) % 50 + 40; // 40 to 89
-	let L = Math.floor(parseInt(hash.substr(8, 4), 16) % 20 + 30); // 30 to 49
-	let C = (100 - Math.abs(2 * L - 100)) * S / 100 / 100;
-	let X = C * (1 - Math.abs((H / 60) % 2 - 1));
-	let m = L / 100 - C / 2;
+	var hash = MD5(name);
+	var H = parseInt(hash.substr(4, 4), 16) % 360; // 0 to 360
+	var S = parseInt(hash.substr(0, 4), 16) % 50 + 40; // 40 to 89
+	var L = Math.floor(parseInt(hash.substr(8, 4), 16) % 20 + 30); // 30 to 49
+	var C = (100 - Math.abs(2 * L - 100)) * S / 100 / 100;
+	var X = C * (1 - Math.abs((H / 60) % 2 - 1));
+	var m = L / 100 - C / 2;
 
-	let R1, G1, B1;
+	var R1, G1, B1;
 	switch (Math.floor(H / 60)) {
-	case 1:
-		R1 = X;
-		G1 = C;
-		B1 = 0;
-		break;
-	case 2:
-		R1 = 0;
-		G1 = C;
-		B1 = X;
-		break;
-	case 3:
-		R1 = 0;
-		G1 = X;
-		B1 = C;
-		break;
-	case 4:
-		R1 = X;
-		G1 = 0;
-		B1 = C;
-		break;
-	case 5:
-		R1 = C;
-		G1 = 0;
-		B1 = X;
-		break;
-	case 0:
-	default:
-		R1 = C;
-		G1 = X;
-		B1 = 0;
-		break;
+		case 1: R1 = X; G1 = C; B1 = 0; break;
+		case 2: R1 = 0; G1 = C; B1 = X; break;
+		case 3: R1 = 0; G1 = X; B1 = C; break;
+		case 4: R1 = X; G1 = 0; B1 = C; break;
+		case 5: R1 = C; G1 = 0; B1 = X; break;
+		case 0: default: R1 = C; G1 = X; B1 = 0; break;
 	}
-	let lum = (R1 + m) * 0.2126 + (G1 + m) * 0.7152 + (B1 + m) * 0.0722; // 0.05 (dark blue) to 0.93 (yellow)
-	let HLmod = (lum - 0.5) * -100; // -43 (yellow) to 45 (dark blue)
+	var lum = (R1 + m) * 0.2126 + (G1 + m) * 0.7152 + (B1 + m) * 0.0722; // 0.05 (dark blue) to 0.93 (yellow)
+	var HLmod = (lum - 0.5) * -100; // -43 (yellow) to 45 (dark blue)
 	if (HLmod > 12) HLmod -= 12;
 	else if (HLmod < -10) HLmod = (HLmod + 10) * 2 / 3;
 	else HLmod = 0;
 
 	L += HLmod;
-	let Smod = 10 - Math.abs(50 - L);
+	var Smod = 10 - Math.abs(50 - L);
 	if (HLmod > 15) Smod += (HLmod - 15) / 2;
 	S -= Smod;
 
-	let rgb = hslToRgb(H, S, L);
+	var rgb = hslToRgb(H, S, L);
 	colorCache[name] = "#" + rgbToHex(rgb.r, rgb.g, rgb.b);
 	return colorCache[name];
 }
