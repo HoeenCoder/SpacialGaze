@@ -270,8 +270,7 @@ exports.BattleMovedex = {
 			if (!target.volatiles['substitute'] || move.infiltrates) {
 				this.boost({
 					evasion: -1,
-				}
-			});
+				});
 			let removeTarget = {
 				reflect: 1,
 				lightscreen: 1,
