@@ -13,7 +13,7 @@ exports.BattleAbilities = {
 			if (typeof move.accuracy === 'number') {
 				move.accuracy *= 1.1;
 			}
-		}
+		},
 	},
 	poseidon: {
 		id: "poseidon",
@@ -25,7 +25,7 @@ exports.BattleAbilities = {
 			if (this.getWeather().id === 'primordialsea' && !(weather.id in {
 				desolateland: 1,
 				primordialsea: 1,
-				deltastream: 1
+				deltastream: 1,
 			})) return false;
 		},
 		onEnd: function (pokemon) {
