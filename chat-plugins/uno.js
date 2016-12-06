@@ -617,8 +617,7 @@ exports.commands = {
 		new: function (target, room, user) {
 			if (!this.can("announce", null, room)) return false;
 			if (room.unoDisabled) return this.errorReply("UNO is currently disabled in this room.");
-			let cap = null;
-			if (target) cap = parseInt(target, 10);
+			let cap = target ? Math.floor(parseInt(target)) : null;
 			if (room.game) return this.errorReply("There is already a game in progress in this room.");
 			if (cap && cap < 2) return this.errorReply("The player cap has to be at least 2.");
 
