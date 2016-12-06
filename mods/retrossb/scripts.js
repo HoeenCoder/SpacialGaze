@@ -1362,7 +1362,7 @@ exports.BattleScripts = {
 				spd: 30,
 				spe: 30,
 			};
-			if (!set.evs) 
+			if (!set.evs) {
 				set.evs = {
 					hp: 255,
 					atk: 255,
