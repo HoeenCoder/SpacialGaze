@@ -141,10 +141,11 @@ exports.BattleScripts = {
 				nature: 'Modest',
 			},
 		};
+		let sets;
 		if (Object.keys(ssbSets).length === 0) {
-			let sets = extend(ssbSets, backupSet);
+			sets = extend(ssbSets, backupSet);
 		} else {
-			let sets = ssbSets;
+			sets = ssbSets;
 		}
 
 		for (let k in sets) {
@@ -195,11 +196,12 @@ exports.BattleScripts = {
 					spd: 84,
 					spe: 84,
 				};
+			}
 			if (set.signatureMove) {
 				set.moves = [this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves), this.sampleNoReplace(set.moves)].concat(set.signatureMove);
 			}
 			team.push(set);
 		}
 		return team;
-	}
+	},
 }
