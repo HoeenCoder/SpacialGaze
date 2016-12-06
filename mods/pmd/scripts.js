@@ -1,4 +1,4 @@
-"use strict";
+,"use strict";
 
 exports.BattleScripts = {
 	randomPmdTeam: function (side) {
@@ -526,8 +526,8 @@ exports.BattleScripts = {
 					spd: 31,
 					spe: 31,
 					}) {
-				set.ivs[iv] = iv in set.ivs ? set.ivs[iv] : 31;
-				}
+			set.ivs[iv] = iv in set.ivs ? set.ivs[iv] : 31;
+					}
 			}
 			//Assume the hardcoded set evs are all legal.
 			if (!set.evs) {
@@ -538,8 +538,8 @@ exports.BattleScripts = {
 					spa: 31,
 					spd: 31,
 					spe: 31,
-				}
-			};
+				};
+			}
 
 			let sigItems = ['Oran Berry', 'Apple', 'Blast Seed', 'Gravelrock', 'Heal Seed', 'Trap Orb', 'TrapBust Orb', 'Stun Seed', 'Totter Seed', 'Vile Seed', 'Violent Seed', 'Rainy Orb', 'Sunny Orb', 'Sandy Orb', 'Hail Orb', 'One Shot Orb', 'Warp Orb', 'Escape Orb', 'Stick', 'Iron Thorn', 'Evasion Orb', 'Mug Orb', 'Awakening', 'Wonder Orb'];
 			let choosenItems = [];
@@ -556,7 +556,7 @@ exports.BattleScripts = {
 					if (set.moves[j] === 'Defog' && itemChoosen === 'TrapBust Orb') rejected = true;
 					if (set.moves[j] === 'Thunder Wave' && itemChoosen === 'Stun Seed') rejected = true;
 					if (set.moves[j] === 'Roar' && itemChoosen === 'Warp Orb') rejected = true;
-					if (set.moves[j] === 'Snatch' && itemChosen === 'Mug Orb') rejected = true;
+					if (set.moves[j] === 'Snatch' && itemChoosen === 'Mug Orb') rejected = true;
 				}
 				if (choosenItems.length !== 0) {
 					for (let k = 0; k < choosenItems.length; k++) {
@@ -566,7 +566,7 @@ exports.BattleScripts = {
 				if (itemChoosen === 'Awakening') {
 					if (awakened) {
 						rejected = true;
-					} else { 
+					} else {
 						awakened = true;
 					}
 				}
