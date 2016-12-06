@@ -13,7 +13,7 @@ let allowThisShop = false; //Change to true to make these command work
 let writeJSON = true;
 SG.eShop = {};
 
-function newItem(name, desc, price, isSSB) {
+function NewItem(name, desc, price, isSSB) {
 	this.name = name;
 	this.id = toId(name);
 	this.desc = Chat.escapeHTML(desc);
@@ -77,7 +77,7 @@ exports.commands = {
 			if (isNaN(Number(target[2]))) return this.parse('/eshop help');
 			let isSSB = false;
 			if (toId(target[0]) === 'shiny' || toId(target[0]) === 'ffacustomsymbol' || toId(target[0]) === 'customability' || toId(target[0]) === 'customitem' || toId(target[0]) === 'custommove') isSSB = true;
-			SG.eShop[toId(target[0])] = new newItem(target[0], target[1], target[2], isSSB);
+			SG.eShop[toId(target[0])] = new NewItem(target[0], target[1], target[2], isSSB);
 			writeShop();
 			return this.sendReply('The item ' + target[0] + ' was added.');
 		},
