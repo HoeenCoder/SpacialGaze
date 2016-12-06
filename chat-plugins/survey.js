@@ -1,4 +1,3 @@
-﻿
 /***********************************
 	Survey commands for
 	spacialgaze.psim.us
@@ -100,7 +99,6 @@ class Survey {
 	generateResults(ended) {
 		let icon = '<span style="border:1px solid #' + (ended ? '777;color:#555' : '6A6;color:#484') + ';border-radius:4px;padding:0 3px"><i class="fa fa-bar-chart"></i> ' + (ended ? "Survey ended" : "Survey") + '</span>';
 		let output = '<div class="infobox"><p style="margin: 2px 0 5px 0">' + icon + ' <strong style="font-size:11pt">' + (this.allowHTML ? this.question : Chat.escapeHTML(this.question)) + '</strong></p>';
-		let ownReply = null;
 		for (let i in this.repliers) {
 			if (this.repliers[i]) output += '<div><b>' + i + ': </b><i>"' + this.repliers[i] + '"</i><div><br/>';
 		}
@@ -118,16 +116,19 @@ class Survey {
 	}
 
 	updateTo(user, getResults) {
-		let userid = user.userid;
 		let results = this.generateResults(false);
 		if (user.userid in this.repliers) {
 			if (getResults) {
 				user.sendTo(this.room, '|uhtmlchange|survey' + this.room.surveyNumber + '|' + results);
-			} else user.sendTo(this.room, '|uhtmlchange|survey' + this.room.surveyNumber + '|<div class="infobox"><p style="margin: 2px 0 5px 0"><span style="border:1px solid #6A6;color:#484;border-radius:4px;padding:0 3px"><i class="fa fa-bar-chart"></i> Survey</span> <strong style="font-size:11pt">' + (this.allowHTML ? this.question : Chat.escapeHTML(this.question)) + '</strong></p>Thank you for answering the survey.<br/><div style="margin-top: 7px; padding-left: 12px"><button value="/survey results" name="send" title="Show results - view all replies"><small>(View Results)</small></div></div>');
+			} else {
+				user.sendTo(this.room, '|uhtmlchange|survey' + this.room.surveyNumber + '|<div class="infobox"><p style="margin: 2px 0 5px 0"><span style="border:1px solid #6A6;color:#484;border-radius:4px;padding:0 3px"><i class="fa fa-bar-chart"></i> Survey</span> <strong style="font-size:11pt">' + (this.allowHTML ? this.question : Chat.escapeHTML(this.question)) + '</strong></p>Thank you for answering the survey.<br/><div style="margin-top: 7px; padding-left: 12px"><button value="/survey results" name="send" title="Show results - view all replies"><small>(View Results)</small></div></div>');
+			}
 		} else if (user.latestIp in this.repliersIps) {
 			if (getResults) {
 				user.sendTo(this.room, '|uhtmlchange|survey' + this.room.surveyNumber + '|' + results);
-			} else user.sendTo(this.room, '|uhtmlchange|survey' + this.room.surveyNumber + '|<div class="infobox"><p style="margin: 2px 0 5px 0"><span style="border:1px solid #6A6;color:#484;border-radius:4px;padding:0 3px"><i class="fa fa-bar-chart"></i> Survey</span> <strong style="font-size:11pt">' + (this.allowHTML ? this.question : Chat.escapeHTML(this.question)) + '</strong></p>Thank you for answering the survey.<br/><div style="margin-top: 7px; padding-left: 12px"><button value="/survey results" name="send" title="Show results - view all replies"><small>(View Results)</small></div></div>');
+			} else {
+				user.sendTo(this.room, '|uhtmlchange|survey' + this.room.surveyNumber + '|<div class="infobox"><p style="margin: 2px 0 5px 0"><span style="border:1px solid #6A6;color:#484;border-radius:4px;padding:0 3px"><i class="fa fa-bar-chart"></i> Survey</span> <strong style="font-size:11pt">' + (this.allowHTML ? this.question : Chat.escapeHTML(this.question)) + '</strong></p>Thank you for answering the survey.<br/><div style="margin-top: 7px; padding-left: 12px"><button value="/survey results" name="send" title="Show results - view all replies"><small>(View Results)</small></div></div>');
+			}
 		}
 	}
 
@@ -141,7 +142,7 @@ class Survey {
 		this.room.send('|uhtmlchange|survey' + this.room.surveyNumber + '|<div class="infobox">(The survey has ended &ndash; scroll down to see the results)</div>');
 		this.room.add('|html|' + results);
 	}
-};
+}
 
 function validateAnswer(room, message) {
 	if (!room) return true;
@@ -266,6 +267,6 @@ exports.commands = {
 		"/survey results - View the results of the survey. You cant go back and answer if you havent already.",
 		"/survey display - Display the survey.",
 		"/survey remove [user] - Removes a users reply and prevents them from sending in a new one for this survey. Requires: % @ # & ~",
-		"/survey end - Ends a survey and displays the results. Requires: % @ # & ~"
+		"/survey end - Ends a survey and displays the results. Requires: % @ # & ~",
 	],
 };
