@@ -7,7 +7,7 @@
  **/
 'use strict';
 
-let fs = require('fs');
+//let fs = require('fs');
 let moment = require('moment');
 let geoip = require('geoip-ultralight');
 
