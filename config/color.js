@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = hashColor;
 
 function MD5(e) {
