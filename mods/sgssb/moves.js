@@ -133,7 +133,7 @@ exports.BattleMovedex = {
 			boosts: {
 				def: -1,
 				spd: -1,
-			}
+			},
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -232,7 +232,8 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 30,
 			status: 'par',
-			volatileStatus: ['flinch', 'confusion',], 
+			volatileStatus: ['flinch', 'confusion',
+			],
 		},
 		priority: 0,
 		onPrepareHit: function (target, source) {
@@ -556,7 +557,7 @@ exports.BattleMovedex = {
 			spe: 2,
 			def: -1,
 			spd: -1,
-			accuracy: 1
+			accuracy: 1,
 		},
 		pp: 5,
 		priority: 1,
