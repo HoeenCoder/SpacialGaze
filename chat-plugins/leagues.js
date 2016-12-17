@@ -1774,13 +1774,13 @@ exports.commands = {
 			"<code>/league desc [description]</code> - Sets a description for your league, visible on /league list.<br />" +
 			"<code>/league pm [message]</code> - Mass PM's a message to all online league members<br />" +
 			"<code>/league accept [league name]</code> - Accepts an invitation to join a league.<br />" +
-		 	"<code>/league decline [league name]</code> - Declines an invitation to join a league.<br />" +
+			"<code>/league decline [league name]</code> - Declines an invitation to join a league.<br />" +
 			"<code>/league leave</code> - Leaves your current league.<br />" +
-		  	"<code>/league list</code> - Displays a list of leagues.<br />" +
+			"<code>/league list</code> - Displays a list of leagues.<br />" +
 			"<code>/league members [league name]</code> - Displays the memberlist for a league.<br /><br />" +
 			"</details><details>" +
 			"<summary><b>League Challenging:</b></summary><br />" +
-		     	"<code>/league registerteam [league name], [pastebin of team]</code> - Registers your team so you can challenge the league.<br />" +
+			"<code>/league registerteam [league name], [pastebin of team]</code> - Registers your team so you can challenge the league.<br />" +
 			"<code>/league challenge [league name], [user]</code> - Challenges a user with the team you registered.<br />" +
 			"<code>/league resetteam [user]</code> - Resets a users registered team so they can register again. Requires permission level 4 or higher. (Default: Elite Four)<br />" +
 			"</details><details>" +
