@@ -6,6 +6,5 @@ cache:
   directories:
     - node_modules
     - .eslintcache
-matrix:
-  allow_failures:
-    - sqlite3: 3.1.8
+install:
+  npm install --production
