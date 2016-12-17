@@ -6,3 +6,10 @@ cache:
   directories:
     - node_modules
     - .eslintcache
+addons:
+  apt:
+    sources:
+      - travis-ci/sqlite3
+    packages:
+      - sqlite3
+      
