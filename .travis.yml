@@ -8,4 +8,4 @@ cache:
     - .eslintcache
 matrix:
   allow_failures:
-    - sqlite3: 3.1.4
+    - sqlite3: 3.1.8
