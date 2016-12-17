@@ -1761,12 +1761,12 @@ exports.commands = {
 		help: function (target, room, user) {
 			if (!this.runBroadcast()) return;
 			let msg = "<b><u><font size='3'>Managed League System:</font></u></b><br /><br />";
-			if(user.can('roomowner')) {
+			if (user.can('roomowner')) {
 				msg += "<details><summary><b>Admin Commands:</b></summary><br />" +
 				"<code>/league create [league name], [league owner]</code> - Creates a league.<br />" +
 				"<code>/league delete [league name]</code> - Deletes a league.</details>";
 			}
-				
+
 			msg += "<details>" +
 			"<summary><b>League Commands:</summary><br />" +
 			"<code>/league invite [user]</code> - Invites a user to join a league.<br />" +
