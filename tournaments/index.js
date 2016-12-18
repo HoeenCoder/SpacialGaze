@@ -951,27 +951,21 @@ class Tournament {
 				if (Users(rid).gameBoost) secondMoney *= 2;
 				if (Db('userBadges').has(rid) && Db('userBadges').get(rid).indexOf('Tournament Champion') > -1) secondMoney = Math.ceil(firstMoney * 1.5);
 			}
-
-			Economy.writeMoney(wid, firstMoney, () => {
-				Economy.readMoney(wid, newAmount => {
-					if (Users(wid) && Users(wid).connected) {
-						Users.get(wid).popup('|html|You have received ' + firstMoney + ' ' + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + ' from winning the tournament.');
-					}
-					Economy.logTransaction(Chat.escapeHTML(winner) + ' has won ' + firstMoney + ' ' + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + ' from a tournament.');
-				});
-			});
-			this.room.addRaw("<b><font color='" + color + "'>" + Chat.escapeHTML(winner) + "</font> has won " + "<font color='" + color + "'>" + firstMoney + " </font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
+			
+			Db('money').set(wid, Db('money').get(wid, 0) + firstMoney);
+			if (Users(wid) && Users(wid).connected) {
+				Users.get(wid).popup('|html|You have received <b>' + firstMoney + SG.currencyName(firstMoney) + '</b> from winning the tournament.');
+			}
+			SG.logMoney(winner + ' has won ' + firstMoney + SG.currencyName(firstMoney) + ' from a tournament.');
+			this.room.addRaw("<b>"+ SG.nameColor(winner, false) + " has won " + "<font color='" + color + "'>" + firstMoney + " </font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
 
 			if (runnerUp) {
-				Economy.writeMoney(rid, secondMoney, () => {
-					Economy.readMoney(rid, newAmount => {
-						if (Users(rid) && Users(rid).connected) {
-							Users.get(rid).popup('|html|You have received ' + secondMoney + ' ' + (secondMoney === 1 ? global.currencyName : global.currencyPlural) + ' from winning the tournament.');
-						}
-						Economy.logTransaction(Chat.escapeHTML(runnerUp) + ' has won ' + secondMoney + ' ' + (secondMoney === 1 ? global.currencyName : global.currencyPlural) + ' from a tournament.');
-					});
-				});
-				this.room.addRaw("<b><font color='" + color + "'>" + Chat.escapeHTML(runnerUp) + "</font> has won " + "<font color='" + color + "'>" + secondMoney + "</font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
+				Db('money').set(rid, Db('money').get(rid, 0) + secondMoney);
+					if (Users(rid) && Users(targetUser).connected) {
+						Users.get(rid).popup('|html|You have received <b>' + secondMoney + SG.currencyName(secondMoney) + '</b> from winning the tournament.');
+					}
+				SG.logMoney(runnerUp + ' has won ' + secondMoney + SG.currencyName(secondMoney) + ' from a tournament.');
+				this.room.addRaw("<b>" + SG.nameColor(runnerUp, false) + "</font> has won " +  "<font color='" + color + "'>" + secondMoney + "</font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
 			}
 		}
 
@@ -1238,7 +1232,7 @@ let commands = {
 			});
 			tournament.room.addRaw('<b>Players have been reminded of their tournament battles by ' + user.name + '.</b>');
 			if (offlineUsers.length > 0 && offlineUsers !== '') tournament.room.addRaw('<b>The following users are currently offline: ' + offlineUsers + '.</b>');
-		},
+		},		
 		scout: 'setscouting',
 		scouting: 'setscouting',
 		setscout: 'setscouting',
@@ -1312,8 +1306,7 @@ let commands = {
 				return this.sendReply("Usage: " + cmd + " <user>, <reason>");
 			}
 			let targetUser = Users.get(params[0]);
-			let online = !!targetUser;
-			if (!online) targetUser = params[0];
+			if (!targetUser) return this.errorReply(`User "${params[0]}" not found.`);
 			let targetUserid = toId(targetUser);
 			let reason = '';
 			if (params[1]) {
@@ -1323,12 +1316,7 @@ let commands = {
 
 			if (tournament.checkBanned(targetUser)) return this.errorReply("This user is already banned from tournaments.");
 
-			let punishment = ['TOURBAN', targetUserid, Date.now() + TOURBAN_DURATION, reason];
-			if (online) {
-				Punishments.roomPunish(this.room, targetUser, punishment);
-			} else {
-				Punishments.roomPunishName(this.room, targetUser, punishment);
-			}
+			Punishments.roomPunish(this.room, targetUser, ['TOURBAN', targetUserid, Date.now() + TOURBAN_DURATION, reason]);
 			tournament.removeBannedUser(targetUser);
 			this.privateModCommand((targetUser.name || targetUserid) + " was banned from tournaments by " + user.name + "." + (reason ? " (" + reason + ")" : ""));
 		},
@@ -1512,6 +1500,7 @@ Chat.commands.tournamenthelp = function (target, room, user) {
 		"- dq/disqualify &lt;user>: Disqualifies a user.<br />" +
 		"- autodq/setautodq &lt;minutes|off>: Sets the automatic disqualification timeout.<br />" +
 		"- runautodq: Manually run the automatic disqualifier.<br />" +
+		"- remind: Reminds current tournament users through PM.<br />" +
 		"- scouting &lt;allow|disallow>: Specifies whether joining tournament matches while in a tournament is allowed.<br />" +
 		"- modjoin &lt;allow|disallow>: Specifies whether players can modjoin their battles.<br />" +
 		"- forcetimer &lt;on|off>: Turn on the timer for tournament battles.<br />" +
