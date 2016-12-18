@@ -189,7 +189,7 @@ exports.commands = {
 		amount = amount + SG.currencyName(amount);
 		total = total + SG.currencyName(total);
 		this.sendReply(username + " was given " + amount + ". " + username + " now has " + total + ".");
-		if (Users.get(username)) Users(username).popup(user.name + " has given you " + amount + ". You now have " + total + ".");
+		if (Users.get(username)) Users(username).popup("|html|" + SG.nameColor(user.name, true) + " has given you " + amount + ". You now have " + total + ".");
 		SG.logMoney(username + " was given " + amount + " by " + user.name + ". " + username + " now has " + total);
 	},
 	givemoneyhelp: ["/givemoney [user], [amount] - Give a user a certain amount of money."],
@@ -210,7 +210,7 @@ exports.commands = {
 		amount = amount + SG.currencyName(amount);
 		total = total + SG.currencyName(total);
 		this.sendReply(username + " losted " + amount + ". " + username + " now has " + total + ".");
-		if (Users.get(username)) Users(username).popup(user.name + " has taken " + amount + " from you. You now have " + total + ".");
+		if (Users.get(username)) Users(username).popup("|html|" + SG.nameColor(user.name, true) + " has taken " + amount + " from you. You now have " + total + ".");
 		SG.logMoney(username + " had " + amount + " taken away by " + user.name + ". " + username + " now has " + total);
 	},
 	takemoneyhelp: ["/takemoney [user], [amount] - Take a certain amount of money from a user."],
@@ -250,7 +250,7 @@ exports.commands = {
 		amount = amount + SG.currencyName(amount);
 
 		this.sendReply("You have successfully transferred " + amount + ". You now have " + userTotal + ".");
-		if (Users.get(username)) Users(username).popup(user.name + " has transferred " + amount + ". You now have " + targetTotal + ".");
+		if (Users.get(username)) Users(username).popup("|html|" + SG.nameColor(user.name, true) + " has transferred " + amount + ". You now have " + targetTotal + ".");
 		SG.logMoney(user.name + " transferred " + amount + " to " + username + ". " + user.name + " now has " + userTotal + " and " + username + " now has " + targetTotal + ".");
 	},
 	transfermoneyhelp: ["/transfer [user], [amount] - Transfer a certain amount of money to a user."],
@@ -294,7 +294,7 @@ exports.commands = {
 			return b.money - a.money;
 		});
 		keys.slice(0, 10).forEach(function (user, index) {
-			display += "<tr><td>" + (index + 1) + "</td><td>" + user.name + "</td><td>" + user.money + "</td></tr>";
+			display += "<tr><td>" + (index + 1) + "</td><td>" + SG.nameColor(user.name, true) + "</td><td>" + user.money + "</td></tr>";
 		});
 		display += "</tbody></table>";
 		this.sendReply("|raw|" + display);
