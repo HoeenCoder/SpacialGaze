@@ -169,7 +169,7 @@ exports.commands = {
 		if (!this.runBroadcast()) return;
 		if (!target) target = user.name;
 		const amount = Db('money').get(toId(target), 0);
-		this.sendReplyBox(SG.nameColor(target.userid, true) + " has " + amount + SG.currencyName(amount) + ".");
+		this.sendReplyBox(SG.nameColor(target, true) + " has " + amount + SG.currencyName(amount) + ".");
 	},
 	wallethelp: ["/wallet or /atm or /purse [user] - Shows the amount of money a user has."],
 
@@ -185,7 +185,6 @@ exports.commands = {
 		let amount = isMoney(parts[1]);
 
 		if (typeof amount === 'string') return this.errorReply(amount);
-
 		let total = Db('money').set(toId(username), Db('money').get(toId(username), 0) + amount).get(toId(username));
 		amount = amount + SG.currencyName(amount);
 		total = total + SG.currencyName(total);
