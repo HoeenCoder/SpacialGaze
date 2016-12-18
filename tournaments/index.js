@@ -1500,6 +1500,7 @@ Chat.commands.tournamenthelp = function (target, room, user) {
 		"- dq/disqualify &lt;user>: Disqualifies a user.<br />" +
 		"- autodq/setautodq &lt;minutes|off>: Sets the automatic disqualification timeout.<br />" +
 		"- runautodq: Manually run the automatic disqualifier.<br />" +
+		"- remind: Reminds current tournament users through PM.<br />" +
 		"- scouting &lt;allow|disallow>: Specifies whether joining tournament matches while in a tournament is allowed.<br />" +
 		"- modjoin &lt;allow|disallow>: Specifies whether players can modjoin their battles.<br />" +
 		"- forcetimer &lt;on|off>: Turn on the timer for tournament battles.<br />" +
