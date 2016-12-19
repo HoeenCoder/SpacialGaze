@@ -36,7 +36,7 @@ function reloadCustomAvatars() {
 	Config.customavatars = newCustomAvatars;
 }
 reloadCustomAvatars();
-Gold.readAvatars = reloadCustomAvatars;
+SG.readAvatars = reloadCustomAvatars;
 
 if (Config.watchConfig) {
 	fs.watchFile('./config/config.js', function (curr, prev) {
