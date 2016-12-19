@@ -1,191 +1,102 @@
-/**
- * Custom Avatar Script
- *
- * Deals with the handling of custom avatars.
- * Credits: kota, panpawn
- *
- * @license MIT license
- */
+/*
+	Credits to Creature Phil
+	Code from Showdown-Boilerplate
+	See: https://github.com/CreaturePhil/Showdown-Boilerplate/blob/master/chat-plugins/customavatar.js
+*/
 'use strict';
+/*eslint no-restricted-modules: [0]*/
 
 const fs = require('fs');
+const path = require('path');
+const request = require('request');
 
-function reloadCustomAvatars() {
-	let path = require('path');
-	let newCustomAvatars = {};
-	fs.readdirSync('./config/avatars').forEach(function (file) {
-		let ext = path.extname(file);
-		if (ext !== '.png' && ext !== '.gif') return;
+const AVATAR_PATH = path.join(__dirname, '../config/avatars/');
 
-		let user = toId(path.basename(file, ext));
-		newCustomAvatars[user] = file;
-		delete Config.customavatars[user];
-	});
+function download_image(image_url, name, extension) {
+	request
+		.get(image_url)
+		.on('error', function (err) {
+			console.error(err);
+		})
+		.on('response', function (response) {
+			if (response.statusCode !== 200) return;
+			const type = response.headers['content-type'].split('/');
+			if (type[0] !== 'image') return;
 
-	// Make sure the manually entered avatars exist
-	for (let a in Config.customavatars) {
-		if (typeof Config.customavatars[a] === 'number') {
-			newCustomAvatars[a] = Config.customavatars[a];
-		} else {
-			fs.exists('./config/avatars/' + Config.customavatars[a], function (user, file, isExists) {
-				if (isExists) Config.customavatars[user] = file;
-			}.bind(null, a, Config.customavatars[a]));
-		}
-	}
-
-	Config.customavatars = newCustomAvatars;
+			response.pipe(fs.createWriteStream(AVATAR_PATH + name + extension));
+		});
 }
-reloadCustomAvatars();
-SG.readAvatars = reloadCustomAvatars;
 
-if (Config.watchConfig) {
-	fs.watchFile('./config/config.js', function (curr, prev) {
-		if (curr.mtime <= prev.mtime) return;
-		reloadCustomAvatars();
+function load_custom_avatars() {
+	fs.readdir(AVATAR_PATH, function (err, files) {
+		if (!files) files = [];
+		files
+			.filter(function (file) {
+				return ['.jpg', '.png', '.gif'].indexOf(path.extname(file)) >= 0;
+			})
+			.forEach(function (file) {
+				const name = path.basename(file, path.extname(file));
+				Config.customavatars[name] = file;
+			});
 	});
 }
 
-const script = function () {
-/*
-	FILENAME=`mktemp`
-	function cleanup {
-		rm -f $FILENAME
-	}
-	trap cleanup EXIT
-
-	set -xe
-
-	timeout 10 wget "$1" -nv -O $FILENAME
-
-	FRAMES=`identify $FILENAME | wc -l`
-	if [ $FRAMES -gt 1 ]; then
-		EXT=".gif"
-	else
-		EXT=".png"
-	fi
-
-	timeout 10 convert $FILENAME -layers TrimBounds -coalesce -adaptive-resize 80x80\> -background transparent -gravity center -extent 80x80 "$2$EXT"
-*/
-}.toString().match(/[^]*\/\*([^]*)\*\//)[1];
-
-let pendingAdds = {};
+load_custom_avatars();
 
 exports.commands = {
-	sca: 'customavatar',
-	customavatars: 'customavatar',
-	customavatar: function (target, room, user) {
-		let globalUpper = user.can('roomowner');
-		let vipUser = function (targetUser) {
-			if (!targetUser) targetUser = user.userid;
-			if (targetUser === user.userid) {
-				return true;
-			}
-			return false;
-		};
+	customavatar: {
+		set: function (target, room, user) {
+			if (!this.can('customavatar')) return false;
 
-		let parts = target.split(',');
-		let cmd = parts[0].trim().toLowerCase();
+			const parts = target.split(',');
 
-		if (cmd in {'':1, show:1, view:1, display:1}) {
-			let message = "";
-			for (let a in Config.customavatars) {
-				message += "<strong>" + Chat.escapeHTML(a) + ":</strong> " + Chat.escapeHTML(Config.customavatars[a]) + "<br />";
-			}
-			return this.sendReplyBox(message);
-		}
+			if (parts.length < 2) return this.parse('/help customavatar');
 
-		switch (cmd) {
-		case 'set':
-			let userid = toId(parts[1]);
-			let targetUser = Users.getExact(userid);
+			const name = toId(parts[0]);
+			let image_url = parts[1];
+			if (image_url.match(/^https?:\/\//i)) image_url = 'http://' + image_url;
+			const ext = path.extname(image_url);
 
-			let avatar = parts.slice(2).join(',').trim();
-			if (!globalUpper && !vipUser(userid)) return false;
-
-			if (!userid) return this.sendReply("You didn't specify a user.");
-			if (Config.customavatars[userid]) return this.errorReply(userid + " already has a custom avatar.");
-
-			let hash2 = require('crypto').createHash('sha512').update(userid + '\u0000' + avatar).digest('hex').slice(0, 8);
-			pendingAdds[hash2] = {userid: userid, avatar: avatar};
-			parts[1] = hash2;
-
-			if (!targetUser) {
-				this.errorReply("Warning: " + userid + " is not online.");
-				this.errorReply("If you want to continue, use: /customavatar forceset, " + hash2);
-				return;
+			if (!name || !image_url) return this.parse('/help customavatar');
+			if (['.jpg', '.png', '.gif'].indexOf(ext) < 0) {
+				return this.errorReply("Image url must have .jpg, .png, or .gif extension.");
 			}
 
-	/* falls through */
-		case 'forceset':
-			if (user.avatarCooldown && !globalUpper) {
-				let milliseconds = (Date.now() - user.avatarCooldown);
-				let seconds = ((milliseconds / 1000) % 60);
-				let remainingTime = Math.round(seconds - (5 * 60));
-				if (((Date.now() - user.avatarCooldown) <= 5 * 60 * 1000)) return this.sendReply("You must wait " + (remainingTime - remainingTime * 2) + " seconds before setting another avatar.");
+			Config.customavatars[name] = name + ext;
+
+			download_image(image_url, name, ext);
+			this.sendReply(parts[0] + "'s avatar has been set.");
+			Users.get(name).popup(user.name + " set's your custom avatar. Refresh your page if you don\'t see it.");
+		},
+
+		delete: function (target, room, user) {
+			if (!this.can('customavatar')) return false;
+
+			const userid = toId(target);
+			const image = Config.customavatars[userid];
+
+			if (!image) {
+				return this.errorReply("This user does not have a custom avatar");
 			}
-			user.avatarCooldown = Date.now();
 
-			let hash = parts[1].trim();
-			if (!pendingAdds[hash]) return this.sendReply("Invalid hash.");
+			delete Config.customavatars[userid];
 
-			userid = pendingAdds[hash].userid;
-			avatar = pendingAdds[hash].avatar;
-			delete pendingAdds[hash];
-
-			require('child_process').execFile('bash', ['-c', script, '-', avatar, './config/avatars/' + userid], function (e, out, err) {
-				if (e) {
-					this.sendReply(userid + "'s custom avatar failed to be set. Script output:");
-					(out + err).split('\n').forEach(this.sendReply.bind(this));
-					return;
+			fs.unlink(AVATAR_PATH + image, function (err) {
+				if (err && err.code === 'ENOENT') {
+					this.errorReply("This user's avatar does not exist.");
+				} else if (err) {
+					console.error(err);
 				}
-
-				reloadCustomAvatars();
-
-				let targetUser = Users.getExact(userid);
-				if (targetUser) targetUser.avatar = Config.customavatars[userid];
-
-				this.sendReply(userid + "'s custom avatar has been set.");
-
-				Rooms.get('staff').add('|raw|' + SG.nameColor(userid, true) + ' has received a custom avatar from ' + SG.nameColor(user.name, true)).update();
-				Users.get(userid).popup('|modal||html|<font color="red"><strong>ATTENTION!</strong></font><br /> You have received a custom avatar from ' + SG.nameColor(user.userid, true) + ': <img src="' + avatar + '" width="80" height="80">');
-				room.update();
+				this.sendReply("This user's avatar has been successfully removed.");
 			}.bind(this));
-			break;
+		},
 
-		case 'remove':
-		case 'delete':
-			let targetUserid = toId(parts[1]);
-			if (!globalUpper && !vipUser(targetUserid)) return false;
-			if (!Config.customavatars[targetUserid]) return this.errorReply(targetUserid + " does not have a custom avatar.");
-
-			if (Config.customavatars[targetUserid].toString().split('.').slice(0, -1).join('.') !== targetUserid) {
-				return this.errorReply(targetUserid + "'s custom avatar (" + Config.customavatars[targetUserid] + ") cannot be removed with this script.");
-			}
-
-			if (Users.getExact(targetUserid)) Users.getExact(targetUserid).avatar = 1;
-
-			fs.unlink('./config/avatars/' + Config.customavatars[targetUserid], function (e) {
-				if (e) return this.errorReply(targetUserid + "'s custom avatar (" + Config.customavatars[targetUserid] + ") could not be removed: " + e.toString());
-
-				delete Config.customavatars[targetUserid];
-				this.sendReply(targetUserid + "'s custom avatar removed successfully");
-			}.bind(this));
-			break;
-
-		case 'reload':
-			if (!globalUpper) return false;
-			reloadCustomAvatars();
-			for (let leUsers of Users.users) {
-				leUsers = leUsers[1];
-				if (Config.customavatars[leUsers]) Users(leUsers).avatar = Config.customavatars[leUsers];
-			}
-			this.privateModCommand("(" + user.name + " has reloaded all custom avatars.)");
-			break;
-
-		default:
-			return this.parse("/help customavatar");
-		}
+		'': 'help',
+		help: function (target, room, user) {
+			this.parse('/help customavatar');
+		},
 	},
-	customavatarhelp: ["/customavatar [set/delete], [user], [link] - Sets or deletes a users custom avatar.  Requires VIP, &, ~",
-		"/customavatar reload - Reloads all current set custom avatars on the server. Requires ~"],
+	customavatarhelp: ["Commands for /customavatar are:",
+		"/customavatar set [username], [image link] - Set a user's avatar.",
+		"/customavatar delete [username] - Delete a user's avatar."],
 };
