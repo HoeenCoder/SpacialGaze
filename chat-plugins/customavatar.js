@@ -9,11 +9,12 @@
 'use strict';
 
 const fs = require('fs');
+let path = require('path');
+let AVATAR_PATH =  path.join(__dirname, '../config/avatars/');
 
 function reloadCustomAvatars() {
-	let path = require('path');
 	let newCustomAvatars = {};
-	fs.readdirSync('../config/avatars').forEach(function (file) {
+	fs.readdirSync(AVATAR_PATH).forEach(function (file) {
 		let ext = path.extname(file);
 		if (ext !== '.png' && ext !== '.gif') return;
 
