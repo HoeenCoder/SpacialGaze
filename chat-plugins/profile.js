@@ -14,7 +14,7 @@ let moment = require('moment');
 
 // fill in '' with the server IP
 let serverIp = Config.serverIp;
-geoip.startWatchingDataUpdate();
+//geoip.startWatchingDataUpdate();
 
 global.isVIP = function (user) {
 	if (!user) return;
