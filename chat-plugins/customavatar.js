@@ -39,7 +39,7 @@ reloadCustomAvatars();
 SG.readAvatars = reloadCustomAvatars;
 
 if (Config.watchConfig) {
-	fs.watchFile('./config/config.js', function (curr, prev) {
+	fs.watchFile('../config/config.js', function (curr, prev) {
 		if (curr.mtime <= prev.mtime) return;
 		reloadCustomAvatars();
 	});
