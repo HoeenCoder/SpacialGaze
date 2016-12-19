@@ -6,10 +6,11 @@
  * Updated and restyled by Mystifi; main profile restyle goes out to panpawn/jd/other contributors.
  **/
 'use strict';
+//TODO reimplement geoip-ultralight
 
 //let fs = require('fs');
 let moment = require('moment');
-let geoip = require('geoip-ultralight');
+//let geoip = require('geoip-ultralight');
 
 // fill in '' with the server IP
 let serverIp = Config.serverIp;
@@ -284,9 +285,11 @@ exports.commands = {
 		});
 
 		function getFlag(flagee) {
-			if (!Users(flagee)) return false;
+			return false;
+			/*if (!Users(flagee)) return false;
 			let geo = geoip.lookupCountry(Users(flagee).latestIp);
 			return (Users(flagee) && geo ? '<img src="https://github.com/kevogod/cachechu/blob/master/flags/' + geo.toLowerCase() + '.png?raw=true" height=10 title="' + geo + '">' : false);
+			*/
 		}
 
 		function getLastSeen(useid) {
