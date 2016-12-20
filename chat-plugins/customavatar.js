@@ -66,7 +66,7 @@ exports.commands = {
 
 			download_image(image_url, name, ext);
 			this.sendReply(parts[0] + "'s avatar has been set.");
-			Users.get(name).popup("|html|" + SG.nameColor(user.name, true) + " set's your custom avatar.<br /><img src='" + image_url + "' width='80' height='80'><br /> Refresh your page if you don\'t see it.");
+			Users.get(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><img src='" + image_url + "' width='80' height='80'><br /> Refresh your page if you don\'t see it.");
 		},
 
 		delete: function (target, room, user) {
