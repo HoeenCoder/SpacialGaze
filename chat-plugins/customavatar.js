@@ -39,7 +39,7 @@ function loadCustomAvatars() {
 		if (err) console.log("Error loading custom avatars: " + err);
 		if (!files) files = [];
 		files
-			.filter(file => VALID_EXTENSIONS.includes(path.extname(file)));
+			.filter(file => VALID_EXTENSIONS.includes(path.extname(file)))
 			.forEach(file => {
 				let name = path.basename(file, path.extname(file));
 				Config.customavatars[name] = file;
