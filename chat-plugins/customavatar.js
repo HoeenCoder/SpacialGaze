@@ -1,96 +1,97 @@
-/*
-	Credits to Creature Phil
-	Code from Showdown-Boilerplate
-	See: https://github.com/CreaturePhil/Showdown-Boilerplate/blob/master/chat-plugins/customavatar.js
+/**
+ * Custom avatars plugin.
+ *
+ * Credits to CreaturePhil and other contributors.
+ * See: https://github.com/CreaturePhil/Showdown-Boilerplate/blob/master/chat-plugins/customavatar.js
 */
+
 'use strict';
-/*eslint no-restricted-modules: [0]*/
+
+/* eslint no-restricted-modules: [0] */
 
 const fs = require('fs');
 const path = require('path');
 const request = require('request');
 
+// The path where custom avatars are stored.
 const AVATAR_PATH = path.join(__dirname, '../config/avatars/');
 
-function download_image(image_url, name, extension) {
+// The valid file extensions allowed.
+const VALID_EXTENSIONS = ['.jpg', '.png', '.gif'];
+
+function downloadImage(image_url, name, extension) {
 	request
 		.get(image_url)
-		.on('error', function (err) {
+		.on('error', err => {
 			console.error(err);
 		})
-		.on('response', function (response) {
+		.on('response', response => {
 			if (response.statusCode !== 200) return;
-			const type = response.headers['content-type'].split('/');
+			let type = response.headers['content-type'].split('/');
 			if (type[0] !== 'image') return;
 
 			response.pipe(fs.createWriteStream(AVATAR_PATH + name + extension));
 		});
 }
 
-function load_custom_avatars() {
-	fs.readdir(AVATAR_PATH, function (err, files) {
+function loadCustomAvatars() {
+	fs.readdir(AVATAR_PATH, (err, files) => {
+		if (err) console.log("Error loading custom avatars: " + err);
 		if (!files) files = [];
 		files
-			.filter(function (file) {
-				return ['.jpg', '.png', '.gif'].indexOf(path.extname(file)) >= 0;
-			})
-			.forEach(function (file) {
-				const name = path.basename(file, path.extname(file));
+			.filter(file => VALID_EXTENSIONS.includes(path.extname(file)));
+			.forEach(file => {
+				let name = path.basename(file, path.extname(file));
 				Config.customavatars[name] = file;
 			});
 	});
 }
 
-load_custom_avatars();
+loadCustomAvatars();
 
 exports.commands = {
 	customavatar: {
 		set: function (target, room, user) {
 			if (!this.can('customavatar')) return false;
-
-			const parts = target.split(',');
-
+			let parts = target.split(',').map(param => param.trim());
 			if (parts.length < 2) return this.parse('/help customavatar');
 
-			const name = toId(parts[0]);
-			let AVATAR_URL = parts[1];
-			if (AVATAR_URL.match(/^https?:\/\//i)) AVATAR_URL = 'http://' + AVATAR_URL;
-			const ext = path.extname(AVATAR_URL);
+			let name = toId(parts[0]);
+			let avatarUrl = parts[1];
+			if (avatarUrl.match(/^https?:\/\//i)) avatarUrl = 'http://' + avatarUrl;
+			let ext = path.extname(avatarUrl);
 
-			if (!name || !AVATAR_URL) return this.parse('/help customavatar');
-			if (['.jpg', '.png', '.gif'].indexOf(ext) < 0) {
+			if (!VALID_EXTENSIONS.includes(ext)) {
 				return this.errorReply("Image url must have .jpg, .png, or .gif extension.");
 			}
 
 			Config.customavatars[name] = name + ext;
 
-			download_image(AVATAR_URL, name, ext);
-			this.sendReply("|raw|" + name + "'s avatar has been set to: <img src='" + AVATAR_URL + "' width='80' height='80'> Successfully. ");
-			Users.get(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><center><img src='" + AVATAR_URL + "' width='80' height='80'></center><br /> Refresh your page if you don\'t see it.");
+			downloadImage(AVATAR_URL, name, ext);
+			this.sendReply("|raw|" + name + "'s avatar was successfully set. Avatar:<br /><img src='" + avatarUrl + "' width='80' height='80'>");
+			if (Users(name)) Users(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><center><img src='" + avatarUrl + "' width='80' height='80'></center><br /> Refresh your page if you don\'t see it.");
 		},
 
 		remove: 'delete',
 		delete: function (target, room, user) {
 			if (!this.can('customavatar')) return false;
 
-			const userid = toId(target);
-			const image = Config.customavatars[userid];
+			let userid = toId(target);
+			let image = Config.customavatars[userid];
 
-			if (!image) {
-				return this.errorReply(userid + " does not have a custom avatar");
-			}
+			if (!image) return this.errorReply(target + " does not have a custom avatar.");
 
 			delete Config.customavatars[userid];
-
-			fs.unlink(AVATAR_PATH + image, function (err) {
+			fs.unlink(AVATAR_PATH + image, err => {
 				if (err && err.code === 'ENOENT') {
-					this.errorReply(userid + "'s avatar does not exist.");
+					this.errorReply(target + "'s avatar does not exist.");
 				} else if (err) {
 					console.error(err);
 				}
-				Users.get(userid).popup("|html|" + SG.nameColor(user.name, true) + " has deleted your Custom Avatar.");
-				this.sendReply(userid + "'s avatar has been successfully removed.");
-			}.bind(this));
+
+				if (Users(userid)) Users(userid).popup("|html|" + SG.nameColor(user.name, true) + " has deleted your custom avatar.");
+				this.sendReply(target + "'s avatar has been successfully removed.");
+			});
 		},
 
 		'': 'help',
@@ -98,7 +99,9 @@ exports.commands = {
 			this.parse('/help customavatar');
 		},
 	},
-	customavatarhelp: ["Commands for /customavatar are:",
+
+	customavatarhelp: [
+		"Commands for /customavatar are:",
 		"/customavatar set [username], [image link] - Set a user's avatar.",
 		"/customavatar delete [username] - Delete a user's avatar."],
 };
