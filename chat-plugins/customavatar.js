@@ -64,7 +64,7 @@ exports.commands = {
 
 			Config.customavatars[name] = name + ext;
 
-			download_image(AVATAR, name, ext);
+			download_image(AVATAR_URL, name, ext);
 			this.sendReply("|raw|" + name + "'s avatar has been set to: <img src='" + AVATAR_URL + "' width='80' height='80'> Successfully. ");
 			Users.get(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><center><img src='" + AVATAR_URL + "' width='80' height='80'></center><br /> Refresh your page if you don\'t see it.");
 		},
