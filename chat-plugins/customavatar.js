@@ -53,22 +53,23 @@ exports.commands = {
 			if (parts.length < 2) return this.parse('/help customavatar');
 
 			const name = toId(parts[0]);
-			let image_url = parts[1];
-			if (image_url.match(/^https?:\/\//i)) image_url = 'http://' + image_url;
-			const ext = path.extname(image_url);
+			let AVATAR_URL = parts[1];
+			if (AVATAR_URL.match(/^https?:\/\//i)) AVATAR_URL = 'http://' + AVATAR_URL;
+			const ext = path.extname(AVATAR_URL);
 
-			if (!name || !image_url) return this.parse('/help customavatar');
+			if (!name || !AVATAR_URL) return this.parse('/help customavatar');
 			if (['.jpg', '.png', '.gif'].indexOf(ext) < 0) {
 				return this.errorReply("Image url must have .jpg, .png, or .gif extension.");
 			}
 
 			Config.customavatars[name] = name + ext;
 
-			download_image(image_url, name, ext);
+			download_image(AVATAR, name, ext);
 			this.sendReply(parts[0] + "'s avatar has been set.");
-			Users.get(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><img src='" + image_url + "' width='80' height='80'><br /> Refresh your page if you don\'t see it.");
+			Users.get(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><img src='" + AVATAR_URL + "' width='80' height='80'><br /> Refresh your page if you don\'t see it.");
 		},
 
+		remove: 'delete',
 		delete: function (target, room, user) {
 			if (!this.can('customavatar')) return false;
 
@@ -76,18 +77,19 @@ exports.commands = {
 			const image = Config.customavatars[userid];
 
 			if (!image) {
-				return this.errorReply("This user does not have a custom avatar");
+				return this.errorReply(userid + " does not have a custom avatar");
 			}
 
 			delete Config.customavatars[userid];
 
 			fs.unlink(AVATAR_PATH + image, function (err) {
 				if (err && err.code === 'ENOENT') {
-					this.errorReply("This user's avatar does not exist.");
+					this.errorReply(userid + "'s avatar does not exist.");
 				} else if (err) {
 					console.error(err);
 				}
-				this.sendReply("This user's avatar has been successfully removed.");
+				Users.get(userid).popup("|html|" + SG.nameColor(user.name, true) + " has deleted your Custom Avatar.");
+				this.sendReply(userid + "'s avatar has been successfully removed.");
 			}.bind(this));
 		},
 
