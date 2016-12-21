@@ -1,7 +1,7 @@
-'use strict';
 /*
- * Credits: Niisama 
- */
+* Credits: Niisama
+*/
+'use strict';
 
 function badgeImg(IMG_URL, name) {
 	return '<img src="' + IMG_URL + '" height="16" width="16" alt="' + name + '" title="' + name + '" >';
@@ -10,7 +10,7 @@ function badgeImg(IMG_URL, name) {
 exports.commands = {
 	badge: 'badges',
 	badges: function (target, room, user) {
-		const tr_css = 'style ="background: rgba(69, 76, 80, 0.6);border: 3px solid #FFF ;border-radius: 4px"';
+		const tr_css = 'style ="background: rgba(69, 76, 80, 0.8);border: 3px solid #FFF ;border-radius: 4px"';
 		const td_css = 'style ="background: rgba(69, 76, 80, 0.6);color: #FFF;padding: 5px;border: 1px solid #222;border: 3px solid #FFF;border-radius: 4px"'
 		let parts = target.split(',');
 		let cmd = parts[0].trim().toLowerCase();
