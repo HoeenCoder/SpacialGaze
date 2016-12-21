@@ -1,15 +1,17 @@
 'use strict';
-/**********************
- * Badges by a weeb for weebs *
- **********************/
+/*
+ * Credits: Niisama 
+ */
 
-function badgeImg(link, name) {
-	return '<img src="' + link + '" height="16" width="16" alt="' + name + '" title="' + name + '" >';
+function badgeImg(IMG_URL, name) {
+	return '<img src="' + IMG_URL + '" height="16" width="16" alt="' + name + '" title="' + name + '" >';
 }
 
 exports.commands = {
 	badge: 'badges',
 	badges: function (target, room, user) {
+		const tr_css = 'style ="background: rgba(69, 76, 80, 0.6);border: 3px solid #FFF ;border-radius: 4px"';
+		const td_css = 'style ="background: rgba(69, 76, 80, 0.6);color: #FFF;padding: 5px;border: 1px solid #222;border: 3px solid #FFF;border-radius: 4px"'
 		let parts = target.split(',');
 		let cmd = parts[0].trim().toLowerCase();
 		let userid, targetUser;
@@ -46,12 +48,12 @@ exports.commands = {
 			break;
 		case 'list':
 			if (!this.runBroadcast()) return;
-			output = '<table border="1">';
+			output = '<table>';
 			Object.keys(Db('badgeData').object()).forEach(badge => {
 				let badgeData = Db('badgeData').get(badge);
-				output += '<tr><td>' + badgeImg(badgeData[1], badge) + '</td> <td>' + badge + '</td> <td>' + badgeData[0] + '</td><tr>';
+				output += '<tr ' + tr_css + '> <td ' + td_css + '>' + badgeImg(badgeData[1], badge) + '</td> <td ' + td_css + '>' + badge + '</td> <td ' + td_css + '>' + badgeData[0] + '</td></tr>';
 			});
-			output += '<table>';
+			output += '</table>';
 			this.sendReply('|html|<div class = "infobox' + (this.broadcasting ? '-limited' : '') + '">' + output + '</div>');
 			break;
 		case 'info':
@@ -96,7 +98,7 @@ exports.commands = {
 			let usersBadges = Db('userBadges').get(userid);
 			for (let i in usersBadges) {
 				let badgeData = Db('badgeData').get(usersBadges[i]);
-				output += '<tr><td>' + badgeImg(badgeData[1], usersBadges[i]) + '</td> <td>' + usersBadges[i] + '</td> <td>' + badgeData[0] + '</td><tr>';
+				output += '<tr ' + tr_css + '><td ' + td_css + '>' + badgeImg(badgeData[1], usersBadges[i]) + '</td> <td ' + td_css + '>' + usersBadges[i] + '</td> <td ' + td_css + '>' + badgeData[0] + '</td><tr>';
 			}
 			/*Object.keys(Db('userBadges').get(userid)).forEach(badge =>
 				let badgeData = Db('badgeData').get(badge);
