@@ -15,7 +15,7 @@ exports.commands = {
 		const td_css = 'style ="background: rgba(69, 76, 80, 0.6);color: #FFF;padding: 5px;border: 1px solid #222;border: 3px solid #FFF;border-radius: 4px"';
 		let parts = target.split(',');
 		let cmd = parts[0].trim().toLowerCase();
-		let userid, targetUser;
+		let targetUser;
 		let selectedBadge;
 		let userBadges;
 		let output = '';
@@ -24,7 +24,7 @@ exports.commands = {
 		case 'set':
 			if (!this.can('lock')) return false;
 			if (parts.length !== 3) return this.errorReply("Correct command: `/badges set, user, badgeName`");
-			userid = toId(parts[1].trim());
+			let userid = toId(parts[1].trim());
 			targetUser = Users.getExact(userid);
 			userBadges = Db('userBadges').get(userid);
 			selectedBadge = parts[2].trim();
@@ -38,7 +38,6 @@ exports.commands = {
 			this.sendReply("The '" + selectedBadge + "' badge was given to '" + userid + "'.");
 			break;
 		case 'create':
-			let userid = toId(user.userid);
 			if (!this.can('ban')) return false;
 			if (parts.length !== 4) return this.errorReply("Correct command: `/badges create, badge name, description, image`.");
 			let badgeName = Chat.escapeHTML(parts[1].trim());
@@ -47,7 +46,7 @@ exports.commands = {
 			if (Db('badgeData').has(badgeName)) return this.errorReply('This badge already exists.');
 			Db('badgeData').set(badgeName, [description, img]);
 			this.logModCommand(user.name + " created the badge '" + badgeName + ".");
-			Users.get(userid).popup('|modal||html|You have succesfully created the badge ' + badgeName + '<img src ="' + img + '" width="16" height="16">');
+			Users.get(user.userid).popup('|modal||html|You have succesfully created the badge ' + badgeName + '<img src ="' + img + '" width="16" height="16">');
 			break;
 		case 'list':
 			if (!this.runBroadcast()) return;
@@ -70,15 +69,15 @@ exports.commands = {
 		case 'take':
 			if (!this.can('lock')) return false;
 			if (parts.length !== 3) return this.errorReply("Correct command: `/badges take, user, badgeName`");
-			userid = toId(parts[1].trim());
-			if (!Db('userBadges').has(userid)) return this.errorReply("This user doesn't have any badges.");
-			userBadges = Db('userBadges').get(userid);
+			let userId = toId(parts[1].trim());
+			if (!Db('userBadges').has(userId)) return this.errorReply("This user doesn't have any badges.");
+			userBadges = Db('userBadges').get(userId);
 			selectedBadge = parts[2].trim();
 			userBadges = userBadges.filter(b => b !== selectedBadge);
-			Db('userBadges').set(userid, userBadges);
-			this.logModCommand(user.name + " took the badge '" + selectedBadge + "' badge from " + userid + ".");
-			this.sendReply("The '" + selectedBadge + "' badge was taken from '" + userid + "'.");
-			Users.get(userid).popup('|modal||html|' + SG.nameColor(user.name, true) + ' has taken the ' + selectedBadge + ' <img src="' + Db('badgeData').get(selectedBadge)[1] + '" width="16" height="16">');
+			Db('userBadges').set(userId, userBadges);
+			this.logModCommand(user.name + " took the badge '" + selectedBadge + "' badge from " + userId + ".");
+			this.sendReply("The '" + selectedBadge + "' badge was taken from '" + userId + "'.");
+			Users.get(userId).popup('|modal||html|' + SG.nameColor(user.name, true) + ' has taken the ' + selectedBadge + ' <img src="' + Db('badgeData').get(selectedBadge)[1] + '" width="16" height="16">');
 			break;
 		case 'delete':
 			if (!this.can('ban')) return false;
@@ -96,10 +95,10 @@ exports.commands = {
 			if (!parts[1]) return this.errorReply('No target user was specified.');
 
 			if (!this.runBroadcast()) return;
-			userid = toId(parts[1].trim());
-			if (!Db('userBadges').has(userid)) return this.errorReply("This user doesn't have any badges.");
+			let userID = toId(parts[1].trim());
+			if (!Db('userBadges').has(userID)) return this.errorReply("This user doesn't have any badges.");
 			output = '<table>';
-			let usersBadges = Db('userBadges').get(userid);
+			let usersBadges = Db('userBadges').get(userID);
 			for (let i in usersBadges) {
 				let badgeData = Db('badgeData').get(usersBadges[i]);
 				output += '<tr ' + tr_css + '><td ' + td_css + '>' + badgeImg(badgeData[1], usersBadges[i]) + '</td> <td ' + td_css + '>' + usersBadges[i] + '</td> <td ' + td_css + '>' + badgeData[0] + '</td><tr>';
