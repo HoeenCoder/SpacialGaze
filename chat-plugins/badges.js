@@ -53,7 +53,7 @@ exports.commands = {
 			output = '<table>';
 			Object.keys(Db('badgeData').object()).forEach(badge => {
 				let badgeData = Db('badgeData').get(badge);
-				output += '<tr ' + tr_css + '> <td ' + td_css + '>' + badgeImg(badgeData[1], badge) + '</td> <td ' + td_css + '>' + badge + '</td> <td ' + td_css + '>' + badgeData[0] + '</td></tr>';
+				output += '<tr style="' + tr_css + '"> <td style="' + td_css + '">' + badgeImg(badgeData[1], badge) + '</td> <td style="' + td_css + '">' + badge + '</td> <td style="' + td_css + '">' + badgeData[0] + '</td></tr>';
 			});
 			output += '</table>';
 			this.sendReply('|html|<div class = "infobox' + (this.broadcasting ? '-limited' : '') + '">' + output + '</div>');
@@ -86,7 +86,6 @@ exports.commands = {
 			if (!Db('badgeData').has(selectedBadge)) return this.errorReply("This badge does not exist, please check /badges list");
 			Db('badgeData').delete(selectedBadge);
 			let badgeUserObject = Db('userBadges').object();
-			let users = Object.keys(badgeUserObject);
 			users.forEach(u => Db('userBadges').set(u, (badgeUserObject[u].filter(b => b !== selectedBadge))));
 			this.sendReply("The badge with the name '" + selectedBadge + "' deleted.");
 			this.logModCommand(user.name + " removed the badge '" + selectedBadge + ".");
@@ -101,7 +100,7 @@ exports.commands = {
 			let usersBadges = Db('userBadges').get(userID);
 			for (let i in usersBadges) {
 				let badgeData = Db('badgeData').get(usersBadges[i]);
-				output += '<tr ' + tr_css + '><td ' + td_css + '>' + badgeImg(badgeData[1], usersBadges[i]) + '</td> <td ' + td_css + '>' + usersBadges[i] + '</td> <td ' + td_css + '>' + badgeData[0] + '</td><tr>';
+				output += '<tr ' + tr_css + '><td style="' + td_css + '">' + badgeImg(badgeData[1], usersBadges[i]) + '</td> <td style="' + td_css + '">' + usersBadges[i] + '</td> <td style="' + td_css + '">' + badgeData[0] + '</td><tr>';
 			}
 			output += '<table>';
 			this.sendReply('|html|<div class = "infobox' + (this.broadcasting ? '-limited' : '') + '">' + output + '</div>');
