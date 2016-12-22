@@ -53,7 +53,7 @@ exports.commands = {
 			output = '<table>';
 			Object.keys(Db('badgeData').object()).forEach(badge => {
 				let badgeData = Db('badgeData').get(badge);
-				output += '<tr style="' + tr_css + '"> <td style="' + td_css + '">' + badgeImg(badgeData[1], badge) + '</td> <td style="' + td_css + '">' + badge + '</td> <td style="' + td_css + '">' + badgeData[0] + '</td></tr>';
+				output += '<tr ' + tr_css + '> <td ' + td_css + '>' + badgeImg(badgeData[1], badge) + '</td> <td ' + td_css + '>' + badge + '</td> <td ' + td_css + '>' + badgeData[0] + '</td></tr>';
 			});
 			output += '</table>';
 			this.sendReply('|html|<div class = "infobox' + (this.broadcasting ? '-limited' : '') + '">' + output + '</div>');
@@ -100,7 +100,7 @@ exports.commands = {
 			let usersBadges = Db('userBadges').get(userID);
 			for (let i in usersBadges) {
 				let badgeData = Db('badgeData').get(usersBadges[i]);
-				output += '<tr ' + tr_css + '><td style="' + td_css + '">' + badgeImg(badgeData[1], usersBadges[i]) + '</td> <td style="' + td_css + '">' + usersBadges[i] + '</td> <td style="' + td_css + '">' + badgeData[0] + '</td><tr>';
+				output += '<tr ' + tr_css + '><td ' + td_css + '>' + badgeImg(badgeData[1], usersBadges[i]) + '</td> <td ' + td_css + '>' + usersBadges[i] + '</td> <td ' + td_css + '>' + badgeData[0] + '</td><tr>';
 			}
 			output += '<table>';
 			this.sendReply('|html|<div class = "infobox' + (this.broadcasting ? '-limited' : '') + '">' + output + '</div>');
