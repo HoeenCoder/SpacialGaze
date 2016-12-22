@@ -64,7 +64,7 @@ exports.commands = {
 			selectedBadge = parts[1].trim();
 			if (!Db('badgeData').has(selectedBadge)) return this.errorReply("This badge does not exist, please check /badges list");
 			let badgeData = Db('badgeData').get(selectedBadge);
-			this.sendReplyBox(badgeImg(badgeData[1], selectedBadge) + selectedBadge + ': ' + badgeData[0]);
+			this.sendReplyBox('<table><tr ' + tr_css + '> <td ' + td_css + '>'  + badgeImg(badgeData[1], selectedBadge) + '</td> <td ' + td_css + '>' + selectedBadge + '</td> <td ' + td_css + '>' + badgeData[0] + '</td></tr></table>');
 			break;
 		case 'take':
 			if (!this.can('lock')) return false;
