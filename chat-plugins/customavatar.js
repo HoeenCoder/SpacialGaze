@@ -58,7 +58,7 @@ exports.commands = {
 
 			let name = toId(parts[0]);
 			let avatarUrl = parts[1];
-			if (avatarUrl.match(/^https?:\/\//i)) avatarUrl = 'http://' + avatarUrl;
+			if (!/^https?:\/\//i.test(avatarUrl)) avatarUrl = 'http://' + avatarUrl;
 			let ext = path.extname(avatarUrl);
 
 			if (!VALID_EXTENSIONS.includes(ext)) {
