@@ -60,11 +60,11 @@ exports.commands = {
 			break;
 		case 'info':
 			if (!this.runBroadcast()) return;
-			if (!parts[1]) return this.parse('/help badges')
+			if (!parts[1]) return this.parse('/help badges');
 			selectedBadge = parts[1].trim();
 			if (!Db('badgeData').has(selectedBadge)) return this.errorReply("This badge does not exist, please check /badges list");
 			let badgeData = Db('badgeData').get(selectedBadge);
-			this.sendReplyBox('<table><tr ' + tr_css + '> <td ' + td_css + '>'  + badgeImg(badgeData[1], selectedBadge) + '</td> <td ' + td_css + '>' + selectedBadge + '</td> <td ' + td_css + '>' + badgeData[0] + '</td></tr></table>');
+			this.sendReplyBox('<table><tr ' + tr_css + '> <td ' + td_css + '>' + badgeImg(badgeData[1], selectedBadge) + '</td> <td ' + td_css + '>' + selectedBadge + '</td> <td ' + td_css + '>' + badgeData[0] + '</td></tr></table>');
 			break;
 		case 'take':
 			if (!this.can('lock')) return false;
@@ -86,7 +86,7 @@ exports.commands = {
 			if (!Db('badgeData').has(selectedBadge)) return this.errorReply("This badge does not exist, please check /badges list");
 			Db('badgeData').delete(selectedBadge);
 			let badgeUserObject = Db('userBadges').object();
-			users.forEach(u => Db('userBadges').set(u, (badgeUserObject[u].filter(b => b !== selectedBadge))));
+			Users.users.forEach(u => Db('userBadges').set(u, (badgeUserObject[u].filter(b => b !== selectedBadge))));
 			this.sendReply("The badge with the name '" + selectedBadge + "' deleted.");
 			this.logModCommand(user.name + " removed the badge '" + selectedBadge + ".");
 			break;
@@ -111,11 +111,11 @@ exports.commands = {
 		}
 	},
 	badgeshelp: ["/badges - accepts the following commands:",
-		    		"/badges list - List all the badges.",
-		    		"/badges info, [badgeName] - Get information on a specific badge.",
-		     		"/badges create, [badgeName], [description], [image] - Create a badge. Requires Global @, &, or ~",
-		     		"/badges delete, [badge] - Delete a badge. Requires Global @, &, or ~",
-		    		"/badges set, [user], [badgeName] - Give a user a badge. Requires Global %, Global @, &, or ~",
-		    		"/badges take, [user], [badgeName] - Take a badge from a user. Requires Global %, Global @, &, or ~",
-		    		"/badges user, [user] - List a users badges."],
+				"/badges list - List all the badges.",
+				"/badges info, [badgeName] - Get information on a specific badge.",
+				"/badges create, [badgeName], [description], [image] - Create a badge. Requires Global @, &, or ~",
+				"/badges delete, [badge] - Delete a badge. Requires Global @, &, or ~",
+				"/badges set, [user], [badgeName] - Give a user a badge. Requires Global %, Global @, &, or ~",
+				"/badges take, [user], [badgeName] - Take a badge from a user. Requires Global %, Global @, &, or ~",
+				"/badges user, [user] - List a users badges."],
 };
