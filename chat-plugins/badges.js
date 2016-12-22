@@ -111,11 +111,11 @@ exports.commands = {
 		}
 	},
 	badgeshelp: ["/badges - accepts the following commands:",
-				"/badges list - List all the badges.",
-				"/badges info, [badgeName] - Get information on a specific badge.",
-				"/badges create, [badgeName], [description], [image] - Create a badge. Requires Global @, &, or ~",
-				"/badges delete, [badge] - Delete a badge. Requires Global @, &, or ~",
-				"/badges set, [user], [badgeName] - Give a user a badge. Requires Global %, Global @, &, or ~",
-				"/badges take, [user], [badgeName] - Take a badge from a user. Requires Global %, Global @, &, or ~",
-				"/badges user, [user] - List a users badges."],
+		"/badges list - List all the badges.",
+		"/badges info, [badgeName] - Get information on a specific badge.",
+		"/badges create, [badgeName], [description], [image] - Create a badge. Requires Global @, &, or ~",
+		"/badges delete, [badge] - Delete a badge. Requires Global @, &, or ~",
+		"/badges set, [user], [badgeName] - Give a user a badge. Requires Global %, Global @, &, or ~",
+		"/badges take, [user], [badgeName] - Take a badge from a user. Requires Global %, Global @, &, or ~",
+		"/badges user, [user] - List a users badges."],
 };
