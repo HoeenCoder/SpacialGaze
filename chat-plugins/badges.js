@@ -23,7 +23,7 @@ exports.commands = {
 		case 'give':
 		case 'set':
 			if (!this.can('lock')) return false;
-			if (parts.length !== 3) return this.errorReply("Correct command: `/badges set, user, badgeName`");
+			if (parts.length !== 3) return this.errorReply("Correct command: `/badges set, [user], [badgeName]`");
 			let userid = toId(parts[1].trim());
 			targetUser = Users.getExact(userid);
 			userBadges = Db('userBadges').get(userid);
@@ -39,7 +39,7 @@ exports.commands = {
 			break;
 		case 'create':
 			if (!this.can('ban')) return false;
-			if (parts.length !== 4) return this.errorReply("Correct command: `/badges create, badge name, description, image`.");
+			if (parts.length !== 4) return this.errorReply("Correct command: `/badges create, [badge name], [description], [image]`.");
 			let badgeName = Chat.escapeHTML(parts[1].trim());
 			let description = Chat.escapeHTML(parts[2].trim());
 			let img = parts[3].trim();
@@ -60,7 +60,7 @@ exports.commands = {
 			break;
 		case 'info':
 			if (!this.runBroadcast()) return;
-			if (!parts[1]) return this.errorReply("Invalid command. Valid commands are `/badges list`, `/badges info, badgeName`, `/badges set, user, badgeName` and `/badges take, user, badgeName`.");
+			if (!parts[1]) return this.parse('/help badges')
 			selectedBadge = parts[1].trim();
 			if (!Db('badgeData').has(selectedBadge)) return this.errorReply("This badge does not exist, please check /badges list");
 			let badgeData = Db('badgeData').get(selectedBadge);
@@ -81,7 +81,7 @@ exports.commands = {
 			break;
 		case 'delete':
 			if (!this.can('ban')) return false;
-			if (parts.length !== 2) return this.errorReply("Correct command: `/badges deleteall, badgeName`");
+			if (parts.length !== 2) return this.errorReply("Correct command: `/badges delete, badgeName`");
 			selectedBadge = parts[1].trim();
 			if (!Db('badgeData').has(selectedBadge)) return this.errorReply("This badge does not exist, please check /badges list");
 			Db('badgeData').delete(selectedBadge);
@@ -107,9 +107,15 @@ exports.commands = {
 
 			break;
 		default:
-			return this.errorReply("Invalid command. Valid commands are `/badges list`, `/badges info, badgeName`, `/badges set, user, badgeName` and `/badges take, user, badgeName`" +
-				"`/badges create, name, description, img`.");
+			return this.parse('/help badges');
 		}
 	},
-	badgeshelp: ["Valid commands are `/badges list`, `/badges info, badgeName`, `/badges set, user, badgeName` and `/badges take, user, badgeName`."],
+	badgeshelp: ["/badges - accepts the following commands:",
+		    		"/badges list - List all the badges.",
+		    		"/badges info, [badgeName] - Get information on a specific badge.",
+		     		"/badges create, [badgeName], [description], [image] - Create a badge. Requires Global @, &, or ~",
+		     		"/badges delete, [badge] - Delete a badge. Requires Global @, &, or ~",
+		    		"/badges set, [user], [badgeName] - Give a user a badge. Requires Global %, Global @, &, or ~",
+		    		"/badges take, [user], [badgeName] - Take a badge from a user. Requires Global %, Global @, &, or ~",
+		    		"/badges user, [user] - List a users badges."],
 };
