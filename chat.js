@@ -895,6 +895,10 @@ Chat.loadCommands = function () {
 		if (file.substr(-3) !== '.js' || file === 'info.js' || file === 'SG.js') continue;
 		Object.assign(commands, require('./chat-plugins/' + file).commands);
 	}
+	for (let file of fs.readdirSync(path.resolve(__dirname, 'spacialgaze-plugins'))) {
+		if (file.substr(-3) !== '.js') continue;
+		Object.assign(commands, require('./spacialgaze-plugins/' + file).commands);
+	}	
 };
 
 /**
