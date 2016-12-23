@@ -73,7 +73,7 @@ function showBadges(user) {
 			return output;
 		}
 	}
-	else return '';
+	return '';
 }
 
 function getLeague(userid) {
