@@ -68,7 +68,7 @@ try {
  *********************************************************/
 
 try {
-	require.resolve('./config/config');
+	require.resolve('./config/config.js');
 } catch (err) {
 	if (err.code !== 'MODULE_NOT_FOUND') throw err; // should never happen
 
@@ -78,16 +78,16 @@ try {
 		fs.readFileSync(path.resolve(__dirname, 'config/config-example.js'))
 	);
 } finally {
-	global.Config = require('./config/config');
+	global.Config = require('./config/config.js');
 }
 
 if (Config.watchconfig) {
-	let configPath = require.resolve('./config/config');
+	let configPath = require.resolve('./config/config.js');
 	fs.watchFile(configPath, (curr, prev) => {
 		if (curr.mtime <= prev.mtime) return;
 		try {
 			delete require.cache[configPath];
-			global.Config = require('./config/config');
+			global.Config = require('./config/config.js');
 			if (global.Users) Users.cacheGroupData();
 			console.log('Reloaded config/config.js');
 		} catch (e) {
