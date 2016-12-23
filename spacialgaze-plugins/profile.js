@@ -319,7 +319,7 @@ exports.commands = {
 				} else {
 					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + titleCheck(username) + '<br />';
 				}
-				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(username) + vipCheck(username) + ' ' + showBadges(toId(username)) + '<br />';
+				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(username) + vipCheck(username) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>' + global.currencyPlural + ':</b></font> ' + currency + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>League:</b></font> ' + (getLeague(toId(username)) ? (getLeague(toId(username)) + ' (' + getLeagueRank(toId(username)) + ')') : 'N/A') + '<br />';
