@@ -16,67 +16,73 @@ let moment = require('moment');
 let serverIp = Config.serverIp;
 //geoip.startWatchingDataUpdate();
 
-global.isVIP = function (user) {
-	if (!user) return;
-	if (typeof user === 'object') user = user.userid;
-	let vip = Db('vips').get(toId(user));
+global.isVIP = function (userid) {
+	if (!userid) return;
+	// We shouldn't be passing user objects in here, but just in case...
+	if (typeof userid === 'object' && ('userid' in userid)) userid = userid.userid;
+	let vip = Db('vips').get(userid);
 	if (vip === 1) return true;
 	return false;
 };
 
-global.isDev = function (user) {
-	if (!user) return;
-	if (typeof user === 'object') user = user.userid;
-	let dev = Db('devs').get(toId(user));
+global.isDev = function (userid) {
+	if (!userid) return;
+	// We shouldn't be passing user objects in here, but just in case...
+	if (typeof userid === 'object' && ('userid' in userid)) userid = userid.userid;
+	let dev = Db('devs').get(userid);
 	if (dev === 1) return true;
 	return false;
 };
 
-function formatTitle(user) {
-	if (Db('customtitles').has(toId(user)) && Db('titlecolors').has(toId(user))) {
-		return '<font color="' + Db('titlecolors').get(toId(user)) +
-			'">(<b>' + Db('customtitles').get(toId(user)) + '</b>)</font>';
+function formatTitle(userid) {
+	if (Db('customtitles').has(userid) && Db('titlecolors').has(userid)) {
+		return '<font color="' + Db('titlecolors').get(userid) + '">(<b>' + Db('customtitles').get(userid) + '</b>)</font>';
 	}
 	return '';
 }
 
-function titleCheck(user) {
-	if (Db('customtitles').has(toId(user)) && Db('titlecolors').has(toId(user))) {
-		return formatTitle(user);
+function titleCheck(userid) {
+	if (Db('customtitles').has(userid) && Db('titlecolors').has(userid)) {
+		return formatTitle(userid);
 	}
 	return '';
 }
 
-function devCheck(user) {
-	if (isDev(user)) return '<font color="#009320">(<b>Developer</b>)</font>';
+function devCheck(userid) {
+	if (userid) return '<font color="#009320">(<b>Developer</b>)</font>';
 	return '';
 }
 
-function vipCheck(user) {
-	if (isVIP(user)) return '<font color="#6390F0">(<b>VIP User</b>)</font>';
+function vipCheck(userid) {
+	if (isVIP(userid)) return '<font color="#6390F0">(<b>VIP User</b>)</font>';
 	return '';
 }
 
-function showTeam(user) {
+function showTeam(userid) {
 	let output = '';
-	let team = Db('pokemongoteams').get(user);
-	if (!Db('pokemongoteams').has(user)) return '';
-	if (team === 'instinct') {
+	let team = Db('pokemongoteams').get(userid, false);
+	if (!team) return '';
+	switch (team) {
+	case 'instinct':
 		output += '<font color="yellow"><b>Instinct</b></font><img src="http://www.pokemondecals.co.uk/wp-content/uploads/2016/07/team-instinct-cutout.png" width="16" height="16">';
-		}
-        if (team === 'mystic') {
+		break;
+	case 'mystic':
 		output += '<font color="blue"><b>Mystic</b></font><img src="https://jackaloupe.files.wordpress.com/2016/07/team-mystic-cutout1.png" width="16" height="16">';
-	}
-        if (team === 'valor') {
+		break;
+	case 'valor':
 		output += '<font color="red"><b>Valor</b></font><img src="https://jackaloupe.files.wordpress.com/2016/07/team-valor-cutout.png" width="16" height="16">';
+		break;
+	default:
+		// If this happens, someone manually edited the Db object...
+		return '';
 	}
 	return '&nbsp;<font color="#24678d"><b>Pokémon GO Team: </b></font>' + output + '<br />';
 }
 
-function showBadges(user) {
-	if (Db('userBadges').has(toId(user))) {
-		let badges = Db('userBadges').get(toId(user));
-		let css = 'border:none;background:none;padding:0;';
+function showBadges(userid) {
+	if (Db('userBadges').has(userid)) {
+		let badges = Db('userBadges').get(userid);
+		let css = 'border: none; background: none; padding: 0;';
 		if (typeof badges !== 'undefined' && badges !== null) {
 			let output = '<td><div style="float: right; background: rgba(69, 76, 80, 0.4); text-align: center; border-radius: 12px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset; margin: 0px 3px;">';
 			output += ' <table style="' + css + '"> <tr>';
@@ -91,6 +97,7 @@ function showBadges(user) {
 	}
 	return '';
 }
+
 /*
 function getLeague(userid) {
 	return false; //TEMPORARY
@@ -146,6 +153,7 @@ exports.commands = {
 			);
 		},
 	},
+
 	dev: {
 		give: function (target, room, user) {
 			if (!this.can('declare')) return false;
@@ -180,6 +188,7 @@ exports.commands = {
 			);
 		},
 	},
+
 	title: 'customtitle',
 	customtitle: {
 		set: 'give',
@@ -188,7 +197,6 @@ exports.commands = {
 			target = target.split(',');
 			if (!target || target.length < 3) return this.parse('/help', true);
 			let userid = toId(target[0]);
-			let targetUser = Users.getExact(userid);
 			let title = target[1].trim();
 			if (Db('customtitles').has(userid) && Db('titlecolors').has(userid)) {
 				return this.errorReply(userid + " already has a custom title.");
@@ -197,11 +205,11 @@ exports.commands = {
 			if (color.charAt(0) !== '#') return this.errorReply("The color needs to be a hex starting with '#'.");
 			Db('titlecolors').set(userid, color);
 			Db('customtitles').set(userid, title);
-			if (Users.get(targetUser)) {
-				Users(targetUser).popup(
+			if (Users(userid)) {
+				Users(userid).popup(
 					'|html|You have recieved a custom title from ' + SG.nameColor(user.name, true) + '.' +
-					'<br />Title: ' + formatTitle(toId(targetUser)) +
-					'<br />Title Hex Color: ' + Db('titlecolors').get(toId(targetUser))
+					'<br />Title: ' + formatTitle(userid) +
+					'<br />Title Hex Color: ' + Db('titlecolors').get(userid)
 				);
 			}
 			this.logModCommand(user.name + " set a custom title to " + userid + "'s profile.");
@@ -218,9 +226,7 @@ exports.commands = {
 			Db('titlecolors').delete(userid);
 			Db('customtitles').delete(userid);
 			if (Users.get(userid)) {
-				Users(userid).popup(
-					'|html|' + SG.nameColor(user.name, true) + " has removed your custom title."
-				);
+				Users(userid).popup('|html|' + SG.nameColor(user.name, true) + " has removed your custom title.");
 			}
 			this.logModCommand(user.name + " removed " + userid + "'s custom title.");
 			return this.sendReply(userid + "'s custom title and title color were removed from the server memory.");
@@ -230,15 +236,15 @@ exports.commands = {
 			if (!user.autoconfirmed) return this.errorReply("You need to be autoconfirmed to use this command.");
 			if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
 			if (!this.runBroadcast()) return;
-			return this.sendReplyBox(
-				'<center><code>/customtitle</code> commands<br />' +
+			let help = '<center><code>/customtitle</code> commands<br />' +
 				'All commands are nestled under the namespace <code>customtitle</code>.</center>' +
 				'<hr width="100%">' +
 				'- <code>[set|give] [username], [title], [hex color]</code>: Sets a user\'s custom title. Requires: & ~' +
-				'- <code>[take|remove] [username]</code>: Removes a user\'s custom title and erases it from the server. Requires: & ~'
-			);
+				'- <code>[take|remove] [username]</code>: Removes a user\'s custom title and erases it from the server. Requires: & ~';
+			return this.sendReplyBox(help);
 		},
 	},
+
 	fc: 'friendcode',
 	friendcode: {
 		add: 'set',
@@ -254,7 +260,7 @@ exports.commands = {
 			}
 			if (fc.length < 12) return this.errorReply("Your friend code needs to be 12 digits long.");
 			fc = fc.slice(0, 4) + '-' + fc.slice(4, 8) + '-' + fc.slice(8, 12);
-			Db('friendcodes').set(toId(user), fc);
+			Db('friendcodes').set(user.userid, fc);
 			return this.sendReply("Your friend code: " + fc + " has been saved to the server.");
 		},
 		remove: 'delete',
@@ -262,8 +268,8 @@ exports.commands = {
 			if (room.battle) return this.errorReply("Please use this command outside of battle rooms.");
 			if (!user.autoconfirmed) return this.errorReply("You must be autoconfirmed to use this command.");
 			if (!target) {
-				if (!Db('friendcodes').has(toId(user))) return this.errorReply("Your friend code isn't set.");
-				Db('friendcodes').delete(toId(user));
+				if (!Db('friendcodes').has(user.userid)) return this.errorReply("Your friend code isn't set.");
+				Db('friendcodes').delete(user.userid);
 				return this.sendReply("Your friend code has been deleted from the server.");
 			} else {
 				if (!this.can('lock')) return false;
@@ -277,21 +283,50 @@ exports.commands = {
 		help: function (target, room, user) {
 			if (room.battle) return this.errorReply("Please use this command outside of battle rooms.");
 			if (!user.autoconfirmed) return this.errorReply("You must be autoconfirmed to use this command.");
-			return this.sendReplyBox(
-				'<center><code>/friendcode</code> commands<br />' +
+			let help = '<center><code>/friendcode</code> commands<br />' +
 				'All commands are nestled under the namespace <code>friendcode</code>.</center>' +
 				'<hr width="100%">' +
 				'<code>[add|set] [code]</code>: Sets your friend code. Must be in the format 111111111111, 1111 1111 1111, or 1111-1111-1111.' +
 				'<br />' +
 				'<code>[remove|delete]</code>: Removes your friend code. Global staff can include <code>[username]</code> to delete a user\'s friend code.' +
 				'<br />' +
-				'<code>help</code>: Displays this help command.'
-			);
+				'<code>help</code>: Displays this help command.';
+			return this.sendReplyBox(help);
 		},
 	},
+
+	pokemongoteam: 'team',
+	team: {
+		join: 'set',
+		set: function (target, room, user) {
+			if (!user.autoconfirmed) return this.errorReply("You must be autoconfirmed to use this command.");
+			target = toId(target);
+			if (!target) return this.sendReply("/pokemongoteam [instinct|valor|mystic]: Sets your Pokemon GO team to either Instinct, Mystic, or Valor.");
+			let validTeams = ['instinct', 'mystic', 'valor'];
+			if (!validTeams.includes(target)) return this.errorReply(`Invalid team. Options are: ${validTeams.join(', ')}.`);
+			Db('pokemongoteams').set(user.userid, target);
+			return this.sendReply("Your Pokemon GO team was set to " + target + ". You can now see it displayed in your profile.");
+		},
+		leave: 'remove',
+		remove: function (target, room, user) {
+			target = toId(target);
+			if (!target) {
+				target = user.userid;
+				if (!Db('pokemongoteams').has(target)) return this.errorReply("You aren't currently in a Pokemon GO team.");
+				Db('pokemongoteams').delete(target);
+				return this.sendReply("You successfully removed your Pokemon GO team. It will no longer be displayed in your profile.");
+			} else {
+				if (!this.can('declare')) return this.errorReply("You don't have the sufficient rank to remove someone else's Pokemon GO team.");
+				if (!Db('pokemongoteams').has(target)) return this.errorReply("The specified user isn't currently in a Pokemon GO team.");
+				Db('pokemongoteams').delete(target);
+				return this.sendReply(`You successfully removed ${target} from their Pokemon GO team. It will no longer be displayed in their profile.`);
+			}
+		},
+	},
+
 	profile: function (target, room, user) {
 		target = toId(target);
-		if (!target) target = user.name;
+		if (!target) target = user.userid;
 		if (target.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
 		if (!this.runBroadcast()) return;
 		let self = this;
@@ -318,60 +353,40 @@ exports.commands = {
 			*/
 		}
 
-		function getLastSeen(useid) {
-			if (Users(userid) && Users(userid).connected) return '<font color = green><strong>Currently Online</strong>';
-			let seen = Db('seen').get(userid);
+		function getLastSeen(id) {
+			if (Users(id) && Users(id).connected) return '<font color = green><strong>Currently Online</strong>';
+			let seen = Db('seen').get(id);
 			if (!seen) return false;
 			return moment(seen).fromNow();
 		}
 
 		function showProfile() {
-			Economy.readMoney(toId(username), currency => {
+			Economy.readMoney(userid, currency => {
 				let profile = '';
-				profile += showBadges(toId(username));
+				profile += showBadges(userid);
 				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
-				if (!getFlag(toId(username))) {
+				if (!getFlag(userid)) {
 					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + titleCheck(username) + '<br />';
 				} else {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + titleCheck(username) + '<br />';
+					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(userid) + ' ' + titleCheck(username) + '<br />';
 				}
-				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(username) + vipCheck(username) + '<br />';
+				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(userid) + vipCheck(userid) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
-				profile += '&nbsp;<font color="#24678d"><b>' + global.currencyPlural + ':</b></font> ' + currency + '<br />';
+				profile += '&nbsp;<font color="#24678d"><b>' + currencyPlural + ':</b></font> ' + currency + '<br />';
 				//profile += '&nbsp;<font color="#24678d"><b>League:</b></font> ' + (getLeague(toId(username)) ? (getLeague(toId(username)) + ' (' + getLeagueRank(toId(username)) + ')') : 'N/A') + '<br />';
-				profile += showTeam(toId(username));
-				if (getLastSeen(toId(username))) {
-					profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> ' + getLastSeen(toId(username)) + '</font><br />';
+				if (getLastSeen(userid)) {
+					profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> ' + getLastSeen(userid) + '</font><br />';
 				} else {
 					profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> <font color = red><strong>Never</strong></font><br />';
 				}
-				if (Db('friendcodes').has(toId(username))) {
+				if (Db('friendcodes').has(userid)) {
 					profile += '&nbsp;<div style="display:inline-block;height:5px;width:80px;"></div><font color="#24678d"><b>Friend Code:</b></font> ' + Db('friendcodes').get(toId(username));
 				}
+				profile += showTeam(userid);
 				profile += '<br clear="all">';
 				self.sendReplyBox(profile);
 				room.update();
 			});
 		}
-	},
-	pokemongoteam: 'team',
-	team: {
-		join: 'set',
-		set: function (target, room, user) {
-			if (!target) return this.errorReply('INCORRECT USAGE. CORRECT USAGE: /jointeam (team name)');
-			if (user.team !== '') return this.errorReply("You are already in " + user.team);
-			let teams = ['valor', 'mystic', 'instinct'];
-			if (!teams.includes(target)) return this.errorReply('This is not a valid team. Choose Either Team Valor, Mystic, or Instinct');
-			Db('pokemongoteams').set(user.userid, target);
-			this.sendReply('You have successfully joined team: ' + target);
-			user.team = target;
-		},
-		leave: 'remove',
-		remove: function (target, room, user) {
-			if (user.team === '') return this.errorReply("You are not in any team.");
-			Db('pokemongoteams').delete(user.userid);
-			this.sendReply("You have left ." + user.team);
-			user.team = "";
-		},
 	},
 };
