@@ -57,6 +57,22 @@ function vipCheck(user) {
 	return '';
 }
 
+function showTeam(user) {
+	let output = '';
+	let team = Db('pokemongoteams').get(user);
+	if(!Db('pokemongoteams').has(user)) return '';
+		if(team === 'instinct'){
+			output += '<font color="yellow"><b>Instinct</b></font><img src="http://www.pokemondecals.co.uk/wp-content/uploads/2016/07/team-instinct-cutout.png" width="16" height="16">';
+		}
+        if(team === 'mystic'){
+			output += '<font color="blue"><b>Mystic</b></font><img src="https://jackaloupe.files.wordpress.com/2016/07/team-mystic-cutout1.png" width="16" height="16">';
+		}
+        if(team === 'valor'){
+			output += '<font color="red"><b><i>Valor</i></b></font><img src="https://jackaloupe.files.wordpress.com/2016/07/team-valor-cutout.png" width="16" height="16">';
+		}
+	return '&nbsp;<font color="#24678d"><b>Pokémon GO Team: </b></font>' + output + '<br />';
+}
+
 function showBadges(user) {
 	if (Db('userBadges').has(toId(user))) {
 		let badges = Db('userBadges').get(toId(user));
@@ -323,6 +339,7 @@ exports.commands = {
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>' + global.currencyPlural + ':</b></font> ' + currency + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>League:</b></font> ' + (getLeague(toId(username)) ? (getLeague(toId(username)) + ' (' + getLeagueRank(toId(username)) + ')') : 'N/A') + '<br />';
+				profile += showTeam(toId(username));
 				if (getLastSeen(toId(username))) {
 					profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> ' + getLastSeen(toId(username)) + '</font><br />';
 				} else {
@@ -337,4 +354,24 @@ exports.commands = {
 			});
 		}
 	},
+	pokemongoteam: 'team',
+	team: {
+		join: 'set',
+		set: function (target, room, user) {
+			if(!target) return this.errorReply('INCORRECT USAGE. CORRECT USAGE: /jointeam (team name)');
+			if(user.team !== '') return this.errorReply("You are already in " + user.team);
+			let teams = ['valor', 'mystic', 'instinct'];
+			if(!teams.includes(target)) return this.errorReply('This is not a valid team. Choose Either Team Valor, Mystic, or Instinct');
+			Db('pokemongoteams').set(user.userid, target);
+			this.sendReply('You have successfully joined team: ' + target);
+			user.team = target;
+		},
+		leave: 'remove',
+		remove: function (target, room, user) {
+			if(user.team === '') return this.errorReply("You are not in any team.")
+			Db('pokemongoteams').delete(user.userid);
+			this.sendReply("You have left ." + user.team);
+			user.team = "";
+		},
+	},	
 };
