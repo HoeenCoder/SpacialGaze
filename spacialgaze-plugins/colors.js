@@ -265,7 +265,7 @@ let mainCustomColors = {
 // hashColor function
 function hashColor(name) {
 	name = toId(name);
-	if (mainCustomColors[name]) name = mainCustomColors[name];
+	if (mainCustomColors[name]) return mainCustomColors[name];
 	if (customColors[name]) return customColors[name];
 	if (colorCache[name]) return colorCache[name];
 	let hash = MD5(name);
