@@ -78,7 +78,7 @@ exports.commands = {
 		if (!buffer.length) return connection.popup("This server has no global authority.");
 		connection.send("|popup||html|" + buffer.join("\n\n"));
 	},
-	
+
 	roomauthority: 'roomauthlist',
 	roomstaff: 'roomauthlist',
 	roomauth: 'roomauthlist',
@@ -115,7 +115,7 @@ exports.commands = {
 		if (targetRoom !== room) buffer.unshift("" + targetRoom.title + " room auth:");
 		connection.send("|popup||html|" + buffer.join("\n\n") + userLookup);
 	},
-	
+
 	autovoice: 'autorank',
 	autodriver: 'autorank',
 	autobot: 'autorank',
@@ -129,7 +129,7 @@ exports.commands = {
 			break;
 		case 'autobot':
 			target = '*';
-			break;			
+			break;	
 		case 'autodriver':
 			target = '%';
 			break;
@@ -138,7 +138,7 @@ exports.commands = {
 			break;
 		case 'autoleader':
 			target = '&';
-			break;			
+			break;	
 		case 'autoowner':
 			target = '#';
 			break;
@@ -166,7 +166,7 @@ exports.commands = {
 			return this.privateModCommand("(" + user.name + " has set autorank to \"" + target + "\" in this room.)");
 		}
 		return this.sendReply("Group \"" + target + "\" not found.");
-	},	
+	},
 
 	clearall: function (target, room, user) {
 		if (!this.can('declare')) return false;
