@@ -65,6 +65,14 @@ function formatProfile(userid) {
 	return '<div style="background:url(' + background + '); cursor:url(' + cursor + ') , auto ; color:' + colorHex + ';">';
 }
 
+function showAcePokemon(userid) {
+	if(!Db('aces').has(userid)) return '';
+	let ace = Db('aces').get(userid);
+	let api = "http://play.pokemonshowdown.com/sprites/xyani/";
+	let ACE_IMG = api + ace + ".gif";
+	return "<img src='" + ACE_IMG + "' style='float:right'>";
+}
+
 function showTeam(userid) {
 	let output = '';
 	let team = Db('pokemongoteams').get(userid, false);
@@ -394,12 +402,34 @@ exports.commands = {
 	deletecustomprofilecursor: 'deletecursor',
 	deletecursor: function (target, room, user) {
 		if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deletetext');
+		if (!target) return this.parse('/help deletecursor');
 		let targetUser = target.toLowerCase().trim();
 		if (!Db('profilecursors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
 		Db('profilecursors').delete(targetUser);
 		this.sendReply(target + '\'s custom profile text color was deleted.');
 	},
+	
+	setace:'setacepokemon',
+	setacepokemon : function (target, room, user) {
+        if(!this.can('roomowner')) return false;
+		let parts = target.split(',');
+		if(!parts[1]) return this.parse('/help setacepokemon');
+		let targetUser = parts[0].toLowerCase().trim();
+		let ace = parts[1].trim().toLowerCase();
+		Db('aces').set(targetUser, ace);
+		this.sendReply(targetUser + '\'s ace has been set.');
+		this.parse('/profile ' + targetUser);
+	},
+	
+	deleteace: 'deleteacepokemon',
+	deleteprofilebackground: function (target, room, user) {
+        if(!this.can('roomowner')) return false;
+		if(!target) return this.parse('/help deleteacepokemon');		
+		let targetUser = target.toLowerCase().trim();
+		if(!Db('aces').has(targetUser)) return this.errorReply('This user does not have a ace.');
+		Db('aces').delete(targetUser);
+		this.sendReply(target + '\'s background was deleted.');
+	},	
 
 	profile: function (target, room, user) {
 		target = toId(target);
@@ -444,6 +474,7 @@ exports.commands = {
 				profile += formatProfile(userid);
 				profile += showBadges(userid);
 				profile += '<button style="' + css + '" name="parseCommand" value="/user ' + toId(userid) + '" title="' + toId(userid) + '">' + '<img src="' + avatar + '" height="80" width="80">' + '</button>';
+				profile += showAcePokemon(userid);
 				if (!getFlag(userid)) {
 					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + titleCheck(username) + '<br />';
 				} else {
