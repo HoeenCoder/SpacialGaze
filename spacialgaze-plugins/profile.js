@@ -58,6 +58,13 @@ function vipCheck(userid) {
 	return '';
 }
 
+function formatProfile(userid) {
+	let background = Db('profilebackgrounds').get(userid);
+	let colorHex = Db('profiletextcolors').get(userid);
+	let cursor = Db('profilecursors').get(userid);
+	return '<div style="background:url(' + background + '); cursor:url(' + cursor + ') , auto ; color:' + colorHex + ';">';
+}
+
 function showTeam(userid) {
 	let output = '';
 	let team = Db('pokemongoteams').get(userid, false);
@@ -323,6 +330,76 @@ exports.commands = {
 			}
 		},
 	},
+	
+	setbackground:'setprofilebackground',
+	setprofilebackground : function (target, room, user) {
+        	if(!this.can('roomowner')) return false;
+		let parts = target.split(',');
+		if(!parts[1]) return this.parse('/help setprofilebackground');
+		let targetUser = parts[0].toLowerCase().trim();
+		let IMG_URL = parts[1].trim();
+		Db('profilebackgrounds').set(targetUser, IMG_URL);
+		this.sendReply(targetUser + '\'s custom profile background has been set.');
+		this.parse('/profile ' + targetUser);
+	},
+	
+	deletebackground: 'deleteprofilebackground',
+	deleteprofilebackground: function (target, room, user) {
+        	if(!this.can('roomowner')) return false;
+		if(!target) return this.parse('/help deleteprofilebackground');		
+		let targetUser = target.toLowerCase().trim();
+		if(!Db('profilebackgrounds').has(targetUser)) return this.errorReply('This user does not have a custom background.');
+		Db('profilebackgrounds').delete(targetUser);
+		this.sendReply(target + '\'s background was deleted.');
+	},
+	
+	setprofiletextcolor: 'settext',
+	settextcolor:'settext',
+	settext : function (target, room, user) {
+        	if(!this.can('roomowner')) return false;
+		let parts = target.split(',');
+        	if(!parts[1]) return this.parse('/help settext');
+		let targetUser = parts[0].toLowerCase().trim();
+		let colorHex = parts[1].trim();
+		Db('profiletextcolors').set(targetUser, colorHex);
+		this.sendReply(targetUser + '\'s custom profile text color has been set to : ' + colorHex);
+		this.parse('/profile ' + targetUser);
+	},
+	
+	deleteprofiletextcolor: 'deletetext',
+	deletetextcolor: 'deletetext',
+	deletetext: function (target, room, user) {
+        	if(!this.can('roomowner')) return false;
+		if(!target) return this.parse('/help deletetext');		
+        	let targetUser = target.toLowerCase().trim();
+		if(!Db('profiletextcolors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
+		Db('profiletextcolors').delete(targetUser);
+		this.sendReply(target + '\'s custom profile text color was deleted.');
+	},
+	
+	setprofilecursor: 'setcursor',
+	setcustomprofilecursor:'setcursor',
+	setcursor : function (target, room, user) {
+        	if(!this.can('roomowner')) return false;
+		let parts = target.split(',');
+		if(!parts[1]) return this.parse('/help setcursor');
+		let targetUser = parts[0].toLowerCase().trim();
+		let CURSOR_URL = parts[1].trim();
+		Db('profilecursors').set(targetUser, CURSOR_URL);
+		this.sendReply(targetUser + '\'s custom profile text color has been set.');
+		this.parse('/profile ' + targetUser);
+	},
+	
+	deleteprofiletextcolor: 'deletetext',
+	deletetextcolor: 'deletetext',
+	deletetext: function (target, room, user) {
+        	if(!this.can('roomowner')) return false;
+		if(!target) return this.parse('/help deletetext');		
+        	let targetUser = target.toLowerCase().trim();
+		if(!Db('profilecursors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
+		Db('profilecursors').delete(targetUser);
+		this.sendReply(target + '\'s custom profile text color was deleted.');
+	},		
 
 	profile: function (target, room, user) {
 		target = toId(target);
@@ -388,5 +465,5 @@ exports.commands = {
 				room.update();
 			});
 		}
-	},
+	},	
 };
