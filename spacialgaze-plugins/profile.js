@@ -346,7 +346,7 @@ exports.commands = {
 	deletebackground: 'deleteprofilebackground',
 	deleteprofilebackground: function (target, room, user) {
 		if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deleteprofilebackground');	
+		if (!target) return this.parse('/help deleteprofilebackground');
 		let targetUser = target.toLowerCase().trim();
 		if (!Db('profilebackgrounds').has(targetUser)) return this.errorReply('This user does not have a custom background.');
 		Db('profilebackgrounds').delete(targetUser);
@@ -370,9 +370,9 @@ exports.commands = {
 	deletetextcolor: 'deletetext',
 	deletetext: function (target, room, user) {
 		if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deletetext');	
+		if (!target) return this.parse('/help deletetext');
 		let targetUser = target.toLowerCase().trim();
-		if(!Db('profiletextcolors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
+		if (!Db('profiletextcolors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
 		Db('profiletextcolors').delete(targetUser);
 		this.sendReply(target + '\'s custom profile text color was deleted.');
 	},
@@ -390,16 +390,16 @@ exports.commands = {
 		this.parse('/profile ' + targetUser);
 	},
 
-	deleteprofiletextcolor: 'deletetext',
-	deletetextcolor: 'deletetext',
-	deletetext: function (target, room, user) {
+	deleteprofilecursor: 'deletecursor',
+	deletecustomprofilecursor: 'deletecursor',
+	deletecursor: function (target, room, user) {
 		if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deletetext');	
+		if (!target) return this.parse('/help deletetext');
 		let targetUser = target.toLowerCase().trim();
 		if (!Db('profilecursors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
 		Db('profilecursors').delete(targetUser);
 		this.sendReply(target + '\'s custom profile text color was deleted.');
-	},	
+	},
 
 	profile: function (target, room, user) {
 		target = toId(target);
@@ -440,7 +440,7 @@ exports.commands = {
 		function showProfile() {
 			Economy.readMoney(userid, currency => {
 				let profile = '';
-				profile += formatProfile(userid);			
+				profile += formatProfile(userid);		
 				profile += showBadges(userid);
 				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
 				if (!getFlag(userid)) {
