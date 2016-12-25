@@ -440,6 +440,7 @@ exports.commands = {
 		function showProfile() {
 			Economy.readMoney(userid, currency => {
 				let profile = '';
+				profile += formatProfile(userid);				
 				profile += showBadges(userid);
 				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
 				if (!getFlag(userid)) {
