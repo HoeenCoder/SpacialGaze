@@ -129,7 +129,7 @@ exports.commands = {
 			break;
 		case 'autobot':
 			target = '*';
-			break;	
+			break;
 		case 'autodriver':
 			target = '%';
 			break;
@@ -138,7 +138,7 @@ exports.commands = {
 			break;
 		case 'autoleader':
 			target = '&';
-			break;	
+			break;
 		case 'autoowner':
 			target = '#';
 			break;
