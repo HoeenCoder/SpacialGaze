@@ -440,9 +440,10 @@ exports.commands = {
 		function showProfile() {
 			Economy.readMoney(userid, currency => {
 				let profile = '';
+				let css = 'border:none;background:none;padding:0;float:left;';
 				profile += formatProfile(userid);
 				profile += showBadges(userid);
-				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
+				profile += '<button style="' + css + '" name="parseCommand" value="/user ' + toId(userid) + '" title="' + toId(userid) + '">' + '<img src="' + avatar + '" height="80" width="80">';
 				if (!getFlag(userid)) {
 					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + titleCheck(username) + '<br />';
 				} else {
