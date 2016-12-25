@@ -50,76 +50,69 @@ exports.commands = {
 	authlist: 'gal',
 	auth: 'gal',
 	gal: function (target, room, user, connection) {
+		if (target) {
+			let targetRoom = Rooms.search(target);
+			let unavailableRoom = targetRoom && targetRoom.checkModjoin(user);
+			if (targetRoom && !unavailableRoom) return this.parse('/roomauth1 ' + target);
+			return this.parse('/userauth ' + target);
+		}
+		let rankLists = {};
 		let ranks = Object.keys(Config.groups);
-		let persons = [];
 		for (let u in Users.usergroups) {
 			let rank = Users.usergroups[u].charAt(0);
-			if (ranks.indexOf(rank) >= 0) {
+			if (rank === ' ') continue;
+			// In case the usergroups.csv file is not proper, we check for the server ranks.
+			if (ranks.includes(rank)) {
 				let name = Users.usergroups[u].substr(1);
-				persons.push({
-					name: name,
-					rank: rank,
-				});
+				if (!rankLists[rank]) rankLists[rank] = [];
+				if (name) rankLists[rank].push(SG.nameColor(name, (Users(name) && Users(name).connected)));
 			}
 		}
-		let staff = {
-			"admins": [],
-			"leaders": [],
-			"bots": [],
-			"mods": [],
-			"drivers": [],
-			"voices": [],
-		};
-		persons = persons.sort((a, b) => toId(a.name).localeCompare(toId(b.name))); // No need to return, arrow functions with single lines have an implicit return
-		function nameColor(name) {
-			if (Users.getExact(name) && Users(name).connected) {
-				return '<b><i><font color="' + hashColorWithCustoms(name) + '">' + Chat.escapeHTML(Users.getExact(name).name) + '</font></i></b>';
-			} else {
-				return '<font color="' + hashColorWithCustoms(name) + '">' + Chat.escapeHTML(name) + '</font>';
-			}
-		}
-		for (let j = 0; j < persons.length; j++) {
-			let rank = persons[j].rank;
-			let person = persons[j].name;
-			switch (rank) {
-			case '~':
-				staff['admins'].push(nameColor(person));
-				break;
-			case '&':
-				staff['leaders'].push(nameColor(person));
-				break;
-			case '*':
-				staff['bots'].push(nameColor(person));
-				break;
-			case '@':
-				staff['mods'].push(nameColor(person));
-				break;
-			case '%':
-				staff['drivers'].push(nameColor(person));
-				break;
-			case '+':
-				staff['voices'].push(nameColor(person));
-				break;
-			default:
-				continue;
 
-			}
-		}
-		connection.popup('|html|' +
-			'<h3>SpacialGaze Authority List</h3>' +
-			'<b><u>~Administrators (' + staff['admins'].length + ')</u></b>:<br />' + staff['admins'].join(', ') +
-			'<br />' +
-			'<br /><b><u>&Leaders (' + staff['leaders'].length + ')</u></b>:<br />' + staff['leaders'].join(', ') +
-			'<br />' +
-			'<br /><b><u>*Bots (' + staff['bots'].length + ')</u></b><br />' + staff['bots'].join(', ') +
-			'<br />' +
-			'<br /><b><u>@Moderators (' + staff['mods'].length + ')</u></b>:<br />' + staff['mods'].join(', ') +
-			'<br />' +
-			'<br /><b><u>%Drivers (' + staff['drivers'].length + ')</u></b>:<br />' + staff['drivers'].join(', ') +
-			'<br />' +
-			'<br /><b><u>+Voices (' + staff['voices'].length + ')</u></b>:<br />' + staff['voices'].join(', ') +
-			'<br /><br /><blink>(<b>Bold</b> / <i>Italic</i> = Currently Online)</blink>'
+		let buffer = Object.keys(rankLists).sort((a, b) =>
+			(Config.groups[b] || {rank: 0}).rank - (Config.groups[a] || {rank: 0}).rank
+		).map(r =>
+			(Config.groups[r] ? "<b>" + Config.groups[r].name + "s</b> (" + r + ")" : r) + ":\n" + rankLists[r].sort((a, b) => toId(a).localeCompare(toId(b))).join(", ")
 		);
+
+		if (!buffer.length) return connection.popup("This server has no global authority.");
+		connection.send("|popup||html|" + buffer.join("\n\n"));
+	},
+	roomauthority: 'roomauthlist',
+	roomstaff: 'roomauthlist',
+	roomauth: 'roomauthlist',
+	roomauthlist: function (target, room, user, connection, cmd) {
+		let userLookup = '';
+		if (cmd === 'roomauth1') userLookup = '\n\nTo look up auth for a user, use /userauth ' + target;
+		let targetRoom = room;
+		if (target) targetRoom = Rooms.search(target);
+		if (!targetRoom || targetRoom.id === 'global' || !targetRoom.checkModjoin(user)) return this.errorReply(`The room "${target}" does not exist.`);
+		if (!targetRoom.auth) return this.sendReply("/roomauth - The room '" + (targetRoom.title || target) + "' isn't designed for per-room moderation and therefore has no auth list." + userLookup);
+
+		let rankLists = {};
+		for (let u in targetRoom.auth) {
+			if (!rankLists[targetRoom.auth[u]]) rankLists[targetRoom.auth[u]] = [];
+			rankLists[targetRoom.auth[u]].push(u);
+		}
+
+		let buffer = Object.keys(rankLists).sort((a, b) =>
+			(Config.groups[b] || {rank:0}).rank - (Config.groups[a] || {rank:0}).rank
+		).map(r => {
+			let roomRankList = rankLists[r].sort();
+			roomRankList = roomRankList.map(s => ((Users(s) && Users(s).connected) ? SG.nameColor(s, true) : SG.nameColor(s)));
+			return (Config.groups[r] ? Chat.escapeHTML(Config.groups[r].name) + "s (" + Chat.escapeHTML(r) + ")" : r) + ":\n" + roomRankList.join(", ");
+		});
+
+		if (!buffer.length) {
+			connection.popup("The room '" + targetRoom.title + "' has no auth." + userLookup);
+			return;
+		}
+		if (targetRoom.founder) {
+			buffer.unshift((targetRoom.founder ? "Room Founder:\n" + ((Users(targetRoom.founder) && Users(targetRoom.founder).connected) ? SG.nameColor(targetRoom.founder, true) : SG.nameColor(targetRoom.founder)) : ''));
+		}
+		if (room.autorank) buffer.unshift("Autorank is currently set to " + Config.groups[room.autorank].name + " (" + room.autorank + ")");
+		if (targetRoom !== room) buffer.unshift("" + targetRoom.title + " room auth:");
+		connection.send("|popup||html|" + buffer.join("\n\n") + userLookup);
 	},
 
 	clearall: function (target, room, user) {
