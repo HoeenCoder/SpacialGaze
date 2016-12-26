@@ -16,23 +16,27 @@ let moment = require('moment');
 let serverIp = Config.serverIp;
 //geoip.startWatchingDataUpdate();
 
-global.isVIP = function (userid) {
+
+function isVIP(user) {
 	if (!userid) return;
 	// We shouldn't be passing user objects in here, but just in case...
 	if (typeof userid === 'object' && ('userid' in userid)) userid = userid.userid;
 	let vip = Db('vips').get(userid);
+
 	if (vip === 1) return true;
 	return false;
-};
+}
 
-global.isDev = function (userid) {
+
+function isDev(user) {
 	if (!userid) return;
 	// We shouldn't be passing user objects in here, but just in case...
 	if (typeof userid === 'object' && ('userid' in userid)) userid = userid.userid;
 	let dev = Db('devs').get(userid);
+
 	if (dev === 1) return true;
 	return false;
-};
+}
 
 function formatTitle(userid) {
 	if (Db('customtitles').has(userid) && Db('titlecolors').has(userid)) {
