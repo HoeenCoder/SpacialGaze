@@ -411,7 +411,7 @@ exports.commands = {
 
 	setace:'setacepokemon',
 	setacepokemon : function (target, room, user) {
-        	if (!this.can('roomowner')) return false;
+		if (!this.can('roomowner')) return false;
 		let parts = target.split(',');
 		if (!parts[1]) return this.parse('/help setacepokemon');
 		let targetUser = parts[0].toLowerCase().trim();
@@ -420,11 +420,11 @@ exports.commands = {
 		this.sendReply(targetUser + '\'s ace has been set.');
 		this.parse('/profile ' + targetUser);
 	},
-	
+
 	deleteace: 'deleteacepokemon',
 	deleteacepokemon: function (target, room, user) {
-        	if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deleteacepokemon');		
+		if (!this.can('roomowner')) return false;
+		if (!target) return this.parse('/help deleteacepokemon');
 		let targetUser = target.toLowerCase().trim();
 		if (!Db('aces').has(targetUser)) return this.errorReply('This user does not have a ace.');
 		Db('aces').delete(targetUser);
