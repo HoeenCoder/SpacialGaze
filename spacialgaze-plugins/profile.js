@@ -66,7 +66,7 @@ function formatProfile(userid) {
 }
 
 function showAcePokemon(userid) {
-	if(!Db('aces').has(userid)) return '';
+	if (!Db('aces').has(userid)) return '';
 	let ace = Db('aces').get(userid);
 	let api = "http://play.pokemonshowdown.com/sprites/xyani/";
 	let ACE_IMG = api + ace + ".gif";
@@ -408,12 +408,12 @@ exports.commands = {
 		Db('profilecursors').delete(targetUser);
 		this.sendReply(target + '\'s custom profile text color was deleted.');
 	},
-	
+
 	setace:'setacepokemon',
 	setacepokemon : function (target, room, user) {
-        if(!this.can('roomowner')) return false;
+        	if (!this.can('roomowner')) return false;
 		let parts = target.split(',');
-		if(!parts[1]) return this.parse('/help setacepokemon');
+		if (!parts[1]) return this.parse('/help setacepokemon');
 		let targetUser = parts[0].toLowerCase().trim();
 		let ace = parts[1].trim().toLowerCase();
 		Db('aces').set(targetUser, ace);
@@ -423,13 +423,13 @@ exports.commands = {
 	
 	deleteace: 'deleteacepokemon',
 	deleteacepokemon: function (target, room, user) {
-        if(!this.can('roomowner')) return false;
-		if(!target) return this.parse('/help deleteacepokemon');		
+        	if(!this.can('roomowner')) return false;
+		if (!target) return this.parse('/help deleteacepokemon');		
 		let targetUser = target.toLowerCase().trim();
-		if(!Db('aces').has(targetUser)) return this.errorReply('This user does not have a ace.');
+		if (!Db('aces').has(targetUser)) return this.errorReply('This user does not have a ace.');
 		Db('aces').delete(targetUser);
 		this.sendReply(target + '\'s background was deleted.');
-	},	
+	},
 
 	profile: function (target, room, user) {
 		target = toId(target);
