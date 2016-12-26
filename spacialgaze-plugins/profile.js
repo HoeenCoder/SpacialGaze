@@ -423,7 +423,7 @@ exports.commands = {
 	
 	deleteace: 'deleteacepokemon',
 	deleteacepokemon: function (target, room, user) {
-        	if(!this.can('roomowner')) return false;
+        	if (!this.can('roomowner')) return false;
 		if (!target) return this.parse('/help deleteacepokemon');		
 		let targetUser = target.toLowerCase().trim();
 		if (!Db('aces').has(targetUser)) return this.errorReply('This user does not have a ace.');
