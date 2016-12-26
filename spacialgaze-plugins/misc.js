@@ -110,7 +110,7 @@ exports.commands = {
 		}
 		if (targetRoom !== room) buffer.unshift("" + targetRoom.title + " room auth:");
 		connection.send("|popup||html|" + buffer.join("\n\n") + userLookup);
-	},	
+	},
 
 	clearall: function (target, room, user) {
 		if (!this.can('declare')) return false;
