@@ -1224,11 +1224,9 @@ let commands = {
 		},
 		remind: function (tournament, user) {
 			let offlineUsers = [];
-			tournament.generator.getAvailableMatches().toString().split(",").forEach(u => {
+			tournament.generator.getAvailableMatches().toString().split(',').forEach(u => {
 				let targetUser = Users.get(u);
-				if (!targetUser) {
-					offlineUsers.push(u);
-				} else if (!targetUser.connected) {
+				if (!targetUser.connected) {
 					offlineUsers.push(targetUser.userid);
 				} else {
 					let pmName = ' Tour Remind [Do not reply]';
