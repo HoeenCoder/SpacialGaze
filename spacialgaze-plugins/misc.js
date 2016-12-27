@@ -79,6 +79,7 @@ exports.commands = {
 		connection.send("|popup||html|" + buffer.join("\n\n"));
 	},
 
+	roomauth1: 'roomauthlist',
 	roomauthority: 'roomauthlist',
 	roomstaff: 'roomauthlist',
 	roomauth: 'roomauthlist',
