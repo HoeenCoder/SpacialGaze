@@ -121,7 +121,7 @@ function lastActive(userid) {
 	if (!Users(userid)) return false;
 	userid = Users(userid);
 	return (userid && userid.lastMessageTime ? moment(userid.lastMessageTime).fromNow() : "hasn't talked yet");
-}		
+}
 
 function getLastSeen(userid) {
 	if (Users(userid) && Users(userid).connected) {
