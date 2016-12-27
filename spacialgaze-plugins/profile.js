@@ -95,7 +95,7 @@ function showTeam(userid) {
 		// If this happens, someone manually edited the Db object...
 		return '';
 	}
-	return '&nbsp;<font color="#24678d"><b>Pokémon GO Team: </b></font>' + output + '<br />';
+	return '&nbsp;<div style="display:inline-block;height:5px;width:80px;"></div><font color="#24678d"><b>Pokémon GO Team: </b></font>' + output + '<br />';
 }
 
 function showBadges(userid) {
