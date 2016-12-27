@@ -117,6 +117,21 @@ function showBadges(userid) {
 	return '';
 }
 
+function lastActive(userid) {
+	if (!Users(userid)) return false;
+	userid = Users(userid);
+	return (userid && userid.lastMessageTime ? moment(userid.lastMessageTime).fromNow() : "hasn't talked yet");
+}		
+
+function getLastSeen(userid) {
+	if (Users(userid) && Users(userid).connected) {
+		return '&nbsp;<font color="#24678d"><b>Last Active:</b></font>' + lastActive(userid) + '<br />';
+	}
+	let seen = Db('seen').get(userid);
+	if (!seen) return '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> <b><font color="red">Never</font></b><br />';
+	return '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> ' + moment(seen).fromNow() + '<br />';
+}
+
 /*
 function getLeague(userid) {
 	return false; //TEMPORARY
@@ -464,13 +479,6 @@ exports.commands = {
 			*/
 		}
 
-		function getLastSeen(id) {
-			if (Users(id) && Users(id).connected) return '<font color = green><strong>Currently Online</strong>';
-			let seen = Db('seen').get(id);
-			if (!seen) return false;
-			return moment(seen).fromNow();
-		}
-
 		function showProfile() {
 			Economy.readMoney(userid, currency => {
 				let profile = '';
@@ -488,11 +496,7 @@ exports.commands = {
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>' + currencyPlural + ':</b></font> ' + currency + '<br />';
 				//profile += '&nbsp;<font color="#24678d"><b>League:</b></font> ' + (getLeague(toId(username)) ? (getLeague(toId(username)) + ' (' + getLeagueRank(toId(username)) + ')') : 'N/A') + '<br />';
-				if (getLastSeen(userid)) {
-					profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> ' + getLastSeen(userid) + '</font><br />';
-				} else {
-					profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> <font color = red><strong>Never</strong></font><br />';
-				}
+				profile += getLastSeen(userid);
 				if (Db('friendcodes').has(userid)) {
 					profile += '&nbsp;<div style="display:inline-block;height:5px;width:80px;"></div><font color="#24678d"><b>Friend Code:</b></font> ' + Db('friendcodes').get(toId(username));
 				}
