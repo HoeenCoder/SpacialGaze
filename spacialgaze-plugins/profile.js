@@ -17,7 +17,7 @@ let serverIp = Config.serverIp;
 //geoip.startWatchingDataUpdate();
 
 
-function isVIP(user) {
+function isVIP(userid) {
 	if (!userid) return;
 	// We shouldn't be passing user objects in here, but just in case...
 	if (typeof userid === 'object' && ('userid' in userid)) userid = userid.userid;
@@ -28,7 +28,7 @@ function isVIP(user) {
 }
 
 
-function isDev(user) {
+function isDev(userid) {
 	if (!userid) return;
 	// We shouldn't be passing user objects in here, but just in case...
 	if (typeof userid === 'object' && ('userid' in userid)) userid = userid.userid;
