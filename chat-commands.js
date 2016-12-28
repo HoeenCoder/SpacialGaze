@@ -48,23 +48,23 @@ exports.commands = {
 		let ranks = Object.keys(Config.groups);
 		for (let u in Users.usergroups) {
 			let rank = Users.usergroups[u].charAt(0);
-			if (rank === ' ' || rank === '+') continue;
+			if (rank === ' ') continue;
 			// In case the usergroups.csv file is not proper, we check for the server ranks.
 			if (ranks.includes(rank)) {
 				let name = Users.usergroups[u].substr(1);
 				if (!rankLists[rank]) rankLists[rank] = [];
-				if (name) rankLists[rank].push(name);
+				if (name) rankLists[rank].push(SG.nameColor(name, (Users(name) && Users(name).connected)));
 			}
 		}
 
 		let buffer = Object.keys(rankLists).sort((a, b) =>
 			(Config.groups[b] || {rank: 0}).rank - (Config.groups[a] || {rank: 0}).rank
 		).map(r =>
-			(Config.groups[r] ? "**" + Config.groups[r].name + "s** (" + r + ")" : r) + ":\n" + rankLists[r].sort((a, b) => toId(a).localeCompare(toId(b))).join(", ")
+			(Config.groups[r] ? "<b>" + Config.groups[r].name + "s</b> (" + r + ")" : r) + ":\n" + rankLists[r].sort((a, b) => toId(a).localeCompare(toId(b))).join(", ")
 		);
 
 		if (!buffer.length) return connection.popup("This server has no global authority.");
-		connection.popup(buffer.join("\n\n"));
+		connection.send("|popup||html|" + buffer.join("\n\n"));
 	},
 	authhelp: ["/auth - Show global staff for the server.",
 		"/auth [room] - Show what roomauth a room has.",
