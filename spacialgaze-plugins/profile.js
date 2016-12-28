@@ -332,8 +332,7 @@ exports.commands = {
 		},
 	},
 
-	pokemongoteam: 'team',
-	team: {
+	pokemongoteam: {
 		join: 'set',
 		set: function (target, room, user) {
 			if (!user.autoconfirmed) return this.errorReply("You must be autoconfirmed to use this command.");
