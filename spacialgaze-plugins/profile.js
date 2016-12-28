@@ -79,9 +79,9 @@ function showAcePokemon(userid) {
 
 function showPokemonGOTeam(userid) {
 	let output = '';
-	let team = Db('pokemongoteams').get(userid, false);
-	if (!team) return '';
-	switch (team) {
+	let pokemongoteam = Db('pokemongoteams').get(userid, false);
+	if (!pokemongoteam) return '';
+	switch (pokemongoteam) {
 	case 'instinct':
 		output += '<font color="yellow"><b>Instinct</b></font><img src="http://www.pokemondecals.co.uk/wp-content/uploads/2016/07/team-instinct-cutout.png" width="16" height="16">';
 		break;
