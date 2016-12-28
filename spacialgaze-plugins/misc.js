@@ -53,7 +53,7 @@ exports.commands = {
 		if (target) {
 			let targetRoom = Rooms.search(target);
 			let unavailableRoom = targetRoom && targetRoom.checkModjoin(user);
-			if (targetRoom && !unavailableRoom) return this.parse('/roomauth1 ' + target);
+			if (targetRoom && !unavailableRoom) return this.parse('/roomauthlist ' + target);
 			return this.parse('/userauth ' + target);
 		}
 		let rankLists = {};
@@ -79,13 +79,10 @@ exports.commands = {
 		connection.send("|popup||html|" + buffer.join("\n\n"));
 	},
 
-	roomauth1: 'roomauthlist',
 	roomauthority: 'roomauthlist',
 	roomstaff: 'roomauthlist',
 	roomauth: 'roomauthlist',
 	roomauthlist: function (target, room, user, connection, cmd) {
-		let userLookup = '';
-		if (cmd === 'roomauth1') userLookup = '\n\nTo look up auth for a user, use /userauth ' + target;
 		let targetRoom = room;
 		if (target) targetRoom = Rooms.search(target);
 		if (!targetRoom || targetRoom.id === 'global' || !targetRoom.checkModjoin(user)) return this.errorReply(`The room "${target}" does not exist.`);
@@ -110,7 +107,7 @@ exports.commands = {
 			return;
 		}
 		if (targetRoom !== room) buffer.unshift("" + targetRoom.title + " room auth:");
-		connection.send("|popup||html|" + buffer.join("\n\n") + userLookup);
+		connection.send("|popup||html|" + buffer.join("\n\n"));
 	},
 
 	clearall: function (target, room, user) {
