@@ -360,96 +360,100 @@ exports.commands = {
 		},
 	},
 
-	setbackground:'setprofilebackground',
-	setprofilebackground : function (target, room, user) {
-		if (!this.can('roomowner')) return false;
-		let parts = target.split(',');
-		if (!parts[1]) return this.parse('/help setprofilebackground');
-		let targetUser = parts[0].toLowerCase().trim();
-		let IMG_URL = parts[1].trim();
-		Db('profilebackgrounds').set(targetUser, IMG_URL);
-		this.sendReply(targetUser + '\'s custom profile background has been set.');
-		this.parse('/profile ' + targetUser);
+	background:'profilebackground',
+	profilebackground: {
+		set: function (target, room, user) {
+			if (!this.can('roomowner')) return false;
+			let parts = target.split(',');
+			if (!parts[1]) return this.parse('/profilebackground help');
+			let targetUser = parts[0].toLowerCase().trim();
+			let IMG_URL = parts[1].trim();
+			Db('profilebackgrounds').set(targetUser, IMG_URL);
+			this.sendReply(targetUser + '\'s custom profile background has been set.');
+			this.parse('/profile ' + targetUser);
+		},
+		delete: 'remove',
+		remove: function (target, room, user) {
+			if (!this.can('roomowner')) return false;
+			if (!target) return this.parse('/profilebackground help');
+			let targetUser = target.toLowerCase().trim();
+			if (!Db('profilebackgrounds').has(targetUser)) return this.errorReply('This user does not have a custom background.');
+			Db('profilebackgrounds').delete(targetUser);
+			this.sendReply(target + '\'s background was deleted.');
+		},
 	},
 
-	deletebackground: 'deleteprofilebackground',
-	deleteprofilebackground: function (target, room, user) {
-		if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deleteprofilebackground');
-		let targetUser = target.toLowerCase().trim();
-		if (!Db('profilebackgrounds').has(targetUser)) return this.errorReply('This user does not have a custom background.');
-		Db('profilebackgrounds').delete(targetUser);
-		this.sendReply(target + '\'s background was deleted.');
+	profiletextcolor: 'text',
+	textcolor:'text',
+	profiletextcolor: 'text',
+	textcolor:'text',
+	text: {
+		set: function (target, room, user) {
+			if (!this.can('roomowner')) return false;
+			let parts = target.split(',');
+			if (!parts[1]) return this.parse('/text help');
+			let targetUser = parts[0].toLowerCase().trim();
+			let colorHex = parts[1].trim();
+			Db('profiletextcolors').set(targetUser, colorHex);
+			this.sendReply(targetUser + '\'s custom profile text color has been set to : ' + colorHex);
+			this.parse('/profile ' + targetUser);
+		},
+		delete: 'remove',
+		remove: function (target, room, user) {
+			if (!this.can('roomowner')) return false;
+			if (!target) return this.parse('/text help');
+			let targetUser = target.toLowerCase().trim();
+			if (!Db('profiletextcolors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
+			Db('profiletextcolors').delete(targetUser);
+			this.sendReply(target + '\'s custom profile text color was deleted.');
+		},
 	},
 
-	setprofiletextcolor: 'settext',
-	settextcolor:'settext',
-	settext : function (target, room, user) {
-		if (!this.can('roomowner')) return false;
-		let parts = target.split(',');
-		if (!parts[1]) return this.parse('/help settext');
-		let targetUser = parts[0].toLowerCase().trim();
-		let colorHex = parts[1].trim();
-		Db('profiletextcolors').set(targetUser, colorHex);
-		this.sendReply(targetUser + '\'s custom profile text color has been set to : ' + colorHex);
-		this.parse('/profile ' + targetUser);
-	},
-
-	deleteprofiletextcolor: 'deletetext',
-	deletetextcolor: 'deletetext',
-	deletetext: function (target, room, user) {
-		if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deletetext');
-		let targetUser = target.toLowerCase().trim();
-		if (!Db('profiletextcolors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
-		Db('profiletextcolors').delete(targetUser);
-		this.sendReply(target + '\'s custom profile text color was deleted.');
-	},
-
-	setprofilecursor: 'setcursor',
-	setcustomprofilecursor:'setcursor',
-	setcursor : function (target, room, user) {
-		if (!this.can('roomowner')) return false;
-		let parts = target.split(',');
-		if (!parts[1]) return this.parse('/help setcursor');
-		let targetUser = parts[0].toLowerCase().trim();
-		let CURSOR_URL = parts[1].trim();
-		Db('profilecursors').set(targetUser, CURSOR_URL);
-		this.sendReply(targetUser + '\'s custom profile text color has been set.');
-		this.parse('/profile ' + targetUser);
-	},
-
-	deleteprofilecursor: 'deletecursor',
-	deletecustomprofilecursor: 'deletecursor',
-	deletecursor: function (target, room, user) {
-		if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deletecursor');
-		let targetUser = target.toLowerCase().trim();
-		if (!Db('profilecursors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
-		Db('profilecursors').delete(targetUser);
-		this.sendReply(target + '\'s custom profile text color was deleted.');
+	profilecursor: 'cursor',
+	customprofilecursor:'cursor',
+	cursor: {
+		set: function (target, room, user) {
+			if (!this.can('roomowner')) return false;
+			let parts = target.split(',');
+			if (!parts[1]) return this.parse('/cursor help');
+			let targetUser = parts[0].toLowerCase().trim();
+			let CURSOR_URL = parts[1].trim();
+			Db('profilecursors').set(targetUser, CURSOR_URL);
+			this.sendReply(targetUser + '\'s custom profile text color has been set.');
+			this.parse('/profile ' + targetUser);
+		},
+		delete: 'remove',
+		remove: function (target, room, user) {
+			if (!this.can('roomowner')) return false;
+			if (!target) return this.parse('/cursor help');
+			let targetUser = target.toLowerCase().trim();
+			if (!Db('profilecursors').has(targetUser)) return this.errorReply('This user does not have a custom profile text color.');
+			Db('profilecursors').delete(targetUser);
+			this.sendReply(target + '\'s custom profile text color was deleted.');
+		},
 	},
 
 	setace:'setacepokemon',
-	setacepokemon : function (target, room, user) {
-		if (!this.can('roomowner')) return false;
-		let parts = target.split(',');
-		if (!parts[1]) return this.parse('/help setacepokemon');
-		let targetUser = parts[0].toLowerCase().trim();
-		let ace = parts[1].trim().toLowerCase();
-		Db('aces').set(targetUser, ace);
-		this.sendReply(targetUser + '\'s ace has been set.');
-		this.parse('/profile ' + targetUser);
-	},
-
-	deleteace: 'deleteacepokemon',
-	deleteacepokemon: function (target, room, user) {
-		if (!this.can('roomowner')) return false;
-		if (!target) return this.parse('/help deleteacepokemon');
-		let targetUser = target.toLowerCase().trim();
-		if (!Db('aces').has(targetUser)) return this.errorReply('This user does not have a ace.');
-		Db('aces').delete(targetUser);
-		this.sendReply(target + '\'s background was deleted.');
+	acepokemon: {
+		set: function (target, room, user) {
+			if (!this.can('roomowner')) return false;
+			let parts = target.split(',');
+			if (!parts[1]) return this.parse('/acepokemon help');
+			let targetUser = parts[0].toLowerCase().trim();
+			let ace = parts[1].trim().toLowerCase();
+			Db('aces').set(targetUser, ace);
+			this.sendReply(targetUser + '\'s ace has been set.');
+			this.parse('/profile ' + targetUser);
+		},
+		delete: 'remove',
+		remove: function (target, room, user) {
+			if (!this.can('roomowner')) return false;
+			if (!target) return this.parse('/acepokemon help');
+			let targetUser = target.toLowerCase().trim();
+			if (!Db('aces').has(targetUser)) return this.errorReply('This user does not have a ace.');
+			Db('aces').delete(targetUser);
+			this.sendReply(target + '\'s ace was deleted.');
+		},
 	},
 
 	profile: function (target, room, user) {
