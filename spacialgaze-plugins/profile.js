@@ -53,7 +53,7 @@ function titleCheck(userid) {
 }
 
 function devCheck(userid) {
-	if (userid) return '<font color="#009320">(<b>Developer</b>)</font>';
+	if (isDev(userid)) return '<font color="#009320">(<b>Developer</b>)</font>';
 	return '';
 }
 
