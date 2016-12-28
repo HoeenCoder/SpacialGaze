@@ -490,11 +490,11 @@ exports.commands = {
 				profile += '<button style="' + css + '" name="parseCommand" value="/user ' + toId(userid) + '" title="' + toId(userid) + '">' + '<img src="' + avatar + '" height="80" width="80">' + '</button>';
 				profile += showAcePokemon(userid);
 				if (!getFlag(userid)) {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + titleCheck(username) + '<br />';
+					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + titleCheck(username) + vipCheck(userid) + '<br />';
 				} else {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(userid) + ' ' + titleCheck(username) + '<br />';
+					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(userid) + ' ' + titleCheck(username) + vipCheck(userid) + '<br />';
 				}
-				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(userid) + vipCheck(userid) + '<br />';
+				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(userid) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>' + currencyPlural + ':</b></font> ' + currency + '<br />';
 				//profile += '&nbsp;<font color="#24678d"><b>League:</b></font> ' + (getLeague(toId(username)) ? (getLeague(toId(username)) + ' (' + getLeagueRank(toId(username)) + ')') : 'N/A') + '<br />';			
