@@ -128,6 +128,8 @@ class Draft {
 		if (!oldpick) return self.errorReply('ERROR: No pokemon with this pick has been found.');
 		if (!Tools.data.Pokedex[mon]) return self.errorReply('This is not a pokemon.');
 		if (this.draftedMons.includes(mon)) return self.errorReply('This pokemon has already been drafted by someone.');
+		let oldpickDraftSpot = this.draftedMons.indexOf(oldpick);
+		this.draftedMons[oldpickDraftSpot] = mon;
 		this.teams[team].draftpicks[pick - 1] = mon;
 		this.file.set('teams', this.teams);
 		this.room.add('|html|<div style="' + greencss + '">Change : <b>' + team + '</b> has changed their pick : <b>' + oldpick + '</b> changed to : <b>' + this.teams[team].draftpicks[pick - 1] + '</b>.<br><b>' + team + '\'s</b> Line up now looks like: ' + this.iconize(this.teams[team].draftpicks) + '</div>');
