@@ -409,6 +409,9 @@ class User {
 			if (room.isMuted(this)) {
 				return '!' + this.name;
 			}
+			if (room.autorank && room.isPrivate !== true) {
+				return room.autorank + this.name;
+			}
 			if ((!room.auth || !room.auth[this.userid]) && this.customSymbol) return this.customSymbol + this.name;
 			if (Config.xmas) {
 				let xmasGroups = ['\u272F', '\u2744', '\u2746', '\u2615', '\u26F8', '\u2603', '\u26F7'];
@@ -456,6 +459,7 @@ class User {
 		if (room && room.auth) {
 			group = room.getAuth(this);
 			if (target) targetGroup = room.getAuth(target);
+			if (room.autorank && !room.auth[this.userid]) targetGroup = room.autorank;
 		} else {
 			group = this.group;
 			if (target) targetGroup = target.group;
