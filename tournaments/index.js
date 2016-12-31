@@ -1223,17 +1223,22 @@ let commands = {
 			this.logEntry(user.name + " used /tour runautodq");
 		},
 		remind: function (tournament, user) {
+			let users = tournament.generator.getAvailableMatches().toString().split(',');
 			let offlineUsers = [];
-			tournament.generator.getAvailableMatches().toString().split(',').forEach(u => {
-				let targetUser = Users.get(u);
-				if (!targetUser.connected) {
+			for (let u = 0; u < users.length; u++) {
+				let targetUser = Users.get(users[u]);
+				if (!targetUser) {
+					offlineUsers.push(users[u]);
+					continue;
+				} else if (!targetUser.connected) {
 					offlineUsers.push(targetUser.userid);
+					continue;
 				} else {
 					let pmName = ' Tour Remind [Do not reply]';
 					let message = '|pm|' + pmName + '|' + user.getIdentity() + '|' + 'You have a tournament battle in the room "' + tournament.room.title + '". If you do not start soon you may be disqualified.';
 					targetUser.send(message);
 				}
-			});
+			}
 			tournament.room.addRaw('<b>Players have been reminded of their tournament battles by ' + user.name + '.</b>');
 			if (offlineUsers.length > 0 && offlineUsers !== '') tournament.room.addRaw('<b>The following users are currently offline: ' + offlineUsers + '.</b>');
 		},
