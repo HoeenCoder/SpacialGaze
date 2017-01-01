@@ -1242,7 +1242,9 @@ let commands = {
 			if (tournament.isTournamentStarted) {
 				tournament.room.addRaw('<b>Players have been reminded of their tournament battles by ' + user.name + '.</b>');
 				if (offlineUsers.length > 0 && offlineUsers !== '') tournament.room.addRaw('<b>The following users are currently offline: ' + offlineUsers + '.</b>');
-			} else this.errorReply('The tournament hasen\'t started yet.');
+			} else {
+				this.errorReply('The tournament hasen\'t started yet.');
+			}
 		},
 		scout: 'setscouting',
 		scouting: 'setscouting',
