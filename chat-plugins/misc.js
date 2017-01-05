@@ -619,9 +619,7 @@ exports.commands = {
 		this.logModCommand(user.name + " globally declared (chat level) " + target);
 	},
 	chatdeclarehelp: ["/cdeclare [message] - Anonymously announces a message to all chatrooms on the server. Requires: ~"],
-};
-exports.commands = {
-    utoken: 'usetoken',
+	utoken: 'usetoken',
     usetoken: function(target, room, user, connection, cmd, message) {
         target = target.split(',');
         if(target.length < 2) return this.parse('/help usetoken');
@@ -673,5 +671,5 @@ exports.commands = {
         
     },
     usetokenhelp: ['/usetoken [token], [info] - Redeem a token from the shop. Accepts the following arguments: ',
-        ''], //Write each line of info on a new string
+        ''],
 };
