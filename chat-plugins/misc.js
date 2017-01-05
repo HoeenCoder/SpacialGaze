@@ -607,8 +607,7 @@ exports.commands = {
 
 		let color = 'blue';
 		switch (cmd) {
-			case 'reddeclare':
-				color = 'red';
+			case 'reddeclare':				color = 'red';
 				break;
 			case 'greendeclare':
 				color = 'green';
@@ -620,4 +619,57 @@ exports.commands = {
 		this.logModCommand(user.name + " globally declared (chat level) " + target);
 	},
 	chatdeclarehelp: ["/cdeclare [message] - Anonymously announces a message to all chatrooms on the server. Requires: ~"],
+	utoken: 'usetoken',
+    usetoken: function(target, room, user, connection, cmd, message) {
+        target = target.split(',');
+        if(target.length < 2) return this.parse('/help usetoken');
+        target[0] = toId(target[0]);
+        if (['avatar', 'declare', 'icon', 'color', 'emote', 'title'].indexOf(target[0]) === -1) return this.parse('/help usetoken');
+        if (!user.tokens || !user.tokens[target[0]]) return this.errorReply('You need to buy this from the shop first.');        target[1] = Chat.escapeHTML(target[1]);
+        
+        switch (target[0]) {
+            case 'avatar':
+                 msg = '|html|<center>' + user.name + ' has redeemed a avatar token.<br/><img src="' + target[1] + '" alt="avatar"/><br/>';
+                msg += '<button class="button" name="send" value="/customavatar set ' + user.userid + ', ' + target[1] + '">Apply Avatar</button></center>';
+                delete user.tokens[target[0]];
+                return SG.messageSeniorStaff(msg);
+                //break;
+            case 'declare':
+                 msg = '|html|<center>' + user.name + 'has redeemed a global declare token.<br/> Message: ' + target[1] + "<br/>";
+                msg += '<button class="button" name="send" value=/globaldeclare ' + target[1] + '">Globally Declare the Message</button></center>';
+                delete user.tokens[target[0]];
+                return SG.messageSeniorStaff(msg);
+               // break;
+            case 'color':
+                 msg = '|html|<center>' + user.name + 'has redeemed a color token.<br/> hex color: <span' + target[1] + '<br/>';
+                msg += '<button class="button" name="send" value/customcolor set, ' + target[1] + '">Sets color</button></center>';
+                delete user.token[target[0]];
+                return SG.messageSeniorStaff(msg);
+                //break;
+            case 'icon':
+                  msg = '|html|<center>' + user.name + ' has redeemed a icon token.<br/><img src="' + target[1] + '" alt="icon"/><br/>';
+                msg += '<button class="button" name="send" value="/customicon set ' + user.userid + ', ' + target[1] + '">Apply icon</button></center>';
+                delete user.tokens[target[0]];
+                return SG.messageSeniorStaff(msg);
+                //break;
+            case 'title':
+                if (!target[2]) return this.errorReply('/usetoken title, [name], [color]');
+                 msg = '|html|<center>' + user.name + 'has redeem a title token.<br/> title name: ' + target[1] +'<br/>';
+                msg += '<button class="button" name="send" value="/customtitle set ' + target[1] + '">Set title</button></center>';
+                delete user.tokens[target[0]];
+                return SG.messageSeniorStaff(msg);
+                //break;
+            case 'emote':
+                if (!target[2]) return this.errorReply('/usetoken emote, [name], [img]');
+                 msg = '|html|<center>' + user.name + 'has redeem a emote token.<br/><img src="' + target[1] + '" alt="emote"/><br/>';
+                msg += '<button class="button" name="send" value="/emote add ' + target[1] + ', ' + target[2] + '">Set emote</button></center>';
+                delete user.token[target[0]];
+                return SG.messageSeniorStaff(msg);
+            default:
+                return this.errorReply('An error occured in the command.'); // This should never happen.
+        }
+        
+    },
+    usetokenhelp: ['/usetoken [token], [info] - Redeem a token from the shop. Accepts the following arguments: ',
+        ''],
 };
