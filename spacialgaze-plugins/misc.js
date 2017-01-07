@@ -421,8 +421,8 @@ exports.commands = {
 			"|/text This user is currently offline. Your message will be delivered when they are next online.");
 	},
 	tellhelp: ["/tell [username], [message] - Send a message to an offline user that will be received when they log in."],
-};
-utoken: 'usetoken',
+	
+	utoken: 'usetoken',
 	usetoken: function(target, room, user, connection, cmd, message) {
 		target = target.split(',');
 		if(target.length < 2) return this.parse('/help usetoken');
@@ -470,3 +470,4 @@ utoken: 'usetoken',
 	},
 	usetokenhelp: ['/usetoken [token], [info] - Redeem a token from the shop. Accepts the following arguments: ',
 		''],
+};
