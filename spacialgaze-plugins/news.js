@@ -8,8 +8,8 @@
 let moment = require('moment');
 
 function generateNews() {
-	let newsData , newsDisplay = [];
-	Object.keys(Db('news').object()).forEach (announcement => {
+	let newsData ,newsDisplay = [];
+	Object.keys(Db('news').object()).forEach(announcement => {
 		newsData = Db('news').get(announcement);
 		newsDisplay.push(`<h4>${announcement}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
 	});
@@ -82,5 +82,6 @@ exports.commands = {
 		"/news delete [news title] - Deletes announcement with the [title]. Requires @, &, ~",
 		"/news add [news title], [news desc] - Adds news [news]. Requires @, &, ~",
 		"/news subscribe - Subscribes to SpacialGaze News.",
-		"/news unsubscribe - Unsubscribes to SpacialGaze News."]
-}
+		"/news unsubscribe - Unsubscribes to SpacialGaze News.",
+	],
+};
