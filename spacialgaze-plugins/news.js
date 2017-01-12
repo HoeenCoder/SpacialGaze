@@ -5,11 +5,9 @@
 
 'use strict';
 
-let moment = require('moment');
-
 function generateNews() {
 	let newsData, newsDisplay = [];
-	Object.keys(Db('news').object()).forEach(announcement => {
+	Object.keys(Db('news').object()).forEach (announcement => {
 		newsData = Db('news').get(announcement);
 		newsDisplay.push(`<h4>${announcement}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
 	});
@@ -18,8 +16,8 @@ function generateNews() {
 
 function hasSubscribed(user) {
 	if (typeof user === 'object') user = user.userid;
-	if (Db('NewsUnsubscribers').get(toId(user)) === 1) return false;
-	return true;
+	if (Db('NewsSubscribers').get(toId(user)) === 1) return true;
+	return false;
 }
 
 SG.showNews = function (user) {
@@ -41,7 +39,7 @@ exports.commands = {
 		display: 'view',
 		view: function (target, room, user) {
 			return user.send('|popup||wide||html|' +
-				"<center><strong>Current server announcements:</strong></center>" +
+				"<center><strong>SpacialGaze News:</strong></center>" +
 					generateNews().join('<hr>')
 			);
 		},
@@ -59,21 +57,26 @@ exports.commands = {
 			let parts = target.split(',');
 			if (parts.length !== 2) return this.errorReply("Usage: /news add [title], [desc]");
 			let title = parts[0], desc = parts[1], postedBy = user.name;
-			let postTime = moment(Date.now()).format("MMM D, YYYY");
+			//let postTime = moment(Date.now()).format("MMM D, YYYY");
+			let d = new Date();
+			const MonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+							"July", "Aug", "Sep", "Oct", "Nov", "Dec"
+							];
+			let postTime = (MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + ", " + d.getUTCFullYear());
 			Db('news').set(title, [postedBy, desc, postTime]);
 			this.privateModCommand(`(${user.name} added server announcement: ${parts[0]})`);
 		},
 		subscribe: function (target, room, user) {
 			if (!this.can('talk')) return false;
 			if (hasSubscribed(user.userid)) return this.errorReply("You are alreading subscribing SpacialGaze News.");
-			Db('NewsUnsubscribers').delete(user.userid);
+			Db('NewsSubscribers').set(user.userid, 1);
 			this.sendReply("You have subscribed SpacialGaze News.");
 			this.sendReply("You will receive SpacialGaze News automatically once you connect to the SpacialGaze next time.");
 		},
 		unsubscribe: function (target, room, user) {
 			if (!this.can('talk')) return false;
-			if (!hasSubscribed(user.userid)) return this.errorReply("You have not subscribed to SpacialGaze News.");
-			Db('NewsUnsubscribers').set(user.userid, 1);
+			if (!hasSubscribed(user.userid)) return this.errorReply("You have not subscribed SpacialGaze News.");
+			Db('NewsSubscribers').delete(user.userid);
 			this.sendReply("You have unsubscribed SpacialGaze News.");
 			this.sendReply("You will no longer automatically receive SpacialGaze News.");
 		},
