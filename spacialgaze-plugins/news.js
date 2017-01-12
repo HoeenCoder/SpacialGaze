@@ -27,7 +27,7 @@ SG.showNews = function (user) {
 	if (!hasSubscribed(user)) return false;
 	if (newsDisplay.length > 0) {
 		newsDisplay = newsDisplay.join('<hr>');
-		return Users(user).send(`|pm| SpacialGaze News|${Users(user).getIdentity()}|/raw ${newsDisplay}`);
+		return Users(user).send(`|pm| SG Server|${Users(user).getIdentity()}|/raw ${newsDisplay}`);
 	}
 };
 
