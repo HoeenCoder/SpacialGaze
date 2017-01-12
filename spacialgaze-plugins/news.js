@@ -7,7 +7,7 @@
 
 function generateNews() {
 	let newsData, newsDisplay = [];
-	Object.keys(Db('news').object()).forEach (announcement => {
+	Object.keys(Db('news').object()).forEach(announcement => {
 		newsData = Db('news').get(announcement);
 		newsDisplay.push(`<h4>${announcement}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
 	});
@@ -16,7 +16,7 @@ function generateNews() {
 
 function hasSubscribed(user) {
 	if (typeof user === 'object') user = user.userid;
-	if (Db('NewsSubscribers').get(toId(user)) === 1) return true;
+	if (Db('NewsSubscribers').has(toId(user))) return true;
 	return false;
 }
 
@@ -60,8 +60,8 @@ exports.commands = {
 			//let postTime = moment(Date.now()).format("MMM D, YYYY");
 			let d = new Date();
 			const MonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
-							"July", "Aug", "Sep", "Oct", "Nov", "Dec"
-							];
+				"July", "Aug", "Sep", "Oct", "Nov", "Dec",
+			];
 			let postTime = (MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + ", " + d.getUTCFullYear());
 			Db('news').set(title, [postedBy, desc, postTime]);
 			this.privateModCommand(`(${user.name} added server announcement: ${parts[0]})`);
@@ -69,7 +69,7 @@ exports.commands = {
 		subscribe: function (target, room, user) {
 			if (!this.can('talk')) return false;
 			if (hasSubscribed(user.userid)) return this.errorReply("You are alreading subscribing SpacialGaze News.");
-			Db('NewsSubscribers').set(user.userid, 1);
+			Db('NewsSubscribers').set(user.userid, true);
 			this.sendReply("You have subscribed SpacialGaze News.");
 			this.sendReply("You will receive SpacialGaze News automatically once you connect to the SpacialGaze next time.");
 		},
