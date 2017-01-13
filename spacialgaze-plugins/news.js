@@ -57,8 +57,7 @@ exports.commands = {
 			let parts = target.split(',');
 			if (parts.length !== 2) return this.errorReply("Usage: /news add [title], [desc]");
 			let title = parts[0], desc = parts[1], postedBy = user.name;
-			//let postTime = moment(Date.now()).format("MMM D, YYYY");
-			let d = new Date();
+			t d = new Date();
 			const MonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
 				"July", "Aug", "Sep", "Oct", "Nov", "Dec",
 			];
