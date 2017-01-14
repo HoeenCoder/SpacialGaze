@@ -242,7 +242,7 @@ exports.commands = {
 			} else {
 				let d = new Date(date);
 				let MonthNames = ["January", "February", "March", "April", "May", "June",
-				"July", "August", "September", "October", "November", "December",
+					"July", "August", "September", "October", "November", "December",
 				];
 				let DayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday", "Saturday"];
 				return SG.nameColor(target, true) + " was registered on <b>" + DayNames[d.getUTCDay()] + ", " + MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + ", " + d.getUTCFullYear() + "</b> at <b>" + d.getUTCHours() + ":" + d.getUTCMinutes() + ":" + d.getUTCSeconds() + " UTC.</b>";
