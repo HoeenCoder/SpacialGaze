@@ -8,21 +8,6 @@
  */
 'use strict';
 
-let fs = require('fs');
-let request = require('request');
-let regdateCache = {};
-
-function loadRegdateCache() {
-	try {
-		regdateCache = JSON.parse(fs.readFileSync('config/regdate.json', 'utf8'));
-	} catch (e) {}
-}
-loadRegdateCache();
-
-function saveRegdateCache() {
-	fs.writeFileSync('config/regdate.json', JSON.stringify(regdateCache));
-}
-
 function clearRoom(room) {
 	let len = (room.log && room.log.length) || 0;
 	let users = [];
@@ -244,25 +229,7 @@ exports.commands = {
 		if (target.length < 1 || target.length > 19) {
 			return this.sendReply("Usernames can not be less than one character or longer than 19 characters. (Current length: " + target.length + ".)");
 		}
-		if (!this.runBroadcast()) return;/*
-		if (regdateCache[targetUser]) {
-			this.sendReplyBox(regdateReply(regdateCache[targetUser]));
-		} else {
-			request('http://pokemonshowdown.com/users/' + targetUser + '.json', (error, response, body) => {
-				let data = JSON.parse(body);
-				let date = data['registertime'];
-				if (date !== 0 && date.toString().length < 13) {
-					while (date.toString().length < 13) {
-						date = Number(date.toString() + '0');
-					}
-				}
-				this.sendReplyBox(regdateReply(date));
-				if (date !== 0) {
-					regdateCache[targetUser] = date;
-					saveRegdateCache();
-				}
-			});
-		}*/
+		if (!this.runBroadcast()) return;
 		SG.regdate(target, date => {
 			if (date) {
 				this.sendReplyBox(regdateReply(date));
