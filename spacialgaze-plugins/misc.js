@@ -240,11 +240,11 @@ exports.commands = {
 
 	regdate: function (target, room, user, connection) {
 		if (!target) target = user.name;
-		let targetUser = toId(target);
-		if (targetUser.length < 1 || targetUser.length > 19) {
-			return this.sendReply("Usernames can not be less than one character or longer than 19 characters. (Current length: " + targetUser.length + ".)");
+		target = toId(target);
+		if (target.length < 1 || target.length > 19) {
+			return this.sendReply("Usernames can not be less than one character or longer than 19 characters. (Current length: " + target.length + ".)");
 		}
-		if (!this.runBroadcast()) return;
+		if (!this.runBroadcast()) return;/*
 		if (regdateCache[targetUser]) {
 			this.sendReplyBox(regdateReply(regdateCache[targetUser]));
 		} else {
@@ -262,7 +262,12 @@ exports.commands = {
 					saveRegdateCache();
 				}
 			});
-		}
+		}*/
+		SG.regdate(target, date => {
+			if (date) {
+				this.sendReplyBox(regdateReply(date));
+			}
+		});
 
 		function regdateReply(date) {
 			if (date === 0) {
@@ -273,7 +278,7 @@ exports.commands = {
 				"July", "August", "September", "October", "November", "December",
 				];
 				let DayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Friday", "Saturday"];
-				return SG.nameColor(target, true) + " was registered on <b>" + DayNames[d.getUTCDay()] + ", " + MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + "</b> at <b>" + d.getUTCHours() + ":" + d.getUTCMinutes() + ":" + d.getUTCSeconds() + " UTC.</b>";
+				return SG.nameColor(target, true) + " was registered on <b>" + DayNames[d.getUTCDay()] + ", " + MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + ", " + d.getUTCFullYear() + "</b> at <b>" + d.getUTCHours() + ":" + d.getUTCMinutes() + ":" + d.getUTCSeconds() + " UTC.</b>";
 			}
 			//room.update();
 		}
