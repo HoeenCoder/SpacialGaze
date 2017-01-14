@@ -8,7 +8,6 @@
 'use strict';
 //TODO reimplement geoip-ultralight
 
-//let fs = require('fs');
 //let geoip = require('geoip-ultralight');
 
 // fill in '' with the server IP
@@ -280,9 +279,9 @@ exports.commands = {
 			if (date) {
 				let d = new Date(date);
 				let MonthNames = ["January", "February", "March", "April", "May", "June",
-				"July", "August", "September", "October", "November", "December",
+					"July", "August", "September", "October", "November", "December",
 				];
-				regdate = MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + ", " + d.getUTCFullYear()
+				regdate = MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + ", " + d.getUTCFullYear();
 			}
 			showProfile();
 		});
