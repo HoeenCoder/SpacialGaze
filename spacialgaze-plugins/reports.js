@@ -33,7 +33,7 @@ exports.commands = {
 		let reportId = (Object.keys(Reports).length + 1);
 		let d = new Date();
 		let MonthNames = ["January", "February", "March", "April", "May", "June",
-		"July", "August", "September", "October", "November", "December",
+			"July", "August", "September", "October", "November", "December",
 		];
 		console.log(reportId);
 		while (Reports[reportId]) reportId--;
@@ -41,8 +41,8 @@ exports.commands = {
 		Reports[reportId].reporter = user.name;
 		Reports[reportId].message = target.trim();
 		Reports[reportId].id = reportId;
-		Reports[reportId].status = 'Pending';;
-		Reports[reportId].reportTime = MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + "th, " + d.getUTCFullYear() + ", " + d.getUTCHours() + ":" + d.getUTCMinutes() + "UTC";
+		Reports[reportId].status = 'Pending';
+		Reports[reportId].reportTime = MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + "th, " + d.getUTCFullYear() + ", " + d.getUTCHours() + ":" + d.getUTCMinutes() + " UTC";
 		saveReports();
 		Rooms('staff').add('A new report has been submitted by ' + user.name + '. ID: ' + reportId + ' Message: ' + target.trim());
 		Rooms('staff').update();
