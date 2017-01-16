@@ -1514,7 +1514,6 @@ Users.socketConnect = function (worker, workerid, socketid, ip, protocol) {
 	});
 
 	user.joinRoom('global', connection);
-	SG.showNews(user.name);
 };
 
 Users.socketDisconnect = function (worker, workerid, socketid) {
