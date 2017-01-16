@@ -1,6 +1,6 @@
 /*
 * News System for SpacialGaze
-* Credits: Lord Haji
+* Credits: Lord Haji, HoeenHero
 */
 
 'use strict';
@@ -11,6 +11,7 @@ function generateNews() {
 		newsData = Db('news').get(announcement);
 		newsDisplay.push(`<h4>${announcement}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
 	});
+	if (newsDisplay.length > 0) newsDisplay.push("<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user.userid) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user.userid) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>");
 	return newsDisplay;
 }
 
@@ -40,14 +41,15 @@ exports.commands = {
 		view: function (target, room, user) {
 			return user.send('|popup||wide||html|' +
 				"<center><strong>SpacialGaze News:</strong></center>" +
-					generateNews().join('<hr>')
+					generateNews().join('<hr>') +
+					"<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user.userid) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user.userid) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>";
 			);
 		},
 		remove: 'delete',
 		delete: function (target, room, user) {
 			if (!this.can('ban')) return false;
 			if (!target) return this.parse('/help serverannouncements');
-			if (!Db('news').has(target)) return this.errorReply("News doesn't exitst");
+			if (!Db('news').has(target)) return this.errorReply("News with this title doesn't exist.");
 			Db('news').delete(target);
 			this.privateModCommand(`(${user.name} deleted server announcement titled: ${target}.)`);
 		},
