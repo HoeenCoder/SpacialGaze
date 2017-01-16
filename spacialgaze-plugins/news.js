@@ -20,14 +20,14 @@ function hasSubscribed(user) {
 	return false;
 }
 
-SG.showNews = function (user) {
-	if (!Users(user)) return false;
+SG.showNews = function (userid, user) {
+	if (!user || !userid) return false;
+	userid = toId(userid);
 	let newsDisplay = generateNews();
-	if (newsDisplay.length === 0) return false;
-	if (!hasSubscribed(user)) return false;
+	if (!hasSubscribed(userid)) return false;
 	if (newsDisplay.length > 0) {
 		newsDisplay = newsDisplay.join('<hr>');
-		return Users(user).send(`|pm| SG Server|${Users(user).getIdentity()}|/raw ${newsDisplay}`);
+		return user.send(`|pm| SG Server|${user.getIdentity()}|/raw ${newsDisplay}`);
 	}
 };
 
