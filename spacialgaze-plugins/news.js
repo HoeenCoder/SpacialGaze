@@ -25,7 +25,7 @@ function showSubButton(user) {
 	user = toId(user);
 	let output;
 	output = "<hr><center><button class = \"button\" name=\"send\" value=\"/news " + (hasSubscribed(user) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>";
-	return output;	
+	return output;
 }
 SG.showNews = function (userid, user) {
 	if (!user || !userid) return false;
