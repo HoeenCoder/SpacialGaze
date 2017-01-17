@@ -1,6 +1,6 @@
 'use strict';
 
-if (!Config.github) return;
+if (!Config.github || !Config.github.port) return;
 
 let updates = {};
 
