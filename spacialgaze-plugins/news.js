@@ -5,7 +5,7 @@
 
 'use strict';
 
-function generateNews() {
+function generateNews(user) {
 	let newsData, newsDisplay = [];
 	Object.keys(Db('news').object()).forEach(announcement => {
 		newsData = Db('news').get(announcement);
@@ -24,7 +24,7 @@ function hasSubscribed(user) {
 SG.showNews = function (userid, user) {
 	if (!user || !userid) return false;
 	userid = toId(userid);
-	let newsDisplay = generateNews();
+	let newsDisplay = generateNews(user);
 	if (!hasSubscribed(userid)) return false;
 	if (newsDisplay.length > 0) {
 		newsDisplay = newsDisplay.join('<hr>');
@@ -59,7 +59,7 @@ exports.commands = {
 			let parts = target.split(',');
 			if (parts.length !== 2) return this.errorReply("Usage: /news add [title], [desc]");
 			let title = parts[0], desc = parts[1], postedBy = user.name;
-			let  d = new Date();
+			let d = new Date();
 			const MonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June",
 				"July", "Aug", "Sep", "Oct", "Nov", "Dec",
 			];
