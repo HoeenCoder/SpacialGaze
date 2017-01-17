@@ -21,7 +21,7 @@ github.on('push', function push(repo, ref, result) {
 	let branch = /[^/]+$/.exec(ref)[0];
 	let messages = [];
 	let message = "";
-	message += "[<font color='FF00FF'>" + Chat.escapeHTML(repo) + ' </font>] ';
+	message += "[<font color='FF00FF'>" + Chat.escapeHTML(repo) + '</font>] ';
 	message += SG.nameColor(result.pusher.name, true) + " ";
 	message += (result.forced ? '<font color="red">force-pushed</font>' : 'pushed') + " ";
 	message += "<b>" + Chat.escapeHTML(result.commits.length) + "</b> ";
