@@ -219,6 +219,13 @@ exports.appealurl = '';
 exports.replsocketprefix = './logs/repl/';
 exports.replsocketmode = 0o600;
 
+//github repo config
+exports.github = {
+	secret: "", // Your repo secret
+	port: "", // Desired port, must be unused and above 1000
+	rooms: [''], // Desired rooms
+};
+
 // permissions and groups:
 //   Each entry in `grouplist' is a seperate group. Some of the members are "special"
 //     while the rest is just a normal permission.
@@ -271,12 +278,6 @@ exports.replsocketmode = 0o600;
 //     - game: make games.
 //     - gamemanagement: enable/disable games and minigames.
 
-//github repo config
-exports.github = {
-        secret: "",//your repo secret
-        port: "",//desired port, must be unused and above 1000
-        rooms: [''],//desired rooms
-}
 exports.grouplist = [
 	{
 		symbol: '~',
