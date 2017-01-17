@@ -7,11 +7,12 @@
 
 function generateNews(user) {
 	let newsData, newsDisplay = [];
+	user = toId(user);
 	Object.keys(Db('news').object()).forEach(announcement => {
 		newsData = Db('news').get(announcement);
 		newsDisplay.push(`<h4>${announcement}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
 	});
-	if (newsDisplay.length > 0) newsDisplay.push("<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user.userid) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user.userid) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>");
+	if (newsDisplay.length > 0) newsDisplay.push("<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>");
 	return newsDisplay;
 }
 
