@@ -9,7 +9,8 @@
     "autolinker": "*",
     "request": "2.74.0",
     "md5": "*",
-    "geoip-ultralight": "*"
+    "geoip-ultralight": "*",
+    "githubhook": "1.7.1"
   },
   "optionalDependencies": {
     "cloud-env": "0.1.1",
