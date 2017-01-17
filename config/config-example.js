@@ -270,6 +270,13 @@ exports.replsocketmode = 0o600;
 //     - minigame: make minigames (hangman, polls, etc.).
 //     - game: make games.
 //     - gamemanagement: enable/disable games and minigames.
+
+//github repo config
+exports.github = {
+        secret: "",//your repo secret
+        port: "",//desired port, must be unused and above 1000
+        rooms: [''],//desired rooms
+}
 exports.grouplist = [
 	{
 		symbol: '~',
