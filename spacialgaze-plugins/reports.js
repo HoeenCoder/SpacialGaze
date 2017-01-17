@@ -42,7 +42,7 @@ exports.commands = {
 		Reports[reportId].message = target.trim();
 		Reports[reportId].id = reportId;
 		Reports[reportId].status = 'Pending';
-		Reports[reportId].reportTime = MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + "th, " + d.getUTCFullYear() + ", " + d.getUTCHours() + ":" + d.getUTCMinutes() + " UTC";
+		Reports[reportId].reportTime = MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + "th, " + d.getUTCFullYear() + ", " + (d.getUTCHours() < 10 ? "0" + d.getUTCHours() : d.getUTCHours()) + ":" + (d.getUTCMinutes() < 10 ? "0" + d.getUTCMinutes() : d.getUTCMinutes()) + " UTC";
 		saveReports();
 		Rooms('staff').add('A new report has been submitted by ' + user.name + '. ID: ' + reportId + ' Message: ' + target.trim());
 		Rooms('staff').update();
