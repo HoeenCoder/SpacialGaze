@@ -42,7 +42,7 @@ exports.commands = {
 			return user.send('|popup||wide||html|' +
 				"<center><strong>SpacialGaze News:</strong></center>" +
 					generateNews().join('<hr>') +
-					"<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user.userid) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user.userid) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>");
+					"<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user.userid) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user.userid) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>"
 			);
 		},
 		remove: 'delete',
