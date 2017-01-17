@@ -40,7 +40,7 @@ github.on('push', function push(repo, ref, result) {
 		message += "<font color='800080'>" + Chat.escapeHTML(branch) + "</font> ";
 		message += "<a href=\"" + Chat.escapeHTML(commit.url) + "\">";
 		message += "<font color='606060'>" + Chat.escapeHTML(commit.id.substring(0, 6)) + "</font></a> ";
-		message +=  SG.nameColor(commit.author.name, true) + ": " + Chat.escapeHTML(shortCommit);
+		message += SG.nameColor(commit.author.name, true) + ": " + Chat.escapeHTML(shortCommit);
 		messages.push(message);
 	});
 	sendMessages(messages.join("<br>"));
