@@ -46,12 +46,11 @@ exports.commands = {
 		'': 'view',
 		display: 'view',
 		view: function (target, room, user) {
-			return user.send('|popup||wide||html|' +
-				"<center><strong>SpacialGaze News:</strong></center>" +
-					generateNews().join('<hr>') +
-					showSubButton(user.userid)
-					//"<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user.userid) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user.userid) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>"
-			);
+			if (!this.runBroadcast()) return;
+			let output = "<center><strong>SpacialGaze News:</strong></center>";
+			output += generateNews().join('<hr>') + showSubButton(user.userid);
+			if (this.broadcasting) return this.sendReplyBox("<div class =\"infobox-limited\"" + output + "</div>");
+			return user.send('|popup||wide||html|' + output);
 		},
 		remove: 'delete',
 		delete: function (target, room, user) {
