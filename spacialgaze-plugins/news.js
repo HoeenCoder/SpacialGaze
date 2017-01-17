@@ -12,7 +12,6 @@ function generateNews(user) {
 		newsData = Db('news').get(announcement);
 		newsDisplay.push(`<h4>${announcement}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
 	});
-	//if (newsDisplay.length > 0) newsDisplay.push("<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>");
 	return newsDisplay;
 }
 
@@ -29,7 +28,7 @@ SG.showNews = function (userid, user) {
 	if (!hasSubscribed(userid)) return false;
 	if (newsDisplay.length > 0) {
 		newsDisplay = newsDisplay.join('<hr>');
-		newsDisplay.push("<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>");
+		newsDisplay += "<hr><center><button name=\"send\" value=\"/news " + (hasSubscribed(user) ? "unsubscribe" : "subscribe") + "\">" + (hasSubscribed(user) ? "Unsubscribe from the news" : "Subscribe to the news") + "</button></center>";
 		return user.send(`|pm| SG Server|${user.getIdentity()}|/raw ${newsDisplay}`);
 	}
 };
