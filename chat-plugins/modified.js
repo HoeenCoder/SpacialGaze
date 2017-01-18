@@ -58,34 +58,27 @@ exports.commands = {
 			"voices": [],
 		};
 		persons = persons.sort((a, b) => toId(a.name).localeCompare(toId(b.name))); // No need to return, arrow functions with single lines have an implicit return
-		function nameColor(name) {
-			if (Users.getExact(name) && Users(name).connected) {
-				return '<b><i><font color="' + hashColorWithCustoms(name) + '">' + Chat.escapeHTML(Users.getExact(name).name) + '</font></i></b>';
-			} else {
-				return '<font color="' + hashColorWithCustoms(name) + '">' + Chat.escapeHTML(name) + '</font>';
-			}
-		}
 		for (let j = 0; j < persons.length; j++) {
 			let rank = persons[j].rank;
 			let person = persons[j].name;
 			switch (rank) {
 			case '~':
-				staff['admins'].push(nameColor(person));
+				staff['admins'].push(SG.nameColor(person));
 				break;
 			case '&':
-				staff['leaders'].push(nameColor(person));
+				staff['leaders'].push(SG.nameColor(person));
 				break;
 			case '*':
-				staff['bots'].push(nameColor(person));
+				staff['bots'].push(SG.nameColor(person));
 				break;
 			case '@':
-				staff['mods'].push(nameColor(person));
+				staff['mods'].push(SG.nameColor(person));
 				break;
 			case '%':
-				staff['drivers'].push(nameColor(person));
+				staff['drivers'].push(SG.nameColor(person));
 				break;
 			case '+':
-				staff['voices'].push(nameColor(person));
+				staff['voices'].push(SG.nameColor(person));
 				break;
 			default:
 				continue;
