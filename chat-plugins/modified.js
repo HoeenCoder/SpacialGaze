@@ -69,11 +69,14 @@ exports.commands = {
 
 	'!roomauth': true,
 	roomstaff: 'roomauth',
-	roomauth: function (target, room, user, connection) {
+	roomauth1: 'roomauth',
+	roomauth: function (target, room, user, connection, cmd) {
+		let userLookup = '';
+		if (cmd === 'roomauth1') userLookup = '\n\nTo look up auth for a user, use /userauth ' + target;		
 		let targetRoom = room;
 		if (target) targetRoom = Rooms.search(target);
 		if (!targetRoom || targetRoom.id === 'global' || !targetRoom.checkModjoin(user)) return this.errorReply(`The room "${target}" does not exist.`);
-		if (!targetRoom.auth) return this.sendReply("/roomauth - The room '" + (targetRoom.title || target) + "' isn't designed for per-room moderation and therefore has no auth list.");
+		if (!targetRoom.auth) return this.sendReply("/roomauth - The room '" + (targetRoom.title || target) + "' isn't designed for per-room moderation and therefore has no auth list." + userLookup);
 
 		let rankLists = {};
 		for (let u in targetRoom.auth) {
@@ -97,7 +100,7 @@ exports.commands = {
 			buffer.unshift((targetRoom.founder ? "Room Founder:\n" + ((Users(targetRoom.founder) && Users(targetRoom.founder).connected) ? SG.nameColor(targetRoom.founder, true) : SG.nameColor(targetRoom.founder)) : ''));
 		}
 		if (targetRoom !== room) buffer.unshift("" + targetRoom.title + " room auth:");
-		connection.send("|popup||html|" + buffer.join("\n\n"));
+		connection.send("|popup||html|" + buffer.join("\n\n") + userLookup);
 	},
 
 	roomfounder: function (target, room, user) {
