@@ -251,7 +251,7 @@ exports.commands = {
 		} else if (nextGroup in Config.groups && currentGroup in Config.groups && Config.groups[nextGroup].rank < Config.groups[currentGroup].rank) {
 			if (targetUser && room.users[targetUser.userid] && !Config.groups[nextGroup].modlog) {
 				// if the user can't see the demotion message (i.e. rank < %), it is shown in the chat
-				targetUser.send(">" + room.title + "\n(You were demoted to Room " + groupName + " by " + user.name + ".)");
+				targetUser.send(">" + room.id + "\n(You were demoted to Room " + groupName + " by " + user.name + ".)");
 			}
 			this.privateModCommand(`(${name} was demoted to Room ${groupName} by ${user.name}.)`);
 			if (needsPopup) targetUser.popup(`|html|You were demoted to Room ${groupName} by ${SG.nameColor(user.name, true)} in ${room.title}.`);
