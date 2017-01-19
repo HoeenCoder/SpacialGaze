@@ -12,7 +12,7 @@ SG.nameColor = function (name, bold) {
 // usage: SG.nameColor(user.name, true) for bold OR SG.nameColor(user.name, false) for non-bolded.
 
 SG.messageSeniorStaff = function (message, pmName, from) {
-	pmName = (pmName ? pmName : 'SG Server');
+	pmName = (pmName ? pmName : '~SG Server');
 	from = (from ? ' (PM from ' + from + ')' : '');
 	Users.users.forEach(curUser => {
 		if (curUser.group === '~' || curUser.group === '&') {
