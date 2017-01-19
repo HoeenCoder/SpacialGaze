@@ -66,7 +66,7 @@ exports.commands = {
 		if (!buffer.length) return connection.popup("This server has no global authority.");
 		connection.send("|popup||html|" + buffer.join("\n\n"));
 	},
-	
+
 	'!roomauth': true,
 	roomstaff: 'roomauth',
 	roomauth: function (target, room, user, connection) {
@@ -98,7 +98,7 @@ exports.commands = {
 		}
 		if (targetRoom !== room) buffer.unshift("" + targetRoom.title + " room auth:");
 		connection.send("|popup||html|" + buffer.join("\n\n"));
-	},	
+	},
 
 	roomfounder: function (target, room, user) {
 		if (!room.chatRoomData) {
@@ -109,7 +109,7 @@ exports.commands = {
 		let targetUser = this.targetUser;
 		let name = this.targetUsername;
 		let userid = toId(name);
-		
+
 		if (!Users.isUsernameKnown(userid)) {
 			return this.errorReply(`User '${this.targetUsername}' is offline and unrecognized, and so can't be promoted.`);
 		}
