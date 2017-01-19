@@ -72,7 +72,7 @@ exports.commands = {
 	roomauth1: 'roomauth',
 	roomauth: function (target, room, user, connection, cmd) {
 		let userLookup = '';
-		if (cmd === 'roomauth1') userLookup = '\n\nTo look up auth for a user, use /userauth ' + target;		
+		if (cmd === 'roomauth1') userLookup = '\n\nTo look up auth for a user, use /userauth ' + target;
 		let targetRoom = room;
 		if (target) targetRoom = Rooms.search(target);
 		if (!targetRoom || targetRoom.id === 'global' || !targetRoom.checkModjoin(user)) return this.errorReply(`The room "${target}" does not exist.`);
