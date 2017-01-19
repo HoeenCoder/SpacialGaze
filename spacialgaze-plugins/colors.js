@@ -34,7 +34,7 @@ function updateColor() {
 	let file = fs.readFileSync('config/custom.css', 'utf8').split('\n');
 	if (~file.indexOf('/* COLORS START */')) file.splice(file.indexOf('/* COLORS START */'), (file.indexOf('/* COLORS END */') - file.indexOf('/* COLORS START */')) + 1);
 	fs.writeFileSync('config/custom.css', file.join('\n') + newCss);
-	reloadCSS();
+	SG.reloadCSS();
 }
 
 function generateCSS(name, color) {
