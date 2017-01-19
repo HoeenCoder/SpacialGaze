@@ -10,18 +10,6 @@ const fs = require('fs');
 const http = require('http');
 
 let customColors = {};
-let cssPath = 'spacialgaze'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
-
-
-function reloadCSS() {
-	let options = {
-		host: 'play.pokemonshowdown.com',
-		port: 80, //Config.port, // I belive this is correct, was 80 before
-		path: '/customcss.php?server=' + (Config.serverid || cssPath),
-		method: 'GET',
-	};
-	http.get(options);
-}
 
 function load() {
 	fs.readFile('config/customcolors.json', 'utf8', function (err, file) {
