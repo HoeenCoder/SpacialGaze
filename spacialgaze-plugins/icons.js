@@ -60,7 +60,7 @@ exports.commands = {
 			this.sendReply("|raw|You have given " + SG.nameColor(target[0], true) + " an icon.");
 			Rooms('staff').add('|raw|' + SG.nameColor((target[0])) + ' has received an icon from ' + SG.nameColor(user.name), true).update();
 			this.privateModCommand("|raw|(" + target[0] + " has recieved icon: <img src='" + target[1] + "' width='32' height='32'> from " + user.name + ".)");
-			if (Users(target[0]) && Users(target[0]).connected) Users(target[0]).popup("|html|" + SG.nameColor(user.name, true) + " has set your userlist icon to: <img src='" + target[1] + "' width='32' height='32'>" );
+			if (Users(target[0]) && Users(target[0]).connected) Users(target[0]).popup("|html|" + SG.nameColor(user.name, true) + " has set your userlist icon to: <img src='" + target[1] + "' width='32' height='32'><br><center>Refresh, If you don't see it.</center>");
 			icons[toId(target[0])] = target[1];
 			updateIcons();
 		},
