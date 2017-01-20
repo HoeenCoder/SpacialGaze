@@ -3,6 +3,7 @@
 let fs = require('fs');
 let http = require('http');
 const Autolinker = require('autolinker');
+let cssPath = 'spacialgaze'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
 
 let regdateCache = {};
 
@@ -56,7 +57,7 @@ SG.regdate = function (target, callback) {
 	});
 };
 
-SG.setTitle = function (userid, title, callback) {
+/*SG.setTitle = function (userid, title, callback) {
 	userid = toId(userid);
 	SG.database.all("SELECT * FROM users WHERE userid=$userid", {$userid: userid}, function (err, rows) {
 		if (rows.length < 1) {
@@ -80,7 +81,7 @@ SG.getTitle = function (userid, callback) {
 		if (err) return console.log(err);
 		callback(((rows[0] && rows[0].title) ? rows[0].title : ""));
 	});
-};
+};*/
 
 SG.parseMessage = function (message) {
 	if (message.substr(0, 5) === "/html") {
@@ -103,6 +104,16 @@ SG.parseMessage = function (message) {
 
 SG.randomString = function (length) {
 	return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
+};
+
+SG.reloadCSS = function () {
+	let options = {
+		host: 'play.pokemonshowdown.com',
+		port: 80, //Config.port, // I belive this is correct, was 80 before
+		path: '/customcss.php?server=' + (Config.serverid || cssPath),
+		method: 'GET',
+	};
+	http.get(options);
 };
 
 // last two functions needed to make sure SG.regdate() fully works
