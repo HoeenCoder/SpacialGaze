@@ -1,6 +1,6 @@
 /*
 * News System for SpacialGaze
-* Credits: Lord Haji, HoeenHero
+* Credits: panpawn,Lord Haji, HoeenHero
 */
 
 'use strict';
@@ -35,7 +35,7 @@ SG.showNews = function (userid, user) {
 	if (newsDisplay.length > 0) {
 		newsDisplay = newsDisplay.join('<hr>');
 		newsDisplay += showSubButton(userid);
-		return user.send(`|pm| SG Server|${user.getIdentity()}|/raw ${newsDisplay}`);
+		return user.send(`|pm| SG Server News|${user.getIdentity()}|/raw ${newsDisplay}`);
 	}
 };
 
