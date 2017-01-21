@@ -116,6 +116,21 @@ SG.reloadCSS = function () {
 	http.get(options);
 };
 
+//Daily Rewards System for SpacialGaze by Lord Haji
+SG.giveDailyReward = function (userid, user) {
+	if (!user || !userid) return false;
+	userid = toId(userid);
+	if (!Db('DailyBonus').has(userid)) Db('DailyBonus').set(userid, 1);
+	let seen = Db('seen').get(userid);
+	if ((Date.now() - seen) < 86400000) return false;
+	if ((Date.now() - seen) > 89964000) Db('DailyBonus').set(userid, 1);
+	if (Db('DailyBonus').get(userid) === 8) Db('DailyBonus').set(userid, 1);
+	Db('currency').set(userid, Db('currency').get(userid) + Db('DailyBonus').get(userid));
+	user.send('|popup||wide||html| <center><u><b><font size="3">SpacialGaze Daily Bonus</font></b></u><br>You have been awarded ' + Db('DailyBonus').get(userid) + ' Stardust.<br>' + showDailyRewardAni(userid) + ' <br>Because you are on your ' + Db('DailyBonus').get(userid) + ' Streak.<br>Come Everyday to collect Stardust.(It gets reset every 7 days or if you do not come everyday.)</center>');
+	Db('DailyBonus').set(userid, (Db('DailyBonus').get(userid) + 1));		
+};
+
+
 // last two functions needed to make sure SG.regdate() fully works
 function loadRegdateCache() {
 	try {
@@ -126,4 +141,14 @@ loadRegdateCache();
 
 function saveRegdateCache() {
 	fs.writeFileSync('config/regdate.json', JSON.stringify(regdateCache));
+}
+
+function showDailyRewardAni(userid) {
+	userid = toId(userid);
+	let streak = Db('DailyBonus').get(userid);
+	let output = '';
+	for(let i = 1; i <= streak; i++) {
+		output += "<img src='http://i.imgur.com/ZItWCLB.png' width='16' height='16'> ";
+	}
+	return output;
 }
