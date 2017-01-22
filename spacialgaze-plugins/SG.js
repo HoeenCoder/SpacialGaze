@@ -7,16 +7,12 @@ const Autolinker = require('autolinker');
 let regdateCache = {};
 
 SG.nameColor = function (name, bold) {
-	return (bold ? "<b>" : "") + "<font color=" + hashColorWithCustoms(name) + ">" + (Users(name) && Users(name).connected && Users.getExact(name) ? Chat.escapeHTML(Users.getExact(name).name) : Chat.escapeHTML(name)) + "</font>" + (bold ? "</b>" : "");
+	return (bold ? "<b>" : "") + "<font color=" + SG.hashColor(name) + ">" + (Users(name) && Users(name).connected && Users.getExact(name) ? Chat.escapeHTML(Users.getExact(name).name) : Chat.escapeHTML(name)) + "</font>" + (bold ? "</b>" : "");
 };
 // usage: SG.nameColor(user.name, true) for bold OR SG.nameColor(user.name, false) for non-bolded.
 
-SG.hashColor = function (user) {
-	return hashColorWithCustoms(user);
-};
-
 SG.messageSeniorStaff = function (message, pmName, from) {
-	pmName = (pmName ? pmName : '~Upper Staff PM');
+	pmName = (pmName ? pmName : '~SG Server');
 	from = (from ? ' (PM from ' + from + ')' : '');
 	Users.users.forEach(curUser => {
 		if (curUser.group === '~' || curUser.group === '&') {
@@ -60,7 +56,7 @@ SG.regdate = function (target, callback) {
 	});
 };
 
-SG.setTitle = function (userid, title, callback) {
+/*SG.setTitle = function (userid, title, callback) {
 	userid = toId(userid);
 	SG.database.all("SELECT * FROM users WHERE userid=$userid", {$userid: userid}, function (err, rows) {
 		if (rows.length < 1) {
@@ -84,7 +80,7 @@ SG.getTitle = function (userid, callback) {
 		if (err) return console.log(err);
 		callback(((rows[0] && rows[0].title) ? rows[0].title : ""));
 	});
-};
+};*/
 
 SG.parseMessage = function (message) {
 	if (message.substr(0, 5) === "/html") {
@@ -107,6 +103,17 @@ SG.parseMessage = function (message) {
 
 SG.randomString = function (length) {
 	return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1);
+};
+
+SG.reloadCSS = function () {
+	const cssPath = 'spacialgaze'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
+	let options = {
+		host: 'play.pokemonshowdown.com',
+		port: 80,
+		path: '/customcss.php?server=' + (Config.serverid || cssPath),
+		method: 'GET',
+	};
+	http.get(options);
 };
 
 // last two functions needed to make sure SG.regdate() fully works
