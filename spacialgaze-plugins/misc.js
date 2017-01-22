@@ -360,7 +360,7 @@ exports.commands = {
 			return SG.messageSeniorStaff(msg);
 		case 'title':
 			if (!target[2]) return this.errorReply('/usetoken title, [name], [color]');
-			msg += '|html|<center>' + user.name + 'has redeem a title token.<br/> title name: ' + target[1] +'<br/>';
+			msg += '|html|<center>' + user.name + 'has redeem a title token.<br/> title name: ' + target[1] + '<br/>';
 			msg += '<button class="button" name="send" value="/customtitle set ' + target[1] + '">Set title</button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
