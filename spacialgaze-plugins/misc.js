@@ -329,7 +329,7 @@ exports.commands = {
 	tellhelp: ["/tell [username], [message] - Send a message to an offline user that will be received when they log in."],
 
 	utoken: 'usetoken',
-	usetoken: function(target, room, user, connection, cmd, message) {
+	usetoken: function (target, room, user, connection, cmd, message) {
 		target = target.split(',');
 		if (target.length < 2) return this.parse('/help usetoken');
 		target[0] = toId(target[0]);
@@ -373,8 +373,6 @@ exports.commands = {
 		default:
 			return this.errorReply('An error occured in the command.'); // This should never happen.
 		}
-
 	},
-	usetokenhelp: ['/usetoken [token], [info] - Redeem a token from the shop. Accepts the following arguments: ',
-		''],
+	usetokenhelp: ['/usetoken [token], [info] - Redeem a token from the shop. Accepts the following arguments: '],
 };
