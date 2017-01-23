@@ -3,6 +3,7 @@
 let fs = require('fs');
 let http = require('http');
 const Autolinker = require('autolinker');
+let cssPath = 'spacialgaze'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
 
 let regdateCache = {};
 
@@ -106,7 +107,6 @@ SG.randomString = function (length) {
 };
 
 SG.reloadCSS = function () {
-	const cssPath = 'spacialgaze'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
 	let options = {
 		host: 'play.pokemonshowdown.com',
 		port: 80,
@@ -131,7 +131,6 @@ SG.giveDailyReward = function (userid, user) {
 	user.send('|popup||wide||html| <center><u><b><font size="3">SpacialGaze Daily Bonus</font></b></u><br>You have been awarded ' + Db('DailyBonus').get(userid) + ' Stardust.<br>' + showDailyRewardAni(userid) + ' <br>Because you are on your ' + Db('DailyBonus').get(userid) + ' Day Streak.<br>Come Everyday to collect Stardust.(It gets reset every 7 days or if you do not come everyday.)</center>');
 	Db('DailyBonus').set(userid, [(Db('DailyBonus').get(userid)[0] + 1), Date.now()]);
 };
-
 
 // last two functions needed to make sure SG.regdate() fully works
 function loadRegdateCache() {
