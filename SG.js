@@ -535,7 +535,7 @@ exports.SG = {
 			EXP = Math.pow(n, 3);
 			break;
 		case 'mediumslow':
-			EXP = ((6/5) * Math.pow(n, 3)) - (15 * Math.pow(n, 2)) + (100 * n) - 140;
+			EXP = ((6 / 5) * Math.pow(n, 3)) - (15 * Math.pow(n, 2)) + (100 * n) - 140;
 			break;
 		case 'slow':
 			EXP = (5 * Math.pow(n, 3)) / 4;
