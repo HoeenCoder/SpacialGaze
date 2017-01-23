@@ -127,10 +127,9 @@ SG.giveDailyReward = function (userid, user) {
 	if ((Date.now() - lastTime) < 86400000) return false;
 	if ((Date.now() - lastTime) > 89964000) Db('DailyBonus').set(userid, 1);
 	if (Db('DailyBonus').get(userid) === 8) Db('DailyBonus').set(userid, 1);
-	Db('currency').set(userid, Db('currency').get(userid) + Db('DailyBonus').get(userid));
+	Economy.writeMoney(userid, Db('DailyBonus').get(userid));
 	user.send('|popup||wide||html| <center><u><b><font size="3">SpacialGaze Daily Bonus</font></b></u><br>You have been awarded ' + Db('DailyBonus').get(userid) + ' Stardust.<br>' + showDailyRewardAni(userid) + ' <br>Because you are on your ' + Db('DailyBonus').get(userid) + ' Day Streak.<br>Come Everyday to collect Stardust.(It gets reset every 7 days or if you do not come everyday.)</center>');
 	Db('DailyBonus').set(userid, (Db('DailyBonus').get(userid) + 1));
-	Db('BonusTime').set(userid, Date.now());
 };
 
 
