@@ -344,13 +344,13 @@ exports.commands = {
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'declare':
-			msg += '/html <center>' + user.name + 'has redeemed a global declare token.<br/> Message: ' + target[1] + "<br/>";
-			msg += '<button class="button" name="send" value=/globaldeclare ' + target[1] + '">Globally Declare the Message</button></center>';
+			msg += '/html <center>' + user.name + ' has redeemed a global declare token.<br/> Message: ' + target[1] + "<br/>";
+			msg += '<button class="button" name="send" value="/globaldeclare ' + target[1] + '">Globally Declare the Message</button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'color':
-			msg += '/html <center>' + user.name + 'has redeemed a color token.<br/> hex color: <span' + target[1] + '<br/>';
-			msg += '<button class="button" name="send" value/customcolor set, ' + target[1] + '">Sets color</button></center>';
+			msg += '/html <center>' + user.name + ' has redeemed a color token.<br/> hex color: <span' + target[1] + '<br/>';
+			msg += '<button class="button" name="send" value="/customcolor set, ' + target[1] + '">Sets color</button></center>';
 			delete user.token[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'icon':
@@ -360,13 +360,13 @@ exports.commands = {
 			return SG.messageSeniorStaff(msg);
 		case 'title':
 			if (!target[2]) return this.errorReply('/usetoken title, [name], [hex code]');
-			msg += '/html <center>' + user.name + 'has redeem a title token.<br/> title name: ' + target[1] + '<br/>';
+			msg += '/html <center>' + user.name + ' has redeem a title token.<br/> title name: ' + target[1] + '<br/>';
 			msg += '<button class="button" name="send" value="/customtitle set ' + target[1] + '">Set title</button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'emote':
 			if (!target[2]) return this.errorReply('/usetoken emote, [name], [img]');
-			msg += '/html <center>' + user.name + 'has redeem a emote token.<br/><img src="' + target[1] + '" alt="emote"/><br/>';
+			msg += '/html <center>' + user.name + ' has redeem a emote token.<br/><img src="' + target[1] + '" alt="emote"/><br/>';
 			msg += '<button class="button" name="send" value="/emote add ' + target[1] + ', ' + target[2] + '">Set emote</button></center>';
 			delete user.token[target[0]];
 			return SG.messageSeniorStaff(msg);
