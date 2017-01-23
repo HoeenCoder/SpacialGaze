@@ -3,7 +3,6 @@
 let fs = require('fs');
 let http = require('http');
 const Autolinker = require('autolinker');
-let cssPath = 'spacialgaze'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
 
 let regdateCache = {};
 
@@ -81,6 +80,7 @@ SG.randomString = function (length) {
 };
 
 SG.reloadCSS = function () {
+	const cssPath = 'spacialgaze'; // This should be the server id if Config.serverid doesn't exist. Ex: 'serverid'
 	let options = {
 		host: 'play.pokemonshowdown.com',
 		port: 80,
