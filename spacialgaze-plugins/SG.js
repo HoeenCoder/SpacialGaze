@@ -94,6 +94,7 @@ SG.reloadCSS = function () {
 SG.giveDailyReward = function (userid, user) {
 	if (!user || !userid) return false;
 	userid = toId(userid);
+	if (!user.named) return false;
 	if (!user.autoconfirmed) return false;
 	if (!Db('DailyBonus').has(userid)) Db('DailyBonus').set(userid, 1);
 	if (!Db('BonusTime').has(userid)) Db('BonusTime').set(userid, 0); //if the user is connected for the first time...
