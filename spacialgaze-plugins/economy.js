@@ -231,7 +231,7 @@ exports.commands = {
 		}
 		user.popup("|wide|" + output);
 	},
-	/*'!richestuser': true,
+	'!richestuser': true,
 	richestusers: 'richestuser',
 	richestuser: function (target, room, user) {
 		if (!target) target = 10;
@@ -247,19 +247,19 @@ exports.commands = {
 			let output = '<table border="1" cellspacing ="0" cellpadding="3"><tr><th>Rank</th><th>Name</th><th>' + currencyPlural + '</th></tr>';
 			let count = 1;
 			for (let u in rows) {
-				if (Db.currency.get(rows[u], DEFAULT_AMOUNT) < 1) continue;
-				output += '<tr><td>' + count + '</td><td>' + SG.nameColor(rows[u], true) + '</td><td>' + Db.currency.get(rows[u], DEFAULT_AMOUNT) + '</td></tr>';
+				if (rows[u].amount < 1) continue;
+				output += '<tr><td>' + count + '</td><td>' + SG.nameColor(rows[u].name, true) + '</td><td>' + rows[u].amount + '</td></tr>';
 				count++;
 			}
 			self.sendReplyBox(output);
 			if (room) room.update();
 		}
-		let obj = Db.currency.keys();
-		let results = obj.sort(function (a, b) {
-			return obj[b] - obj[a];
+		let obj = Db.currency.keys().map(function (name) {return {name: name, amount: Db.currency.get(name)};});
+		let results = obj.sort(function(a, b) {
+			return b.amount - a.amount
 		});
 		showResults(results.slice(0, target));
-	},*/
+	},
 
 	customsymbol: function (target, room, user) {
 		let bannedSymbols = ['!', '|', '‽', '\u2030', '\u534D', '\u5350', '\u223C'];
