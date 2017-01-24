@@ -26,7 +26,7 @@ let Economy = global.Economy = {
 		// In case someone forgot to turn `userid` into an actual ID...
 		userid = toId(userid);
 
-		let amount = Db('currency').get(userid, DEFAULT_AMOUNT);
+		let amount = Db.currency.get(userid, DEFAULT_AMOUNT);
 		return callback(amount);
 	},
 	/**
@@ -48,10 +48,9 @@ let Economy = global.Economy = {
 			throw new Error("Economy.writeMoney: Expected amount parameter to be a Number, instead received " + typeof amount);
 		}
 
-		let curTotal = Db('currency').get(userid, DEFAULT_AMOUNT);
-		let newTotal = Db('currency')
-			.set(userid, curTotal + amount)
-			.get(userid);
+		let curTotal = Db.currency.get(userid, DEFAULT_AMOUNT);
+		Db.currency.set(userid, curTotal + amount)
+		let newTotal = Db.currency.get(userid);
 
 		if (callback && typeof callback === 'function') {
 			// If a callback is specified, return `newTotal` through the callback.
@@ -232,7 +231,7 @@ exports.commands = {
 		}
 		user.popup("|wide|" + output);
 	},
-	'!richestuser': true,
+	/*'!richestuser': true,
 	richestusers: 'richestuser',
 	richestuser: function (target, room, user) {
 		if (!target) target = 10;
@@ -248,19 +247,19 @@ exports.commands = {
 			let output = '<table border="1" cellspacing ="0" cellpadding="3"><tr><th>Rank</th><th>Name</th><th>' + currencyPlural + '</th></tr>';
 			let count = 1;
 			for (let u in rows) {
-				if (Db('currency').get(rows[u], DEFAULT_AMOUNT) < 1) continue;
-				output += '<tr><td>' + count + '</td><td>' + SG.nameColor(rows[u], true) + '</td><td>' + Db('currency').get(rows[u], DEFAULT_AMOUNT) + '</td></tr>';
+				if (Db.currency.get(rows[u], DEFAULT_AMOUNT) < 1) continue;
+				output += '<tr><td>' + count + '</td><td>' + SG.nameColor(rows[u], true) + '</td><td>' + Db.currency.get(rows[u], DEFAULT_AMOUNT) + '</td></tr>';
 				count++;
 			}
 			self.sendReplyBox(output);
 			if (room) room.update();
 		}
-		let obj = Db('currency').object();
-		let results = Object.keys(obj).sort(function (a, b) {
+		let obj = Db.currency.keys();
+		let results = obj.sort(function (a, b) {
 			return obj[b] - obj[a];
 		});
 		showResults(results.slice(0, target));
-	},
+	},*/
 
 	customsymbol: function (target, room, user) {
 		let bannedSymbols = ['!', '|', '‽', '\u2030', '\u534D', '\u5350', '\u223C'];
