@@ -349,25 +349,26 @@ exports.commands = {
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'color':
-			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeemed a color token.<br/> hex color: <span' + target[1] + '<br/>';
-			msg += '<button class="button" name="send" value="/customcolor set, ' + target[1] + '">Sets color</button></center>';
+			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeemed a custom color token.<br/> hex color: <span' + target[1] + '<br/>';
+			msg += '<button class="button" name="send" value="/customcolor set ' + user.name + ',' + target[1] + '">Set color (<b><font color="' + target[1] + '">' + target[1] + '</font></b>)</button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'icon':
-			msg += '/html <center>' + SG.naemColor(user.name, true) + ' has redeemed a icon token.<br/><img src="' + target[1] + '" alt="icon"/><br/>';
+			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeemed a icon token.<br/><img src="' + target[1] + '" alt="icon"/><br/>';
 			msg += '<button class="button" name="send" value="/customicon set ' + user.userid + ', ' + target[1] + '">Apply icon</button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'title':
 			if (!target[2]) return this.errorReply('/usetoken title, [name], [hex code]');
 			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeem a title token.<br/> title name: ' + target[1] + '<br/>';
-			msg += '<button class="button" name="send" value="/customtitle set ' + user.userid + ', ' + target[1] + ', ' + target[2] + '">Set title</button></center>';
+			msg += '<button class="button" name="send" value="/customtitle set ' + user.userid + ', ' + target[1] + ', ' + target[2] + '">Set title (<b><font color="' + target[2] + '">' + target[2] + '</font></b>)</button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'emote':
 			if (!target[2]) return this.errorReply('/usetoken emote, [name], [img]');
-			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeem a emote token.<br/><img src="' + target[1] + '" alt="emote"/><br/>';
-			msg += '<button class="button" name="send" value="/emote add ' + target[1] + ', ' + target[2] + '">Set emote</button></center>';
+			target[2] = target[2].trim();
+			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeem a emote token.<br/><img src="' + target[2] + '" alt="' + target[1] + '"/><br/>';
+			msg += '<button class="button" name="send" value="/emote add, ' + target[1] + ', ' + target[2] + '">Add emote</button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		default:
@@ -376,5 +377,5 @@ exports.commands = {
 	},
 	usetokenhelp: ['/usetoken [token], [argument(s)] - Redeem a token from the shop. Accepts the following arguments: ',
 		      '/usetoken avatar, [image] | /usetoken declare, [message] | /usetoken color, [hex code]',
-		      '/usetoken icon [image] | /usetoken title, [name], [hex code] | /usetoken emote, [name], [image]'],
+		      '/usetoken icon [image] | /usetoken title, [name], [hex code] | /usetoken emote, [name], [image]'],	
 };
