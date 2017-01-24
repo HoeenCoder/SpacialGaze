@@ -57,7 +57,7 @@ exports.commands = {
 			if (!this.can('ban')) return false;
 			if (!target) return this.parse('/help serverannouncements');
 			if (!Db.news.has(target)) return this.errorReply("News with this title doesn't exist.");
-			Db.news.delete(target);
+			Db.news.remove(target);
 			this.privateModCommand(`(${user.name} deleted server announcement titled: ${target}.)`);
 		},
 		add: function (target, room, user) {
@@ -92,7 +92,7 @@ exports.commands = {
 		unsubscribe: function (target, room, user) {
 			if (!user.named) return this.errorReply('You must choose a name before unsubscribing');
 			if (!hasSubscribed(user.userid)) return this.errorReply("You have not subscribed SpacialGaze News.");
-			Db.NewsSubscribers.delete(user.userid);
+			Db.NewsSubscribers.remove(user.userid);
 			this.sendReply("You have unsubscribed SpacialGaze News.");
 			this.popupReply("|wide||html|You will no longer automatically receive SpacialGaze News.<br><hr><button class='button' name='send' value='/news'>Go Back</button>");
 		},
