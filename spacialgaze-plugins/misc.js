@@ -354,7 +354,7 @@ exports.commands = {
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'icon':
-			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeemed a icon token.<br/><img src="' + target[1] + '" alt="icon"/><br/>';
+			msg += '/html <center>' + SG.naemColor(user.name, true) + ' has redeemed a icon token.<br/><img src="' + target[1] + '" alt="icon"/><br/>';
 			msg += '<button class="button" name="send" value="/customicon set ' + user.userid + ', ' + target[1] + '">Apply icon</button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
