@@ -96,11 +96,10 @@ SG.giveDailyReward = function (userid, user) {
 	userid = toId(userid);
 	if (!user.named) return false;
 	if (!user.autoconfirmed) return false;
-	if (!Db('DailyBonus').has(userid)) Db('DailyBonus').set(userid, [1, Date.now()]);
-	if (!Db('DailyBonus').has(userid)) Db('DailyBonus').set(userid, [1, Date.now()]); //if the user is connected for the first time...
+	if (!Db('DailyBonus').has(userid)) Db('DailyBonus').set(userid, [1, 0]);
 	let lastTime = Db('DailyBonus').get(userid)[1];
-	if ((Date.now() - lastTime) < 86400000) return false;
-	if ((Date.now() - lastTime) > 89964000) Db('DailyBonus').set(userid, [1, Date.now()]);
+	if ((Date.now() - lastTime) < 86364000) return false;
+	if ((Date.now() - lastTime) > 86364000) Db('DailyBonus').set(userid, [1, Date.now()]);
 	if (Db('DailyBonus').get(userid) === 8) Db('DailyBonus').set(userid, [1, Date.now()]);
 	Economy.writeMoney(userid, Db('DailyBonus').get(userid)[0]);
 	user.send('|popup||wide||html| <center><u><b><font size="3">SpacialGaze Daily Bonus</font></b></u><br>You have been awarded ' + Db('DailyBonus').get(userid) + ' Stardust.<br>' + showDailyRewardAni(userid) + ' <br>Because you are on your ' + Db('DailyBonus').get(userid) + ' Day Streak.<br>Come Everyday to collect Stardust.(It gets reset every 7 days or if you do not come everyday.)</center>');
