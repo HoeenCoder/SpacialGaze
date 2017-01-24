@@ -96,13 +96,13 @@ SG.giveDailyReward = function (userid, user) {
 	userid = toId(userid);
 	if (!user.named) return false;
 	if (!user.autoconfirmed) return false;
-	if (!Db('DailyBonus').has(userid)) Db('DailyBonus').set(userid, [1, 0]);
+	if (!Db('DailyBonus').has(userid)) Db('DailyBonus').set(userid, [0, 0]);
 	let lastTime = Db('DailyBonus').get(userid)[1];
 	if ((Date.now() - lastTime) < 86364000) return false;
 	if ((Date.now() - lastTime) > 86364000) Db('DailyBonus').set(userid, [1, Date.now()]);
 	if (Db('DailyBonus').get(userid) === 8) Db('DailyBonus').set(userid, [1, Date.now()]);
 	Economy.writeMoney(userid, Db('DailyBonus').get(userid)[0]);
-	user.send('|popup||wide||html| <center><u><b><font size="3">SpacialGaze Daily Bonus</font></b></u><br>You have been awarded ' + Db('DailyBonus').get(userid) + ' Stardust.<br>' + showDailyRewardAni(userid) + ' <br>Because you are on your ' + Db('DailyBonus').get(userid) + ' Day Streak.<br>Come Everyday to collect Stardust.(It gets reset every 7 days or if you do not come everyday.)</center>');
+	user.send('|popup||wide||html| <center><u><b><font size="3">SpacialGaze Daily Bonus</font></b></u><br>You have been awarded ' + Db('DailyBonus').get(userid)[0] + ' Stardust.<br>' + showDailyRewardAni(userid) + ' <br>Because you are on your ' + Db('DailyBonus').get(userid) + ' Day Streak.<br>Come Everyday to collect Stardust.(It gets reset every 7 days or if you do not come everyday.)</center>');
 	Db('DailyBonus').set(userid, [(Db('DailyBonus').get(userid)[0] + 1), Date.now()]);
 };
 
@@ -120,7 +120,7 @@ function saveRegdateCache() {
 
 function showDailyRewardAni(userid) {
 	userid = toId(userid);
-	let streak = Db('DailyBonus').get(userid);
+	let streak = Db('DailyBonus').get(userid)[0];
 	let output = '';
 	for (let i = 1; i <= streak; i++) {
 		output += "<img src='http://i.imgur.com/ZItWCLB.png' width='16' height='16'> ";
