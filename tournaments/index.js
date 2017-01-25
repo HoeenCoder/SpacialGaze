@@ -949,7 +949,7 @@ class Tournament {
 			if (runnerUp) {
 				if (Users(rid).tourBoost) secondMoney *= 2;
 				if (Users(rid).gameBoost) secondMoney *= 2;
-				if (Db('userBadges').has(rid) && Db('userBadges').get(rid).indexOf('Tournament Champion') > -1) secondMoney = Math.ceil(firstMoney * 1.5);
+				if (Db.userBadge.has(rid) && Db.userBadges.get(rid).indexOf('Tournament Champion') > -1) secondMoney = Math.ceil(firstMoney * 1.5);
 			}
 
 			Economy.writeMoney(wid, firstMoney, () => {
