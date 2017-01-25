@@ -162,7 +162,7 @@ exports.commands = {
 			let userid = toId(target[0]);
 			let targetUser = Users.getExact(userid);
 			let title = target[1].trim();
-			if (Db.customtitles.has(userid) && Db('titlecolors').has(userid)) {
+			if (Db.customtitles.has(userid) && Db.titlecolors.has(userid)) {
 				return this.errorReply(userid + " already has a custom title.");
 			}
 			let color = target[2].trim();
