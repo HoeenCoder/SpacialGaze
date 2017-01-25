@@ -31,7 +31,7 @@ function isDev(user) {
 }
 
 function formatTitle(user) {
-	if (Db.customtitles.has(toId(user)) && Db('titlecolors').has(toId(user))) {
+	if (Db.customtitles.has(toId(user)) && Db.titlecolors.has(toId(user))) {
 		return '<font color="' + Db.titlecolors.get(toId(user)) +
 			'">(<b>' + Db.customtitles.get(toId(user)) + '</b>)</font>';
 	}
@@ -241,7 +241,7 @@ exports.commands = {
 				if (!this.can('lock')) return false;
 				let userid = toId(target);
 				if (!Db.friendcodes.has(userid)) return this.errorReply(userid + " hasn't set a friend code.");
-				D.friendcodes.delete(userid);
+				Db.friendcodes.remove(userid);
 				return this.sendReply(userid + "'s friend code has been deleted from the server.");
 			}
 		},
