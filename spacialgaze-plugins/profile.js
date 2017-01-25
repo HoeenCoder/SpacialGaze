@@ -184,7 +184,7 @@ exports.commands = {
 			if (!this.can('declare')) return false;
 			if (!target) return this.parse('/help', true);
 			let userid = toId(target);
-			if (!Db.customtitles.has(userid) && !Db('titlecolors').has(userid)) {
+			if (!Db.customtitles.has(userid) && !Db.titlecolors.has(userid)) {
 				return this.errorReply(userid + " does not have a custom title set.");
 			}
 			Db.titlecolors.remove(userid);
