@@ -63,7 +63,7 @@ class Draft {
 		if (this.draftedMons.includes(pk)) return self.errorReply('This mon has already been drafted by someone else.');
 		this.teams[this.turn].draftpicks.push(pk);
 		let fileName = this.room + 'draft';
-		Db.fileName.set('teams', this.teams);
+		Db[fileName].set('teams', this.teams);
 		this.draftedMons.push(pk);
 		if (this.order.length === this.order.indexOf(this.turn) + 1) {
 			if (this.teams[this.turn].draftpicks.length === this.maxMons) {
