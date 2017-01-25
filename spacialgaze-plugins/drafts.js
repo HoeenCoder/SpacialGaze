@@ -30,7 +30,7 @@ class Draft {
 		};
 		this.originalOrder.push(teamname);
 		let fileName = this.room + 'draft';
-		Db.fileName.set('teams', this.teams);
+		Db[fileName].set('teams', this.teams);
 		this.room.add('|html|<div style="' + greencss + '">The <b>' + teamname + '</b> are now apart of the draft and is managed by <b>' + manager + '</b></div>');
 		this.log(teamname + ' is now apart of the draft and is managed by ' + manager);
 	}
@@ -44,7 +44,7 @@ class Draft {
 			continue;
 		}
 		let fileName = this.room + 'draft';
-		Db.fileName.set('teams', this.teams);
+		Db[fileName].set('teams', this.teams);
 		this.log(teamname + ' has been removed from this league.');
 	}
 	start(self) {
