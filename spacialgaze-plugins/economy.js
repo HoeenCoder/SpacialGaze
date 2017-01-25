@@ -49,7 +49,7 @@ let Economy = global.Economy = {
 		}
 
 		let curTotal = Db.currency.get(userid, DEFAULT_AMOUNT);
-		Db.currency.set(userid, curTotal + amount)
+		Db.currency.set(userid, curTotal + amount);
 		let newTotal = Db.currency.get(userid);
 
 		if (callback && typeof callback === 'function') {
@@ -255,8 +255,8 @@ exports.commands = {
 			if (room) room.update();
 		}
 		let obj = Db.currency.keys().map(function (name) {return {name: name, amount: Db.currency.get(name)};});
-		let results = obj.sort(function(a, b) {
-			return b.amount - a.amount
+		let results = obj.sort(function (a, b) {
+			return b.amount - a.amount;
 		});
 		showResults(results.slice(0, target));
 	},
