@@ -4,8 +4,9 @@ let fs = require('fs');
 let http = require('http');
 const Autolinker = require('autolinker');
 
-let gameData = {};
 let regdateCache = {};
+
+let gameData = {};
 try {
 	gameData = JSON.parse(fs.readFileSync('config/SGGame/pokemon.json', 'utf8'));
 } catch (e) {}
