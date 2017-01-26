@@ -134,7 +134,7 @@ class Draft {
 		this.draftedMons[oldpickDraftSpot] = mon;
 		this.teams[team].draftpicks[pick - 1] = mon;
 		let fileName = this.room + 'draft';
-		this.fileName.set('teams', this.teams);
+		Db[fileName].set('teams', this.teams);
 		this.room.add('|html|<div style="' + greencss + '">Change : <b>' + team + '</b> has changed their pick : <b>' + oldpick + '</b> changed to : <b>' + this.teams[team].draftpicks[pick - 1] + '</b>.<br><b>' + team + '\'s</b> Line up now looks like: ' + this.iconize(this.teams[team].draftpicks) + '</div>');
 		this.log(team + ' has changed their draft pick : ' + oldpick + ' to : ' + mon);
 	}
@@ -275,14 +275,14 @@ exports.commands = {
 		}
 	},
 	draftmon: function (target, room, user) {
-	 if (!drafts[room]) return this.errorReply('This room is not drafting at the moment.');
-	 if (drafts[room].state !== 'drafting') return this.errorReply('The draft has not started.');
-	 if (!target) return this.parse('/draft help');
-	 let pkmn = target.toLowerCase().replace(' ', '');
-	 if (!Tools.data.Pokedex[pkmn]) {
-		 return this.errorReply('Not a Pokemon.');
-	 } else {
-		 drafts[room].Nom(pkmn, user.userid, this);
-	 }
+		if (!drafts[room]) return this.errorReply('This room is not drafting at the moment.');
+		if (drafts[room].state !== 'drafting') return this.errorReply('The draft has not started.');
+		if (!target) return this.parse('/draft help');
+		let pkmn = target.toLowerCase().replace(' ', '');
+		if (!Tools.data.Pokedex[pkmn]) {
+			return this.errorReply('Not a Pokemon.');
+		} else {
+			drafts[room].Nom(pkmn, user.userid, this);
+		}
 	},
 };
