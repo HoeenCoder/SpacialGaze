@@ -39,10 +39,6 @@
 		"id": 11,
 		"expType": "mediumfast"
 	},
-	"mediumfast": {
-		"id": null,
-		"expType": "782"
-	},
 	"metapod": {
 		"id": 12,
 		"expType": "mediumfast"
@@ -230,10 +226,6 @@
 	"growlithe": {
 		"id": 59,
 		"expType": "slow"
-	},
-	"slow": {
-		"id": null,
-		"expType": ""
 	},
 	"arcanine": {
 		"id": 60,
@@ -1143,10 +1135,6 @@
 		"id": 286,
 		"expType": "fluctuating"
 	},
-	"fluctuating": {
-		"id": null,
-		"expType": "427"
-	},
 	"breloom": {
 		"id": 287,
 		"expType": "fluctuating"
@@ -1166,10 +1154,6 @@
 	"nincada": {
 		"id": 291,
 		"expType": "erratic"
-	},
-	"erratic": {
-		"id": null,
-		"expType": "458"
 	},
 	"ninjask": {
 		"id": 292,
@@ -3216,7 +3200,7 @@
 		"expType": "slow"
 	},
 	"marshadow": {
-		"id": null,
+		"id": 803,
 		"expType": "slow"
 	}
 }
