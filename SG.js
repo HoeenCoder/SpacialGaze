@@ -4,9 +4,10 @@ let fs = require('fs');
 let http = require('http');
 const Autolinker = require('autolinker');
 
+let gameData = {};
 let regdateCache = {};
 try {
-	let gameData = JSON.parse(fs.readFileSync('config/SGGame/pokemon.json', 'utf8'));
+	gameData = JSON.parse(fs.readFileSync('config/SGGame/pokemon.json', 'utf8'));
 } catch(e) {}
 
 exports.SG = {
@@ -557,9 +558,9 @@ exports.SG = {
 		let a = 1, t = (pokemon.ot === userid ? 1 : 1.5), e = (toId(pokemon.item) === 'luckyegg' ? 1.5 : 1), f = 1, L = foe.level, Lp = pokemon.level, p = 1, s = (particpated ? 2 : 1);
 		/* TODO
 		v is equal to...
-		Generation VI+ only: 1.2 if the winning Pokémon is at or past the level where it would be able to evolve, but it has not
+		Generation VI+ only: 1.2 if the winning Pokï¿½mon is at or past the level where it would be able to evolve, but it has not
 		* * * * *
-		b is the base experience yield of the fainted Pokémon's species; values for the current Generation are listed here ( http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield )
+		b is the base experience yield of the fainted Pokï¿½mon's species; values for the current Generation are listed here ( http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield )
 		TODO base experience yeild => JSON
 		* * * * *
 		using defaults atm...
