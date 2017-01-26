@@ -125,6 +125,6 @@ exports.commands = {
 		"/badges delete, [badge] - Delete a badge. Requires Global @, &, or ~",
 		"/badges set, [user], [badgeName] - Give a user a badge. Requires Global %, Global @, &, or ~",
 		"/badges take, [user], [badgeName] - Take a badge from a user. Requires Global %, Global @, &, or ~",
-		"/badges user, [user] - List a users badges."
+		"/badges user, [user] - List a users badges.",
 	],
 };
