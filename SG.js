@@ -8,7 +8,7 @@ let gameData = {};
 let regdateCache = {};
 try {
 	gameData = JSON.parse(fs.readFileSync('config/SGGame/pokemon.json', 'utf8'));
-} catch(e) {}
+} catch (e) {}
 
 exports.SG = {
 	nameColor: function (name, bold) {
@@ -566,7 +566,7 @@ exports.SG = {
 		using defaults atm...
 		Why 57 for b as default? The test mons are low formes.
 		*/
-		let b = 57, v = 1; 
+		let b = 57, v = 1;
 		return (((a * b * L) / (5 * s)) * (Math.pow((2 * L + 10), 2.5) / Math.pow((L + Lp + 10), 2.5)) + 1) * t * e * p;
 	},
 };
