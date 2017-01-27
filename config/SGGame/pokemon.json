@@ -139,6 +139,11 @@
 		"num": 28,
 		"rate": "90"
 	},
+	"nidoranf": {
+		"expType": "mediumslow",
+		"num": 29,
+		"rate": "235"
+	},
 	"nidorina": {
 		"expType": "mediumslow",
 		"num": 30,
@@ -149,6 +154,11 @@
 		"num": 31,
 		"rate": "45"
 	},
+	"nidoranm": {
+		"expType": "mediumslow",
+		"num": 32,
+		"rate": "235"
+	},	
 	"nidorino": {
 		"expType": "mediumslow",
 		"num": 33,
@@ -3998,15 +4008,5 @@
 		"expType": "slow",
 		"num": 802,
 		"rate": "3"
-	},
-	"nidoranf": {
-		"expType": "mediumslow",
-		"num": 29,
-		"rate": "235"
-	},
-	"nidoranm": {
-		"expType": "mediumslow",
-		"num": 32,
-		"rate": "235"
 	}
 }
