@@ -968,6 +968,7 @@ class BattleRoom extends Room {
 		if (this.tour) {
 			this.tour.onBattleWin(this, winnerid);
 		}
+		SG.addExp(winner, this.roomid, 5);
 		this.update();
 	}
 	// logNum = 0    : spectator log (no exact HP)
