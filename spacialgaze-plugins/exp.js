@@ -152,7 +152,7 @@ function addExp(user, room, amount) {
 			}
 			let newLevel = SG.level(user)
 			user.sendTo(room, '|html|<center><font size=4><b><i>Level Up!</i></b></font><br />' +
-				'You have reached level ' + newLevel + '.' + /*' This will award you:<br /><b> ' + rewardLevel + */'</b></center>';
+				'You have reached level ' + newLevel + '.' + /*' This will award you:<br /><b> ' + rewardLevel + */'</b></center>'
 			);
 		}
 	});
