@@ -1,5 +1,10 @@
 'use strict';
 
+/********************************************
+*     EXP SYSTEM FOR POKEMON SHOWDOWN	    *
+*     	  By Volco and HoeenHero	    *
+********************************************/
+
 const DEFAULT_AMOUNT = 0;
 
 function isExp (exp) {
@@ -55,102 +60,100 @@ function addExp (user, room, amount) {
 		if (oldLevel < level) {
 			let rewardLevel;
 			let currency;
-			if (level === 2) {
-				levelPack(user.userid, room);
-			} else if (level === 3) {
-				rewardLevel = '-Customize `About Me` on profile with /profile edit.<br/>-A random card pack.';
+			if (level === 3) {
+				//rewardLevel = '-Customize `About Me` on profile with /profile edit.<br/>-A random card pack.';
 				currency = 2;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else if (level === 5) {
-				rewardLevel = '-Unlimited access to /customsymbol.<br/>-A random card pack.';
+				//rewardLevel = '-Unlimited access to /customsymbol.<br/>-A random card pack.';
 				currency = 5;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else if (level === 8) {
-				rewardLevel = '-Customize Pokemon on profile with /profile edit<br/>-A random card pack..';
+				//rewardLevel = '-Customize Pokemon on profile with /profile edit<br/>-A random card pack..';
 				currency = 5;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else if (level === 10) {
-				rewardLevel = '-Unlimited access to /customavatar.<br/>-Customize background color on profile with /profile edit.<br/>-A random card pack.';
+				//rewardLevel = '-Unlimited access to /customavatar.<br/>-Customize background color on profile with /profile edit.<br/>-A random card pack.';
 				currency = 7;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else if (level === 12) {
-				rewardLevel = '-Customize Primary and Secondary colors on profile with /profile edit.<br/>A random card pack.';
+				//rewardLevel = '-Customize Primary and Secondary colors on profile with /profile edit.<br/>A random card pack.';
 				currency = 10;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else if (level === 13) {
-				rewardLevel = '-Unlimited access to /customcolor.<br/>-A random card pack.';
+				//rewardLevel = '-Unlimited access to /customcolor.<br/>-A random card pack.';
 				currency = 13;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else if (level === 17) {
-				rewardLevel = '-Unlimited access to /icon.<br/>-A random card pack.';
+				//rewardLevel = '-Unlimited access to /icon.<br/>-A random card pack.';
 				currency = 17;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else if (level === 20) {
-				rewardLevel = '-Unlimited access to /title.<br/>-2 random card packs.';
+				//rewardLevel = '';
 				currency = 25;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else if (level > 20) {
-				rewardLevel = 'test';
+				//rewardLevel = '';
 				currency = 27;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			} else {
-				rewardLevel = "-5 Stardust";
+				//rewardLevel = "-3 Stardust";
 				currency = 3;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-			user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			}
 			let newLevel = SG.level(user)
 			user.sendTo(room, '|html|<center><font size=4><b><i>Level Up!</i></b></font><br />' +
-				'You have reached level ' + newLevel + '.' + ' This will award you:<br /><b> ' + rewardLevel + '</b></center>'
+				'You have reached level ' + newLevel + '.' + /*' This will award you:<br /><b> ' + rewardLevel + */'</b></center>'
 			);
 		}
 	});
@@ -219,21 +222,21 @@ exports.commands = {
 	
 	resetexp: 'resetxp',
 	confirmresetxp: 'resetxp',
-    resetxp: function(target, room, user, cmd) {
-        if (!target) return this.errorReply('USAGE: /resetxp (USER)');
+	resetxp: function(target, room, user, cmd) {
+        	if (!target) return this.errorReply('USAGE: /resetxp (USER)');
 		let parts = target.split(',');
-        let targetUser = parts[0].toLowerCase().trim(); 
-        if (!this.can('roomowner')) return false;
-        if (cmd === 'resetxp' || cmd === 'resetexp') {
+        	let targetUser = parts[0].toLowerCase().trim(); 
+        	if (!this.can('roomowner')) return false;
+        	if (cmd === 'resetxp' || cmd === 'resetexp') {
 			return this.popupReply('|html|<center><button name="send" value="/confirmresetxp ' + targetUser + '"style="background-color:red;height:300px;width:150px"><b><font color="white" size=3>Confirm XP reset of ' + SG.nameColor(targetUser, true) + '; this is only to be used in emergencies, cannot be undone!</font></b></button>');
 		}
-        Db.exp.set(toId(target), 0)
-        if (Users.get(target)) Users.get(target).popup('Your XP was reset by an Administrator. This cannot be undone and nobody below the rank of Administrator can assist you or answer questions about this.');
-        user.popup("|html|You have reset the XP of " + SG.nameColor(targetUser, true) + ".");
-        this.add('|html|[XP Monitor] ' +  SG.nameColor(user.name, true) + ' has reset the XP of ' +  SG.nameColor(target, true));
+        	Db.exp.set(toId(target), 0)
+        	if (Users.get(target)) Users.get(target).popup('Your XP was reset by an Administrator. This cannot be undone and nobody below the rank of Administrator can assist you or answer questions about this.');
+		user.popup("|html|You have reset the XP of " + SG.nameColor(targetUser, true) + ".");
+		this.add('|html|[XP Monitor] ' +  SG.nameColor(user.name, true) + ' has reset the XP of ' +  SG.nameColor(target, true));
 		room.update();
-    },
-    
+	},
+	
 	xpladder: 'expladder',
 	expladder: function (target, room, user) {
 		if (!target) target = 10;
@@ -262,7 +265,6 @@ exports.commands = {
 		});
 		showResults(results.slice(0, target));
 	},
-
 
 	cleanexp: function (target, room, user) {
 		if (!this.can('root')) return this.errorReply("/cleanexp - Access denied.");
