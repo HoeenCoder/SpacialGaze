@@ -96,7 +96,7 @@ SG.giveDailyReward = function (userid, user) {
 	userid = toId(userid);
 	if (!user.autoconfirmed) return false;
 	if (!Db.DailyBonus.has(userid)) {
-		Db.DailyBonus.set(userid, [0, Date.now()]);
+		Db.DailyBonus.set(userid, [1, Date.now()]);
 		return false;
 	}
 	let lastTime = Db.DailyBonus.get(userid)[1];
