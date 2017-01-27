@@ -898,7 +898,7 @@ Chat.loadCommands = function () {
 	for (let file of fs.readdirSync(path.resolve(__dirname, 'game-cards'))) {
 		if (file.substr(-3) !== '.js' || file === 'SGgame.js') continue;
 		Object.assign(commands, require('./game-cards/' + file).commands);
-	}	
+	}
 };
 
 /**
