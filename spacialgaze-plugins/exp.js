@@ -39,7 +39,7 @@ let EXP = global.EXP = {
 			throw new Error("EXP.writeExp: Expected amount parameter to be a Number, instead received " + typeof amount);
 		}
 		let curTotal = Db.exp.get(userid, DEFAULT_AMOUNT);
-		Db.exp.set(userid, curTotal + amount)
+		Db.exp.set(userid, curTotal + amount);
 		let newTotal = Db.exp.get(userid);
 		if (callback && typeof callback === 'function') {
 			// If a callback is specified, return `newTotal` through the callback.
@@ -51,11 +51,11 @@ let EXP = global.EXP = {
 function addExp(user, room, amount) {
 	user = Users.getExact(toId(user));
 	EXP.readExp(user.userid, totalExp => {
-		let oldLevel = SG.nextLevel(user);
+		let oldLevel = SG.level(user);
 		EXP.writeExp(user.userid, amount);
 		if (!user || !room) return;
 		user.sendTo(room, 'You have gained ' + amount + ' EXP.');
-		let level = SG.nextLevel(user);
+		let level = SG.level(user);
 		if (oldLevel < level) {
 			//let rewardLevel;
 			let currency;
@@ -150,7 +150,7 @@ function addExp(user, room, amount) {
 				});
 				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
 			}
-			let newLevel = SG.level(user)
+			let newLevel = SG.level(user);
 			user.sendTo(room, '|html|<center><font size=4><b><i>Level Up!</i></b></font><br />' +
 				'You have reached level ' + newLevel + '.' + /*' This will award you:<br /><b> ' + rewardLevel + */'</b></center>'
 			);
@@ -159,7 +159,7 @@ function addExp(user, room, amount) {
 }
 SG.addExp = addExp;
 
-function level(user) { 
+function level(user) {
 	let curExp = Db.exp.get(user, 0);
 	let benchmarks = [0, 40, 90, 165, 250, 400, 600, 810, 1250, 1740, 2450, 3300, 4400, 5550, 6740, 8120, 9630, 11370, 13290, 15520, 18050, 23000, 28000, 33720, 39900, 46440, 52690, 58000, 63600, 69250, 75070, 81170, 87470, 93970, 100810, 107890, 115270, 122960, 131080, 140000];
 	for (let i = 0; i < benchmarks.length; i++) {
@@ -172,7 +172,7 @@ function level(user) {
 }
 SG.level = level;
 
-function nextLevel (user) {
+function nextLevel(user) {
 	let curExp = Db.exp.get(user, 0);
 	let benchmarks = [0, 40, 90, 165, 250, 400, 600, 810, 1250, 1740, 2450, 3300, 4400, 5550, 6740, 8120, 9630, 11370, 13290, 15520, 18050, 23000, 28000, 33720, 39900, 46440, 52690, 58000, 63600, 69250, 75070, 81170, 87470, 93970, 100810, 107890, 115270, 122960, 131080, 140000];
 	for (let i = 0; i < benchmarks.length; i++) {
