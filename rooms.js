@@ -497,6 +497,10 @@ class GlobalRoom {
 		if (!user.connected) return;
 
 		formatid = Tools.getFormat(formatid).id;
+		if (Tools.getFormat(formatid).useSGGame) {
+			if (!Db('players').get(user.userid)) return;
+			user.team = SG.packTeam(Db('players').get(user.userid));
+		}
 
 		user.prepBattle(formatid, 'search', null).then(result => this.finishSearchBattle(user, formatid, result));
 	}
@@ -552,6 +556,17 @@ class GlobalRoom {
 
 		if (!this.searches[formatid]) this.searches[formatid] = [];
 		let formatSearches = this.searches[formatid];
+
+		if (Tools.getFormat(formatid).isWildEncounter) {
+			delete user.searching[formatid];
+			if (!Users('sgserver')) {
+				SG.makeCOM();
+			}
+			let wildTeam = SG.makeWildPokemon();
+			Users('sgserver').wildTeams[user.userid] = wildTeam;
+			this.startBattle(Users('sgserver'), user, formatid, wildTeam, newSearch.team, {rated: false});
+			return;
+		}
 
 		// Prioritize players who have been searching for a match the longest.
 		for (let i = 0; i < formatSearches.length; i++) {

@@ -15,6 +15,8 @@
 
 global.Config = require('./config/config');
 
+global.Db = require('origindb')('config/db');
+
 const ProcessManager = require('./process-manager');
 
 class SimulatorManager extends ProcessManager {
@@ -29,6 +31,9 @@ class SimulatorManager extends ProcessManager {
 			process.send('|eval|' + code);
 		}
 	}
+	//Add event listeners here, call with (process object for the battle ex: room.battle).send('event', 'data');
+	//TODO figure out points where we can call to other process.
+	//TODO figure out the proper point to call to a room-battle process.
 }
 
 const SimulatorProcess = new SimulatorManager({
@@ -271,6 +276,16 @@ class Battle {
 
 		case 'score':
 			this.score = [parseInt(lines[2]), parseInt(lines[3])];
+			break;
+		case 'caught':
+			let curTeam = Db('players').get(lines[2], []);
+			if (curTeam.length !== 6) {
+				//let newSet = SG.unpackTeam(lines[2]);
+				let newSet = Users.get('sgserver').wildTeams[lines[2]];
+				newSet = SG.unpackTeam(newSet)[0];
+				curTeam.push(newSet);
+				Db('players').set(lines[2][0], curTeam);
+			}
 			break;
 		}
 		Monitor.activeIp = null;
