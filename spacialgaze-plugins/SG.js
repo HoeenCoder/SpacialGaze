@@ -91,7 +91,6 @@ SG.reloadCSS = function () {
 };
 
 //Daily Rewards System for SpacialGaze by Lord Haji
-//Daily Rewards System for SpacialGaze by Lord Haji
 SG.giveDailyReward = function (userid, user) {
 	if (!user || !userid) return false;
 	userid = toId(userid);
