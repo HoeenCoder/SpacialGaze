@@ -960,6 +960,7 @@ class Tournament {
 					Economy.logTransaction(Chat.escapeHTML(winner) + ' has won ' + firstMoney + ' ' + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + ' from a tournament.');
 				});
 			});
+			SG.addExp(wid, this.room, Math.round(tourSize));
 			this.room.addRaw("<b><font color='" + color + "'>" + Chat.escapeHTML(winner) + "</font> has won " + "<font color='" + color + "'>" + firstMoney + " </font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
 
 			if (runnerUp) {
@@ -971,6 +972,7 @@ class Tournament {
 						Economy.logTransaction(Chat.escapeHTML(runnerUp) + ' has won ' + secondMoney + ' ' + (secondMoney === 1 ? global.currencyName : global.currencyPlural) + ' from a tournament.');
 					});
 				});
+				SG.addExp(rid, this.room, Math.round(tourSize / 2));
 				this.room.addRaw("<b><font color='" + color + "'>" + Chat.escapeHTML(runnerUp) + "</font> has won " + "<font color='" + color + "'>" + secondMoney + "</font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
 			}
 		}
