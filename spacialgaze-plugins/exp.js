@@ -163,6 +163,7 @@ function level(user) {
 	let curExp = Db.exp.get(user, 0);
 	let benchmarks = [0, 40, 90, 165, 250, 400, 600, 810, 1250, 1740, 2450, 3300, 4400, 5550, 6740, 8120, 9630, 11370, 13290, 15520, 18050, 23000, 28000, 33720, 39900, 46440, 52690, 58000, 63600, 69250, 75070, 81170, 87470, 93970, 100810, 107890, 115270, 122960, 131080, 140000];
 	for (let i = 0; i < benchmarks.length; i++) {
+		if (curExp >= 140000) return "Maxed!";
 		if (benchmarks[i] <= curExp) {
 			continue;
 		} else {
@@ -176,10 +177,11 @@ function nextLevel(user) {
 	let curExp = Db.exp.get(user, 0);
 	let benchmarks = [0, 40, 90, 165, 250, 400, 600, 810, 1250, 1740, 2450, 3300, 4400, 5550, 6740, 8120, 9630, 11370, 13290, 15520, 18050, 23000, 28000, 33720, 39900, 46440, 52690, 58000, 63600, 69250, 75070, 81170, 87470, 93970, 100810, 107890, 115270, 122960, 131080, 140000];
 	for (let i = 0; i < benchmarks.length; i++) {
+		if (curExp >= 140000) return "no more level ups :(";
 		if (benchmarks[i] <= curExp) {
 			continue;
 		} else {
-			return benchmarks[i] - curExp;
+			return benchmarks[i] - curExp + " exp";
 		}
 	}
 }
@@ -195,7 +197,7 @@ exports.commands = {
 		const targetId = toId(target);
 
 		EXP.readExp(targetId, exp => {
-			this.sendReplyBox('<b>' + SG.nameColor(targetId, true) + '</b> has ' + exp + ' exp and is level ' + SG.level(targetId) + ' and has ' + SG.nextLevel(targetId) + ' exp until the next level.');
+			this.sendReplyBox('<b>' + SG.nameColor(targetId, true) + '</b> has ' + exp + ' exp and is level ' + SG.level(targetId) + ' and has ' + SG.nextLevel(targetId) + ' until the next level.');
 		});
 	},
 
