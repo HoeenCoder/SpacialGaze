@@ -214,7 +214,7 @@ exports.commands = {
 		if (amount > 1000) return this.sendReply("You cannot give more than 1,000 exp at a time.");
 		if (username.length >= 19) return this.sendReply("Usernames are required to be less than 19 characters long.");
 		if (typeof amount === 'string') return this.errorReply(amount);
-		if (!Users.get(username) return this.errorReply("The target user could not be found");
+		if (!Users.get(username)) return this.errorReply("The target user could not be found");
 
 
 		SG.addExp(uid, this.room, amount);
