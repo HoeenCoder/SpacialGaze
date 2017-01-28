@@ -39,13 +39,6 @@ function formatTitle(userid) {
 	return '';
 }
 
-function titleCheck(user) {
-	if (Db.customtitles.has(toId(user)) && Db.titlecolors.has(toId(user))) {
-		return formatTitle(user);
-	}
-	return '';
-}
-
 function devCheck(user) {
 	if (isDev(user)) return '<font color="#009320">(<b>Developer</b>)</font>';
 	return '';
@@ -307,9 +300,9 @@ exports.commands = {
 				profile += showBadges(toId(username));
 				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
 				if (!getFlag(toId(username))) {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + titleCheck(username) + '<br />';
+					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + formatTitle(username) + '<br />';
 				} else {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + titleCheck(username) + '<br />';
+					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + formatTitle(username) + '<br />';
 				}
 				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(username) + vipCheck(username) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
