@@ -16,7 +16,7 @@ function isExp(exp) {
 }
 SG.isExp = isExp;
 
-let EXP = global.EXP = {
+let EXP = SG.EXP = {
 	readExp: function (userid, callback) {
 		if (typeof callback !== 'function') {
 			throw new Error("EXP.readExp: Expected callback parameter to be a function, instead received " + typeof callback);
@@ -233,7 +233,7 @@ exports.commands = {
 		Db.exp.set(toId(target), 0);
 		if (Users.get(target)) Users.get(target).popup('Your XP was reset by an Administrator. This cannot be undone and nobody below the rank of Administrator can assist you or answer questions about this.');
 		user.popup("|html|You have reset the XP of " + SG.nameColor(targetUser, true) + ".");
-		this.add('|html|[XP Monitor] ' + SG.nameColor(user.name, true) + ' has reset the XP of ' + SG.nameColor(target, true));
+		Rooms('staff').add('|html|[EXP Monitor] ' + SG.nameColor(user.name, true) + ' has reset the XP of ' + SG.nameColor(target, true));
 		room.update();
 	},
 
@@ -279,6 +279,6 @@ exports.commands = {
 		Db.exp.keys().forEach(key => {
 			Db.exp.remove(key);
 		});
-		this.add('[XP Monitor] ' + user.name + ' has reset all user XP.');
+		Rooms('staff').add('[EXP Monitor] ' + user.name + ' has reset all user XP.');
 	},
 };
