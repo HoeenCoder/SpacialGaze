@@ -214,6 +214,8 @@ exports.commands = {
 		if (amount > 1000) return this.sendReply("You cannot give more than 1,000 exp at a time.");
 		if (username.length >= 19) return this.sendReply("Usernames are required to be less than 19 characters long.");
 		if (typeof amount === 'string') return this.errorReply(amount);
+		if (!Users.get(username) return this.errorReply("The target user could not be found");
+
 
 		SG.addExp(uid, this.room, amount);
 		this.sendReply(uid + " has received " + amount + ((amount === 1) ? " exp." : " exp."));
@@ -269,7 +271,6 @@ exports.commands = {
 	cleanexp: function (target, room, user) {
 		if (!this.can('root')) return this.errorReply("/cleanexp - Access denied.");
 		Db.exp.keys().filter(key =>	Db.exp.get(key) < 1).forEach(key => Db.exp.remove(key));
-		Db.save();
 		this.sendReply("All users who has less than 1 exp total are now removed from the database.");
 	},
 	cleanexphelp: ["/cleanexp - Cleans exp database by removing users with less than one exp."],
@@ -279,6 +280,7 @@ exports.commands = {
 		Db.exp.keys().forEach(key => {
 			Db.exp.remove(key);
 		});
-		Rooms('staff').add('[EXP Monitor] ' + user.name + ' has reset all user XP.');
+		this.sendReply('All EXP has been reset);
+		Monitor.log('[EXP Monitor] ' + user.name + ' has reset all user EXP.');
 	},
 };
