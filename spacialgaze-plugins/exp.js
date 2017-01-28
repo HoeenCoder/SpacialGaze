@@ -223,14 +223,14 @@ exports.commands = {
 	giveexphelp: ["/giveexp [user], [amount] - Give a user a certain amount of exp."],
 
 	resetexp: 'resetxp',
-	confirmresetxp: 'resetxp',
-	resetxp: function (target, room, user, cmd) {
+	confirmresetexp: 'resetxp',
+	resetxp: function (target, room, user, conection, cmd) {
 		if (!target) return this.errorReply('USAGE: /resetxp (USER)');
 		let parts = target.split(',');
 		let targetUser = parts[0].toLowerCase().trim();
 		if (!this.can('roomowner')) return false;
-		if (cmd === 'resetxp' || cmd === 'resetexp') {
-			return this.popupReply('|html|<center><button name="send" value="/confirmresetxp ' + targetUser + '"style="background-color:red;height:300px;width:150px"><b><font color="white" size=3>Confirm XP reset of ' + SG.nameColor(targetUser, true) + '; this is only to be used in emergencies, cannot be undone!</font></b></button>');
+		if (cmd !== 'confirmresetexp') {
+			return this.popupReply('|html|<center><button name="send" value="/confirmresetexp ' + targetUser + '"style="background-color:red;height:300px;width:150px"><b><font color="white" size=3>Confirm XP reset of ' + SG.nameColor(targetUser, true) + '; this is only to be used in emergencies, cannot be undone!</font></b></button>');
 		}
 		Db.exp.set(toId(target), 0);
 		if (Users.get(target)) Users.get(target).popup('Your XP was reset by an Administrator. This cannot be undone and nobody below the rank of Administrator can assist you or answer questions about this.');
@@ -275,12 +275,16 @@ exports.commands = {
 	},
 	cleanexphelp: ["/cleanexp - Cleans exp database by removing users with less than one exp."],
 
-	clearexp: function (target, room, user) {
+	confirmclearexp: "clearexp",
+	clearexp: function (target, room, user, connection, cmd) {
 		if (!this.can('root')) return false;
+		if (cmd !== 'confirmclearexp') {
+			return this.popupReply('|html|<center><button name="send" value="/confirmclearexp"style="background-color:red;height:300px;width:150px"><b><font color="white" size=3>Confirm GLOBAL EXP RESET? this is only to be used in emergencies, cannot be undone!</font></b></button>');
+		}
 		Db.exp.keys().forEach(key => {
 			Db.exp.remove(key);
 		});
-		this.sendReply('All EXP has been reset');
+		user.popup("|html|You have reset the EXP of everyone.");
 		Monitor.log('[EXP Monitor] ' + user.name + ' has reset all user EXP.');
 	},
 };
