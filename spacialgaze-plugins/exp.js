@@ -18,15 +18,14 @@ SG.isExp = isExp;
 
 let EXP = SG.EXP = {
 	readExp: function (userid, callback) {
-		if (typeof callback !== 'function') {
-			throw new Error("EXP.readExp: Expected callback parameter to be a function, instead received " + typeof callback);
-		}
-
-		// In case someone forgot to turn `userid` into an actual ID...
 		userid = toId(userid);
 
 		let amount = Db.exp.get(userid, DEFAULT_AMOUNT);
-		return callback(amount);
+		if (typeof callback !== 'function') {
+			return amount;
+		} else {
+			return callback(amount);
+		}
 	},
 
 	writeExp: function (userid, amount, callback) {
@@ -197,7 +196,7 @@ exports.commands = {
 		const targetId = toId(target);
 
 		EXP.readExp(targetId, exp => {
-			this.sendReplyBox('<b>' + SG.nameColor(targetId, true) + '</b> has ' + exp + ' exp and is level ' + SG.level(targetId) + ' and has ' + SG.nextLevel(targetId) + ' until the next level.');
+			this.sendReplyBox('<b>' + SG.nameColor(targetId, true) + '</b> has ' + exp + ' exp and is level ' + SG.level(targetId) + ' and needs ' + SG.nextLevel(targetId) + ' to reach the next level.);
 		});
 	},
 
