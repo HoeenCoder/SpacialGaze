@@ -51,7 +51,6 @@ function addExp(user, room, amount) {
 	user = Users.getExact(toId(user));
 	EXP.readExp(user.userid, totalExp => {
 		let oldLevel = SG.level(user);
-		let oldExp = Db.exp.get(user, 0);
 		EXP.writeExp(user.userid, amount);
 		if (!user || !room) return;
 		user.sendTo(room, 'You have gained ' + amount + ' EXP.');
@@ -160,7 +159,7 @@ function addExp(user, room, amount) {
 				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
 			if (level === 6 || level === 7 || level === 9 || level === 11 || level === 14 || level === 16 || level === 15 || level === 16 || level === 18 || level === 19) {
-			 	//reward = "-5 Stardust";
+				//reward = "-5 Stardust";
 				currency = 5;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
