@@ -51,107 +51,128 @@ function addExp(user, room, amount) {
 	user = Users.getExact(toId(user));
 	EXP.readExp(user.userid, totalExp => {
 		let oldLevel = SG.level(user);
+		let oldExp = Db.exp.get(user, 0);
 		EXP.writeExp(user.userid, amount);
 		if (!user || !room) return;
+		let rewardLevel = oldLevel + 1;
 		user.sendTo(room, 'You have gained ' + amount + ' EXP.');
 		let level = SG.level(user);
 		if (oldLevel < level) {
-			//let rewardLevel;
+			//let reward;
 			let currency;
-			if (level === 3) {
-				//rewardLevel = '';
-				currency = 2;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else if (level === 5) {
-				//rewardLevel = '';
-				currency = 5;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else if (level === 8) {
-				//rewardLevel = '';
-				currency = 5;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else if (level === 10) {
-				//rewardLevel = '';
-				currency = 7;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else if (level === 12) {
-				//rewardLevel = '';
-				currency = 10;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else if (level === 13) {
-				//rewardLevel = '';
-				currency = 13;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else if (level === 17) {
-				//rewardLevel = '';
-				currency = 17;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else if (level === 20) {
-				//rewardLevel = '';
-				currency = 25;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else if (level > 20) {
-				//rewardLevel = '';
-				currency = 27;
-				Economy.writeMoney(user.userid, currency, () => {
-					Economy.readMoney(user.userid, newAmount => {
-						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
-					});
-				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
-			} else {
-				//rewardLevel = "-3 Stardust";
+			if (oldLevel < 3 <= level) {
+				//reward = '';
 				currency = 3;
 				Economy.writeMoney(user.userid, currency, () => {
 					Economy.readMoney(user.userid, newAmount => {
 						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
 					});
 				});
-				//user.sendTo(room, 'You have earned ' + rewardLevel + ' for level up!');
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (oldLevel < 5 <= level) {
+				//reward = '';
+				currency = 5;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (oldLevel < 8 <= level) {
+				//reward = '';
+				currency = 5;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (oldLevel < 10 <= level) {
+				//reward = '';
+				currency = 7;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (oldLevel < 12 <= level) {
+				//reward = '';
+				currency = 10;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (oldLevel < 13 <= level) {
+				//reward = '';
+				currency = 13;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (oldLevel < 17 <= level) {
+				//reward = '';
+				currency = 17;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (oldLevel < 20 <= level) {
+				//reward = '';
+				currency = 25;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (level > 20) {
+				//reward = '';
+				currency = 27;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (level === 2 || level === 4) {
+				//reward = "-3 Stardust";
+				currency = 3;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
+			}
+			if (level === 6 || level === 7 || level === 9 || level === 11 || level === 14 || level === 16 || level === 15 || level === 16 || level === 18 || level === 19) {
+			 	//reward = "-5 Stardust";
+				currency = 5;
+				Economy.writeMoney(user.userid, currency, () => {
+					Economy.readMoney(user.userid, newAmount => {
+						Economy.logTransaction(Chat.escapeHTML(user.userid) + ' has received ' + currency + ' ' + (currency === 1 ? global.currencyName : global.currencyPlural) + ' from a level up.');
+					});
+				});
+				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
 			let newLevel = SG.level(user);
 			user.sendTo(room, '|html|<center><font size=4><b><i>Level Up!</i></b></font><br />' +
-				'You have reached level ' + newLevel + '.' + /*' This will award you:<br /><b> ' + rewardLevel + */'</b></center>'
+				'You have reached level ' + newLevel + '.' + /*' This will award you:<br /><b> ' + reward + */'</b></center>'
 			);
 		}
 	});
@@ -196,7 +217,7 @@ exports.commands = {
 		const targetId = toId(target);
 
 		EXP.readExp(targetId, exp => {
-			this.sendReplyBox('<b>' + SG.nameColor(targetId, true) + '</b> has ' + exp + ' exp and is level ' + SG.level(targetId) + ' and needs ' + SG.nextLevel(targetId) + ' to reach the next level.);
+			this.sendReplyBox('<b>' + SG.nameColor(targetId, true) + '</b> has ' + exp + ' exp and is level ' + SG.level(targetId) + ' and needs ' + SG.nextLevel(targetId) + ' to reach the next level.');
 		});
 	},
 
