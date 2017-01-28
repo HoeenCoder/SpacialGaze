@@ -280,7 +280,7 @@ exports.commands = {
 		Db.exp.keys().forEach(key => {
 			Db.exp.remove(key);
 		});
-		this.sendReply('All EXP has been reset);
+		this.sendReply('All EXP has been reset');
 		Monitor.log('[EXP Monitor] ' + user.name + ' has reset all user EXP.');
 	},
 };
