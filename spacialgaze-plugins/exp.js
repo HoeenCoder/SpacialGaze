@@ -54,7 +54,6 @@ function addExp(user, room, amount) {
 		let oldExp = Db.exp.get(user, 0);
 		EXP.writeExp(user.userid, amount);
 		if (!user || !room) return;
-		let rewardLevel = oldLevel + 1;
 		user.sendTo(room, 'You have gained ' + amount + ' EXP.');
 		let level = SG.level(user);
 		if (oldLevel < level) {
