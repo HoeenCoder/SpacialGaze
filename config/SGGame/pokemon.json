@@ -2,1257 +2,2669 @@
 	"bulbasaur": {
 		"expType": "mediumslow",
 		"num": 1,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "ivysaur"
+		}
 	},
 	"ivysaur": {
 		"expType": "mediumslow",
 		"num": 2,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 16,
+		    "evolvesTo": "venusaur"
+		}
 	},
 	"venusaur": {
 		"expType": "mediumslow",
 		"num": 3,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 32,
+		    "evolvesTo": null
+		}
 	},
 	"charmander": {
 		"expType": "mediumslow",
 		"num": 4,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "charmeleon"
+		}
 	},
 	"charmeleon": {
 		"expType": "mediumslow",
 		"num": 5,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 16,
+		    "evolvesTo": "charizard"
+		}
 	},
 	"charizard": {
 		"expType": "mediumslow",
 		"num": 6,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 36,
+		    "evolvesTo": null
+		}
 	},
 	"squirtle": {
 		"expType": "mediumslow",
 		"num": 7,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "wartortle"
+		}
 	},
 	"wartortle": {
 		"expType": "mediumslow",
 		"num": 8,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": "16",
+		    "evolvesTo": "blastoise"
+		}
 	},
 	"blastoise": {
 		"expType": "mediumslow",
 		"num": 9,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 36,
+		    "evolvesTo": null
+		}
 	},
 	"caterpie": {
 		"expType": "mediumfast",
 		"num": 10,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null ,
+		    "evolvesTo": "metapod"
+		}
 	},
 	"metapod": {
 		"expType": "mediumfast",
 		"num": 11,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 7,
+		    "evolvesTo": "butterfree"
+		}
 	},
 	"butterfree": {
 		"expType": "mediumfast",
 		"num": 12,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 10,
+		    "evolvesTo": null
+		}
 	},
 	"weedle": {
 		"expType": "mediumfast",
 		"num": 13,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "kakuna"
+		}
 	},
 	"kakuna": {
 		"expType": "mediumfast",
 		"num": 14,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 7,
+		    "evolvesTo": "beedrill"
+		}
 	},
 	"beedrill": {
 		"expType": "mediumfast",
 		"num": 15,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 10,
+		    "evolvesTo": null
+		}
 	},
 	"pidgey": {
 		"expType": "mediumslow",
 		"num": 16,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "pidgeotto"
+		}
 	},
 	"pidgeotto": {
 		"expType": "mediumslow",
 		"num": 17,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 18,
+		    "evolvesTo": "pidgeot"
+		}
 	},
 	"pidgeot": {
 		"expType": "mediumslow",
 		"num": 18,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 36,
+		    "evolvesTo": null
+		}
 	},
 	"rattata": {
 		"expType": "mediumfast",
 		"num": 19,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "raticate"
+		}
 	},
 	"raticate": {
 		"expType": "mediumfast",
 		"num": 20,
-		"rate": "127*"
+		"rate": "127*",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 20,
+		    "evolvesTo": null
+		}
 	},
 	"spearow": {
 		"expType": "mediumfast",
 		"num": 21,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "fearow"
+		}
 	},
 	"fearow": {
 		"expType": "mediumfast",
 		"num": 22,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 20,
+		    "evolvesTo": null
+		}
 	},
 	"ekans": {
 		"expType": "mediumfast",
 		"num": 23,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "arbok"
+		}
 	},
 	"arbok": {
 		"expType": "mediumfast",
 		"num": 24,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 22,
+		    "evolvesTo": null
+		}
 	},
 	"pikachu": {
 		"expType": "mediumfast",
 		"num": 25,
-		"rate": "190*"
+		"rate": "190*",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": "raichu"
+		}
 	},
 	"raichu": {
 		"expType": "mediumfast",
 		"num": 26,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "thunderstone",
+		    "evolvesTo": null
+		}
 	},
 	"sandshrew": {
 		"expType": "mediumfast",
 		"num": 27,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "sandslash"
+		}
 	},
 	"sandslash": {
 		"expType": "mediumfast",
 		"num": 28,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 22,
+		    "evolvesTo": null
+		}
 	},
 	"nidoranf": {
 		"expType": "mediumslow",
 		"num": 29,
-		"rate": "235"
+		"rate": "235",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "nidorina"
+		}
 	},
 	"nidorina": {
 		"expType": "mediumslow",
 		"num": 30,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 16,
+		    "evolvesTo": "nidoqueen"
+		}
 	},
 	"nidoqueen": {
 		"expType": "mediumslow",
 		"num": 31,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "moonstone",
+		    "evolvesTo": null
+		}
 	},
 	"nidoranm": {
 		"expType": "mediumslow",
 		"num": 32,
-		"rate": "235"
+		"rate": "235",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "nidorino"
+		}
 	},	
 	"nidorino": {
 		"expType": "mediumslow",
 		"num": 33,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 16,
+		    "evolvesTo": "nidoking"
+		}
 	},
 	"nidoking": {
 		"expType": "mediumslow",
 		"num": 34,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "moonstone",
+		    "evolvesTo": null
+		}
 	},
 	"clefairy": {
 		"expType": "fast",
 		"num": 35,
-		"rate": "150"
+		"rate": "150",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": "clefable"
+		}
 	},
 	"clefable": {
 		"expType": "fast",
 		"num": 36,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "moonstone",
+		    "evolvesTo": null
+		}
 	},
 	"vulpix": {
 		"expType": "mediumfast",
 		"num": 37,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "ninetales"
+		}		
 	},
 	"ninetales": {
 		"expType": "mediumfast",
 		"num": 38,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "firestone",
+		    "evolvesTo": null
+		}
 	},
 	"jigglypuff": {
 		"expType": "fast",
 		"num": 39,
-		"rate": "170"
+		"rate": "170",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": "clefable"
+		}
 	},
 	"wigglytuff": {
 		"expType": "fast",
 		"num": 40,
-		"rate": "50"
+		"rate": "50",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "moonstone",
+		    "evolvesTo": null
+		}
 	},
 	"zubat": {
 		"expType": "mediumfast",
 		"num": 41,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "firestone",
+		    "evolvesTo": null
+		}
 	},
 	"golbat": {
 		"expType": "mediumfast",
 		"num": 42,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"oddish": {
 		"expType": "mediumslow",
 		"num": 43,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"gloom": {
 		"expType": "mediumslow",
 		"num": 44,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"vileplume": {
 		"expType": "mediumslow",
 		"num": 45,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"paras": {
 		"expType": "mediumfast",
 		"num": 46,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"parasect": {
 		"expType": "mediumfast",
 		"num": 47,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"venonat": {
 		"expType": "mediumfast",
 		"num": 48,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"venomoth": {
 		"expType": "mediumfast",
 		"num": 49,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"diglett": {
 		"expType": "mediumfast",
 		"num": 50,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"dugtrio": {
 		"expType": "mediumfast",
 		"num": 51,
-		"rate": "50"
+		"rate": "50",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"meowth": {
 		"expType": "mediumfast",
 		"num": 52,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"persian": {
 		"expType": "mediumfast",
 		"num": 53,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"psyduck": {
 		"expType": "mediumfast",
 		"num": 54,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"golduck": {
 		"expType": "mediumfast",
 		"num": 55,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"mankey": {
 		"expType": "mediumfast",
 		"num": 56,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"primeape": {
 		"expType": "mediumfast",
 		"num": 57,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"growlithe": {
 		"expType": "slow",
 		"num": 58,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"arcanine": {
 		"expType": "slow",
 		"num": 59,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"poliwag": {
 		"expType": "mediumslow",
 		"num": 60,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"poliwhirl": {
 		"expType": "mediumslow",
 		"num": 61,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"poliwrath": {
 		"expType": "mediumslow",
 		"num": 62,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"abra": {
 		"expType": "mediumslow",
 		"num": 63,
-		"rate": "200"
+		"rate": "200",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"kadabra": {
 		"expType": "mediumslow",
 		"num": 64,
-		"rate": "100*"
+		"rate": "100",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"alakazam": {
 		"expType": "mediumslow",
 		"num": 65,
-		"rate": "50"
+		"rate": "50",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"machop": {
 		"expType": "mediumslow",
 		"num": 66,
-		"rate": "180"
+		"rate": "180",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"machoke": {
 		"expType": "mediumslow",
 		"num": 67,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"machamp": {
 		"expType": "mediumslow",
 		"num": 68,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"bellsprout": {
 		"expType": "mediumslow",
 		"num": 69,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"weepinbell": {
 		"expType": "mediumslow",
 		"num": 70,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"victreebel": {
 		"expType": "mediumslow",
 		"num": 71,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"tentacool": {
 		"expType": "slow",
 		"num": 72,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"tentacruel": {
 		"expType": "slow",
 		"num": 73,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"geodude": {
 		"expType": "mediumslow",
 		"num": 74,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"graveler": {
 		"expType": "mediumslow",
 		"num": 75,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"golem": {
 		"expType": "mediumslow",
 		"num": 76,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"ponyta": {
 		"expType": "mediumfast",
 		"num": 77,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"rapidash": {
 		"expType": "mediumfast",
 		"num": 78,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"slowpoke": {
 		"expType": "mediumfast",
 		"num": 79,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"slowbro": {
 		"expType": "mediumfast",
 		"num": 80,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"magnemite": {
 		"expType": "mediumfast",
 		"num": 81,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"magneton": {
 		"expType": "mediumfast",
 		"num": 82,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"farfetchd": {
 		"expType": "mediumfast",
 		"num": 83,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"doduo": {
 		"expType": "mediumfast",
 		"num": 84,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"dodrio": {
 		"expType": "mediumfast",
 		"num": 85,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"seel": {
 		"expType": "mediumfast",
 		"num": 86,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"dewgong": {
 		"expType": "mediumfast",
 		"num": 87,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"grimer": {
 		"expType": "mediumfast",
 		"num": 88,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"muk": {
 		"expType": "mediumfast",
 		"num": 89,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"shellder": {
 		"expType": "slow",
 		"num": 90,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"cloyster": {
 		"expType": "slow",
 		"num": 91,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"gastly": {
 		"expType": "mediumslow",
 		"num": 92,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"haunter": {
 		"expType": "mediumslow",
 		"num": 93,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"gengar": {
 		"expType": "mediumslow",
 		"num": 94,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"onix": {
 		"expType": "mediumfast",
 		"num": 95,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"drowzee": {
 		"expType": "mediumfast",
 		"num": 96,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"hypno": {
 		"expType": "mediumfast",
 		"num": 97,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"krabby": {
 		"expType": "mediumfast",
 		"num": 98,
-		"rate": "225"
+		"rate": "225",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"kingler": {
 		"expType": "mediumfast",
 		"num": 99,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"voltorb": {
 		"expType": "mediumfast",
 		"num": 100,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"electrode": {
 		"expType": "mediumfast",
 		"num": 101,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"exeggcute": {
 		"expType": "slow",
 		"num": 102,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"exeggutor": {
 		"expType": "slow",
 		"num": 103,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"cubone": {
 		"expType": "mediumfast",
 		"num": 104,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"marowak": {
 		"expType": "mediumfast",
 		"num": 105,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"hitmonlee": {
 		"expType": "mediumfast",
 		"num": 106,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"hitmonchan": {
 		"expType": "mediumfast",
 		"num": 107,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"lickitung": {
 		"expType": "mediumfast",
 		"num": 108,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"koffing": {
 		"expType": "mediumfast",
 		"num": 109,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"weezing": {
 		"expType": "mediumfast",
 		"num": 110,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"rhyhorn": {
 		"expType": "slow",
 		"num": 111,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"rhydon": {
 		"expType": "slow",
 		"num": 112,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"chansey": {
 		"expType": "fast",
 		"num": 113,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"tangela": {
 		"expType": "mediumfast",
 		"num": 114,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"kangaskhan": {
 		"expType": "mediumfast",
 		"num": 115,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"horsea": {
 		"expType": "mediumfast",
 		"num": 116,
-		"rate": "225"
+		"rate": "225",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"seadra": {
 		"expType": "mediumfast",
 		"num": 117,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"goldeen": {
 		"expType": "mediumfast",
 		"num": 118,
-		"rate": "225"
+		"rate": "225",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"seaking": {
 		"expType": "mediumfast",
 		"num": 119,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"staryu": {
 		"expType": "slow",
 		"num": 120,
-		"rate": "225"
+		"rate": "225",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"starmie": {
 		"expType": "slow",
 		"num": 121,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"mrmime": {
 		"expType": "mediumfast",
 		"num": 122,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "move",
+		    "exact": "mimic",
+		    "evolvesTo": null
 	},
 	"scyther": {
 		"expType": "mediumfast",
 		"num": 123,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"jynx": {
 		"expType": "mediumfast",
 		"num": 124,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"electabuzz": {
 		"expType": "mediumfast",
 		"num": 125,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"magmar": {
 		"expType": "mediumfast",
 		"num": 126,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"pinsir": {
 		"expType": "slow",
 		"num": 127,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"tauros": {
 		"expType": "slow",
 		"num": 128,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"magikarp": {
 		"expType": "slow",
 		"num": 129,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"gyarados": {
 		"expType": "slow",
 		"num": 130,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"lapras": {
 		"expType": "slow",
 		"num": 131,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"ditto": {
 		"expType": "mediumfast",
 		"num": 132,
-		"rate": "35"
+		"rate": "35",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"eevee": {
 		"expType": "mediumfast",
 		"num": 133,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"vaporeon": {
 		"expType": "mediumfast",
 		"num": 134,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"jolteon": {
 		"expType": "mediumfast",
 		"num": 135,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"flareon": {
 		"expType": "mediumfast",
 		"num": 136,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"porygon": {
 		"expType": "mediumfast",
 		"num": 137,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"omanyte": {
 		"expType": "mediumfast",
 		"num": 138,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"omastar": {
 		"expType": "mediumfast",
 		"num": 139,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"kabuto": {
 		"expType": "mediumfast",
 		"num": 140,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"kabutops": {
 		"expType": "mediumfast",
 		"num": 141,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"aerodactyl": {
 		"expType": "slow",
 		"num": 142,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"snorlax": {
 		"expType": "slow",
 		"num": 143,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
 	},
 	"articuno": {
 		"expType": "slow",
 		"num": 144,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"zapdos": {
 		"expType": "slow",
 		"num": 145,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"moltres": {
 		"expType": "slow",
 		"num": 146,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"dratini": {
 		"expType": "slow",
 		"num": 147,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
+		}
 	},
 	"dragonair": {
 		"expType": "slow",
 		"num": 148,
-		"rate": "45*"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
+		}
 	},
 	"dragonite": {
 		"expType": "slow",
 		"num": 149,
-		"rate": "45*"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "",
+		    "type": "",
+		    "exact": "",
+		    "evolvesTo": ""
+		}
 	},
 	"mewtwo": {
 		"expType": "slow",
 		"num": 150,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"mew": {
 		"expType": "mediumslow",
 		"num": 151,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"chikorita": {
 		"expType": "mediumslow",
 		"num": 152,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "bayleef"
+		}
+		    
 	},
 	"bayleef": {
 		"expType": "mediumslow",
 		"num": 153,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 16,
+		    "evolvesTo": "meganium"
+		}
 	},
 	"meganium": {
 		"expType": "mediumslow",
 		"num": 154,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 32,
+		    "evolvesTo": null
+		}
 	},
 	"cyndaquil": {
 		"expType": "mediumslow",
 		"num": 155,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "quilava"
+		}
 	},
 	"quilava": {
 		"expType": "mediumslow",
 		"num": 156,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 14,
+		    "evolvesTo": "typhlosion"
+		}
 	},
 	"typhlosion": {
 		"expType": "mediumslow",
 		"num": 157,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 36,
+		    "evolvesTo": null
+		}
 	},
 	"totodile": {
 		"expType": "mediumslow",
 		"num": 158,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "croconaw"
+		}
 	},
 	"croconaw": {
 		"expType": "mediumslow",
 		"num": 159,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 18,
+		    "evolvesTo": "feraligatr"
+		}
 	},
 	"feraligatr": {
 		"expType": "mediumslow",
 		"num": 160,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 30,
+		    "evolvesTo": null
+		}
 	},
 	"sentret": {
 		"expType": "mediumfast",
 		"num": 161,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "furret"
+		}
 	},
 	"furret": {
 		"expType": "mediumfast",
 		"num": 162,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 15,
+		    "evolvesTo": null
+		}
 	},
 	"hoothoot": {
 		"expType": "mediumfast",
 		"num": 163,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "noctowl"
+		}
 	},
 	"noctowl": {
 		"expType": "mediumfast",
 		"num": 164,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 20,
+		    "evolvesTo": null
+		}
 	},
 	"ledyba": {
 		"expType": "fast",
 		"num": 165,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "ledian"
+		}
 	},
 	"ledian": {
 		"expType": "fast",
 		"num": 166,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 18,
+		    "evolvesTo": null
+		}
 	},
 	"spinarak": {
 		"expType": "fast",
 		"num": 167,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "ariados"
+		}
 	},
 	"ariados": {
 		"expType": "fast",
 		"num": 168,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 22,
+		    "evolvesTo": null
+		}
 	},
 	"crobat": {
 		"expType": "mediumfast",
 		"num": 169,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"chinchou": {
 		"expType": "slow",
 		"num": 170,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "lanturn"
+		}
 	},
 	"lanturn": {
 		"expType": "slow",
 		"num": 171,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 27,
+		    "evolvesTo": null
+		}
 	},
 	"pichu": {
 		"expType": "mediumfast",
 		"num": 172,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "pikachu"
+		}
 	},
 	"cleffa": {
 		"expType": "fast",
 		"num": 173,
-		"rate": "150"
+		"rate": "150",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "clefairy"
+		}
 	},
 	"igglybuff": {
 		"expType": "fast",
 		"num": 174,
-		"rate": "170"
+		"rate": "170",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "jigglypuff"
+		}
 	},
 	"togepi": {
 		"expType": "fast",
 		"num": 175,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "togetic"
+		}
 	},
 	"togetic": {
 		"expType": "fast",
 		"num": 176,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": "togekiss"
+		}
 	},
 	"natu": {
 		"expType": "mediumfast",
 		"num": 177,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "xatu"
+		}
 	},
 	"xatu": {
 		"expType": "mediumfast",
 		"num": 178,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 25,
+		    "evolvesTo": null
+		}
 	},
 	"mareep": {
 		"expType": "mediumslow",
 		"num": 179,
-		"rate": "235"
+		"rate": "235",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "flaaffy"
+		}
 	},
 	"flaaffy": {
 		"expType": "mediumslow",
 		"num": 180,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 15,
+		    "evolvesTo": "ampharos"
+		}
 	},
 	"ampharos": {
 		"expType": "mediumslow",
 		"num": 181,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 30,
+		    "evolvesTo": null
+		}
 	},
 	"bellossom": {
 		"expType": "mediumslow",
 		"num": 182,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "sunstone",
+		    "evolvesTo": null
+		}
 	},
 	"marill": {
 		"expType": "fast",
 		"num": 183,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": "azumarill"
+		}
 	},
 	"azumarill": {
 		"expType": "fast",
 		"num": 184,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 18,
+		    "evolvesTo": null
+		}
 	},
 	"sudowoodo": {
 		"expType": "mediumfast",
 		"num": 185,
-		"rate": "65"
+		"rate": "65",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "move",
+		    "exact": "mimic",
+		    "evolvesTo": null
+		}
 	},
 	"politoed": {
 		"expType": "mediumslow",
 		"num": 186,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "trade",
+		    "exact": "kingsrock",
+		    "evolvesTo": null
+		}
 	},
 	"hoppip": {
 		"expType": "mediumslow",
 		"num": 187,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "skiploom"
+		}
 	},
 	"skiploom": {
 		"expType": "mediumslow",
 		"num": 188,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 18,
+		    "evolvesTo": "jumpluff"
+		}
 	},
 	"jumpluff": {
 		"expType": "mediumslow",
 		"num": 189,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 27,
+		    "evolvesTo": null
+		}
 	},
 	"aipom": {
 		"expType": "fast",
 		"num": 190,
-		"rate": "45"
-	},
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "ambipom"
+		}
+	}, 
 	"sunkern": {
 		"expType": "mediumslow",
 		"num": 191,
-		"rate": "235"
+		"rate": "235",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "sunflora"
+		}
 	},
 	"sunflora": {
 		"expType": "mediumslow",
 		"num": 192,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "sunstone",
+		    "evolvesTo": null
+		}
 	},
 	"yanma": {
 		"expType": "mediumfast",
 		"num": 193,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "yanmega"
+		}
 	},
 	"wooper": {
 		"expType": "mediumfast",
 		"num": 194,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "quagsire"
+		}
 	},
 	"quagsire": {
 		"expType": "mediumfast",
 		"num": 195,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 20,
+		    "evolvesTo": null
+		}
 	},
 	"espeon": {
 		"expType": "mediumfast",
 		"num": 196,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": "day",
+		    "evolvesTo": null
+		}
 	},
 	"umbreon": {
 		"expType": "mediumfast",
 		"num": 197,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": "night",
+		    "evolvesTo": null
+		}
 	},
 	"murkrow": {
 		"expType": "mediumslow",
 		"num": 198,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "honchkrow"
+		}
 	},
 	"slowking": {
 		"expType": "mediumfast",
 		"num": 199,
-		"rate": "70"
+		"rate": "70",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "trade",
+		    "exact": "kingsrock",
+		    "evolvesTo": null
+		}
 	},
 	"misdreavus": {
 		"expType": "fast",
 		"num": 200,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "mismagius"
+		}
 	},
 	"unown": {
 		"expType": "mediumfast",
 		"num": 201,
-		"rate": "225"
+		"rate": "225",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"wobbuffet": {
 		"expType": "mediumfast",
 		"num": 202,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"girafarig": {
 		"expType": "mediumfast",
 		"num": 203,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"pineco": {
 		"expType": "mediumfast",
 		"num": 204,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "forretress"
+		}
 	},
 	"forretress": {
 		"expType": "mediumfast",
 		"num": 205,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 31,
+		    "evolvesTo": null
+		}
 	},
 	"dunsparce": {
 		"expType": "mediumfast",
 		"num": 206,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"gligar": {
 		"expType": "mediumslow",
 		"num": 207,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "gliscor"
+		}
 	},
 	"steelix": {
 		"expType": "mediumfast",
 		"num": 208,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "item",
+		    "exact": "metalcoat",
+		    "evolvesTo": null
+		}
 	},
 	"snubbull": {
 		"expType": "fast",
 		"num": 209,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "granbull"
+		}
 	},
 	"granbull": {
 		"expType": "fast",
 		"num": 210,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 23,
+		    "evolvesTo": null
+		}
 	},
 	"qwilfish": {
 		"expType": "mediumfast",
 		"num": 211,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"scizor": {
 		"expType": "mediumfast",
 		"num": 212,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "item",
+		    "exact": "metalcoat",
+		    "evolvesTo": null
+		}
 	},
 	"shuckle": {
 		"expType": "mediumslow",
 		"num": 213,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"heracross": {
 		"expType": "slow",
 		"num": 214,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"sneasel": {
 		"expType": "mediumslow",
 		"num": 215,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "weavile"
+		}
 	},
 	"teddiursa": {
 		"expType": "mediumfast",
 		"num": 216,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "ursaring"
+		}
 	},
 	"ursaring": {
 		"expType": "mediumfast",
 		"num": 217,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 30,
+		    "evolvesTo": null
+		}
 	},
 	"slugma": {
 		"expType": "mediumfast",
 		"num": 218,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		  "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "magcargo"
+		}
 	},
 	"magcargo": {
 		"expType": "mediumfast",
 		"num": 219,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 38,
+		    "evolvesTo": null
+		}
 	},
 	"swinub": {
 		"expType": "slow",
 		"num": 220,
-		"rate": "225"
+		"rate": "225",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "piloswine"
+		}
 	},
 	"piloswine": {
 		"expType": "slow",
 		"num": 221,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 33,
+		    "evolvesTo": "mamoswine"
+		}
 	},
 	"corsola": {
 		"expType": "fast",
 		"num": 222,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"remoraid": {
 		"expType": "mediumfast",
 		"num": 223,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "octillery"
+		}
 	},
 	"octillery": {
 		"expType": "mediumfast",
 		"num": 224,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 25,
+		    "evolvesTo": null
+		}
 	},
 	"delibird": {
 		"expType": "fast",
 		"num": 225,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"mantine": {
 		"expType": "slow",
 		"num": 226,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": "level",
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"skarmory": {
 		"expType": "slow",
 		"num": 227,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"houndour": {
 		"expType": "slow",
 		"num": 228,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "houndoom"
+		}
 	},
 	"houndoom": {
 		"expType": "slow",
 		"num": 229,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": "24",
+		    "evolvesTo": null
+		}
 	},
 	"kingdra": {
 		"expType": "mediumfast",
 		"num": 230,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "trade",
+		    "exact": "dragonscale",
+		    "evolvesTo": null
+		}
 	},
 	"phanpy": {
 		"expType": "mediumfast",
 		"num": 231,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "donphan"
+		}
 	},
 	"donphan": {
 		"expType": "mediumfast",
 		"num": 232,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 25,
+		    "evolvesTo": null
+		}
 	},
 	"porygon2": {
 		"expType": "mediumfast",
 		"num": 233,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "trade",
+		    "exact": "upgrade",
+		    "evolvesTo": "porygonz"
+		}
 	},
 	"stantler": {
 		"expType": "slow",
 		"num": 234,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"smeargle": {
 		"expType": "fast",
 		"num": 235,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"tyrogue": {
 		"expType": "mediumfast",
 		"num": 236,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "hitmonlee|hitmonchan|hitmontop"
+		}
 	},
 	"hitmontop": {
 		"expType": "mediumfast",
 		"num": 237,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "null",
+		    "exact": 20,
+		    "evolvesTo": null
+		}
 	},
 	"smoochum": {
 		"expType": "mediumfast",
 		"num": 238,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "jynx"
+		}
 	},
 	"elekid": {
 		"expType": "mediumfast",
 		"num": 239,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "electabuzz"
+		}
 	},
 	"magby": {
 		"expType": "mediumfast",
 		"num": 240,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "magmar"
+		}
 	},
 	"miltank": {
 		"expType": "slow",
 		"num": 241,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		   "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"blissey": {
 		"expType": "fast",
 		"num": 242,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"raikou": {
 		"expType": "slow",
 		"num": 243,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"entei": {
 		"expType": "slow",
 		"num": 244,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"suicune": {
 		"expType": "slow",
 		"num": 245,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"larvitar": {
 		"expType": "slow",
 		"num": 246,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "pupitar"
+		}
 	},
 	"pupitar": {
 		"expType": "slow",
 		"num": 247,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 30,
+		    "evolvesTo": "tyranitar"
+		}
 	},
 	"tyranitar": {
 		"expType": "slow",
 		"num": 248,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 55,
+		    "evolvesTo": null
+		}
 	},
 	"lugia": {
 		"expType": "slow",
 		"num": 249,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"hooh": {
 		"expType": "slow",
 		"num": 250,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"celebi": {
 		"expType": "mediumslow",
 		"num": 251,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"treecko": {
 		"expType": "mediumslow",
@@ -1347,17 +2759,35 @@
 	"lotad": {
 		"expType": "mediumslow",
 		"num": 270,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "lombre"
+		}
 	},
 	"lombre": {
 		"expType": "mediumslow",
 		"num": 271,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 14,
+		    "evolvesTo": "ludicolo"
+		}
 	},
 	"ludicolo": {
 		"expType": "mediumslow",
 		"num": 272,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "waterstone",
+		    "evolvesTo": null
+		}
 	},
 	"seedot": {
 		"expType": "mediumslow",
@@ -1507,12 +2937,24 @@
 	"sableye": {
 		"expType": "mediumslow",
 		"num": 302,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"mawile": {
 		"expType": "fast",
 		"num": 303,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"aron": {
 		"expType": "slow",
@@ -1552,27 +2994,56 @@
 	"plusle": {
 		"expType": "mediumfast",
 		"num": 311,
-		"rate": "200"
+		"rate": "200",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"minun": {
 		"expType": "mediumfast",
 		"num": 312,
-		"rate": "200"
+		"rate": "200",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"volbeat": {
 		"expType": "erratic",
 		"num": 313,
-		"rate": "150"
+		"rate": "150",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"illumise": {
 		"expType": "fluctuating",
 		"num": 314,
-		"rate": "150"
+		"rate": "150",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"roselia": {
 		"expType": "mediumslow",
 		"num": 315,
-		"rate": "150"
+		"rate": "150",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": "roserade"
 	},
 	"gulpin": {
 		"expType": "fluctuating",
@@ -1617,7 +3088,13 @@
 	"torkoal": {
 		"expType": "mediumfast",
 		"num": 324,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"spoink": {
 		"expType": "fast",
@@ -1632,22 +3109,46 @@
 	"spinda": {
 		"expType": "fast",
 		"num": 327,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"trapinch": {
 		"expType": "mediumslow",
 		"num": 328,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "vibrava"
+		}
 	},
 	"vibrava": {
 		"expType": "mediumslow",
 		"num": 329,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 35,
+		    "evolvesTo": "flygon"
+		}
 	},
 	"flygon": {
 		"expType": "mediumslow",
 		"num": 330,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 45,
+		    "evolvesTo": null
+		}
 	},
 	"cacnea": {
 		"expType": "mediumslow",
@@ -1677,17 +3178,35 @@
 	"seviper": {
 		"expType": "fluctuating",
 		"num": 336,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"lunatone": {
 		"expType": "fast",
 		"num": 337,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"solrock": {
 		"expType": "fast",
 		"num": 338,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"barboach": {
 		"expType": "mediumfast",
@@ -1752,12 +3271,24 @@
 	"castform": {
 		"expType": "mediumfast",
 		"num": 351,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"kecleon": {
 		"expType": "mediumslow",
 		"num": 352,
-		"rate": "200"
+		"rate": "200",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"shuppet": {
 		"expType": "fast",
@@ -1782,22 +3313,45 @@
 	"tropius": {
 		"expType": "slow",
 		"num": 357,
-		"rate": "200"
+		"rate": "200",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"chimecho": {
 		"expType": "fast",
 		"num": 358,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": "night",
+		    "evolvesTo": null
 	},
 	"absol": {
 		"expType": "mediumslow",
 		"num": 359,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"wynaut": {
 		"expType": "mediumfast",
 		"num": 360,
-		"rate": "125"
+		"rate": "125",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "wobbuffet"
+		}
 	},
 	"snorunt": {
 		"expType": "mediumfast",
@@ -1842,12 +3396,24 @@
 	"relicanth": {
 		"expType": "slow",
 		"num": 369,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"luvdisc": {
 		"expType": "fast",
 		"num": 370,
-		"rate": "225"
+		"rate": "225",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"bagon": {
 		"expType": "slow",
@@ -1882,592 +3448,1300 @@
 	"regirock": {
 		"expType": "slow",
 		"num": 377,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"regice": {
 		"expType": "slow",
 		"num": 378,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"registeel": {
 		"expType": "slow",
 		"num": 379,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"latias": {
 		"expType": "slow",
 		"num": 380,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"latios": {
 		"expType": "slow",
 		"num": 381,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"kyogre": {
 		"expType": "slow",
 		"num": 382,
-		"rate": "3*"
+		"rate": "3*",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"groudon": {
 		"expType": "slow",
 		"num": 383,
-		"rate": "3*"
+		"rate": "3*",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"rayquaza": {
 		"expType": "slow",
 		"num": 384,
-		"rate": "45*"
+		"rate": "45*",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"jirachi": {
 		"expType": "slow",
 		"num": 385,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"deoxys": {
 		"expType": "slow",
 		"num": 386,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"turtwig": {
 		"expType": "mediumslow",
 		"num": 387,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "grotle"
+		}
 	},
 	"grotle": {
 		"expType": "mediumslow",
 		"num": 388,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 18,
+		    "evolvesTo": "torterra"
+		}
 	},
 	"torterra": {
 		"expType": "mediumslow",
 		"num": 389,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 32,
+		    "evolvesTo": null
+		}
 	},
 	"chimchar": {
 		"expType": "mediumslow",
 		"num": 390,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "monferno"
+		}
 	},
 	"monferno": {
 		"expType": "mediumslow",
 		"num": 391,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 14,
+		    "evolvesTo": "infernape"
+		}
 	},
 	"infernape": {
 		"expType": "mediumslow",
 		"num": 392,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 36,
+		    "evolvesTo": null
+		}
 	},
 	"piplup": {
 		"expType": "mediumslow",
 		"num": 393,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "prinplup"
+		}
 	},
 	"prinplup": {
 		"expType": "mediumslow",
 		"num": 394,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 16,
+		    "evolvesTo": "empoleon"
+		}
 	},
 	"empoleon": {
 		"expType": "mediumslow",
 		"num": 395,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 36,
+		    "evolvesTo": null
+		}
 	},
 	"starly": {
 		"expType": "mediumslow",
 		"num": 396,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "staravia"
+		}
 	},
 	"staravia": {
 		"expType": "mediumslow",
 		"num": 397,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 14,
+		    "evolvesTo": "staraptor"
+		}
 	},
 	"staraptor": {
 		"expType": "mediumslow",
 		"num": 398,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 34,
+		    "evolvesTo": null
+		}
 	},
 	"bidoof": {
 		"expType": "mediumfast",
 		"num": 399,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "bibarel"
+		}
 	},
 	"bibarel": {
 		"expType": "mediumfast",
 		"num": 400,
-		"rate": "127"
+		"rate": "127",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 15,
+		    "evolvesTo": null
+		}
 	},
 	"kricketot": {
 		"expType": "mediumslow",
 		"num": 401,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "kricketune"
+		}
 	},
 	"kricketune": {
 		"expType": "mediumslow",
 		"num": 402,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 10,
+		    "evolvesTo": null
+		}
 	},
 	"shinx": {
 		"expType": "mediumslow",
 		"num": 403,
-		"rate": "235"
+		"rate": "235",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "luxio"
+		}
 	},
 	"luxio": {
 		"expType": "mediumslow",
 		"num": 404,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 15,
+		    "evolvesTo": "luxray"
+		}
 	},
 	"luxray": {
 		"expType": "mediumslow",
 		"num": 405,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 30,
+		    "evolvesTo": null
+		}
 	},
 	"budew": {
 		"expType": "mediumslow",
 		"num": 406,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "roselia"
+		}
 	},
 	"roserade": {
 		"expType": "mediumslow",
 		"num": 407,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "shinystone",
+		    "evolvesTo": null
+		}
 	},
 	"cranidos": {
 		"expType": "erratic",
 		"num": 408,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "rampardos"
+		}
 	},
 	"rampardos": {
 		"expType": "erratic",
 		"num": 409,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 30,
+		    "evolvesTo": null
+		}
 	},
 	"shieldon": {
 		"expType": "erratic",
 		"num": 410,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "bastiodon"
+		}
 	},
 	"bastiodon": {
 		"expType": "erratic",
 		"num": 411,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 30,
+		    "evolvesTo": null
+		}
 	},
 	"burmy": {
 		"expType": "mediumfast",
 		"num": 412,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "wormadam|mothim"
+		}
 	},
 	"wormadam": {
 		"expType": "mediumfast",
 		"num": 413,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "numberGender",
+		    "exact": "20|female",
+		    "evolvesTo": null
+		}
 	},
 	"mothim": {
 		"expType": "mediumfast",
 		"num": 414,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "numberGender",
+		    "exact": "20|male",
+		    "evolvesTo": null
+		}
 	},
 	"combee": {
 		"expType": "mediumslow",
 		"num": 415,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "vespiquen"
+		}
 	},
 	"vespiquen": {
 		"expType": "mediumslow",
 		"num": 416,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "numberGender",
+		    "exact": "21|female",
+		    "evolvesTo": null
+		}
 	},
 	"pachirisu": {
 		"expType": "mediumfast",
 		"num": 417,
-		"rate": "200"
+		"rate": "200",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"buizel": {
 		"expType": "mediumfast",
 		"num": 418,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "floatzel"
+		}
 	},
 	"floatzel": {
 		"expType": "mediumfast",
 		"num": 419,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 26,
+		    "evolvesTo": null
+		}
 	},
 	"cherubi": {
 		"expType": "mediumfast",
 		"num": 420,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "cherrim"
+		}
 	},
 	"cherrim": {
 		"expType": "mediumfast",
 		"num": 421,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 25,
+		    "evolvesTo": null
+		}
 	},
 	"shellos": {
 		"expType": "mediumfast",
 		"num": 422,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "gastrodon"
+		}
 	},
 	"gastrodon": {
 		"expType": "mediumfast",
 		"num": 423,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 30,
+		    "evolvesTo": null
+		}
 	},
 	"ambipom": {
 		"expType": "fast",
 		"num": 424,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "move",
+		    "exact": "doublehit",
+		    "evolvesTo": null
+		}
 	},
 	"drifloon": {
 		"expType": "fluctuating",
 		"num": 425,
-		"rate": "125"
+		"rate": "125",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "dribflim"
+		}
 	},
 	"drifblim": {
 		"expType": "fluctuating",
 		"num": 426,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 28,
+		    "evolvesTo": null
+		}
 	},
 	"buneary": {
 		"expType": "mediumfast",
 		"num": 427,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "lopunny"
+		}
 	},
 	"lopunny": {
 		"expType": "mediumfast",
 		"num": 428,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"mismagius": {
 		"expType": "fast",
 		"num": 429,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "duskstone",
+		    "evolvesTo": null
+		}
 	},
 	"honchkrow": {
 		"expType": "mediumslow",
 		"num": 430,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "duskstone",
+		    "evolvesTo": null
+		}
 	},
 	"glameow": {
 		"expType": "fast",
 		"num": 431,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "purugly"
+		}
 	},
 	"purugly": {
 		"expType": "fast",
 		"num": 432,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 38,
+		    "evolvesTo": null
+		}
 	},
 	"chingling": {
 		"expType": "fast",
 		"num": 433,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "chimecho"
+		}
 	},
 	"stunky": {
 		"expType": "mediumfast",
 		"num": 434,
-		"rate": "225"
+		"rate": "225",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "skuntank"
+		}
 	},
 	"skuntank": {
 		"expType": "mediumfast",
 		"num": 435,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 34,
+		    "evolvesTo": null
+		}
 	},
 	"bronzor": {
 		"expType": "mediumfast",
 		"num": 436,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "bronzong"
+		}
 	},
 	"bronzong": {
 		"expType": "mediumfast",
 		"num": 437,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 33,
+		    "evolvesTo": null
+		}
 	},
 	"bonsly": {
 		"expType": "mediumfast",
 		"num": 438,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "sudowoodo"
+		}
 	},
 	"mimejr": {
 		"expType": "mediumfast",
 		"num": 439,
-		"rate": "145"
+		"rate": "145",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "mrmime"
+		}
 	},
 	"happiny": {
 		"expType": "fast",
 		"num": 440,
-		"rate": "130"
+		"rate": "130",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "chansey"
+		}
 	},
 	"chatot": {
 		"expType": "mediumslow",
 		"num": 441,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"spiritomb": {
 		"expType": "mediumfast",
 		"num": 442,
-		"rate": "100"
+		"rate": "100",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"gible": {
 		"expType": "slow",
 		"num": 443,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "gabite"
+		}
 	},
 	"gabite": {
 		"expType": "slow",
 		"num": 444,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 24,
+		    "evolvesTo": "garchomp"
+		}
 	},
 	"garchomp": {
 		"expType": "slow",
 		"num": 445,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 48,
+		    "evolvesTo": null
+		}
 	},
 	"munchlax": {
 		"expType": "slow",
 		"num": 446,
-		"rate": "50"
+		"rate": "50",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "snorlax"
+		}
 	},
 	"riolu": {
 		"expType": "mediumslow",
 		"num": 447,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "lucario"
+		}
 	},
 	"lucario": {
 		"expType": "mediumslow",
 		"num": 448,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "friendship",
+		    "exact": "day",
+		    "evolvesTo": null
+		}
 	},
 	"hippopotas": {
 		"expType": "slow",
 		"num": 449,
-		"rate": "140"
+		"rate": "140",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "hippowdon"
+		}
 	},
 	"hippowdon": {
 		"expType": "slow",
 		"num": 450,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 34,
+		    "evolvesTo": null
+		}
 	},
 	"skorupi": {
 		"expType": "slow",
 		"num": 451,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "drapion"
+		}
 	},
 	"drapion": {
 		"expType": "slow",
 		"num": 452,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 40,
+		    "evolvesTo": null
+		}
 	},
 	"croagunk": {
 		"expType": "mediumfast",
 		"num": 453,
-		"rate": "140"
+		"rate": "140",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "toxicroak"
+		}
 	},
 	"toxicroak": {
 		"expType": "mediumfast",
 		"num": 454,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 37,
+		    "evolvesTo": null
+		}
 	},
 	"carnivine": {
 		"expType": "slow",
 		"num": 455,
-		"rate": "200"
+		"rate": "200",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"finneon": {
 		"expType": "erratic",
 		"num": 456,
-		"rate": "190"
+		"rate": "190",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "lumineon"
+		}
 	},
 	"lumineon": {
 		"expType": "erratic",
 		"num": 457,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 31,
+		    "evolvesTo": null
+		}
 	},
 	"mantyke": {
 		"expType": "slow",
 		"num": 458,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "mantine"
+		}
 	},
 	"snover": {
 		"expType": "slow",
 		"num": 459,
-		"rate": "120"
+		"rate": "120",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "abomasnow"
+		}
 	},
 	"abomasnow": {
 		"expType": "slow",
 		"num": 460,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 40,
+		    "evolvesTo": null
+		}
 	},
 	"weavile": {
 		"expType": "mediumslow",
 		"num": 461,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "timeItem",
+		    "exact": "night|razorclaw",
+		    "evolvesTo": null
+		}
 	},
 	"magnezone": {
 		"expType": "mediumfast",
 		"num": 462,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "area",
+		    "exact": "electric",
+		    "evolvesTo": null
+		}
 	},
 	"lickilicky": {
 		"expType": "mediumfast",
 		"num": 463,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "move",
+		    "exact": "rollout",
+		    "evolvesTo": null
+		}
 	},
 	"rhyperior": {
 		"expType": "slow",
 		"num": 464,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "item",
+		    "exact": "protector",
+		    "evolvesTo": null
+		}
 	},
 	"tangrowth": {
 		"expType": "mediumfast",
 		"num": 465,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "move",
+		    "exact": "ancientpower",
+		    "evolvesTo": null
+		}
 	},
 	"electivire": {
 		"expType": "mediumfast",
 		"num": 466,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "item",
+		    "exact": "electirizer",
+		    "evolvesTo": null
+		}
 	},
 	"magmortar": {
 		"expType": "mediumfast",
 		"num": 467,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "item",
+		    "exact": "magmarizer",
+		    "evolvesTo": null
+		}
 	},
 	"togekiss": {
 		"expType": "fast",
 		"num": 468,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "item",
+		    "type": "stone",
+		    "exact": "shinystone",
+		    "evolvesTo": null
+		}
 	},
 	"yanmega": {
 		"expType": "mediumfast",
 		"num": 469,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "move",
+		    "exact": "ancientpower",
+		    "evolvesTo": null
+		}
 	},
 	"leafeon": {
 		"expType": "mediumfast",
 		"num": 470,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "area",
+		    "exact": "moss",
+		    "evolvesTo": null
+		}
 	},
 	"glaceon": {
 		"expType": "mediumfast",
 		"num": 471,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "area",
+		    "exact": "ice",
+		    "evolvesTo": null
+		}
 	},
 	"gliscor": {
 		"expType": "mediumslow",
 		"num": 472,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "timeItem",
+		    "exact": "night|razorfang",
+		    "evolvesTo": null
+		}
 	},
 	"mamoswine": {
 		"expType": "slow",
 		"num": 473,
-		"rate": "50"
+		"rate": "50",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "move",
+		    "exact": "ancientpower",
+		    "evolvesTo": null
+		}
 	},
 	"porygonz": {
 		"expType": "mediumfast",
 		"num": 474,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "item",
+		    "exact": "dubiousdisc",
+		    "evolvesTo": null
+		}
 	},
 	"gallade": {
 		"expType": "slow",
 		"num": 475,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "item",
+		    "type": null,
+		    "exact": "dawnstone",
+		    "evolvesTo": null
+		}
 	},
 	"probopass": {
 		"expType": "mediumfast",
 		"num": 476,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "area",
+		    "exact": "electric",
+		    "evolvesTo": null
+		}
 	},
 	"dusknoir": {
 		"expType": "fast",
 		"num": 477,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "trade",
+		    "type": "item",
+		    "exact": "reapercloth",
+		    "evolvesTo": null
+		}
 	},
 	"froslass": {
 		"expType": "mediumfast",
 		"num": 478,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": "item",
+		    "type": null,
+		    "exact": "dawnstone",
+		    "evolvesTo": null
+		}
 	},
 	"rotom": {
 		"expType": "mediumfast",
 		"num": 479,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"uxie": {
 		"expType": "slow",
 		"num": 480,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"mesprit": {
 		"expType": "slow",
 		"num": 481,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"azelf": {
 		"expType": "slow",
 		"num": 482,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"dialga": {
 		"expType": "slow",
 		"num": 483,
-		"rate": "3*"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"palkia": {
 		"expType": "slow",
 		"num": 484,
-		"rate": "3*"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"heatran": {
 		"expType": "slow",
 		"num": 485,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"regigigas": {
 		"expType": "slow",
 		"num": 486,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"giratina": {
 		"expType": "slow",
 		"num": 487,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"cresselia": {
 		"expType": "slow",
 		"num": 488,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"phione": {
 		"expType": "slow",
 		"num": 489,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"manaphy": {
 		"expType": "slow",
 		"num": 490,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"darkrai": {
 		"expType": "slow",
 		"num": 491,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"shaymin": {
 		"expType": "mediumslow",
 		"num": 492,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"arceus": {
 		"expType": "slow",
 		"num": 493,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"victini": {
 		"expType": "slow",
 		"num": 494,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"snivy": {
 		"expType": "mediumslow",
@@ -2652,7 +4926,13 @@
 	"audino": {
 		"expType": "fast",
 		"num": 531,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"timburr": {
 		"expType": "mediumslow",
@@ -2687,12 +4967,24 @@
 	"throh": {
 		"expType": "mediumfast",
 		"num": 538,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"sawk": {
 		"expType": "mediumfast",
 		"num": 539,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"sewaddle": {
 		"expType": "mediumslow",
@@ -2747,7 +5039,13 @@
 	"basculin": {
 		"expType": "mediumfast",
 		"num": 550,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"sandile": {
 		"expType": "mediumslow",
@@ -2777,7 +5075,13 @@
 	"maractus": {
 		"expType": "mediumfast",
 		"num": 556,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"dwebble": {
 		"expType": "mediumfast",
@@ -2802,7 +5106,13 @@
 	"sigilyph": {
 		"expType": "mediumfast",
 		"num": 561,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"yamask": {
 		"expType": "mediumfast",
@@ -2932,7 +5242,13 @@
 	"emolga": {
 		"expType": "mediumfast",
 		"num": 587,
-		"rate": "200"
+		"rate": "200",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"karrablast": {
 		"expType": "mediumfast",
@@ -2967,7 +5283,13 @@
 	"alomomola": {
 		"expType": "fast",
 		"num": 594,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"joltik": {
 		"expType": "mediumfast",
@@ -3072,7 +5394,13 @@
 	"cryogonal": {
 		"expType": "mediumfast",
 		"num": 615,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"shelmet": {
 		"expType": "mediumfast",
@@ -3087,7 +5415,13 @@
 	"stunfisk": {
 		"expType": "mediumfast",
 		"num": 618,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"mienfoo": {
 		"expType": "mediumslow",
@@ -3102,7 +5436,13 @@
 	"druddigon": {
 		"expType": "mediumfast",
 		"num": 621,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"golett": {
 		"expType": "mediumfast",
@@ -3127,7 +5467,13 @@
 	"bouffalant": {
 		"expType": "mediumfast",
 		"num": 626,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"rufflet": {
 		"expType": "slow",
@@ -3152,12 +5498,24 @@
 	"heatmor": {
 		"expType": "mediumfast",
 		"num": 631,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"durant": {
 		"expType": "mediumfast",
 		"num": 632,
-		"rate": "90"
+		"rate": "90",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"deino": {
 		"expType": "slow",
@@ -3187,62 +5545,134 @@
 	"cobalion": {
 		"expType": "slow",
 		"num": 638,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"terrakion": {
 		"expType": "slow",
 		"num": 639,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"virizion": {
 		"expType": "slow",
 		"num": 640,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"tornadus": {
 		"expType": "slow",
 		"num": 641,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"thundurus": {
 		"expType": "slow",
 		"num": 642,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"reshiram": {
 		"expType": "slow",
 		"num": 643,
-		"rate": "3*"
+		"rate": "3*",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"zekrom": {
 		"expType": "slow",
 		"num": 644,
-		"rate": "3*"
+		"rate": "3*",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"landorus": {
 		"expType": "slow",
 		"num": 645,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"kyurem": {
 		"expType": "slow",
 		"num": 646,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"keldeo": {
 		"expType": "slow",
 		"num": 647,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"meloetta": {
 		"expType": "slow",
 		"num": 648,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"genesect": {
 		"expType": "slow",
 		"num": 649,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"chespin": {
 		"expType": "mediumslow",
@@ -3339,7 +5769,7 @@
 		"num": 668,
 		"rate": "65"
 	},
-	"flabb": {
+	"flabebe": {
 		"expType": "mediumfast",
 		"num": 669,
 		"rate": "225"
@@ -3377,7 +5807,13 @@
 	"furfrou": {
 		"expType": "mediumfast",
 		"num": 676,
-		"rate": "160"
+		"rate": "160",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"espurr": {
 		"expType": "mediumfast",
@@ -3502,17 +5938,35 @@
 	"hawlucha": {
 		"expType": "mediumfast",
 		"num": 701,
-		"rate": "100"
+		"rate": "100",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"dedenne": {
 		"expType": "mediumfast",
 		"num": 702,
-		"rate": "180"
+		"rate": "180",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"carbink": {
 		"expType": "slow",
 		"num": 703,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"goomy": {
 		"expType": "slow",
@@ -3532,7 +5986,13 @@
 	"klefki": {
 		"expType": "fast",
 		"num": 707,
-		"rate": "75"
+		"rate": "75",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"phantump": {
 		"expType": "mediumfast",
@@ -3577,32 +6037,68 @@
 	"xerneas": {
 		"expType": "slow",
 		"num": 716,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"yveltal": {
 		"expType": "slow",
 		"num": 717,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"zygarde": {
 		"expType": "slow",
 		"num": 718,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"diancie": {
 		"expType": "slow",
 		"num": 719,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"hoopa": {
 		"expType": "slow",
 		"num": 720,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"volcanion": {
 		"expType": "slow",
 		"num": 721,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"rowlet": {
 		"expType": "mediumslow",
@@ -3687,7 +6183,12 @@
 	"vikavolt": {
 		"expType": "mediumfast",
 		"num": 738,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "area",
+		    "exact": "electric",
+		    "evolvesTo": null
 	},
 	"crabrawler": {
 		"expType": "mediumfast",
@@ -3702,7 +6203,13 @@
 	"oricorio": {
 		"expType": "mediumfast",
 		"num": 741,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"cutiefly": {
 		"expType": "mediumfast",
@@ -3727,7 +6234,13 @@
 	"wishiwashi": {
 		"expType": "fast",
 		"num": 746,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"mareanie": {
 		"expType": "mediumfast",
@@ -3817,17 +6330,35 @@
 	"comfey": {
 		"expType": "fast",
 		"num": 764,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"oranguru": {
 		"expType": "slow",
 		"num": 765,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"passimian": {
 		"expType": "slow",
 		"num": 766,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"wimpod": {
 		"expType": "mediumfast",
@@ -3852,7 +6383,13 @@
 	"pyukumuku": {
 		"expType": "fast",
 		"num": 771,
-		"rate": "60"
+		"rate": "60",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"typenull": {
 		"expType": "slow",
@@ -3867,42 +6404,90 @@
 	"minior": {
 		"expType": "mediumslow",
 		"num": 774,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"komala": {
 		"expType": "slow",
 		"num": 775,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"turtonator": {
 		"expType": "mediumfast",
 		"num": 776,
-		"rate": "70"
+		"rate": "70",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"togedemaru": {
 		"expType": "mediumfast",
 		"num": 777,
-		"rate": "180"
+		"rate": "180",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"mimikyu": {
 		"expType": "mediumfast",
 		"num": 778,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"bruxish": {
 		"expType": "mediumfast",
 		"num": 779,
-		"rate": "80"
+		"rate": "80",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"drampa": {
 		"expType": "mediumfast",
 		"num": 780,
-		"rate": "70"
+		"rate": "70",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"dhelmise": {
 		"expType": "mediumfast",
 		"num": 781,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"jangmoo": {
 		"expType": "slow",
@@ -3922,91 +6507,198 @@
 	"tapukoko": {
 		"expType": "slow",
 		"num": 785,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"tapulele": {
 		"expType": "slow",
 		"num": 786,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"tapubulu": {
 		"expType": "slow",
 		"num": 787,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"tapufini": {
 		"expType": "slow",
 		"num": 788,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"cosmog": {
 		"expType": "slow",
 		"num": 789,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": "cosmoem"
+		}
 	},
 	"cosmoem": {
 		"expType": "slow",
 		"num": 790,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "number",
+		    "exact": 43,
+		    "evolvesTo": "solgaleo|lunala"
+		}
 	},
 	"solgaleo": {
 		"expType": "slow",
 		"num": 791,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "timeNumber",
+		    "exact": "day|53",
+		    "evolvesTo": null
+		}
 	},
 	"lunala": {
 		"expType": "slow",
 		"num": 792,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": "level",
+		    "type": "timeNumber",
+		    "exact": "night|53",
+		    "evolvesTo": null
 	},
 	"nihilego": {
 		"expType": "slow",
 		"num": 793,
-		"rate": "45"
+		"rate": "45",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"buzzwole": {
 		"expType": "slow",
 		"num": 794,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"pheromosa": {
 		"expType": "slow",
 		"num": 795,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"xurkitree": {
 		"expType": "slow",
 		"num": 796,
-		"rate": "30"
+		"rate": "30",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"celesteela": {
 		"expType": "slow",
 		"num": 797,
-		"rate": "25"
+		"rate": "25",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"kartana": {
 		"expType": "slow",
 		"num": 798,
-		"rate": "255"
+		"rate": "255",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"guzzlord": {
 		"expType": "slow",
 		"num": 799,
-		"rate": "15"
+		"rate": "15",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"necrozma": {
 		"expType": "slow",
 		"num": 800,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"magearna": {
 		"expType": "slow",
 		"num": 801,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	},
 	"marshadow": {
 		"expType": "slow",
 		"num": 802,
-		"rate": "3"
+		"rate": "3",
+		"evolution": {
+		    "trigger": null,
+		    "type": null,
+		    "exact": null,
+		    "evolvesTo": null
+		}
 	}
 }
