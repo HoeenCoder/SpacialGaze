@@ -5784,7 +5784,7 @@
 	"sigilyph": {
 		"expType": "mediumfast",
 		"num": 561,
-		"rate": "45",		
+		"rate": "45",
 		"evolution": {
 		    "trigger": null,
 		    "type": null,
