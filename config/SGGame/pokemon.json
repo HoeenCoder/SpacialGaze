@@ -2601,7 +2601,7 @@
 		"rate": "45",
 		"evolution": {
 		    "trigger": "level",
-		    "type": "null",
+		    "type": null,
 		    "exact": 20,
 		    "evolvesTo": null
 		}
