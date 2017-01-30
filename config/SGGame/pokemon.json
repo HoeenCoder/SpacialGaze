@@ -1167,7 +1167,7 @@
 		"rate": "30",
 		"evolution": {
 		    "trigger": "level",
-		    "type": null,
+		    "type": "friendship",
 		    "exact": "ovalstone",
 		    "evolvesTo": "blissey"
 	},
