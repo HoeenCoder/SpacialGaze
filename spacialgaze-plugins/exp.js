@@ -58,7 +58,7 @@ function addExp(user, room, amount) {
 		if (oldLevel < level) {
 			//let reward;
 			let currency;
-			if (oldLevel < 3 <= level) {
+			if (oldLevel < 3 && 3 <= level) {
 				//reward = '';
 				currency = 3;
 				Economy.writeMoney(user.userid, currency, () => {
@@ -68,7 +68,7 @@ function addExp(user, room, amount) {
 				});
 				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
-			if (oldLevel < 5 <= level) {
+			if (oldLevel < 5 && 5 <= level) {
 				//reward = '';
 				currency = 5;
 				Economy.writeMoney(user.userid, currency, () => {
@@ -78,7 +78,7 @@ function addExp(user, room, amount) {
 				});
 				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
-			if (oldLevel < 8 <= level) {
+			if (oldLevel < 8 && 8 <= level) {
 				//reward = '';
 				currency = 5;
 				Economy.writeMoney(user.userid, currency, () => {
@@ -88,7 +88,7 @@ function addExp(user, room, amount) {
 				});
 				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
-			if (oldLevel < 10 <= level) {
+			if (oldLevel < 10 && 10 <= level) {
 				//reward = '';
 				currency = 7;
 				Economy.writeMoney(user.userid, currency, () => {
@@ -98,7 +98,7 @@ function addExp(user, room, amount) {
 				});
 				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
-			if (oldLevel < 12 <= level) {
+			if (oldLevel < 12 && 12 <= level) {
 				//reward = '';
 				currency = 10;
 				Economy.writeMoney(user.userid, currency, () => {
@@ -108,7 +108,7 @@ function addExp(user, room, amount) {
 				});
 				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
-			if (oldLevel < 13 <= level) {
+			if (oldLevel < 13 && 13 <= level) {
 				//reward = '';
 				currency = 13;
 				Economy.writeMoney(user.userid, currency, () => {
@@ -118,7 +118,7 @@ function addExp(user, room, amount) {
 				});
 				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
-			if (oldLevel < 17 <= level) {
+			if (oldLevel < 17 && 17 <= level) {
 				//reward = '';
 				currency = 17;
 				Economy.writeMoney(user.userid, currency, () => {
@@ -128,7 +128,7 @@ function addExp(user, room, amount) {
 				});
 				//user.sendTo(room, 'You have earned ' + reward + ' for level up!');
 			}
-			if (oldLevel < 20 <= level) {
+			if (oldLevel < 20 && 20 <= level) {
 				//reward = '';
 				currency = 25;
 				Economy.writeMoney(user.userid, currency, () => {
