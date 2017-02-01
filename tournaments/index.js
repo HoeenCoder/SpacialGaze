@@ -973,7 +973,7 @@ class Tournament {
 				});
 				this.room.addRaw("<b><font color='" + color + "'>" + Chat.escapeHTML(runnerUp) + "</font> has won " + "<font color='" + color + "'>" + secondMoney + "</font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
 			}
-			SG.leagueTourPoints(toId(winner), toId(runnerUp), tourSize, this.room);
+			SG.leagueTourPoints(wid, rid, tourSize, this.room);
 		}
 
 		delete exports.tournaments[this.room.id];
