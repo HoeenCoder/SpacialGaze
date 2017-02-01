@@ -36,6 +36,7 @@ function logPoints(league, text) {
 	let file = path.join(__dirname, dir + league + '.log');
 	let log = '[' + Date() + ']' + text +  '\n';
 	fs.appendFile(file, text);
+}
 
 function log(message) {
 	if (!message) return false;
