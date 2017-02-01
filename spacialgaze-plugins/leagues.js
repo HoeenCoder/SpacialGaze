@@ -34,8 +34,8 @@ function save() {
 function logPoints(league, text) {
 	let dir = 'logs/leagues/';
 	let file = path.join(__dirname, dir + league + '.log');
-	let log = '[' + Date() + ']' + text +  '\n';
-	fs.appendFile(file, text);
+	let log = '[' + Date() + ']' + text + '\n';
+	fs.appendFile(file, log);
 }
 
 function log(message) {
@@ -402,7 +402,7 @@ function leagueTourPoints(winner, runnerup, tourSize, room) {
 	if (winnerLeague && winnerPoints > 0) {
 		leagues[winnerLeague].points += winnerPoints;
 		save();
-		logPoints(winner, winnerLeague,  winnerPoints, "First place in a tournament in " + room.id);
+		logPoints(winner, winnerLeague, winnerPoints, "First place in a tournament in " + room.id);
 		room.addRaw("<b>" + SG.nameColor(winner, true) + " has won " + winnerPoints + (winnerPoints === 1 ? " point " : " points ") + " for " + Chat.escapeHTML(leagues[winnerLeague].name) + "</b>");
 	}
 	if (secondLeague && secondPoints > 0) {
@@ -1692,22 +1692,22 @@ exports.commands = {
 					if (!leagueid) return this.errorReply("That user isn't in a league.");
 				}
 				let regex = new RegExp(target.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), "gi");
-				let output = '', count =0;
+				let output = '', count = 0;
 				if (!fs.existsSync('logs/leagues/' + leagueid + '.log')) {
-						fs.appendFile('logs/leagues/' + leagueid + '.log', "");
+					fs.appendFile('logs/leagues/' + leagueid + '.log', "");
 				}
 				let data = fs.readFileSync('logs/leagues/' + leagueid + '.log', 'utf8');
 				if (cmd === 'userlog') {
 					let lines = data.split('\n').reverse();
 					output += 'Displaying last 50 lines containing "' + target + '":\n';
 					for (let line in lines) {
-					if (count >= 50) break;
-					if (!~lines[line].search(regex)) continue;
-					output += lines[line] + '\n';
-					count++;
+						if (count >= 50) break;
+						if (!~lines[line].search(regex)) continue;
+						output += lines[line] + '\n';
+						count++;
 					}
 				} else {
-					output = data; 
+					output = data;
 				}
 				user.popup('|wide|' + output);
 			},
@@ -1731,12 +1731,12 @@ exports.commands = {
 		help: function (target, room, user) {
 			if (!this.runBroadcast()) return;
 			let msg = "<b><u><font size='3'>Managed League System:</font></u></b><br /><br />";
-			if(user.can('roomowner')) {
+			if (user.can('roomowner')) {
 				msg += "<details><summary><b>Admin Commands:</b></summary><br />" +
 				"<code>/league create [league name], [league owner]</code> - Creates a league.<br />" +
 				"<code>/league delete [league name]</code> - Deletes a league.</details>";
 			}
-				
+
 			msg += "<details>" +
 			"<summary><b>League Commands:</summary><br />" +
 			"<code>/league invite [user]</code> - Invites a user to join a league.<br />" +
