@@ -166,7 +166,7 @@ exports.commands = {
 				Users(targetUser).popup(
 					'|html|You have recieved a custom title from ' + SG.nameColor(user.name, true) + '.' +
 					'<br />Title: ' + formatTitle(toId(targetUser)) +
-					'<br />Title Hex Color: ' + Db.titlecolors.get(toId(targetUser))[1]
+					'<br />Title Hex Color:' + 
 				);
 			}
 			this.logModCommand(user.name + " set a custom title to " + userid + "'s profile.");
