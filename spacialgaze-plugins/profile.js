@@ -30,7 +30,7 @@ function isDev(user) {
 	return false;
 }
 
-function formatTitle(userid) {
+function showTitle(userid) {
 	userid = toId(userid);
 	if (Db.customtitles.has(userid)) {
 		return '<font color="' + Db.customtitles.get(userid)[1] +
@@ -300,9 +300,9 @@ exports.commands = {
 				profile += showBadges(toId(username));
 				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
 				if (!getFlag(toId(username))) {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + formatTitle(username) + '<br />';
+					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + showTitle(username) + '<br />';
 				} else {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + formatTitle(username) + '<br />';
+					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + showTitle(username) + '<br />';
 				}
 				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(username) + vipCheck(username) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
