@@ -305,12 +305,12 @@ exports.commands = {
 			if (!seen) return '<font color = "red"><strong>Never</strong></font>';
 			return Chat.toDurationString(Date.now() - seen, {precision: true}) + " ago.";
 		}
-		
-		function getFlag(userid) {		
- 			let user = Users(userid);		
- 			let ip = user.latestIP		
- 			ip = geoip.lookup(ip);				
- 			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';		
+
+		function getFlag(userid) {
+ 			let user = Users(userid);
+ 			let ip = user.latestIP;
+ 			ip = geoip.lookup(ip);
+ 			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';
  		}
 
 		function showProfile() {
