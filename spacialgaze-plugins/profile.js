@@ -307,11 +307,11 @@ exports.commands = {
 		}
 
 		function getFlag(userid) {
- 			let user = Users(userid);
- 			let ip = user.latestIP;
- 			ip = geoip.lookup(ip);
- 			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';
- 		}
+			let user = Users(userid);
+			let ip = user.latestIP;
+			ip = geoip.lookup(ip);
+			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';
+		}
 
 		function showProfile() {
 			Economy.readMoney(toId(username), currency => {
