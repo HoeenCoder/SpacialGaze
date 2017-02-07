@@ -7,8 +7,6 @@
  **/
 'use strict';
 
-let geoip = require('geoip-native');
-
 // fill in '' with the server IP
 let serverIp = Config.serverIp;
 
