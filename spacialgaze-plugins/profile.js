@@ -304,7 +304,7 @@ exports.commands = {
 			let ip = user.latestIP
 			ip = geoip.lookup(ip);
 			room.add("country: " + ip.name + " / " + ip.code);
-			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + " width="26" height="12">';
+			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';
 		}
 
 		function getLastSeen(useid) {
