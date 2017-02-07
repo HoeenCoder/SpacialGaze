@@ -99,9 +99,9 @@ exports.commands = {
 			this.sendReply(vipUsername + " has been demoted from VIP status.");
 			if (Users.get(vipUsername)) Users(vipUsername).popup("You have been demoted from VIP status by " + user.name + ".");
 		},
-		list: function (target, room, user) {;
+		list: function (target, room, user) {
 			if (!Db.vips.keys().length) return this.errorReply('There seems to be no user with VIP status.');
-			let display = []
+			let display = [];
 			Db.vips.keys().forEach(vipUser => {
 				display.push(SG.nameColor(vipUser, (Users(vipUser) && Users(vipUser).connected)));
 			});
@@ -145,12 +145,12 @@ exports.commands = {
 		},
 		list: function (target, room, user) {
 			if (!Db.devs.keys().length) return this.errorReply('There seems to be no user with DEV status.');
-			let display = []
+			let display = [];
 			Db.devs.keys().forEach(devUser => {
-				display.push(SG.nameColor(DevUser, (Users(devUser) && Users(devUser).connected)));
+				display.push(SG.nameColor(devUser, (Users(devUser) && Users(devUser).connected)));
 			});
 			this.popupReply('|html|<b><u><font size="3"><center>DEV Users:</center></font></u></b>' + display.join(','));
-		},	
+		},
 		'': 'help',
 		help: function (target, room, user) {
 			this.sendReplyBox(
@@ -161,7 +161,7 @@ exports.commands = {
 				'<br />' +
 				'<code>take [username]</code>: Takes <code>username</code>\'s DEV status. Requires: & ~' +
 				'<br />' +
-				'<code>list</code>: Shows list of users with DEV Status' +				
+				'<code>list</code>: Shows list of users with DEV Status' +
 				'</div>'
 			);
 		},
