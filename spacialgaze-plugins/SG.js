@@ -3,7 +3,6 @@
 let fs = require('fs');
 let http = require('http');
 const Autolinker = require('autolinker');
-let geoip = require('geoip-native');
 
 let regdateCache = {};
 
@@ -106,13 +105,6 @@ SG.giveDailyReward = function (userid, user) {
 	Economy.writeMoney(userid, Db.DailyBonus.get(userid)[0]);
 	user.send('|popup||wide||html| <center><u><b><font size="3">SpacialGaze Daily Bonus</font></b></u><br>You have been awarded ' + Db.DailyBonus.get(userid)[0] + ' Stardust.<br>' + showDailyRewardAni(userid) + '<br>Because you have connected to the server for the past ' + Db.DailyBonus.get(userid)[0] + ' Days.</center>');
 	Db.DailyBonus.set(userid, [(Db.DailyBonus.get(userid)[0] + 1), Date.now()]);
-};
-
-SG.getFlag = function (userid) {
-	let user = Users(userid);
-	let ip = user.latestIP;
-	ip = geoip.lookup(ip);
-	return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';
 };
 
 // last two functions needed to make sure SG.regdate() fully works
