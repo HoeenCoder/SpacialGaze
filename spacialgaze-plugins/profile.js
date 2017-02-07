@@ -6,13 +6,11 @@
  * Updated and restyled by Mystifi; main profile restyle goes out to panpawn/jd/other contributors.
  **/
 'use strict';
-//TODO reimplement geoip-ultralight
 
-//let geoip = require('geoip-ultralight');
+var geoip = require('geoip-native');
 
 // fill in '' with the server IP
 let serverIp = Config.serverIp;
-//geoip.startWatchingDataUpdate();
 
 function isVIP(user) {
 	if (!user) return;
@@ -301,12 +299,12 @@ exports.commands = {
 			showProfile();
 		});
 
-		function getFlag(flagee) {
-			return false;
-			/*if (!Users(flagee)) return false;
-			let geo = geoip.lookupCountry(Users(flagee).latestIp);
-			return (Users(flagee) && geo ? '<img src="https://github.com/kevogod/cachechu/blob/master/flags/' + geo.toLowerCase() + '.png?raw=true" height=10 title="' + geo + '">' : false);
-			*/
+		function getFlag(userid) {
+			let user = Users(userid);
+			let ip = user.latestIP
+			ip = geoip.lookup(ip);
+			room.add("country: " + ip.name + " / " + ip.code);
+			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + " width="26" height="12">
 		}
 
 		function getLastSeen(useid) {
