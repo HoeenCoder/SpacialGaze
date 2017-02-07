@@ -7,6 +7,8 @@
  **/
 'use strict';
 
+let geoip = require('geoip-native');
+
 // fill in '' with the server IP
 let serverIp = Config.serverIp;
 
@@ -303,17 +305,21 @@ exports.commands = {
 			if (!seen) return '<font color = "red"><strong>Never</strong></font>';
 			return Chat.toDurationString(Date.now() - seen, {precision: true}) + " ago.";
 		}
+		
+		function getFlag(userid) {		
+ 			let user = Users(userid);		
+ 			let ip = user.latestIP		
+ 			ip = geoip.lookup(ip);		
+ 			room.add("country: " + ip.name + " / " + ip.code);		
+ 			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';		
+ 		}
 
 		function showProfile() {
 			Economy.readMoney(toId(username), currency => {
 				let profile = '';
 				profile += showBadges(toId(username));
 				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
-				if (!SG.getFlag(toId(username))) {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + showTitle(username) + '<br />';
-				} else {
-					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + SG.getFlag(toId(username)) + ' ' + showTitle(username) + '<br />';
-				}
+				profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + '&nbsp;' + getFlag(toId(username)) + ' ' + showTitle(username) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(username) + vipCheck(username) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>' + global.currencyPlural + ':</b></font> ' + currency + '<br />';
