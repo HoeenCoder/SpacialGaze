@@ -110,9 +110,8 @@ SG.giveDailyReward = function (userid, user) {
 
 SG.getFlag = function (userid) {
 	let user = Users(userid);
-	let ip = user.latestIP
+	let ip = user.latestIP;
 	ip = geoip.lookup(ip);
-	room.add("country: " + ip.name + " / " + ip.code);
 	return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';
 };
 
