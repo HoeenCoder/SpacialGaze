@@ -144,7 +144,7 @@ class SGgame extends Console.Console {
 					} else {
 						species = species[0];
 					}
-					bg = 'background: url(//play.pokemonshowdown.com/sprites/bw' + (data.shiny ? '-shiny' : '') + '/' + species + '.png) no-repeat top center;';
+					bg = 'background: url(//play.pokemonshowdown.com/sprites/xyani' + (data.shiny ? '-shiny' : '') + '/' + species + '.png) no-repeat top center;';
 				}
 				output += '<div style="width: 100%; height: 85%; ' + bg + ' text-align: center;"><br/><br/><br/><br/><br/><br/><b>' + (data.name ? data.name + '<br/>(' + data.species + ')' : data.species) + '</b> Lvl ' + (data.level) + '<br/>';
 				if (action === 'release') {
