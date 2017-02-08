@@ -320,7 +320,7 @@ exports.commands = {
 			Economy.readMoney(toId(username), currency => {
 				let profile = '';
 				profile += showBadges(toId(username));
-				profile += '<img src="' + avatar + '" height="80" width="80" align="left">';
+				profile += '<img src="' + avatar + '" align="left">';
 				if (!getFlag(toId(username))) {
 					profile += '&nbsp;<font color="#24678d"><b>Name:</b></font> ' + SG.nameColor(username, true) + ' ' + showTitle(username) + '<br />';
 				} else {
