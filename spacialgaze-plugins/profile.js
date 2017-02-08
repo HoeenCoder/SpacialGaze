@@ -54,7 +54,7 @@ function showBadges(user) {
 		let badges = Db.userBadges.get(toId(user));
 		let css = 'border:none;background:none;padding:0;';
 		if (typeof badges !== 'undefined' && badges !== null) {
-			let output = '<td><div style="float: right; background: rgba(69, 76, 80, 0.4); text-align: center; border-radius: 12px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset; margin: 0px 3px;">';
+			let output = '<td><div style="float: right; background: rgba(69, 76, 80, 0.4); text-align: center; border-radius: 12px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset; margin: 0px 3px; padding: 5px;">';
 			output += ' <table style="' + css + '"> <tr>';
 			for (let i = 0; i < badges.length; i++) {
 				if (i !== 0 && i % 4 === 0) output += '</tr> <tr>';
