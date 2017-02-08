@@ -304,6 +304,24 @@ exports.BattleMovedex = {
 		target: "Normal",
 		type: "Steel",
 	},
+	// Ashley the Pikachu
+	rocketpunch: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		id: "rocketpunch",
+		isNonstandard: true,
+		name: "Rocket Punch",
+		pp: 10,
+		priority: 1,
+		target: "Normal",
+		type: "Fighting",
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Flare Blitz", source);
+			this.add('-anim', source, "Mach Punch", target);
+		},
+	},
 	// Opple
 	ancientorb: {
 		category: "Status",
