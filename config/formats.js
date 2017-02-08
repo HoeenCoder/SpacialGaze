@@ -245,8 +245,9 @@ exports.Formats = [
 		desc: ["&bullet; Metronome battles format: 6v6 singles, Only move allowed is metronome, all healing items/abilities are banned, Ubers (and mega rayquaza) are banned, immunites dont exist in this format (ex normal is not very effective on ghost instead of x0)"],
 		ruleset: ['[Gen 7] OU'],
 		banlist: ['Aguav Berry', 'Berry Juice', 'Cheek Pouch', 'Dry Skin', 'Ice Body', 'Poison Heal', 'Regenerator', 'Volt Absorb', 'Water Absorb', 'Rain Dish', 'Blace Sludge', 'Enigma Berry', 'Figy Berry', 'Iapapa Berry', 'Mago Berry', 'Oran Berry', 'Shell Bell', 'Sitrus Berry', 'Wiki Berry', 'Leftovers'],
+		mod: 'metronome',
 		onValidateSet: function (set) {
-			if (set.moves.length !== 1 && toId(set.moves[0]) !== 'metronome') {
+			if (set.moves.length !== 1 || toId(set.moves[0]) !== 'metronome') {
 				return [(set.name || set.species) + " can only have Metronome."];
 			}
 		},
