@@ -310,7 +310,7 @@ exports.commands = {
 			let user = Users(userid);
 			let ip = user.latestIP;
 			ip = geoip.lookup(ip);
-			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.country.toLowerCase() + '.png" width="26" height="12">';
+			return '<img src="http://flags.fmcdn.net/data/flags/normal/' + ip.country.toLowerCase() + '.png" width="26" height="12">';
 		}
 
 		function showProfile() {
