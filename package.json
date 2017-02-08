@@ -10,7 +10,7 @@
     "autolinker": "*",
     "request": "2.74.0",
     "md5": "*",
-    "geoip-native": "0.0.8",
+    "geoip-native-lite": "0.2.0",
     "githubhook": "1.7.1"
   },
   "optionalDependencies": {
