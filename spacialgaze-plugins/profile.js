@@ -7,7 +7,7 @@
  **/
 'use strict';
 
-let geoip = require('geoip-native');
+let geoip = require('geoip-lite-country');
 
 // fill in '' with the server IP
 let serverIp = Config.serverIp;
@@ -310,7 +310,7 @@ exports.commands = {
 			let user = Users(userid);
 			let ip = user.latestIP;
 			ip = geoip.lookup(ip);
-			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.code.toLowerCase() + '.png" width="26" height="12">';
+			return '<img src="http://flags.fmcdn.net/data/flags/normal/"' + ip.country.toLowerCase() + '.png" width="26" height="12">';
 		}
 
 		function showProfile() {
