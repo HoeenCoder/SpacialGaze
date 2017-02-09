@@ -3467,10 +3467,12 @@ class Battle extends Tools.BattleDex {
 		this.makeRequest('move');
 
 		if (Tools.getFormat(this.format).isWildEncounter) {
-			 let balls = ['pokeball', 'greatball', 'ultraball', 'masterball'];
-			 balls.forEach(pokeball => {
-				this.add('raw', '<button name="send" value="/throwpokeball ' + pokeball + '" style="background:transparent;border:none;"><img src="http://www.serebii.net/itemdex/sprites/pgl/' + pokeball + '.png" width="30" height="30"></button>&nbsp;&nbsp;');
-			});
+			let balls = ['pokeball', 'greatball', 'ultraball', 'masterball'];
+			let buttons = '';
+			for (let i = 0; i < balls.length; i++) {
+				buttons += '<button name="send" value="/throwpokeball ' + balls[i] + '" style="background:transparent;border:none;"><img src="http://www.serebii.net/itemdex/sprites/pgl/' + balls[i] + '.png" width="30" height="30"></button>&nbsp;&nbsp;';
+			}
+			this.add('raw', buttons);
 		 }
 
 		if (this.p1.name === 'SG Server' && Tools.getFormat(this.format).isWildEncounter) {
