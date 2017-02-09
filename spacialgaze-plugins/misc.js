@@ -150,7 +150,7 @@ exports.commands = {
 			"<br />" +
 			"<u><b>Retired Staff:</b></u><br />" +
 			"- " + SG.nameColor('The Run', true) + " (Former Server Owner, Development)<br />" +
-			"- " + SG.nameColor('Vulcaron', true) + " (Former Policy)<br />" +
+			"- " + SG.nameColor('Vulcaron', true) + " (Former Policy Leader)<br />" +
 			"<br />" +
 			"<u><b>Special Thanks:</b></u><br />" +
 			"- Our Staff Members<br />" +
