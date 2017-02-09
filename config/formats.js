@@ -240,7 +240,8 @@ exports.Formats = [
 	{
 		section: 'Spacialgaze Metagames',
 		column: 2,
-	}, {
+	},
+	{
 		name: "[Gen 7] Metronome Battle",
 		desc: ["&bullet; Metronome battles format: 6v6 singles, Only move allowed is metronome, all healing items/abilities are banned, Ubers (and mega rayquaza) are banned, immunites dont exist in this format (ex normal is not very effective on ghost instead of x0)"],
 		ruleset: ['[Gen 7] OU'],
@@ -255,7 +256,8 @@ exports.Formats = [
 			//change no effect to not very effective
 			if (move && !this.getImmunity(move, type)) return 2;
 		},
-	}, {
+	},
+	{
 		name: "[Gen 7] Random Metronome Battle",
 		desc: ["&bullet; Metronome battles format: 6v6 singles, Only move allowed is metronome, all healing items/abilities are banned, Ubers (and mega rayquaza) are banned, immunites dont exist in this format (ex normal is not very effective on ghost instead of x0)"],
 		ruleset: ['[Gen 7] OU'],
@@ -287,7 +289,8 @@ exports.Formats = [
 			//change no effect to not very effective
 			if (move && !this.getImmunity(move, type)) return 2;
 		},
-	}, {
+	},
+	{
 		name: "[Gen 7] Super Staff Bros",
 
 		mod: 'sgssb',
