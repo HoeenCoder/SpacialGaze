@@ -3162,8 +3162,8 @@ exports.commands = {
 			} else {
 				this.errorReply("'" + target + "' is not a recognized timer state.");
 			}
-		} else if {
-			(!room.battle || toId(room.battle.format) !== 'gen7wildpokemonalpha') return this.errorReply('You can\'t throw a pokeball here!');
+		} else if (toId(room.battle.format) !== 'gen7wildpokemonalpha')
+			return this.errorReply('You can\'t start timer during wild Pokemon Encounter.');
 		} else {
 			this.errorReply("You can only set the timer from inside a battle room.");
 		}
