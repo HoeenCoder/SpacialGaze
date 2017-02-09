@@ -3473,6 +3473,7 @@ class Battle extends Tools.BattleDex {
 				buttons += '<button name="send" value="/throwpokeball ' + balls[i] + '" style="background:transparent;border:none;"><img src="http://www.serebii.net/itemdex/sprites/pgl/' + balls[i] + '.png" width="30" height="30"></button>&nbsp;&nbsp;';
 			}
 			this.add('raw', buttons);
+			this.add('');
 		 }
 
 		if (this.p1.name === 'SG Server' && Tools.getFormat(this.format).isWildEncounter) {
