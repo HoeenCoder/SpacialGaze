@@ -3467,10 +3467,9 @@ class Battle extends Tools.BattleDex {
 		this.makeRequest('move');
 
 		if (Tools.getFormat(this.format).isWildEncounter) {
-			 this.add('raw', '<h3>Throw a Pokéball !!</h3>')
 			 let balls = ['pokeball', 'greatball', 'ultraball', 'masterball'];
 			 for (let i = 0; i <= balls.length; i++) {
-			 		this.add('raw', '<button name="send" value="/throwpokeball "' + balls[i] + '" style="background:transparent;border:none;"><img src="http://www.serebii.net/itemdex/sprites/pgl/' + balls[i] + '.png" width="30" height="30"></button>')
+			 	this.add('raw', '<button name="send" value="/throwpokeball "' + balls[i] + '" style="background:transparent;border:none;"><img src="http://www.serebii.net/itemdex/sprites/pgl/' + balls[i] + '.png" width="30" height="30"></button>');
 			}
 		 }
 
