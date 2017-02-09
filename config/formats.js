@@ -260,6 +260,7 @@ exports.Formats = [
 		desc: ["&bullet; Metronome battles format: 6v6 singles, Only move allowed is metronome, all healing items/abilities are banned, Ubers (and mega rayquaza) are banned, immunites dont exist in this format (ex normal is not very effective on ghost instead of x0)"],
 		ruleset: ['[Gen 7] OU'],
 		team: 'random',
+		mod: 'gen7',
 		onBegin: function () {
 			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
 			allPokemon.forEach(pokemon => {
