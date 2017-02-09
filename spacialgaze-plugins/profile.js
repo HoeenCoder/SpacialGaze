@@ -308,6 +308,7 @@ exports.commands = {
 
 		function getFlag(userid) {
 			let ip = geoip.lookup(Users(userid).latestIP);
+			if (!ip || ip === null) return '';
 			return '<img src="http://flags.fmcdn.net/data/flags/normal/' + ip.country.toLowerCase() + '.png" alt="' + ip.country + '" title="' + ip.country + '" width="20" height="10">';
 		}
 
