@@ -244,8 +244,7 @@ exports.Formats = [
 		},
 		onSwitchIn: function (pokemon) {
 			let name = toId(pokemon.illusion ? pokemon.illusion.name : pokemon.name);
-
-			//Add the mon's status effect to it as a volatile. 
+			//Add the mon's status effect to it as a volatile.
 			if (this.data.Statuses[name].exists) {
 				pokemon.addVolatile(name, pokemon);
 			}
