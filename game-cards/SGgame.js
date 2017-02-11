@@ -261,7 +261,7 @@ exports.commands = {
 			}
 			user.console.curText.push(msg + '|hide');
 			user.console.callback = function () {
-				user.console.defaultBottomHTML = '<center><button class="button" name="send" value="/console sound">Toggle Sound</button> <button class="button disabled" name="send" value="/sggame pokedex">Pokedex</button> <button class="button disabled" name="send" value="/sggame pokemon">Pokemon</button> <button class="button disabled" name="send" value="/sggame bag">Bag</button> <button class="button" name="send" value="/sggame pc">PC Boxes</button> <button name="send" value="/search gen7wildpokemonalpha" class="button">Battle!</button> <button name="send" value="/resetalpha" class="button">Reset</button>';
+				user.console.defaultBottomHTML = '<center><button class="button" name="send" value="/console sound">Toggle Sound</button> <button class="button disabled" name="send" value="/sggame pokedex">Pokedex</button> <button class="button disabled" name="send" value="/sggame pokemon">Pokemon</button> <button class="button disabled" name="send" value="/sggame bag">Bag</button> <button class="button" name="send" value="/sggame pc">PC Boxes</button> <button name="send" value="/search gen7wildpokemonalpha" class="button">Battle!</button> <button name="send" value="/sggame reset" class="button">Reset</button>';
 				user.console.callback = null;
 			};
 			user.console.curText.push('Great choice! I\'ll leave you to your game now.|callback');
@@ -299,6 +299,10 @@ exports.commands = {
 		pokedex: function (target, room, user, connection, cmd) {
 			if (!user.console) return;
 			return this.sendReply('Not Avaliable');
+		},
+		reset: function (target, room, user) {
+			if (!user.console) return;
+			user.console.update(false, '<h2><center>Are You sure ?<br /><button class="button" name="send" value="/resetalpha">Yes</button>   <button class="button" name="send" value="/sggame pc">No</button>', false);
 		},
 		pc: function (target, room, user, connection, cmd) {
 			if (!user.console) return;
