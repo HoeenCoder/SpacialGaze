@@ -301,7 +301,7 @@ exports.commands = {
 			return this.sendReply('Not Avaliable');
 		},
 		home: function (target, room, user) {
-			if (!user.console) returnl
+			if (!user.console) return;
 			user.console.update(false, false, false);
 		},
 		reset: function (target, room, user) {
