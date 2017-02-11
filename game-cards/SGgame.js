@@ -247,6 +247,7 @@ exports.commands = {
 			user.console.update('background-color: #6688AA;', htm, null);
 		} else if (cmd === 'resetalpha') {
 			// New Game
+			Db.pokeballs.set(user.userid, [30, 20, 10, 5]); //30 Pokeballs, 20 Great Balls, 10 Ultra Balls, 5 Master Balls
 			user.console.curText = ['Welcome to the world of Pokemon!<br/>I\'m HoeenHero, one of the programmers for the game. (click the star to continue)',
 				'Were not done creating the game yet so its limited as to what you can do.<br/>But you can help out by testing whats here, and reporting any issues you find!',
 				'Lets get you setup.<br/>Pick a starter:'];
@@ -261,7 +262,7 @@ exports.commands = {
 			}
 			user.console.curText.push(msg + '|hide');
 			user.console.callback = function () {
-				user.console.defaultBottomHTML = '<center><button class="button" name="send" value="/console sound">Toggle Sound</button> <button class="button disabled" name="send" value="/sggame pokedex">Pokedex</button> <button class="button disabled" name="send" value="/sggame pokemon">Pokemon</button> <button class="button disabled" name="send" value="/sggame bag">Bag</button> <button class="button" name="send" value="/sggame pc">PC Boxes</button> <button name="send" value="/search gen7wildpokemonalpha" class="button">Battle!</button> <button name="send" value="/resetalpha" class="button">Reset</button>';
+				user.console.defaultBottomHTML = '<center><button class="button" name="send" value="/console sound">Toggle Sound</button> <button class="button disabled" name="send" value="/sggame pokedex">Pokedex</button> <button class="button disabled" name="send" value="/sggame pokemon">Pokemon</button> <button class="button disabled" name="send" value="/sggame bag">Bag</button> <button class="button" name="send" value="/sggame pc">PC Boxes</button> <button name="send" value="/search gen7wildpokemonalpha" class="button">Battle!</button> <button name="send" value="/sggame reset" class="button">Reset</button>';
 				user.console.callback = null;
 			};
 			user.console.curText.push('Great choice! I\'ll leave you to your game now.|callback');
@@ -278,7 +279,7 @@ exports.commands = {
 				Db.players.set(user.userid, newObj);
 			}
 			user.console.curText = ['Welcome back to the alpha, tell me if you like the game or find any bugs!'];
-			user.console.defaultBottomHTML = '<center><button class="button" name="send" value="/console sound">Toggle Sound</button> <button class="button disabled" name="send" value="/sggame pokedex">Pokedex</button> <button class="button disabled" name="send" value="/sggame pokemon">Pokemon</button> <button class="button disabled" name="send" value="/sggame bag">Bag</button> <button class="button" name="send" value="/sggame pc">PC Boxes</button> <button name="send" value="/search gen7wildpokemonalpha" class="button">Battle!</button> <button name="send" value="/resetalpha" class="button">Reset</button>';
+			user.console.defaultBottomHTML = '<center><button class="button" name="send" value="/console sound">Toggle Sound</button> <button class="button disabled" name="send" value="/sggame pokedex">Pokedex</button> <button class="button disabled" name="send" value="/sggame pokemon">Pokemon</button> <button class="button disabled" name="send" value="/sggame bag">Bag</button> <button class="button" name="send" value="/sggame pc">PC Boxes</button> <button name="send" value="/search gen7wildpokemonalpha" class="button">Battle!</button> <button name="send" value="/sggame home" class="button">Home</button> <button name="send" value="/resetalpha" class="button">Reset</button>';
 			user.console.init();
 			this.parse('/sggame next');
 		}
@@ -341,8 +342,13 @@ exports.commands = {
 		if (!room.battle || toId(room.battle.format) !== 'gen7wildpokemonalpha') return this.errorReply('You can\'t throw a pokeball here!');
 		if (room.battle.ended) return this.errorReply('The battle is already over, you can\'t throw a pokeball.');
 		target = toId(target);
-		if (['pokeball', 'greatball', 'ultraball', 'masterball'].indexOf(target) === -1) return this.errorReply('Thats not a pokeball, or at least not one we support.');
-		if (target === 'masterball' && !user.can('hotpatch')) return this.errorReply('You don\'t have any Master Balls.');
+		let balls = ['pokeball', 'greatball', 'ultraball', 'masterball'];
+		if (balls.indexOf(target) === -1) return this.errorReply('Thats not a pokeball, or at least not one we support.');
+		let ballNum = Db.pokeballs.get(user.userid);
+		if (target === balls[0] && ballNum[0] === 0) return this.errrorReply('You don\'t have any Pokéballs');
+		if (target === balls[1] && ballNum[1] === 0) return this.errrorReply('You don\'t have any Great Balls');
+		if (target === balls[2] && ballNum[2] === 0) return this.errrorReply('You don\'t have any Ultra Balls');
+		if (target === balls[3] && ballNum[3] === 0) return this.errrorReply('You don\'t have any Master Balls');
 		let side = (toId(room.battle.p1.name) === toId(user) ? "p1" : "p2");
 		if (room.battle.ended) return this.errorReply('The battle has already ended.');
 		if (toId(room.battle[side].name) !== user.userid) return this.errorReply('You cant throw a pokeball because your not the trainer here!');
