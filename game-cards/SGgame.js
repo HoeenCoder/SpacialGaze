@@ -300,13 +300,13 @@ exports.commands = {
 			if (!user.console) return;
 			return this.sendReply('Not Avaliable');
 		},
-		home: function (target, room, user) {
+		back: function (target, room, user) {
 			if (!user.console) return;
 			user.console.update(false, false, false);
 		},
 		reset: function (target, room, user) {
 			if (!user.console) return;
-			user.console.update(false, '<h2><center>Are You sure ?<br /><button class="button" name="send" value="/resetalpha">Yes</button>   <button class="button" name="send" value="/sggame home">No</button>', false);
+			user.console.update(false, '<h2><center>Are You sure ?<br /><button class="button" name="send" value="/resetalpha">Yes</button>   <button class="button" name="send" value="/sggame back">No</button>', false);
 		},
 		pc: function (target, room, user, connection, cmd) {
 			if (!user.console) return;
