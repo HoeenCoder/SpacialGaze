@@ -252,18 +252,16 @@ exports.Formats = [
 		onBegin: function () {
 			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
 			allPokemon.forEach(pokemon => {
-				pokemon.baseMoveset = [
-					{
-						move: 'Metronome',
-						id: 'metronome',
-						pp: 16,
-						maxpp: 16,
-						target: 'self',
-						disabled: false,
-						disabledSource: '',
-						used: false,
-					}
-				];
+				pokemon.baseMoveset = [{
+					move: 'Metronome',
+					id: 'metronome',
+					pp: 16,
+					maxpp: 16,
+					target: 'self',
+					disabled: false,
+					disabledSource: '',
+					used: false,
+				}];
 				pokemon.moves = ['metronome'];
 				pokemon.moveset = pokemon.baseMoveset;
 				if (this.getFormat('[Gen 7] Metronome Battle').banlist.includes(this.getItem(pokemon.item).name)) {
