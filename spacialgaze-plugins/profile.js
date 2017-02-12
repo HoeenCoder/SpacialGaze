@@ -299,7 +299,7 @@ exports.commands = {
 			showProfile();
 		});
 
-		function getLastSeen(useid) {
+		function getLastSeen(userid) {
 			if (Users(userid) && Users(userid).connected) return '<font color = "limegreen"><strong>Currently Online</strong></font>';
 			let seen = Db.seen.get(userid);
 			if (!seen) return '<font color = "red"><strong>Never</strong></font>';
@@ -307,7 +307,7 @@ exports.commands = {
 		}
 
 		function getFlag(userid) {
-			let ip = geoip.lookup(Users(userid).latestIP);
+			let ip = (Users(userid) ? geoip.lookup(Users(userid).latestIp) : false);
 			if (!ip || ip === null) return '';
 			return '<img src="http://flags.fmcdn.net/data/flags/normal/' + ip.country.toLowerCase() + '.png" alt="' + ip.country + '" title="' + ip.country + '" width="20" height="10">';
 		}
