@@ -302,7 +302,7 @@ exports.commands = {
 		},
 		back: function (target, room, user) {
 			if (!user.console) return;
-			user.console.update(false, false, false);
+			user.console.update(this.prevScreen[0], this.prevScreen[1], this.prevScreen[2]);
 		},
 		reset: function (target, room, user) {
 			if (!user.console) return;
