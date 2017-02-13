@@ -305,7 +305,7 @@ exports.commands = {
 		},
 		back: function (target, room, user) {
 			if (!user.console) return;
-			user.console.update(this.prevScreen[0], this.prevScreen[1], this.prevScreen[2]);
+			user.console.update(user.console.prevScreen[0], user.console.prevScreen[1], user.console.prevScreen[2]);
 		},
 		pc: function (target, room, user, connection, cmd) {
 			if (!user.console) return;
