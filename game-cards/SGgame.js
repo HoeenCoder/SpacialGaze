@@ -272,7 +272,7 @@ exports.commands = {
 			this.parse('/sggame next');
 		} else {
 			// Continue
-			if (!Db.players.has(user.userid)) return this.parse('/confiresetalpha');
+			if (!Db.players.has(user.userid)) return this.parse('/confirmresetalpha');
 			try {
 				Db.players.get(user.userid).test();
 			} catch (e) {
