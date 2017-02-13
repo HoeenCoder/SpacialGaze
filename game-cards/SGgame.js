@@ -238,6 +238,7 @@ exports.commands = {
 	resetalpha: 'playalpha',
 	continuealpha: 'playalpha',
 	playalpha: function (target, room, user, connection, cmd) {
+		if (cmd === 'resetalpha') return user.console.update(false, '<h2><center>Are You sure ?<br /><button class="button" name="send" value="/confirmresetalpha">Yes</button> <button class="button" name="send" value="/sggame back">No</button>', false);
 		if (user.console) this.parse('/console kill');
 		user.console = new SGgame(user, room, !!target);
 		if (cmd === 'playalpha') {
@@ -246,8 +247,6 @@ exports.commands = {
 			htm += '<button name="send" value="/confirmresetalpha" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b>NEW GAME</b></button></center>';
 			user.console.init();
 			user.console.update('background-color: #6688AA;', htm, null);
-		} else if (cmd === 'resetalpha') {
-			user.console.update(false, '<h2><center>Are You sure ?<br /><button class="button" name="send" value="/confirmresetalpha">Yes</button>   <button class="button" name="send" value="/sggame back">No</button>', false);
 		} else if (cmd === 'confirmresetalpha') {
 			// New Game
 			user.console.curText = ['Welcome to the world of Pokemon!<br/>I\'m HoeenHero, one of the programmers for the game. (click the star to continue)',
