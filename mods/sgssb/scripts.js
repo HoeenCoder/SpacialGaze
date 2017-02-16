@@ -165,8 +165,8 @@ exports.BattleScripts = {
 
 			// Global Drivers:
 			'%Ashley the Pikachu': {
-				species: 'Pikachu',
-				ability: 'Electric Surge',
+				species: 'Pikachu-Cosplay',
+				ability: 'Primal Surge',
 				item: 'Light Ball',
 				gender: 'F',
 				moves: ['Thunderbolt', 'Surf', 'Hidden Power Ice',
