@@ -10,6 +10,9 @@ exports.BattleAbilities = {
 			this.setTerrain('electricterrain');
 			this.terrainData.duration = 0;
 		},
+		onModifySpe: function (spe) {
+			return this.chainModify(2);
+		},
 		onAnySetWeather: function (target, source, weather) {
 			if (this.getWeather().id === 'primordialsea' && !(weather.id in {desolateland:1, primordialsea:1, deltastream:1})) return false;
 		},
