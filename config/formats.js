@@ -297,7 +297,7 @@ exports.Formats = [
 		onSwitchIn: function (pokemon) {
 			let name = toId(pokemon.illusion ? pokemon.illusion.name : pokemon.name);
 			//Add the mon's status effect to it as a volatile.
-			if (this.data.Statuses[name].exists) {
+			if (this.data.Statuses[name] && this.data.Statuses[name].exists) {
 				pokemon.addVolatile(name, pokemon);
 			}
 		},
@@ -314,82 +314,6 @@ exports.Formats = [
 				}
 			}
 		},
-		onFaint: function (pokemon) {
-			let name = toId(pokemon.name);
-
-			// custom messages.
-
-			if (name === 'therun') {
-				this.add('c', '+The Run', 'So much for being faster...');
-			}
-			if (name === 'hoeenhero') {
-				this.add('c', '~HoeenHero', 'Hey! Thats more hax than I get to use >:(');
-			}
-			if (name === 'ashleythepikachu') {
-				this.add('c', '%Ashley the Pikachu', 'PikaPikaaaa');
-			}
-			if (name === 'vulcaron') {
-				this.add('c', '%Vulcaron', 'The flames are dowsed.');
-			}
-			if (name === 'mystifi') {
-				this.add('c', '~Mystifi', '**WOW U HACKER I\'M REPORTING YOU TO ZAREL**');
-			}
-			if (name === 'hurricaned') {
-				this.add('c', '+Hurricane\'d', 'You did this because I like CAP didn\'t you. I bet you like OU as well. You\'re tier-ist');
-			}
-			if (name === 'serperiorater') {
-				this.add('c', '%Serperiorater', 'Dammit Benny, why ya gotta be that guy?');
-			}
-			if (name === 'hiroz') {
-				this.add('c', '&HiroZ', 'Argh... scumbag...');
-			}
-			if (name === 'xavier1942') {
-				this.add('c', '+Xavier1942', 'Nuuuuu! MY BEAUTIFUL WALL! ');
-			}
-			if (name === 'ducktown') {
-				this.add('c', '%ducktown', 'Quack Quack Quaaaaaa...');
-			}
-			if (name === 'vacuo') {
-				this.add('c', '@Vacuo', 'yeah so I\'mma go get some food see you later');
-			}
-			if (name === 'admewn') {
-				this.add('c', '+Admewn', 'Turn off the mewsic! I\'m out!');
-			}
-			if (name === 'krakenmare') {
-				this.add('c', '&Kraken Mare', 'The RAGE wasn\'t enough to overpower you!');
-			}
-			if (name === 'almightybronzong') {
-				this.add('c', '+Almighty Bronzong', '``Nice achievement.``');
-			}
-			if (name === 'hydrostatics') {
-				this.add('c', '+Hydrostatics', 'Ok! It was a nice warm up for me! Let\'s battle for real the next time! ;)');
-			}
-			if (name === 'umichbrendan') {
-				this.add('c', '+UmichBrendan', 'I lost? How is that possible?');
-			}
-			if (name === 'opple') {
-				this.add('c', '&Opple', 'I call hacks, fine. You got me, lol, I\'ll get you next time!');
-			}
-			if (name === 'mimiroppu') {
-				this.add('c', '@Mimiroppu', 'Sorry \'bout it...');
-			}
-			if (name === 'c733937123') {
-				this.add('c', '@C733937 123', 'What, I...got defeated by some lousy fighter like you??? Well...Good luck next time we fight for both of us....but why did I lose?');
-			}
-			if (name === 'bdh93') {
-				this.add('c', '@BDH93', 'Aww man! No more trolling :(');
-			}
-			if (name === 'spacialbot') {
-				this.add('c', '%Spacial Bot', 'I blame my creator for my loss');
-			}
-			if (name === 'auction') {
-				this.add('c', '+Auction', 'Ya know, I think I should\'ve gotten __burn everything__ as my ability ;_;');
-			}
-			if (name === 'ranfen') {
-				this.add('c', '+Ranfen', 'No Fair flygon cant be beat D:');
-			}
-		},
-
 	},
 	{
 		name: "[Gen 7] Pokemon Mystery Dungeon",
