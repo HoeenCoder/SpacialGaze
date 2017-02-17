@@ -16,9 +16,6 @@ exports.BattleAbilities = {
 		onAnySetWeather: function (target, source, weather) {
 			if (this.getWeather().id === 'primordialsea' && !(weather.id in {desolateland:1, primordialsea:1, deltastream:1})) return false;
 		},
-		onAnySetTerrain: function (target, source, terrain) {
-			if (this.getTerrain().id === 'electricterrain' && terrain !== '') return false;
-		},
 		onEnd: function (pokemon) {
 			if (this.weatherData.source !== pokemon) return;
 			for (let i = 0; i < this.sides.length; i++) {
