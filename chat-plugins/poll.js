@@ -1,7 +1,7 @@
 /*
-* Poll chat plugin
-* By bumbadadabum and Zarel.
-*/
+ * Poll chat plugin
+ * By bumbadadabum and Zarel.
+ */
 
 'use strict';
 
