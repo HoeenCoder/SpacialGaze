@@ -474,7 +474,8 @@ exports.BattleScripts = {
 	//Deny Terrain setting if Ashley is active.
 	setTerrain: function (status, source, sourceEffect) {
 		status = this.getEffect(status);
-		if (this.getTerrain().id === 'electricterrain' && this.terrainData.duration === 0 && status.id !== '') return false;
+		let actives = this.p1.actives.concat(this.p2.actives);
+		if (actives.some(pokemon => {return toId(pokemon.name) === 'ashleythepikachu';}) && status.id !== '') return false;
 		if (sourceEffect === undefined && this.effect) sourceEffect = this.effect;
 		if (source === undefined && this.event && this.event.target) source = this.event.target;
 
