@@ -3,6 +3,8 @@
  * By bumbadadabum and Zarel.
  */
 
+// Refactored by Lord Haji for SpacialGaze
+
 'use strict';
 
 class Poll {
