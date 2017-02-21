@@ -243,7 +243,7 @@ exports.commands = {
 			room.poll = new Poll(room, {
 				source: params[0],
 				supportHTML: supportHTML,
-				username: user.name
+				username: user.name,
 			}, options);
 			room.poll.display();
 
