@@ -88,8 +88,9 @@ This server is brought to you and maintained by the following people:
 
 Owners
 
-[HoeenCoder](https://github.com/HoeenCoder) | [Mystifi](https://github.com/Mystifi)
-
+[![HoeenHero](https://avatars3.githubusercontent.com/u/5875574?s=117)](http://github.com/HoeenCoder) | [![Mystifi](https://avatars1.githubusercontent.com/u/2987451?s=117)](https://github.com/Mystifi)
+:---:|:---:|:---:|:---:|:---:
+[HoeenCoder](http://github.com/HoeenCoder) | [Mystifi](https://github.com/Mystifi)
 
 Special thanks
 
