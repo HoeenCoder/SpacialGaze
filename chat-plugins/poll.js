@@ -238,7 +238,11 @@ exports.commands = {
 				return this.errorReply("Too many options for poll (maximum is 36).");
 			}
 
-			room.poll = new Poll(room, {source: params[0], supportHTML: supportHTML, username: user.name}, options);
+			room.poll = new Poll(room, {
+				source: params[0],
+				supportHTML: supportHTML,
+				username: user.name
+			}, options);
 			room.poll.display();
 
 			this.logEntry("" + user.name + " used " + message);
