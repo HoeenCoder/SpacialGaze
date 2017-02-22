@@ -8,7 +8,6 @@
     "nef": "^1.1.0",
     "nef-fs": "^1.0.0",
     "autolinker": "*",
-    "request": "2.74.0",
     "md5": "*",
     "geoip-lite-country": "1.1.5",
     "githubhook": "1.7.1"
