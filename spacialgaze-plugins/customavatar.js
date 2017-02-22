@@ -19,17 +19,17 @@ const AVATAR_PATH = path.join(__dirname, '../config/avatars/');
 const VALID_EXTENSIONS = ['.jpg', '.png', '.gif'];
 
 function downloadImage(image_url, name, room, connection) {
-    // compose the wget command
-    let wget = 'wget -P ' + AVATAR_PATH + ' ' + image_url;
+	// compose the wget command
+	let wget = 'wget -P ' + AVATAR_PATH + ' ' + image_url;
 	let exec = require('child_process').exec;
 	exec(wget, (error, stdout, stderr) => {
 		connection.sendTo(room, ("" + stdout + stderr));
 	});
 	let file_name = url.parse(image_url).pathname.split('/').pop();
 	let ext = path.extname(image_url);
-	fs.renameSync((AVATAR_PATH + file_name), (AVATAR_PATH + name + ext), function(err) {
-    	if ( err ) console.log('ERROR: ' + err);
-	});	
+	fs.renameSync((AVATAR_PATH + file_name), (AVATAR_PATH + name + ext), function (err) {
+    		if (err) console.log('ERROR: ' + err);
+	});
 }
 
 SG.downloadImage = downloadImage;
