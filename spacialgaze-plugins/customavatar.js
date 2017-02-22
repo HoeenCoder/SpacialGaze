@@ -11,28 +11,28 @@
 
 const fs = require('fs');
 const path = require('path');
-const request = require('request');
-
+const url = require('url');
 // The path where custom avatars are stored.
 const AVATAR_PATH = path.join(__dirname, '../config/avatars/');
 
 // The valid file extensions allowed.
 const VALID_EXTENSIONS = ['.jpg', '.png', '.gif'];
 
-function downloadImage(image_url, name, extension) {
-	request
-		.get(image_url)
-		.on('error', err => {
-			console.error(err);
-		})
-		.on('response', response => {
-			if (response.statusCode !== 200) return;
-			let type = response.headers['content-type'].split('/');
-			if (type[0] !== 'image') return;
-
-			response.pipe(fs.createWriteStream(AVATAR_PATH + name + extension));
-		});
+function downloadImage(image_url, name, room, connection) {
+    // compose the wget command
+    let wget = 'wget -P ' + AVATAR_PATH + ' ' + image_url;
+	let exec = require('child_process').exec;
+	exec(wget, (error, stdout, stderr) => {
+		connection.sendTo(room, ("" + stdout + stderr));
+	});
+	let file_name = url.parse(image_url).pathname.split('/').pop();
+	let ext = path.extname(image_url);
+	fs.renameSync((AVATAR_PATH + file_name), (AVATAR_PATH + name + ext), function(err) {
+    	if ( err ) console.log('ERROR: ' + err);
+	});	
 }
+
+SG.downloadImage = downloadImage;
 
 function loadCustomAvatars() {
 	fs.readdir(AVATAR_PATH, (err, files) => {
@@ -51,7 +51,7 @@ loadCustomAvatars();
 
 exports.commands = {
 	customavatar: {
-		set: function (target, room, user) {
+		set: function (target, room, user, connection) {
 			if (!this.can('roomowner')) return false;
 			let parts = target.split(',').map(param => param.trim());
 			if (parts.length < 2) return this.parse('/help customavatar');
@@ -67,7 +67,7 @@ exports.commands = {
 
 			Config.customavatars[name] = name + ext;
 
-			downloadImage(avatarUrl, name, ext);
+			downloadImage(avatarUrl, name, room, connection);
 			this.sendReply("|raw|" + name + "'s avatar was successfully set. Avatar:<br /><img src='" + avatarUrl + "' width='80' height='80'>");
 			if (Users(name)) Users(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><center><img src='" + avatarUrl + "' width='80' height='80'></center><br /> Refresh your page if you don\'t see it.");
 		},
