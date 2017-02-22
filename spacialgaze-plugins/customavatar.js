@@ -28,7 +28,7 @@ function downloadImage(image_url, name, room, connection) {
 	let file_name = url.parse(image_url).pathname.split('/').pop();
 	let ext = path.extname(image_url);
 	fs.renameSync((AVATAR_PATH + file_name), (AVATAR_PATH + name + ext), function (err) {
-    		if (err) console.log('ERROR: ' + err);
+		if (err) console.log('ERROR: ' + err);
 	});
 }
 
