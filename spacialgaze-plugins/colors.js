@@ -146,7 +146,7 @@ function MD5(e) {
 			n = "",
 			r;
 		for (r = 0; r <= 3; r++) n = e >>> r * 8 & 255, n = "0" + n.toString(16), t += n.substr(n.length - 2, 2);
-		return t
+		return t;
 	}
 	let u = [], r,
 		a, f, l, c, h, p, d, v, e = function(e) {
@@ -156,7 +156,7 @@ function MD5(e) {
 			}
 			return t;
 		}(e),
-		u = function(e) {
+		u = function (e) {
 			let t, n = e.length;
 			t = n + 8;
 			for (let r = ((t - t % 64) / 64 + 1) * 16, i = Array(r - 1), s = 0, o = 0; o < n;) t = (o - o % 4) / 4, s = o % 4 * 8, i[t] |= e.charCodeAt(o) << s, o++;
