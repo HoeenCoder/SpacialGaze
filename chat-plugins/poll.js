@@ -281,13 +281,11 @@ exports.commands = {
 			if (targetSplit.length > 10) return this.errorReply("You can't void more than 10 options at a time.");
 
 			let values = [];
-			let count = 1;
 			let voided = [];
 			let invalid = [];
 
-			room.poll.options.forEach(function (obj) {
-				values[toId(obj.name)] = count;
-				count++;
+			room.poll.options.forEach((obj, idx) => {
+				values[toId(obj.name)] = idx;
 			});
 			for (let u in targetSplit) {
 				if (!values[toId(targetSplit[u])]) {
@@ -332,13 +330,11 @@ exports.commands = {
 			if (targetSplit.length > 10) return this.errorReply("You can't unvoid more than 10 options at a time.");
 
 			let values = [];
-			let count = 1;
 			let voided = [];
 			let invalid = [];
 
-			room.poll.options.forEach(function (obj) {
-				values[toId(obj.name)] = count;
-				count++;
+			room.poll.options.forEach((obj, idx) => {
+				values[toId(obj.name)] = idx;
 			});
 			for (let u in targetSplit) {
 				if (!values[toId(targetSplit[u])]) {
