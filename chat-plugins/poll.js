@@ -309,7 +309,7 @@ exports.commands = {
 			}
 
 			for (let u in room.poll.voterIps) {
-				if (!room.poll.options.get(room.poll.voters[u])) continue;
+				if (!room.poll.options.get(room.poll.voterIps[u])) continue;
 				let option = room.poll.options.get(room.poll.voterIps[u]).name;
 				if (values[toId(option)]) {
 					delete room.poll.voterIps[u];
