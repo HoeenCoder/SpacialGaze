@@ -11,25 +11,28 @@
 
 const fs = require('fs');
 const path = require('path');
-const url = require('url');
+let Stream = require('stream').Transform;
 // The path where custom avatars are stored.
 const AVATAR_PATH = path.join(__dirname, '../config/avatars/');
+
+let request;
 
 // The valid file extensions allowed.
 const VALID_EXTENSIONS = ['.jpg', '.png', '.gif'];
 
 function downloadImage(image_url, name, room, connection) {
-	// compose the wget command
-	let wget = 'wget -P ' + AVATAR_PATH + ' ' + image_url;
-	let exec = require('child_process').exec;
-	exec(wget, (error, stdout, stderr) => {
-		connection.sendTo(room, ("" + stdout + stderr));
-	});
-	let file_name = url.parse(image_url).pathname.split('/').pop();
 	let ext = path.extname(image_url);
-	fs.renameSync((AVATAR_PATH + file_name), (AVATAR_PATH + name + ext), function (err) {
-		if (err) console.log('ERROR: ' + err);
-	});
+	if (image_url.startsWith('http://')) request = require('https');
+	request = require('http');
+	request.request(image_url, function(response) {                                        
+		let data = new Stream();                                                    
+		response.on('data', function(chunk) {                                       
+    	data.push(chunk);                                                         
+		});                                                                         
+		response.on('end', function() {                                             
+    	fs.writeFileSync((AVATAR_PATH + name + ext), data.read());                               
+		});                                                                         
+	}).end();	
 }
 
 SG.downloadImage = downloadImage;
@@ -51,7 +54,7 @@ loadCustomAvatars();
 
 exports.commands = {
 	customavatar: {
-		set: function (target, room, user, connection) {
+		set: function (target, room, user) {
 			if (!this.can('roomowner')) return false;
 			let parts = target.split(',').map(param => param.trim());
 			if (parts.length < 2) return this.parse('/help customavatar');
@@ -67,7 +70,7 @@ exports.commands = {
 
 			Config.customavatars[name] = name + ext;
 
-			downloadImage(avatarUrl, name, room, connection);
+			downloadImage(avatarUrl, name);
 			this.sendReply("|raw|" + name + "'s avatar was successfully set. Avatar:<br /><img src='" + avatarUrl + "' width='80' height='80'>");
 			if (Users(name)) Users(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><center><img src='" + avatarUrl + "' width='80' height='80'></center><br /> Refresh your page if you don\'t see it.");
 		},
