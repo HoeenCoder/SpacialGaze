@@ -66,10 +66,10 @@ exports.commands = {
 			}
 
 			Config.customavatars[name] = name + ext;
-
+			if (fs.existsSync((AVATAR_PATH + name + ext))) return this.popupReply("<center>" + SG.nameColor(name) + " already has a custom avatar.<br /> Use /customavatar delete [username] to delete it.</center>")
 			downloadImage(avatarUrl, name, ext);
 			this.sendReply("|raw|" + name + "'s avatar was successfully set. Avatar:<br /><img src='" + avatarUrl + "' width='80' height='80'>");
-			if (Users(name)) Users(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><center><img src='" + avatarUrl + "' width='80' height='80'></center><br /> Refresh your page if you don\'t see it.");
+			if (Users(name)) Users(name).popup("|html|<center>" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><img src='" + avatarUrl + "' width='80' height='80'><br /> Refresh your page if you don\'t see it.</center>");
 		},
 
 		remove: 'delete',
