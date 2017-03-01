@@ -17684,6 +17684,7 @@
 		"totalEvDrops": 3
 	},
 	"pichuspikyeared": {
+		"id": "pichuspikyeared",
 		"expType": "mediumfast",
 		"evolution": {
 			"trigger": null,
@@ -17703,6 +17704,7 @@
 		"totalEvDrops": 1
 	},
 	"pikachurockstar": {
+		"id": "pikachurockstar",
 		"expType": "mediumfast",
 		"evolution": {
 			"trigger": null,
@@ -17722,6 +17724,7 @@
 		"totalEvDrops": 2
 	},
 	"pikachubelle": {
+		"id": "pikachubelle",
 		"expType": "mediumfast",
 		"evolution": {
 			"trigger": null,
@@ -17741,6 +17744,7 @@
 		"totalEvDrops": 2
 	},
 	"pikachuphd": {
+		"id": "pikachuphd",
 		"expType": "mediumfast",
 		"evolution": {
 			"trigger": null,
@@ -17760,6 +17764,7 @@
 		"totalEvDrops": 2
 	},
 	"pikachupopstar": {
+		"id": "pikachupopstar",
 		"expType": "mediumfast",
 		"evolution": {
 			"trigger": null,
@@ -17779,6 +17784,7 @@
 		"totalEvDrops": 2
 	},
 	"pikachulibre": {
+		"id": "pikachulibre",
 		"expType": "mediumfast",
 		"evolution": {
 			"trigger": null,
@@ -17798,6 +17804,7 @@
 		"totalEvDrops": 2
 	},
 	"pikachucosplay": {
+		"id": "pikachucosplay",
 		"expType": "mediumfast",
 		"evolution": {
 			"trigger": null,
@@ -17815,6 +17822,45 @@
 			"spe": 2
 		},
 		"totalEvDrops": 2
+	},
+	"castformsunny": {
+		"id": "castformsunny",
+		"baseExp": 147,
+		"evDrops": {
+			"hp": 1,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 1
+	},
+	"castformrainy": {
+		"id": "castformrainy",
+		"baseExp": 147,
+		"evDrops": {
+			"hp": 1,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 1
+	},
+	"castformsnowy": {
+		"id": "castformsnowy",
+		"baseExp": 147,
+		"evDrops": {
+			"hp": 1,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 1
 	},	
 	"wormadamsandy": {
 		"id": "wormadamsandy",
