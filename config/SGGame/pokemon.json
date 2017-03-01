@@ -18057,6 +18057,19 @@
 		},
 		"totalEvDrops": 2
 	},
+	"basculinbluestriped": {
+		"id": "basculinbluestriped",
+		"baseExp": 161,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 2
+		},
+		"totalEvDrops": 2
+	},	
 	"darmanitanzen": {
 		"id": "darmanitanzen",
 		"baseExp": 189,
