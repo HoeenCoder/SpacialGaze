@@ -17861,6 +17861,19 @@
 			"spe": 0
 		},
 		"totalEvDrops": 1
+	},
+	"cherrimsunshine": {
+		"id": "cherrimsunshine",
+		"baseExp": 158,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 2,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 2
 	},	
 	"wormadamsandy": {
 		"id": "wormadamsandy",
