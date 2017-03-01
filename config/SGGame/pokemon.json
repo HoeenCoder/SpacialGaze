@@ -18161,6 +18161,19 @@
 		},
 		"totalEvDrops": 3
 	},
+	"keldeoresolute": {
+		"id": "keldeoresolute"
+		"baseExp": 261,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 3,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 3
+	},	
 	"greninjaash": {
 		"id": "greninjaash",
 		"baseExp": 288,
