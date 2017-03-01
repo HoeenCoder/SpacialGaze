@@ -17685,7 +17685,6 @@
 	},
 	"pichuspikyeared": {
 		"expType": "mediumfast",
-		"rate": "190",
 		"evolution": {
 			"trigger": null,
 			"type": null,
@@ -17702,6 +17701,120 @@
 			"spe": 1
 		},
 		"totalEvDrops": 1
+	},
+	"pikachurockstar": {
+		"expType": "mediumfast",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": null
+		},		
+		"baseExp": 112,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 2
+		},
+		"totalEvDrops": 2
+	},
+	"pikachubelle": {
+		"expType": "mediumfast",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": null
+		},		
+		"baseExp": 112,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 2
+		},
+		"totalEvDrops": 2
+	},
+	"pikachuphd": {
+		"expType": "mediumfast",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": null
+		},		
+		"baseExp": 112,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 2
+		},
+		"totalEvDrops": 2
+	},
+	"pikachupopstar": {
+		"expType": "mediumfast",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": null
+		},		
+		"baseExp": 112,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 2
+		},
+		"totalEvDrops": 2
+	},
+	"pikachulibre": {
+		"expType": "mediumfast",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": null
+		},		
+		"baseExp": 112,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 2
+		},
+		"totalEvDrops": 2
+	},
+	"pikachucosplay": {
+		"expType": "mediumfast",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": null
+		},		
+		"baseExp": 112,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 2
+		},
+		"totalEvDrops": 2
 	},	
 	"wormadamsandy": {
 		"id": "wormadamsandy",
