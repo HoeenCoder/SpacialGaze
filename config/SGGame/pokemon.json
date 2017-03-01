@@ -17682,6 +17682,26 @@
 			"spe": 0
 		},
 		"totalEvDrops": 3
+	},
+	"pichuspikyeared": {
+		"expType": "mediumfast",
+		"rate": "190",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": null
+		},
+		"baseExp": 41,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 1
+		},
+		"totalEvDrops": 1
 	},	
 	"wormadamsandy": {
 		"id": "wormadamsandy",
