@@ -17633,7 +17633,7 @@
 	},
 	"deoxysattack": {
 		"id": "deoxysattack",
-		"baseExp": 270,
+		"inherit": "deoxys",
 		"evDrops": {
 			"hp": 0,
 			"atk": 2,
@@ -17641,12 +17641,11 @@
 			"spa": 1,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"deoxysdefense": {
 		"id": "deoxysdefense",
-		"baseExp": 270,
+		"inherit": "deoxys",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17654,12 +17653,11 @@
 			"spa": 0,
 			"spd": 1,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"deoxysspeed": {
 		"id": "deoxysspeed",
-		"baseExp": 270,
+		"inherit": "deoxys",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17667,239 +17665,62 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 3
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"giratinaorigin": {
 		"id": "giratinaorigin",
-		"baseExp": 306,
-		"evDrops": {
-			"hp": 3,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 3
+		"inherit": "giratina"
 	},
 	"pichuspikyeared": {
 		"id": "pichuspikyeared",
-		"expType": "mediumfast",
-		"evolution": {
-			"trigger": null,
-			"type": null,
-			"exact": null,
-			"evolvesTo": null
-		},
-		"baseExp": 41,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 1
-		},
-		"totalEvDrops": 1
+		"inherit": "pichu"
 	},
 	"pikachurockstar": {
 		"id": "pikachurockstar",
-		"expType": "mediumfast",
-		"evolution": {
-			"trigger": null,
-			"type": null,
-			"exact": null,
-			"evolvesTo": null
-		},		
-		"baseExp": 112,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 2
-		},
-		"totalEvDrops": 2
+		"inherit": "pikachu"
 	},
 	"pikachubelle": {
 		"id": "pikachubelle",
-		"expType": "mediumfast",
-		"evolution": {
-			"trigger": null,
-			"type": null,
-			"exact": null,
-			"evolvesTo": null
-		},		
-		"baseExp": 112,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 2
-		},
-		"totalEvDrops": 2
+		"inherit": "pikachu"
 	},
 	"pikachuphd": {
 		"id": "pikachuphd",
-		"expType": "mediumfast",
-		"evolution": {
-			"trigger": null,
-			"type": null,
-			"exact": null,
-			"evolvesTo": null
-		},		
-		"baseExp": 112,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 2
-		},
-		"totalEvDrops": 2
+		"inherit": "pikachu"
 	},
 	"pikachupopstar": {
 		"id": "pikachupopstar",
-		"expType": "mediumfast",
-		"evolution": {
-			"trigger": null,
-			"type": null,
-			"exact": null,
-			"evolvesTo": null
-		},		
-		"baseExp": 112,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 2
-		},
-		"totalEvDrops": 2
+		"inherit": "pikachu"
 	},
 	"pikachulibre": {
 		"id": "pikachulibre",
-		"expType": "mediumfast",
-		"evolution": {
-			"trigger": null,
-			"type": null,
-			"exact": null,
-			"evolvesTo": null
-		},		
-		"baseExp": 112,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 2
-		},
-		"totalEvDrops": 2
+		"inherit": "pikachu"
 	},
 	"pikachucosplay": {
 		"id": "pikachucosplay",
-		"expType": "mediumfast",
-		"evolution": {
-			"trigger": null,
-			"type": null,
-			"exact": null,
-			"evolvesTo": null
-		},		
-		"baseExp": 112,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 2
-		},
-		"totalEvDrops": 2
+		"inherit": "pikachu"
 	},
 	"castformsunny": {
 		"id": "castformsunny",
-		"baseExp": 147,
-		"evDrops": {
-			"hp": 1,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 1
+		"inherit": "castform"
 	},
 	"castformrainy": {
 		"id": "castformrainy",
-		"baseExp": 147,
-		"evDrops": {
-			"hp": 1,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 1
+		"inherit": "castform"
 	},
 	"castformsnowy": {
 		"id": "castformsnowy",
-		"baseExp": 147,
-		"evDrops": {
-			"hp": 1,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 1
+		"inherit": "castform"
 	},
 	"cherrimsunshine": {
 		"id": "cherrimsunshine",
-		"baseExp": 158,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 2,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 2
 	},	
 	"wormadamsandy": {
 		"id": "wormadamsandy",
-		"baseExp": 148,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 2,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 2
+		"inherit": "wormadam"
 	},
 	"wormadamtrash": {
 		"id": "wormadamtrash",
-		"baseExp": 148,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 1,
-			"spa": 0,
-			"spd": 1,
-			"spe": 0
-		},
-		"totalEvDrops": 2
+		"inherit": "wormadam"
 	},
 	"lopunnymega": {
 		"id": "lopunnymega",
@@ -18150,6 +17971,7 @@
 	},
 	"meloettapirouette": {
 		"id": "meloettapirouette",
+		"inherit": "meloetta",
 		"baseExp": 270,
 		"evDrops": {
 			"hp": 0,
@@ -18159,37 +17981,19 @@
 			"spd": 0,
 			"spe": 1
 		},
-		"totalEvDrops": 3
 	},
 	"keldeoresolute": {
-		"id": "keldeoresolute",
-		"baseExp": 261,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 3,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 3
+		"id": "keldeoresolute"
+		"inherit": "keldeo"
 	},	
 	"greninjaash": {
 		"id": "greninjaash",
-		"baseExp": 288,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 3
-		},
-		"totalEvDrops": 3
+		"inherit": "greninja",
+		"baseExp": 288
 	},
 	"aegislashblade": {
 		"id": "aegislashblade",
-		"baseExp": 234,
+		"inherit": "aegislash",
 		"evDrops": {
 			"hp": 0,
 			"atk": 2,
@@ -18197,8 +18001,37 @@
 			"spa": 1,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
+	},
+	"pumpkaboolarge": {
+		"id": "pumpkaboolarge",
+		"inherit": "pumpkaboo",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": "gourgeistlarge"
+		}		
+	},
+	"pumpkaboosmall": {
+		"id": "pumpkaboosmall",
+		"inherit": "pumpkaboo",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": "gourgeistsmall"
+		}
+	},
+	"pumpkaboosuper": {
+		"id": "pumpkaboosuper",
+		"inherit": "pumpkaboo",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": "gourgeistsuper"
+		}
 	},
 	"zygarde10": {
 		"id": "zygarde10",
