@@ -17594,6 +17594,7 @@
 	},
 	"kyogreprimal": {
 		"id": "kyogreprimal",
+		"inherit": "kyogre",
 		"baseExp": 347,
 		"evDrops": {
 			"hp": 0,
@@ -17602,11 +17603,11 @@
 			"spa": 3,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"groudonprimal": {
 		"id": "groudonprimal",
+		"inherit": "groudon",
 		"baseExp": 347,
 		"evDrops": {
 			"hp": 0,
@@ -17615,11 +17616,11 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"rayquazamega": {
 		"id": "rayquazamega",
+		"inherit": "rayquaza",
 		"baseExp": 351,
 		"evDrops": {
 			"hp": 0,
@@ -17629,7 +17630,6 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 3
 	},
 	"deoxysattack": {
 		"id": "deoxysattack",
@@ -17713,7 +17713,16 @@
 	},
 	"cherrimsunshine": {
 		"id": "cherrimsunshine",
-	},	
+		"inherit": "cherrim"
+	},
+	"burmysandy": {
+		"id": "burmysandy",
+		"inherit": "burmy"
+	}
+	"burmytrash": {
+		"id": "burmytrash",
+		"inherit": "burmy"
+	}	
 	"wormadamsandy": {
 		"id": "wormadamsandy",
 		"inherit": "wormadam"
@@ -17945,6 +17954,7 @@
 	},
 	"kyuremwhite": {
 		"id": "kyuremwhite",
+		"inherit": "kyurem",
 		"baseExp": 315,
 		"evDrops": {
 			"hp": 0,
@@ -17954,10 +17964,10 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 3
 	},
 	"kyuremblack": {
 		"id": "kyuremblack",
+		"inherit": "kyurem",
 		"baseExp": 315,
 		"evDrops": {
 			"hp": 0,
@@ -17967,7 +17977,6 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 3
 	},
 	"meloettapirouette": {
 		"id": "meloettapirouette",
