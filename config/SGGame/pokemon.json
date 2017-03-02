@@ -18033,9 +18033,21 @@
 			"evolvesTo": "gourgeistsuper"
 		}
 	},
+	"gourgeistlarge": {
+		"id": "gourgeistlarge",
+		"inherit": "gourgeist"
+	},
+	"gourgeistsmall": {
+		"id": "gourgeistsmall",
+		"inherit": "gourgeist"
+	},	
+	"gourgeistsuper": {
+		"id": "gourgeistsuper",
+		"inherit": "gourgeist"
+	},
 	"zygarde10": {
 		"id": "zygarde10",
-		"baseExp": 219,
+		"inherit": "zygarde",
 		"evDrops": {
 			"hp": 3,
 			"atk": 0,
@@ -18043,12 +18055,11 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"zygardecomplete": {
 		"id": "zygardecomplete",
-		"baseExp": 319,
+		"inherit": "zygarde",
 		"evDrops": {
 			"hp": 3,
 			"atk": 0,
@@ -18056,8 +18067,7 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"dianciemega": {
 		"id": "dianciemega",
@@ -18074,7 +18084,7 @@
 	},
 	"hoopaunbound": {
 		"id": "hoopaunbound",
-		"baseExp": 306,
+		"inherit": "hoopa",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -18083,20 +18093,11 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 3
 	},
 	"wishiwashischool": {
 		"id": "wishiwashischool",
-		"baseExp": 217,
-		"evDrops": {
-			"hp": 1,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 1
+		"inherit": "wishiwashi",
+		"baseExp": 217
 	},
 	"miniormeteor": {
 		"id": "miniormeteor",
@@ -18113,7 +18114,7 @@
 	},
 	"miniorred": {
 		"id": "miniorred",
-		"baseExp": 175,
+		"inherit": "minior",
 		"evDrops": {
 			"hp": 0,
 			"atk": 1,
@@ -18122,11 +18123,10 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 2
 	},
 	"miniororange": {
 		"id": "miniororange",
-		"baseExp": 175,
+		"inherit": "minior",
 		"evDrops": {
 			"hp": 0,
 			"atk": 1,
@@ -18135,11 +18135,10 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 2
 	},
 	"minioryellow": {
 		"id": "minioryellow",
-		"baseExp": 175,
+		"inherit": "minior",
 		"evDrops": {
 			"hp": 0,
 			"atk": 1,
@@ -18148,11 +18147,10 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 2
 	},
 	"miniorgreen": {
 		"id": "miniorgreen",
-		"baseExp": 175,
+		"inherit": "minior",
 		"evDrops": {
 			"hp": 0,
 			"atk": 1,
@@ -18161,11 +18159,10 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 2
 	},
 	"miniorblue": {
 		"id": "miniorblue",
-		"baseExp": 175,
+		"inherit": "minior",
 		"evDrops": {
 			"hp": 0,
 			"atk": 1,
@@ -18174,11 +18171,10 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 2
 	},
 	"miniorindigo": {
 		"id": "miniorindigo",
-		"baseExp": 175,
+		"inherit": "minior",
 		"evDrops": {
 			"hp": 0,
 			"atk": 1,
@@ -18187,11 +18183,10 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 2
 	},
 	"miniorviolet": {
 		"id": "miniorviolet",
-		"baseExp": 175,
+		"inherit": "minior",
 		"evDrops": {
 			"hp": 0,
 			"atk": 1,
@@ -18200,6 +18195,5 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 2
 	}
 }
