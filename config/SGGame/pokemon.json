@@ -17321,11 +17321,23 @@
 	"cherrimsunshine": {
 		"id": "cherrimsunshine",
 		"inherit": "cherrim"
-	},	
+	},
 	"giratinaorigin": {
 		"id": "giratinaorigin",
 		"inherit": "giratina"
-	},
+	},	
+	"shayminsky": {
+		"id": "shayminsky",
+		"inherit": "shaymin",
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 3
+		}
+	},	
 	"arceuswater": {
 		"id": "arceuswater",
 		"inherit": "arceus"
@@ -17473,18 +17485,6 @@
 			"spa": 1,
 			"spd": 0,
 			"spe": 1
-		}
-	},
-	"shayminsky": {
-		"id": "shayminsky",
-		"inherit": "shaymin",
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 3
 		}
 	},
 	"audinomega": {
