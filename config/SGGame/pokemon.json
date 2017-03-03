@@ -17619,11 +17619,11 @@
 	"burmysandy": {
 		"id": "burmysandy",
 		"inherit": "burmy"
-	}
+	},
 	"burmytrash": {
 		"id": "burmytrash",
 		"inherit": "burmy"
-	}	
+	},	
 	"wormadamsandy": {
 		"id": "wormadamsandy",
 		"inherit": "wormadam"
