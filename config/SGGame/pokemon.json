@@ -17757,6 +17757,18 @@
 	"florgeswhite": {
 		"id": "florgeswhite",
 		"inherit": "florges"
+	},
+	"aegislashblade": {
+		"id": "aegislashblade",
+		"inherit": "aegislash",
+		"evDrops": {
+			"hp": 0,
+			"atk": 2,
+			"def": 0,
+			"spa": 1,
+			"spd": 0,
+			"spe": 0
+		}
 	},	
 	"pumpkaboolarge": {
 		"id": "pumpkaboolarge",
@@ -17800,18 +17812,6 @@
 		"id": "gourgeistsuper",
 		"inherit": "gourgeist"
 	},
-	"aegislashblade": {
-		"id": "aegislashblade",
-		"inherit": "aegislash",
-		"evDrops": {
-			"hp": 0,
-			"atk": 2,
-			"def": 0,
-			"spa": 1,
-			"spd": 0,
-			"spe": 0
-		}
-	},
 	"zygarde10": {
 		"id": "zygarde10",
 		"inherit": "zygarde",
@@ -17853,6 +17853,22 @@
 			"spe": 0
 		},
 	},
+	"oricoriopompom": {
+		"id": "oricoriopompom",
+		"inherit": "oricorio"
+	},
+	"oricoriopau": {
+		"id": "oricoriopau",
+		"inherit": "oricorio"
+	},
+	"oricoriosensu": {
+		"id": "oricoriosensu",
+		"inherit": "oricorio"
+	},
+	"lycanrocmidnight": {
+		"id": "lycanrocmidnight",
+		"inherit": "lycanroc"
+	}
 	"wishiwashischool": {
 		"id": "wishiwashischool",
 		"inherit": "wishiwashi",
