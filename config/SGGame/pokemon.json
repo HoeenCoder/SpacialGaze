@@ -1584,6 +1584,16 @@
 			"exact": null,
 			"evolvesTo": null
 		},
+		"baseExp": 177,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 3,
+			"spa": 0,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 3
 	},
 	"ponyta": {
 		"expType": "mediumfast",
