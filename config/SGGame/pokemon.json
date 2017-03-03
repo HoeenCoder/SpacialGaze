@@ -17005,6 +17005,33 @@
 			"spe": 0
 		},
 	},
+	"meowthalola": {
+		"id": "meowthalola",
+		"inherit": "meowth",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": "persianalola"
+		}
+	},
+	"persianalola": {
+		"id": "persianalola",
+		"inherit": "persian"
+	},
+	"alakazammega": {
+		"id": "alakazammega",
+		"baseExp": 270,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 3,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 3
+	},	
 	"geodudealola": {
 		"id": "geodudealola",
 		"inherit": "geodude",
@@ -17029,6 +17056,19 @@
 		"id": "golemalola",
 		"inherit": "golem"
 	},
+	"slowbromega": {
+		"id": "slowbromega",
+		"baseExp": 207,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 2,
+			"spa": 0,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 2
+	},	
 	"grimeralola": {
 		"id": "grimeralola",
 		"inherit": "grimer",
@@ -17043,40 +17083,6 @@
 		"id": "mukalola",
 		"inherit": "muk"
 	},
-	"exeggutoralola": {
-		"id": "exeggutoralola",
-		"inherit": "exeggutor"
-	},
-	"marowakalola": {
-		"id": "marowakalola",
-		"inherit": "marowak"
-	},
-	"alakazammega": {
-		"id": "alakazammega",
-		"baseExp": 270,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 3,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 3
-	},
-	"slowbromega": {
-		"id": "slowbromega",
-		"baseExp": 207,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 2,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 2
-	},
 	"gengarmega": {
 		"id": "gengarmega",
 		"baseExp": 270,
@@ -17089,6 +17095,14 @@
 			"spe": 0
 		},
 		"totalEvDrops": 3
+	},	
+	"exeggutoralola": {
+		"id": "exeggutoralola",
+		"inherit": "exeggutor"
+	},
+	"marowakalola": {
+		"id": "marowakalola",
+		"inherit": "marowak"
 	},
 	"kangaskhanmega": {
 		"id": "kangaskhanmega",
