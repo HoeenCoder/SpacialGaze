@@ -16921,7 +16921,7 @@
 	},
 	"raticatealola": {
 		"id": "raticatealola",
-		"inherit": "raticate"
+		"inherit": "raticate",
 		"evolution": {
 			"trigger": "level",
 			"type": "timeNumber",
@@ -17788,7 +17788,7 @@
 	},	
 	"darmanitanzen": {
 		"id": "darmanitanzen",
-		"inherit": "darmanitan"
+		"inherit": "darmanitan",
 		"baseExp": 189,
 		"evDrops": {
 			"hp": 0,
