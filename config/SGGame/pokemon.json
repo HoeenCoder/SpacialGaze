@@ -17634,6 +17634,82 @@
 		"inherit": "greninja",
 		"baseExp": 288
 	},
+	"vivillonarchipelago": {
+		"id": "vivillonarchipelago",
+		"inherit": "vivillon"
+	},
+	"vivilloncontinental": {
+		"id": "vivilloncontinental",
+		"inherit": "vivillon"
+	},
+	"vivillonelegant": {
+		"id": "vivillonelegant",
+		"inherit": "vivillon"
+	},
+	"vivillongarden": {
+		"id": "vivillongarden",
+		"inherit": "vivillon"
+	},
+	"vivillonhighplains": {
+		"id": "vivillonhighplains",
+		"inherit": "vivillon"
+	},
+	"vivillonicysnow": {
+		"id": "vivillonicysnow",
+		"inherit": "vivillon"
+	},
+	"vivillonjungle": {
+		"id": "vivillonjungle",
+		"inherit": "vivillon"
+	},
+	"vivillonmarine": {
+		"id": "vivillonmarine",
+		"inherit": "vivillon"
+	},
+	"vivillonmodern": {
+		"id": "vivillonmodern",
+		"inherit": "vivillon"
+	},
+	"vivillonmonsoon": {
+		"id": "vivillonmonsoon",
+		"inherit": "vivillon"
+	},
+	"vivillonocean": {
+		"id": "vivillonocean",
+		"inherit": "vivillon"
+	},
+	"vivillonpolar": {
+		"id": "vivillonpolar",
+		"inherit": "vivillon"
+	},
+	"vivillonriver": {
+		"id": "vivillonriver",
+		"inherit": "vivillon"
+	},
+	"vivillonsandstorm": {
+		"id": "vivillonsandstorm",
+		"inherit": "vivillon"
+	},
+	"vivillonsavanna": {
+		"id": "vivillonsavanna",
+		"inherit": "vivillon"
+	},
+	"vivillonsun": {
+		"id": "vivillonsun",
+		"inherit": "vivillon"
+	},
+	"vivillontundra": {
+		"id": "vivillontundra",
+		"inherit": "vivillon"
+	},
+	"vivillonpokeball": {
+		"id": "vivillonpokeball",
+		"inherit": "vivillon"
+	},
+	"vivillonfancy": {
+		"id": "vivillonfancy",
+		"inherit": "vivillon"
+	},	
 	"pumpkaboolarge": {
 		"id": "pumpkaboolarge",
 		"inherit": "pumpkaboo",
