@@ -1584,16 +1584,6 @@
 			"exact": null,
 			"evolvesTo": null
 		},
-		"baseExp": 223,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 3,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 3
 	},
 	"ponyta": {
 		"expType": "mediumfast",
@@ -2128,7 +2118,7 @@
 			"trigger": null,
 			"type": null,
 			"exact": null,
-			"evolvesTo": "exeggutor"
+			"evolvesTo": "exeggutor|exeggutoralola"
 		},
 		"baseExp": 65,
 		"evDrops": {
@@ -2170,7 +2160,7 @@
 			"trigger": null,
 			"type": null,
 			"exact": null,
-			"evolvesTo": "marowak"
+			"evolvesTo": "marowak|marowakalola"
 		},
 		"baseExp": 64,
 		"evDrops": {
@@ -16920,135 +16910,62 @@
 		"totalEvDrops": 3
 	},
 	"rattataalola": {
-		"expType": "mediumfast",
-		"num": 19,
-		"rate": "255",
+		"id": "rattataalola",
+		"inherit": "rattata",
 		"evolution": {
 			"trigger": null,
 			"type": null,
 			"exact": null,
 			"evolvesTo": "raticatealola"
 		},
-		"baseExp": 51,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 1
-		},
-		"totalEvDrops": 1
 	},
 	"raticatealola": {
-		"expType": "mediumfast",
-		"num": 20,
-		"rate": "127",
+		"id": "raticatealola",
+		"inherit": "raticate"
 		"evolution": {
 			"trigger": "level",
 			"type": "timeNumber",
 			"exact": "night|20",
 			"evolvesTo": null
-		},
-		"baseExp": 145,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 2
-		},
-		"totalEvDrops": 2
+		}
 	},
 	"raichualola": {
-		"expType": "mediumfast",
-		"num": 26,
-		"rate": "75",
-		"evolution": {
-			"trigger": "item",
-			"type": "stone",
-			"exact": "thunderstone",
-			"evolvesTo": null
-		},
-		"baseExp": 218,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 3
-		},
-		"totalEvDrops": 3
+		"id": "raichualola",
+		"inherit": "raichu"
 	},
 	"sandshrewalola": {
-		"expType": "mediumfast",
-		"num": 27,
-		"rate": "255",
+		"id": "sandshrewalola",
+		"inherit": "sandshew",
 		"evolution": {
 			"trigger": null,
 			"type": null,
 			"exact": null,
 			"evolvesTo": "sandslashalola"
-		},
-		"baseExp": 60,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 1,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 1
+		}
 	},
 	"sandslashalola": {
-		"expType": "mediumfast",
-		"num": 28,
-		"rate": "90",
+		"id": "sandslashalola",
+		"inherit": "sandslash",
 		"evolution": {
 			"trigger": "item",
 			"type": "stone",
 			"exact": "icestone",
 			"evolvesTo": null
-		},
-		"baseExp": 158,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 2,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 2
+		}
 	},
 	"vulpixalola": {
-		"expType": "mediumfast",
-		"num": 37,
-		"rate": "190",
+		"id": "vulpixalola",
+		"inherit": "vulpix",
 		"evolution": {
 			"trigger": null,
 			"type": null,
 			"exact": null,
 			"evolvesTo": "ninetalesalola"
-		},
-		"baseExp": 60,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 1
-		},
-		"totalEvDrops": 1
+		}
 	},
 	"ninetalesalola": {
-		"expType": "mediumfast",
-		"num": 38,
-		"rate": "75",
+		"id": "ninetalesalola",
+		"inherit": "ninetales",
 		"evolution": {
 			"trigger": "item",
 			"type": "stone",
@@ -17063,40 +16980,21 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 2
-		},
-		"totalEvDrops": 2
+		}
 	},
 	"diglettalola": {
-		"expType": "mediumfast",
-		"num": 50,
-		"rate": "255",
+		"id": "diglettalola",
+		"inherit": "diglett",
 		"evolution": {
 			"trigger": null,
 			"type": null,
 			"exact": null,
 			"evolvesTo": "dugtrio"
-		},
-		"baseExp": 53,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 1
-		},
-		"totalEvDrops": 1
+		}
 	},
 	"dugtrioalola": {
-		"expType": "mediumfast",
-		"num": 51,
-		"rate": "50",
-		"evolution": {
-			"trigger": "level",
-			"type": "number",
-			"exact": 26,
-			"evolvesTo": null
-		},
+		"id": "dugtrioalola",
+		"inherit": "dugtrio",
 		"baseExp": 149,
 		"evDrops": {
 			"hp": 0,
@@ -17106,7 +17004,52 @@
 			"spd": 0,
 			"spe": 0
 		},
-		"totalEvDrops": 2
+	},
+	"geodudealola": {
+		"id": "geodudealola",
+		"inherit": "geodude",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": "graveleralola"
+		}
+	},
+	"graveleralola": {
+		"id": "gravelerlola",
+		"inherit": "graveler",
+		"evolution": {
+			"trigger": "level",
+			"type": "number",
+			"exact": 25,
+			"evolvesTo": "golemalola"
+		}
+	},
+	"golemalola": {
+		"id": "golemalola",
+		"inherit": "golem"
+	},
+	"grimeralola": {
+		"id": "grimeralola",
+		"inherit": "grimer",
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": "mukalola"
+		},
+	},
+	"mukalola": {
+		"id": "mukalola",
+		"inherit": "muk"
+	},
+	"exeggutoralola": {
+		"id": "exeggutoralola",
+		"inherit": "exeggutor"
+	},
+	"marowakalola": {
+		"id": "marowakalola",
+		"inherit": "marowak"
 	},
 	"alakazammega": {
 		"id": "alakazammega",
@@ -17128,48 +17071,6 @@
 			"hp": 0,
 			"atk": 0,
 			"def": 2,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 2
-	},
-	"grimeralola": {
-		"id": "grimeralola",
-		"num": 88,
-		"rate": "190",
-		"evolution": {
-			"trigger": null,
-			"type": null,
-			"exact": null,
-			"evolvesTo": "mukalola"
-		},
-		"baseExp": 65,
-		"evDrops": {
-			"hp": 1,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 0
-		},
-		"totalEvDrops": 1
-	},
-	"mukalola": {
-		"id": "mukalola",
-		"num": 89,
-		"rate": "75",
-		"evolution": {
-			"trigger": "level",
-			"type": "number",
-			"exact": 38,
-			"evolvesTo": null
-		},
-		"baseExp": 65,
-		"evDrops": {
-			"hp": 1,
-			"atk": 1,
-			"def": 0,
 			"spa": 0,
 			"spd": 0,
 			"spe": 0
