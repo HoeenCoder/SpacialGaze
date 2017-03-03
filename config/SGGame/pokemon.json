@@ -16881,6 +16881,34 @@
 			"evolvesTo": null
 		}
 	},
+	"pichuspikyeared": {
+		"id": "pichuspikyeared",
+		"inherit": "pichu"
+	},
+	"pikachurockstar": {
+		"id": "pikachurockstar",
+		"inherit": "pikachu"
+	},
+	"pikachubelle": {
+		"id": "pikachubelle",
+		"inherit": "pikachu"
+	},
+	"pikachuphd": {
+		"id": "pikachuphd",
+		"inherit": "pikachu"
+	},
+	"pikachupopstar": {
+		"id": "pikachupopstar",
+		"inherit": "pikachu"
+	},
+	"pikachulibre": {
+		"id": "pikachulibre",
+		"inherit": "pikachu"
+	},
+	"pikachucosplay": {
+		"id": "pikachucosplay",
+		"inherit": "pikachu"
+	},	
 	"raichualola": {
 		"id": "raichualola",
 		"inherit": "raichu"
@@ -17330,34 +17358,6 @@
 		"id": "arceusfairy",
 		"inherit": "arceus"
 	},	
-	"pichuspikyeared": {
-		"id": "pichuspikyeared",
-		"inherit": "pichu"
-	},
-	"pikachurockstar": {
-		"id": "pikachurockstar",
-		"inherit": "pikachu"
-	},
-	"pikachubelle": {
-		"id": "pikachubelle",
-		"inherit": "pikachu"
-	},
-	"pikachuphd": {
-		"id": "pikachuphd",
-		"inherit": "pikachu"
-	},
-	"pikachupopstar": {
-		"id": "pikachupopstar",
-		"inherit": "pikachu"
-	},
-	"pikachulibre": {
-		"id": "pikachulibre",
-		"inherit": "pikachu"
-	},
-	"pikachucosplay": {
-		"id": "pikachucosplay",
-		"inherit": "pikachu"
-	},
 	"castformsunny": {
 		"id": "castformsunny",
 		"inherit": "castform"
