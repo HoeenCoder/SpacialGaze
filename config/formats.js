@@ -403,7 +403,7 @@ exports.Formats = [
 		mod: "digimon",
 		team: "randomDigimon",
 		gameType: "triples",
-		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod'],
+		ruleset: ['Cancel Mod', 'HP Percentage Mod'],
 	},	
 
 	// Other Metagames
