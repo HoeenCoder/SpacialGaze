@@ -17224,7 +17224,7 @@
 	},
 	"latiosmega": {
 		"id": "latiosmega",
-		"inherit": "latios"
+		"inherit": "latios",
 		"baseExp": 315
 	},
 	"kyogreprimal": {
@@ -17424,7 +17424,7 @@
 	},
 	"gallademega": {
 		"id": "gallademega",
-		"inherit": "gallade"
+		"inherit": "gallade",
 		"baseExp": 278
 	},
 	"rotomheat": {
@@ -17489,7 +17489,7 @@
 	},
 	"audinomega": {
 		"id": "audinomega",
-		"inherit": "audino"
+		"inherit": "audino",
 		"baseExp": 425
 	},
 	"basculinbluestriped": {
@@ -17838,7 +17838,7 @@
 	},
 	"dianciemega": {
 		"id": "dianciemega",
-		"inherit": "diancie"
+		"inherit": "diancie",
 		"baseExp": 315
 	},
 	"hoopaunbound": {
@@ -17868,7 +17868,7 @@
 	"lycanrocmidnight": {
 		"id": "lycanrocmidnight",
 		"inherit": "lycanroc"
-	}
+	},
 	"wishiwashischool": {
 		"id": "wishiwashischool",
 		"inherit": "wishiwashi",
