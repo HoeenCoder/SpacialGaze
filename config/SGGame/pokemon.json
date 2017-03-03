@@ -17266,6 +17266,70 @@
 		"id": "giratinaorigin",
 		"inherit": "giratina"
 	},
+	"arceuswater": {
+		"id": "arceuswater",
+		"inherit": "arceus"
+	},
+	"arceuselectric": {
+		"id": "arceuselectric",
+		"inherit": "arceus"
+	},
+	"arceusgrass": {
+		"id": "arceusgrass",
+		"inherit": "arceus"
+	},
+	"arceusice": {
+		"id": "arceusice",
+		"inherit": "arceus"
+	},
+	"arceusfighting": {
+		"id": "arceusfighting",
+		"inherit": "arceus"
+	},
+	"arceuspoison": {
+		"id": "arceuspoison",
+		"inherit": "arceus"
+	},
+	"arceusground": {
+		"id": "arceusground",
+		"inherit": "arceus"
+	},
+	"arceusflying": {
+		"id": "arceusflying",
+		"inherit": "arceus"
+	},
+	"arceuspsychic": {
+		"id": "arceuspsychic",
+		"inherit": "arceus"
+	},
+	"arceusbug": {
+		"id": "arceusbug",
+		"inherit": "arceus"
+	},
+	"arceusrock": {
+		"id": "arceusrock",
+		"inherit": "arceus"
+	},
+	"arceusghost": {
+		"id": "arceusflying",
+		"inherit": "arceus"
+	},
+	"arceusdragon": {
+		"id": "arceusdragon",
+		"inherit": "arceus"
+	},
+	"arceusdark": {
+		"id": "arceusdark",
+		"inherit": "arceus"
+	},
+	"arceussteel": {
+		"id": "arceussteel",
+		"inherit": "arceus"
+	},
+	"arceusfairy": {
+		"id": "arceusfairy",
+		"inherit": "arceus"
+	},	
 	"pichuspikyeared": {
 		"id": "pichuspikyeared",
 		"inherit": "pichu"
@@ -17447,7 +17511,7 @@
 	},
 	"tornadustherian": {
 		"id": "tornadustherian",
-		"inherit": "tornadus"m
+		"inherit": "tornadus",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17530,18 +17594,6 @@
 		"inherit": "greninja",
 		"baseExp": 288
 	},
-	"aegislashblade": {
-		"id": "aegislashblade",
-		"inherit": "aegislash",
-		"evDrops": {
-			"hp": 0,
-			"atk": 2,
-			"def": 0,
-			"spa": 1,
-			"spd": 0,
-			"spe": 0
-		}
-	},
 	"pumpkaboolarge": {
 		"id": "pumpkaboolarge",
 		"inherit": "pumpkaboo",
@@ -17584,6 +17636,18 @@
 		"id": "gourgeistsuper",
 		"inherit": "gourgeist"
 	},
+	"aegislashblade": {
+		"id": "aegislashblade",
+		"inherit": "aegislash",
+		"evDrops": {
+			"hp": 0,
+			"atk": 2,
+			"def": 0,
+			"spa": 1,
+			"spd": 0,
+			"spe": 0
+		}
+	},
 	"zygarde10": {
 		"id": "zygarde10",
 		"inherit": "zygarde",
@@ -17595,7 +17659,7 @@
 			"spd": 0,
 			"spe": 0
 		}
-	},
+	},	
 	"zygardecomplete": {
 		"id": "zygardecomplete",
 		"inherit": "zygarde",
@@ -17630,6 +17694,70 @@
 		"inherit": "wishiwashi",
 		"baseExp": 217
 	},
+	"silvallywater": {
+		"id": "silvallywater",
+		"inherit": "silvally"
+	},
+	"silvallyelectric": {
+		"id": "silvallyelectric",
+		"inherit": "silvally"
+	},
+	"silvallygrass": {
+		"id": "silvallygrass",
+		"inherit": "silvally"
+	},
+	"silvallyice": {
+		"id": "silvallyice",
+		"inherit": "silvally"
+	},
+	"silvallyfighting": {
+		"id": "silvallyfighting",
+		"inherit": "silvally"
+	},
+	"silvallypoison": {
+		"id": "silvallypoison",
+		"inherit": "silvally"
+	},
+	"silvallyground": {
+		"id": "silvallyground",
+		"inherit": "silvally"
+	},
+	"silvallyflying": {
+		"id": "silvallyflying",
+		"inherit": "silvally"
+	},
+	"silvallypsychic": {
+		"id": "silvallypsychic",
+		"inherit": "silvally"
+	},
+	"silvallybug": {
+		"id": "silvallybug",
+		"inherit": "silvally"
+	},
+	"silvallyrock": {
+		"id": "silvallyrock",
+		"inherit": "silvally"
+	},
+	"silvallyghost": {
+		"id": "silvallyflying",
+		"inherit": "silvally"
+	},
+	"silvallydragon": {
+		"id": "silvallydragon",
+		"inherit": "silvally"
+	},
+	"silvallydark": {
+		"id": "silvallydark",
+		"inherit": "silvally"
+	},
+	"silvallysteel": {
+		"id": "silvallysteel",
+		"inherit": "silvally"
+	},
+	"silvallyfairy": {
+		"id": "silvallyfairy",
+		"inherit": "silvally"
+	},	
 	"miniormeteor": {
 		"id": "miniormeteor",
 		"baseExp": 154,
