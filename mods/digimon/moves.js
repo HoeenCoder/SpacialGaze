@@ -1,6 +1,6 @@
 'use strict';
 
-exports.BattleScripts = {
+exports.BattleMovedex = {
     "bubble": {
         id: "bubble",
         name: "Bubble",
