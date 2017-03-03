@@ -66,11 +66,10 @@ function showBadges(user) {
 	return '';
 }
 
-function getLeague(userid) {
-	return false; //TEMPORARY
-	//return SG.getLeague(userid);
+function showLeague(userid) {
+	if (!SG.getLeague(userid)) return '(N/A)';
+	return SG.getLeague(userid) + ' (' + SG.getLeagueRank(userid) + ')';
 }
-
 function getLeagueRank(userid) {
 	return 'N/A';
 }
@@ -321,7 +320,7 @@ exports.commands = {
 				profile += '&nbsp;<font color="#24678d"><b>Group:</b></font> ' + userGroup + ' ' + devCheck(username) + vipCheck(username) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Registered:</b></font> ' + regdate + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>' + global.currencyPlural + ':</b></font> ' + currency + '<br />';
-				profile += '&nbsp;<font color="#24678d"><b>League:</b></font> ' + (getLeague(toId(username)) ? (getLeague(toId(username)) + ' (' + getLeagueRank(toId(username)) + ')') : 'N/A') + '<br />';
+				profile += '&nbsp;<font color="#24678d"><b>League:</b></font> ' + showLeague(toId(username)) + '<br />';
 				profile += '&nbsp;<font color="#24678d"><b>Last Seen:</b></font> ' + getLastSeen(toId(username)) + '</font><br />';
 				if (Db.friendcodes.has(toId(username))) {
 					profile += '&nbsp;<div style="display:inline-block;height:5px;width:80px;"></div><font color="#24678d"><b>Friend Code:</b></font> ' + Db.friendcodes.get(toId(username));
