@@ -17815,7 +17815,7 @@
 	},
 	"tornadustherian": {
 		"id": "tornadustherian",
-		"baseExp": 261,
+		"inherit": "tornadus"m
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17823,11 +17823,11 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 3
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"thundurustherian": {
 		"id": "thundurustherian",
+		"inherit": "thundurus",
 		"baseExp": 261,
 		"evDrops": {
 			"hp": 0,
@@ -17836,12 +17836,11 @@
 			"spa": 3,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"landorustherian": {
 		"id": "landorustherian",
-		"baseExp": 270,
+		"inherit": "landorus",
 		"evDrops": {
 			"hp": 0,
 			"atk": 3,
@@ -17849,8 +17848,7 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"kyuremwhite": {
 		"id": "kyuremwhite",
