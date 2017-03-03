@@ -397,6 +397,14 @@ exports.Formats = [
 			this.add("raw|<h1>BATTLE!</h1>");
 		},
 	},
+	{
+		
+		name: "Digimon Showdown",
+		mod: "digimon",
+		team: "randomDigimon",
+		gameType: "triples",
+		ruleset: ['Team Preview', 'Cancel Mod', 'HP Percentage Mod'],
+	},	
 
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
