@@ -17180,6 +17180,18 @@
 		"inherit": "altaria",
 		"baseExp": 207
 	},
+	"castformsunny": {
+		"id": "castformsunny",
+		"inherit": "castform"
+	},
+	"castformrainy": {
+		"id": "castformrainy",
+		"inherit": "castform"
+	},
+	"castformsnowy": {
+		"id": "castformsnowy",
+		"inherit": "castform"
+	},	
 	"banettemega": {
 		"id": "banettemega",
 		"inherit": "banette",
@@ -17290,6 +17302,26 @@
 			"spe": 3
 		}
 	},
+	"burmysandy": {
+		"id": "burmysandy",
+		"inherit": "burmy"
+	},
+	"burmytrash": {
+		"id": "burmytrash",
+		"inherit": "burmy"
+	},	
+	"wormadamsandy": {
+		"id": "wormadamsandy",
+		"inherit": "wormadam"
+	},
+	"wormadamtrash": {
+		"id": "wormadamtrash",
+		"inherit": "wormadam"
+	},	
+	"cherrimsunshine": {
+		"id": "cherrimsunshine",
+		"inherit": "cherrim"
+	},	
 	"giratinaorigin": {
 		"id": "giratinaorigin",
 		"inherit": "giratina"
@@ -17357,38 +17389,6 @@
 	"arceusfairy": {
 		"id": "arceusfairy",
 		"inherit": "arceus"
-	},	
-	"castformsunny": {
-		"id": "castformsunny",
-		"inherit": "castform"
-	},
-	"castformrainy": {
-		"id": "castformrainy",
-		"inherit": "castform"
-	},
-	"castformsnowy": {
-		"id": "castformsnowy",
-		"inherit": "castform"
-	},
-	"cherrimsunshine": {
-		"id": "cherrimsunshine",
-		"inherit": "cherrim"
-	},
-	"burmysandy": {
-		"id": "burmysandy",
-		"inherit": "burmy"
-	},
-	"burmytrash": {
-		"id": "burmytrash",
-		"inherit": "burmy"
-	},	
-	"wormadamsandy": {
-		"id": "wormadamsandy",
-		"inherit": "wormadam"
-	},
-	"wormadamtrash": {
-		"id": "wormadamtrash",
-		"inherit": "wormadam"
 	},
 	"lopunnymega": {
 		"id": "lopunnymega",
