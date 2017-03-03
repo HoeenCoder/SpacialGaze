@@ -17798,7 +17798,7 @@
 	},
 	"rotomheat": {
 		"id": "rotomheat",
-		"baseExp": 182,
+		"inherit": "rotom",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17806,12 +17806,11 @@
 			"spa": 1,
 			"spd": 0,
 			"spe": 1
-		},
-		"totalEvDrops": 2
+		}
 	},
 	"rotomwash": {
 		"id": "rotomwash",
-		"baseExp": 182,
+		"inherit": "rotom",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17820,11 +17819,10 @@
 			"spd": 0,
 			"spe": 1
 		},
-		"totalEvDrops": 2
 	},
 	"rotomfrost": {
 		"id": "rotomfrost",
-		"baseExp": 182,
+		"inherit": "rotom",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17833,11 +17831,10 @@
 			"spd": 0,
 			"spe": 1
 		},
-		"totalEvDrops": 2
 	},
 	"rotomfan": {
 		"id": "rotomfan",
-		"baseExp": 182,
+		"inherit": "rotom",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17845,12 +17842,11 @@
 			"spa": 1,
 			"spd": 0,
 			"spe": 1
-		},
-		"totalEvDrops": 2
+		}
 	},
 	"rotommow": {
 		"id": "rotommow",
-		"baseExp": 182,
+		"inherit": "rotom",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17858,12 +17854,11 @@
 			"spa": 1,
 			"spd": 0,
 			"spe": 1
-		},
-		"totalEvDrops": 2
+		}
 	},
 	"shayminsky": {
 		"id": "shayminsky",
-		"baseExp": 270,
+		"inherit": "shaymin",
 		"evDrops": {
 			"hp": 0,
 			"atk": 0,
@@ -17871,8 +17866,7 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 3
-		},
-		"totalEvDrops": 3
+		}
 	},
 	"audinomega": {
 		"id": "audinomega",
@@ -17889,19 +17883,11 @@
 	},
 	"basculinbluestriped": {
 		"id": "basculinbluestriped",
-		"baseExp": 161,
-		"evDrops": {
-			"hp": 0,
-			"atk": 0,
-			"def": 0,
-			"spa": 0,
-			"spd": 0,
-			"spe": 2
-		},
-		"totalEvDrops": 2
+		"inherit": "basculin"
 	},	
 	"darmanitanzen": {
 		"id": "darmanitanzen",
+		"inherit": "darmanitan"
 		"baseExp": 189,
 		"evDrops": {
 			"hp": 0,
@@ -17910,8 +17896,7 @@
 			"spa": 2,
 			"spd": 0,
 			"spe": 0
-		},
-		"totalEvDrops": 2
+		}
 	},
 	"tornadustherian": {
 		"id": "tornadustherian",
