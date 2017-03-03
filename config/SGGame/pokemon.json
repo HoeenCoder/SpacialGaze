@@ -17596,6 +17596,10 @@
 			"spe": 0
 		},
 	},
+	"keldeoresolute": {
+		"id": "keldeoresolute",
+		"inherit": "keldeo"
+	},	
 	"meloettapirouette": {
 		"id": "meloettapirouette",
 		"inherit": "meloetta",
@@ -17609,9 +17613,21 @@
 			"spe": 1
 		},
 	},
-	"keldeoresolute": {
-		"id": "keldeoresolute",
-		"inherit": "keldeo"
+	"genesectburn": {
+		"id": "genesectburn",
+		"inherit": "genesect"
+	},
+	"genesectchill": {
+		"id": "genesectchill",
+		"inherit": "genesect"
+	},
+	"genesectdouse": {
+		"id": "genesectdouse",
+		"inherit": "genesect"
+	},
+	"genesectshock": {
+		"id": "genesectshock",
+		"inherit": "genesect"
 	},	
 	"greninjaash": {
 		"id": "greninjaash",
