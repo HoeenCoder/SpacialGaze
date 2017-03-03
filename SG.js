@@ -10,6 +10,7 @@ let gameData = JSON.parse(fs.readFileSync('config/SGGame/pokemon.json', 'utf8'))
 const types = ["bug", "dark", "dragon", "electric", "fairy", "fighting", "fire", "flying", "ghost", "grass", "ground", "ice", "normal", "poison", "psychic", "rock", "steel", "water"];
 for (let type = 0; type < types.length; type++) {
 	gameData['arceus' + types[type]] = gameData.arceus;
+	gameData['silvally' + types[type]] = gameData.silvally;
 }
 
 exports.SG = {
