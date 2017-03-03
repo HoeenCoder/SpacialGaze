@@ -17709,6 +17709,54 @@
 	"vivillonfancy": {
 		"id": "vivillonfancy",
 		"inherit": "vivillon"
+	},
+	"flabebeyellow": {
+		"id": "flabebeyellow",
+		"inherit": "flabebe"
+	},
+	"flabebeorange": {
+		"id": "flabebeorange",
+		"inherit": "flabebe"
+	},
+	"flabebeblue": {
+		"id": "flabebeblue",
+		"inherit": "flabebe"
+	},
+	"flabebewhite": {
+		"id": "flabebewhite",
+		"inherit": "flabebe"
+	},
+	"floetteyellow": {
+		"id": "floetteyellow",
+		"inherit": "floette"
+	},
+	"floetteorange": {
+		"id": "floetteorange",
+		"inherit": "floette"
+	},
+	"floetteblue": {
+		"id": "floetteblue",
+		"inherit": "floette"
+	},
+	"floettewhite": {
+		"id": "floettewhite",
+		"inherit": "floette"
+	},
+	"florgesyellow": {
+		"id": "florgesyellow",
+		"inherit": "florges"
+	},
+	"florgesorange": {
+		"id": "florgesorange",
+		"inherit": "florges"
+	},
+	"florgesblue": {
+		"id": "florgesblue",
+		"inherit": "florges"
+	},
+	"florgeswhite": {
+		"id": "florgeswhite",
+		"inherit": "florges"
 	},	
 	"pumpkaboolarge": {
 		"id": "pumpkaboolarge",
