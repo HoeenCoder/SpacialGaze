@@ -17509,6 +17509,30 @@
 			"spe": 0
 		}
 	},
+	"deerlingsummer": {
+		"id": "deerlingsummer",
+		"inherit": "deerling"
+	},
+	"deerlingautumn": {
+		"id": "deerlingautumn",
+		"inherit": "deerling"
+	},
+	"deerlingwinter": {
+		"id": "deerlingwinter",
+		"inherit": "deerling"
+	},
+	"sawsbucksummer": {
+		"id": "sawsbucksummer",
+		"inherit": "sawsbuck"
+	},
+	"sawsbuckautumn": {
+		"id": "sawsbuckautumn",
+		"inherit": "sawsbuck"
+	},
+	"sawsbuckwinter": {
+		"id": "sawsbuckwinter",
+		"inherit": "sawsbuck"
+	},	
 	"tornadustherian": {
 		"id": "tornadustherian",
 		"inherit": "tornadus",
