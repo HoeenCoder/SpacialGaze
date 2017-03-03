@@ -15600,7 +15600,7 @@
 			"trigger": null,
 			"type": null,
 			"exact": null,
-			"evolvesTo": "lycanroc"
+			"evolvesTo": "lycanroc|lycanrocmidnight"
 		},
 		"baseExp": 56,
 		"evDrops": {
