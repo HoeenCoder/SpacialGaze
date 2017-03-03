@@ -67,4 +67,15 @@ exports.BattleTypeChart = {
             "Filth": 1,
         },
     },
+    "Ice": {
+        damageTaken: {
+            "Fire": 0,
+            "Battle": 0,
+            "Air": 1,
+            "Earth": 0,
+            "Ice": 0,
+            "Mech": 0,
+            "Filth": 0,
+        },
+    },
 };
