@@ -17322,10 +17322,6 @@
 		"id": "cherrimsunshine",
 		"inherit": "cherrim"
 	},
-	"giratinaorigin": {
-		"id": "giratinaorigin",
-		"inherit": "giratina"
-	},	
 	"shayminsky": {
 		"id": "shayminsky",
 		"inherit": "shaymin",
@@ -17338,70 +17334,6 @@
 			"spe": 3
 		}
 	},	
-	"arceuswater": {
-		"id": "arceuswater",
-		"inherit": "arceus"
-	},
-	"arceuselectric": {
-		"id": "arceuselectric",
-		"inherit": "arceus"
-	},
-	"arceusgrass": {
-		"id": "arceusgrass",
-		"inherit": "arceus"
-	},
-	"arceusice": {
-		"id": "arceusice",
-		"inherit": "arceus"
-	},
-	"arceusfighting": {
-		"id": "arceusfighting",
-		"inherit": "arceus"
-	},
-	"arceuspoison": {
-		"id": "arceuspoison",
-		"inherit": "arceus"
-	},
-	"arceusground": {
-		"id": "arceusground",
-		"inherit": "arceus"
-	},
-	"arceusflying": {
-		"id": "arceusflying",
-		"inherit": "arceus"
-	},
-	"arceuspsychic": {
-		"id": "arceuspsychic",
-		"inherit": "arceus"
-	},
-	"arceusbug": {
-		"id": "arceusbug",
-		"inherit": "arceus"
-	},
-	"arceusrock": {
-		"id": "arceusrock",
-		"inherit": "arceus"
-	},
-	"arceusghost": {
-		"id": "arceusflying",
-		"inherit": "arceus"
-	},
-	"arceusdragon": {
-		"id": "arceusdragon",
-		"inherit": "arceus"
-	},
-	"arceusdark": {
-		"id": "arceusdark",
-		"inherit": "arceus"
-	},
-	"arceussteel": {
-		"id": "arceussteel",
-		"inherit": "arceus"
-	},
-	"arceusfairy": {
-		"id": "arceusfairy",
-		"inherit": "arceus"
-	},
 	"lopunnymega": {
 		"id": "lopunnymega",
 		"inherit": "lopunny",
@@ -17487,6 +17419,74 @@
 			"spe": 1
 		}
 	},
+	"giratinaorigin": {
+		"id": "giratinaorigin",
+		"inherit": "giratina"
+	},	
+	"arceuswater": {
+		"id": "arceuswater",
+		"inherit": "arceus"
+	},
+	"arceuselectric": {
+		"id": "arceuselectric",
+		"inherit": "arceus"
+	},
+	"arceusgrass": {
+		"id": "arceusgrass",
+		"inherit": "arceus"
+	},
+	"arceusice": {
+		"id": "arceusice",
+		"inherit": "arceus"
+	},
+	"arceusfighting": {
+		"id": "arceusfighting",
+		"inherit": "arceus"
+	},
+	"arceuspoison": {
+		"id": "arceuspoison",
+		"inherit": "arceus"
+	},
+	"arceusground": {
+		"id": "arceusground",
+		"inherit": "arceus"
+	},
+	"arceusflying": {
+		"id": "arceusflying",
+		"inherit": "arceus"
+	},
+	"arceuspsychic": {
+		"id": "arceuspsychic",
+		"inherit": "arceus"
+	},
+	"arceusbug": {
+		"id": "arceusbug",
+		"inherit": "arceus"
+	},
+	"arceusrock": {
+		"id": "arceusrock",
+		"inherit": "arceus"
+	},
+	"arceusghost": {
+		"id": "arceusflying",
+		"inherit": "arceus"
+	},
+	"arceusdragon": {
+		"id": "arceusdragon",
+		"inherit": "arceus"
+	},
+	"arceusdark": {
+		"id": "arceusdark",
+		"inherit": "arceus"
+	},
+	"arceussteel": {
+		"id": "arceussteel",
+		"inherit": "arceus"
+	},
+	"arceusfairy": {
+		"id": "arceusfairy",
+		"inherit": "arceus"
+	},	
 	"audinomega": {
 		"id": "audinomega",
 		"inherit": "audino",
