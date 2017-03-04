@@ -1,4 +1,25 @@
 {
+	"missingno": {
+		"expType": null,
+		"num": 0,
+		"rate": null,
+		"evolution": {
+			"trigger": null,
+			"type": null,
+			"exact": null,
+			"evolvesTo": null
+		},
+		"baseExp": 0,
+		"evDrops": {
+			"hp": 0,
+			"atk": 0,
+			"def": 0,
+			"spa": 0,
+			"spd": 0,
+			"spe": 0
+		},
+		"totalEvDrops": 0
+	},	
 	"bulbasaur": {
 		"expType": "mediumslow",
 		"num": 1,
