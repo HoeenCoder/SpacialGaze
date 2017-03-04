@@ -607,6 +607,7 @@ class Game {
 					Users(this.list[i]).unoBoost = false;
 					Users(this.list[i]).gameBoost = false;
 				}
+				SG.addExp(targetUser, this.room, prize);
 			}
 		}
 		this.room.update();
