@@ -16912,10 +16912,6 @@
 			"evolvesTo": null
 		}
 	},
-	"pichuspikyeared": {
-		"id": "pichuspikyeared",
-		"inherit": "pichu"
-	},
 	"pikachurockstar": {
 		"id": "pikachurockstar",
 		"inherit": "pikachu"
@@ -17121,6 +17117,10 @@
 		"inherit": "mewtwo",
 		"baseExp": 351
 	},
+	"pichuspikyeared": {
+		"id": "pichuspikyeared",
+		"inherit": "pichu"
+	},	
 	"ampharosmega": {
 		"id": "ampharosmega",
 		"inherit": "ampharos",
