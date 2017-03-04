@@ -2,7 +2,7 @@
 	"missingno": {
 		"expType": null,
 		"num": 0,
-		"rate": null,
+		"rate": "0",
 		"evolution": {
 			"trigger": null,
 			"type": null,
