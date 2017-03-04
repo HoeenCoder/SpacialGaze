@@ -19,7 +19,7 @@
 			"spe": 0
 		},
 		"totalEvDrops": 0
-	},	
+	},
 	"bulbasaur": {
 		"expType": "mediumslow",
 		"num": 1,
@@ -422,7 +422,7 @@
 	"raticate": {
 		"expType": "mediumfast",
 		"num": 20,
-		"rate": "127",
+		"rate": "127*",
 		"evolution": {
 			"trigger": "level",
 			"type": "number",
@@ -527,7 +527,7 @@
 	"pikachu": {
 		"expType": "mediumfast",
 		"num": 25,
-		"rate": "190",
+		"rate": "190*",
 		"evolution": {
 			"trigger": "level",
 			"type": "friendship",
@@ -8024,7 +8024,7 @@
 	"kyogre": {
 		"expType": "slow",
 		"num": 382,
-		"rate": "3",
+		"rate": "3*",
 		"evolution": {
 			"trigger": null,
 			"type": null,
@@ -8045,7 +8045,7 @@
 	"groudon": {
 		"expType": "slow",
 		"num": 383,
-		"rate": "3",
+		"rate": "3*",
 		"evolution": {
 			"trigger": null,
 			"type": null,
@@ -8066,7 +8066,7 @@
 	"rayquaza": {
 		"expType": "slow",
 		"num": 384,
-		"rate": "45",
+		"rate": "45*",
 		"evolution": {
 			"trigger": null,
 			"type": null,
@@ -13505,7 +13505,7 @@
 	"reshiram": {
 		"expType": "slow",
 		"num": 643,
-		"rate": "3",
+		"rate": "3*",
 		"evolution": {
 			"trigger": null,
 			"type": null,
@@ -13526,7 +13526,7 @@
 	"zekrom": {
 		"expType": "slow",
 		"num": 644,
-		"rate": "3",
+		"rate": "3*",
 		"evolution": {
 			"trigger": null,
 			"type": null,
@@ -16900,7 +16900,7 @@
 			"type": null,
 			"exact": null,
 			"evolvesTo": "raticatealola"
-		},
+		}
 	},
 	"raticatealola": {
 		"id": "raticatealola",
@@ -16935,7 +16935,7 @@
 	"pikachucosplay": {
 		"id": "pikachucosplay",
 		"inherit": "pikachu"
-	},	
+	},
 	"raichualola": {
 		"id": "raichualola",
 		"inherit": "raichu"
@@ -17010,7 +17010,7 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 0
-		},
+		}
 	},
 	"meowthalola": {
 		"id": "meowthalola",
@@ -17030,7 +17030,7 @@
 		"id": "alakazammega",
 		"inherit": "alakazam",
 		"baseExp": 270
-	},	
+	},
 	"geodudealola": {
 		"id": "geodudealola",
 		"inherit": "geodude",
@@ -17059,7 +17059,7 @@
 		"id": "slowbromega",
 		"inherit": "slowbro",
 		"baseExp": 207
-	},	
+	},
 	"grimeralola": {
 		"id": "grimeralola",
 		"inherit": "grimer",
@@ -17068,7 +17068,7 @@
 			"type": null,
 			"exact": null,
 			"evolvesTo": "mukalola"
-		},
+		}
 	},
 	"mukalola": {
 		"id": "mukalola",
@@ -17078,7 +17078,7 @@
 		"id": "gengarmega",
 		"inherit": "gengar",
 		"baseExp": 270
-	},	
+	},
 	"exeggutoralola": {
 		"id": "exeggutoralola",
 		"inherit": "exeggutor"
@@ -17120,12 +17120,120 @@
 	"pichuspikyeared": {
 		"id": "pichuspikyeared",
 		"inherit": "pichu"
-	},	
+	},
 	"ampharosmega": {
 		"id": "ampharosmega",
 		"inherit": "ampharos",
 		"baseExp": 275
 	},
+	"unownn": {
+		"id": "unownn",
+		"inherit": "unown"
+	},
+	"unownc": {
+		"id": "unownc",
+		"inherit": "unown"
+	},
+	"unownd": {
+		"id": "unownd",
+		"inherit": "unown"
+	},
+	"unowne": {
+		"id": "unowne",
+		"inherit": "unown"
+	},
+	"unownf": {
+		"id": "unownf",
+		"inherit": "unown"
+	},
+	"unowng": {
+		"id": "unowng",
+		"inherit": "unown"
+	},
+	"unownh": {
+		"id": "unownh",
+		"inherit": "unown"
+	},
+	"unowni": {
+		"id": "unowni",
+		"inherit": "unown"
+	},
+	"unownj": {
+		"id": "unownj",
+		"inherit": "unown"
+	},
+	"unownk": {
+		"id": "unownk",
+		"inherit": "unown"
+	},
+	"unownl": {
+		"id": "unownl",
+		"inherit": "unown"
+	},
+	"unownm": {
+		"id": "unownm",
+		"inherit": "unown"
+	},
+	"unownn": {
+		"id": "unownn",
+		"inherit": "unown"
+	},	
+	"unowno": {
+		"id": "unowno",
+		"inherit": "unown"
+	},	
+	"unownp": {
+		"id": "unownp",
+		"inherit": "unown"
+	},	
+	"unownq": {
+		"id": "unownq",
+		"inherit": "unown"
+	},	
+	"unownr": {
+		"id": "unownr",
+		"inherit": "unown"
+	},	
+	"unowns": {
+		"id": "unowns",
+		"inherit": "unown"
+	},	
+	"unownt": {
+		"id": "unownt",
+		"inherit": "unown"
+	},	
+	"unownu": {
+		"id": "unownu",
+		"inherit": "unown"
+	},	
+	"unownv": {
+		"id": "unownv",
+		"inherit": "unown"
+	},	
+	"unownw": {
+		"id": "unownw",
+		"inherit": "unown"
+	},
+	"unownx": {
+		"id": "unownx",
+		"inherit": "unown"
+	},
+	"unowny": {
+		"id": "unowny",
+		"inherit": "unown"
+	},
+	"unownz": {
+		"id": "unownz",
+		"inherit": "unown"
+	},
+	"unownexclamation": {
+		"id": "unownexclamation",
+		"inherit": "unown"
+	},
+	"unownquestion": {
+		"id": "unownquestion",
+		"inherit": "unown"
+	},	
 	"steelixmega": {
 		"id": "steelixmega",
 		"inherit": "steelix",
@@ -17222,7 +17330,7 @@
 	"castformsnowy": {
 		"id": "castformsnowy",
 		"inherit": "castform"
-	},	
+	},
 	"banettemega": {
 		"id": "banettemega",
 		"inherit": "banette",
@@ -17340,7 +17448,7 @@
 	"burmytrash": {
 		"id": "burmytrash",
 		"inherit": "burmy"
-	},	
+	},
 	"wormadamsandy": {
 		"id": "wormadamsandy",
 		"inherit": "wormadam"
@@ -17348,7 +17456,7 @@
 	"wormadamtrash": {
 		"id": "wormadamtrash",
 		"inherit": "wormadam"
-	},	
+	},
 	"cherrimsunshine": {
 		"id": "cherrimsunshine",
 		"inherit": "cherrim"
@@ -17364,7 +17472,7 @@
 			"spd": 0,
 			"spe": 3
 		}
-	},	
+	},
 	"lopunnymega": {
 		"id": "lopunnymega",
 		"inherit": "lopunny",
@@ -17412,7 +17520,7 @@
 			"spa": 1,
 			"spd": 0,
 			"spe": 1
-		},
+		}
 	},
 	"rotomfrost": {
 		"id": "rotomfrost",
@@ -17424,7 +17532,7 @@
 			"spa": 1,
 			"spd": 0,
 			"spe": 1
-		},
+		}
 	},
 	"rotomfan": {
 		"id": "rotomfan",
@@ -17453,7 +17561,7 @@
 	"giratinaorigin": {
 		"id": "giratinaorigin",
 		"inherit": "giratina"
-	},	
+	},
 	"arceuswater": {
 		"id": "arceuswater",
 		"inherit": "arceus"
@@ -17517,7 +17625,7 @@
 	"arceusfairy": {
 		"id": "arceusfairy",
 		"inherit": "arceus"
-	},	
+	},
 	"audinomega": {
 		"id": "audinomega",
 		"inherit": "audino",
@@ -17526,7 +17634,7 @@
 	"basculinbluestriped": {
 		"id": "basculinbluestriped",
 		"inherit": "basculin"
-	},	
+	},
 	"darmanitanzen": {
 		"id": "darmanitanzen",
 		"inherit": "darmanitan",
@@ -17563,7 +17671,7 @@
 	"sawsbuckwinter": {
 		"id": "sawsbuckwinter",
 		"inherit": "sawsbuck"
-	},	
+	},
 	"tornadustherian": {
 		"id": "tornadustherian",
 		"inherit": "tornadus",
@@ -17612,7 +17720,7 @@
 			"spa": 3,
 			"spd": 0,
 			"spe": 0
-		},
+		}
 	},
 	"kyuremblack": {
 		"id": "kyuremblack",
@@ -17625,12 +17733,12 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 0
-		},
+		}
 	},
 	"keldeoresolute": {
 		"id": "keldeoresolute",
 		"inherit": "keldeo"
-	},	
+	},
 	"meloettapirouette": {
 		"id": "meloettapirouette",
 		"inherit": "meloetta",
@@ -17642,7 +17750,7 @@
 			"spa": 0,
 			"spd": 0,
 			"spe": 1
-		},
+		}
 	},
 	"genesectburn": {
 		"id": "genesectburn",
@@ -17659,7 +17767,7 @@
 	"genesectshock": {
 		"id": "genesectshock",
 		"inherit": "genesect"
-	},	
+	},
 	"greninjaash": {
 		"id": "greninjaash",
 		"inherit": "greninja",
@@ -17800,7 +17908,7 @@
 			"spd": 0,
 			"spe": 0
 		}
-	},	
+	},
 	"pumpkaboolarge": {
 		"id": "pumpkaboolarge",
 		"inherit": "pumpkaboo",
@@ -17809,7 +17917,7 @@
 			"type": null,
 			"exact": null,
 			"evolvesTo": "gourgeistlarge"
-		}		
+		}
 	},
 	"pumpkaboosmall": {
 		"id": "pumpkaboosmall",
@@ -17838,7 +17946,7 @@
 	"gourgeistsmall": {
 		"id": "gourgeistsmall",
 		"inherit": "gourgeist"
-	},	
+	},
 	"gourgeistsuper": {
 		"id": "gourgeistsuper",
 		"inherit": "gourgeist"
@@ -17854,7 +17962,7 @@
 			"spd": 0,
 			"spe": 0
 		}
-	},	
+	},
 	"zygardecomplete": {
 		"id": "zygardecomplete",
 		"inherit": "zygarde",
@@ -17882,7 +17990,7 @@
 			"spa": 3,
 			"spd": 0,
 			"spe": 0
-		},
+		}
 	},
 	"oricoriopompom": {
 		"id": "oricoriopompom",
@@ -17968,7 +18076,7 @@
 	"silvallyfairy": {
 		"id": "silvallyfairy",
 		"inherit": "silvally"
-	},	
+	},
 	"miniormeteor": {
 		"id": "miniormeteor",
 		"baseExp": 154,
