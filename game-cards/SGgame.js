@@ -235,9 +235,8 @@ class Player {
 	runQueue() {
 		if (!this.queue.length) return;
 		while (this.queue.length) {
-			let cur = this.queue.shift();
-			// TODO
-			
+		//	let cur = this.queue.shift();
+		// TODO
 		}
 		// Save data
 		//Db.players.set(this.userid, this); // Commented to prevent errors while in development
