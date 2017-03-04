@@ -89,7 +89,7 @@ class Poll {
 
 		let i = iter.next();
 		let c = 0;
-		let colors = ['#00FFFF', '#00EEEE', '#00CDCD'];
+		let colors = ['#00FFFF', '#66CCCC', '#388E8E'];
 		while (!i.done) {
 			if (i.value[1].votes && i.value[1].votes !== 0) {
 				let percentage = Math.round((i.value[1].votes * 100) / (this.totalVotes || 1));
