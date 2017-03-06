@@ -155,7 +155,7 @@ class SGgame extends Console.Console {
 			for (let i = 0; i < 6; i++) {
 				let bg = 'background: none';
 				if (user.party[i]) bg = SG.getPokemonIcon(user.party[i].species);
-				output += '<button name="send" value="/sggame pc party|' + box + ', ' + i + '" style="' + bg + '; width: 35%; height: 12%; border: 1px solid #AAA; border-radius: 5px; margin-bottom: 0.4em;"></button> ';
+				output += '<button name="send" value="/sggame pc party|' + box + ', ' + i + '" style="' + bg + '; width: 50px; height: 32px; border: 1px solid #AAA; border-radius: 5px; margin-bottom: 0.4em;"></button> ';
 			}
 		}
 		output += '</div></div>';
