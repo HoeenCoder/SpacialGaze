@@ -17126,8 +17126,8 @@
 		"inherit": "ampharos",
 		"baseExp": 275
 	},
-	"unownn": {
-		"id": "unownn",
+	"unownb": {
+		"id": "unownb",
 		"inherit": "unown"
 	},
 	"unownc": {
