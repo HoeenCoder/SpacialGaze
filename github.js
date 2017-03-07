@@ -21,6 +21,8 @@ github.on('push', function push(repo, ref, result) {
 	let branch = /[^/]+$/.exec(ref)[0];
 	let messages = [];
 	let message = "";
+	let d = new Date();
+	let time = '<p align="right"><small style="color:gray">[' + d.getUTCHours() + d.getUTCMinutes() + d.getUTCSeconds() + ']</small></p>';
 	message += "[<font color='FF00FF'>" + Chat.escapeHTML(repo) + '</font>] ';
 	message += SG.nameColor(result.pusher.name, true) + " ";
 	message += (result.forced ? '<font color="red">force-pushed</font>' : 'pushed') + " ";
@@ -28,6 +30,7 @@ github.on('push', function push(repo, ref, result) {
 	message += "new commit" + (result.commits.length === 1 ? '' : 's') + " to ";
 	message += "<font color='800080'>" + Chat.escapeHTML(branch) + "</font>: ";
 	message += "<a href=\"" + Chat.escapeHTML(url) + "\">View &amp; compare</a>";
+	message += time;
 	messages.push(message);
 	result.commits.forEach(function (commit) {
 		let commitMessage = commit.message;
@@ -36,11 +39,14 @@ github.on('push', function push(repo, ref, result) {
 			shortCommit += '...';
 		}
 		message = "";
+		let d = new Date();
+		let time = '<p align="right"><small style="color:gray">[' + d.getUTCHours() + d.getUTCMinutes() + d.getUTCSeconds() + ']</small></p>';
 		message += "<font color='FF00FF'>" + Chat.escapeHTML(repo) + "</font>/";
 		message += "<font color='800080'>" + Chat.escapeHTML(branch) + "</font> ";
 		message += "<a href=\"" + Chat.escapeHTML(commit.url) + "\">";
 		message += "<font color='606060'>" + Chat.escapeHTML(commit.id.substring(0, 6)) + "</font></a> ";
 		message += SG.nameColor(commit.author.name, true) + ": " + Chat.escapeHTML(shortCommit);
+		message += time;
 		messages.push(message);
 	});
 	sendMessages(messages.join("<br>"));
@@ -65,10 +71,13 @@ github.on('pull_request', function pullRequest(repo, ref, result) {
 	}
 	updates[repo][requestNumber] = now;
 	let message = "";
+	let d = new Date();
+	let time = '<p align="right"><small style="color:gray">[' + d.getUTCHours() + d.getUTCMinutes() + d.getUTCSeconds() + ']</small></p>';
 	message += "[<font color='FF00FF'>" + repo + "</font>] ";
 	message += SG.nameColor(result.sender.login, true) + " ";
 	message += action + " pull request <a href=\"" + url + "\">#" + requestNumber + "</a>: ";
 	message += result.pull_request.title;
+	message += time;
 	sendMessages(message);
 });
 
