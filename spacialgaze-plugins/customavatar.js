@@ -24,13 +24,13 @@ function downloadImage(image_url, name, room, connection) {
 	let ext = path.extname(image_url);
 	if (image_url.startsWith('http://')) request = require('https');
 	request = require('http');
-	request.request(image_url, function(response) {
-		let data = new Stream();                                                    
-		response.on('data', function(chunk) {
-    	data.push(chunk);
+	request.request(image_url, function (response) {
+		let data = new Stream();
+		response.on('data', function (chunk) {
+			data.push(chunk);
 		});                                                                         
 		response.on('end', function() {
-    	fs.writeFileSync((AVATAR_PATH + name + ext), data.read()); 
+			fs.writeFileSync((AVATAR_PATH + name + ext), data.read()); 
 		});
 	}).end();
 }
