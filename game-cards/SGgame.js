@@ -100,7 +100,7 @@ class SGgame extends Console.Console {
 				let species;
 				if (bg) species = (user.pc[(box - 1)][count].split('|')[1] ? user.pc[(box - 1)][count].split('|')[1] : user.pc[(box - 1)][count].split('|')[0]);
 				bg = (bg ? SG.getPokemonIcon(species) : 'background: none');
-				output += '<td style="width: 15%; height: 20%;"><button style="' + bg + '; width: 100%; height: 100%; border: 1px solid #AAA; border-radius: 5px;" name="send" value="/sggame pc ' + box + ', ' + count + '"></button></td>';
+				output += '<td style="width: 15%; height: 20%;"><button style="' + bg + '; width: 50px; height: 32px; border: 1px solid #AAA; border-radius: 5px;" name="send" value="/sggame pc ' + box + ', ' + count + '"></button></td>';
 				count++;
 			}
 			output += "</tr>";
