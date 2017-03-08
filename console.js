@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 class Console {
 	constructor(user, room, css, html, bottom, muted, sound) {
@@ -91,6 +91,8 @@ exports.commands = {
 		},
 		forcestart: 'start',
 		start: function (target, room, user, connection, cmd, message) {
+			if (room.battle) return this.errorReply("Consoles are not allowed in Battle Rooms.");
+			if (user.console) return this.errorReply("You already have console active with id " + user.consoleId);
 			if (user.console && cmd !== 'forcestart') return;
 			if (cmd === 'forcestart') this.parse('/console kill');
 			if (!target || Object.keys(SG.gameList).indexOf(toId(target)) === -1) {
