@@ -28,9 +28,9 @@ function downloadImage(image_url, name, room, connection) {
 		let data = new Stream();
 		response.on('data', function (chunk) {
 			data.push(chunk);
-		});                                                                         
-		response.on('end', function() {
-			fs.writeFileSync((AVATAR_PATH + name + ext), data.read()); 
+		});
+		response.on('end', function () {
+			fs.writeFileSync((AVATAR_PATH + name + ext), data.read());
 		});
 	}).end();
 }
