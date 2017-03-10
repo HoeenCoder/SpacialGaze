@@ -15,16 +15,16 @@ let Stream = require('stream').Transform;
 // The path where custom avatars are stored.
 const AVATAR_PATH = path.join(__dirname, '../config/avatars/');
 
-let request;
+let Request;
 
 // The valid file extensions allowed.
 const VALID_EXTENSIONS = ['.jpg', '.png', '.gif'];
 
 function downloadImage(image_url, name, room, connection) {
 	let ext = path.extname(image_url);
-	if (image_url.startsWith('http://')) request = require('https');
-	request = require('http');
-	request.request(image_url, function (response) {
+	if (image_url.startsWith('https://')) Request = require('https');
+	Request = require('http');
+	Request.request(image_url, function (response) {
 		let data = new Stream();
 		response.on('data', function (chunk) {
 			data.push(chunk);
