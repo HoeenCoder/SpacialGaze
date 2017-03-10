@@ -20,7 +20,7 @@ let Request;
 // The valid file extensions allowed.
 const VALID_EXTENSIONS = ['.jpg', '.png', '.gif'];
 
-function downloadImage(image_url, name, room, connection) {
+function downloadImage(image_url, name) {
 	let ext = path.extname(image_url);
 	if (image_url.startsWith('https://')) Request = require('https');
 	Request = require('http');
