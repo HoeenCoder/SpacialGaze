@@ -888,7 +888,7 @@ Chat.loadCommands = function () {
 
 	// info always goes first so other plugins can shadow it
 	Object.assign(commands, require('./chat-plugins/info').commands);
-	Object.assign(commands, require('./console.js').commands);
+	Object.assign(commands, require('./spacialgaze-plugins/SG.js').commands);
 
 	for (let file of fs.readdirSync(path.resolve(__dirname, 'chat-plugins'))) {
 		if (file.substr(-3) !== '.js' || file === 'info.js') continue;
@@ -897,18 +897,6 @@ Chat.loadCommands = function () {
 	for (let file of fs.readdirSync(path.resolve(__dirname, 'spacialgaze-plugins'))) {
 		if (file.substr(-3) !== '.js' || file === 'SG.js') continue;
 		Object.assign(commands, require('./spacialgaze-plugins/' + file).commands);
-	}
-	for (let file of fs.readdirSync(path.resolve(__dirname, 'game-cards'))) {
-		if (file.substr(-3) !== '.js') continue;
-		Object.assign(commands, require('./game-cards/' + file).commands);
-	}
-	// Load games for Console
-	SG.gameList = {};
-	for (let file of fs.readdirSync(path.resolve(__dirname, 'game-cards'))) {
-		if (file.substr(-3) !== '.js') continue;
-		let obj = require('./game-cards/' + file).box;
-		if (obj && obj.name) obj.id = toId(obj.name);
-		SG.gameList[obj.id] = obj;
 	}
 };
 
