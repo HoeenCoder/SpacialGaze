@@ -22,8 +22,11 @@ const VALID_EXTENSIONS = ['.jpg', '.png', '.gif'];
 
 function downloadImage(image_url, name) {
 	let ext = path.extname(image_url);
-	if (image_url.startsWith('https://')) Request = require('https');
-	Request = require('http');
+	if (image_url.startsWith('https://')) {
+		Request = require('https');
+	} else {
+		Request = require('http');
+	}
 	Request.request(image_url, function (response) {
 		let data = new Stream();
 		response.on('data', function (chunk) {
