@@ -1600,4 +1600,523 @@ exports.BattleMovedex = {
         target: "any",
         type: "Earth",
     },
+    "electricshock": {
+        id: "electricshock",
+        name: "Electric Shock",
+        basePower: 92,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        secondary: false,
+        flags: {
+            protect: 1,
+            distance: 1
+        },
+        onModifyMove: function (move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Electric Shock');
+        },
+        priority: 0,
+        target: "any",
+        type: "Air",
+    },
+    "superslap": {
+        id: "superslap",
+        name: "Super Slap",
+        basePower: 91,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        secondary: false,
+        flags: {
+            protect: 1,
+            distance: 1,
+            contact: 1
+        },
+        onModifyMove: function (move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Super Slap');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
+    // Champions
+    "megaflame": {
+        id: "megaflame",
+        name: "Mega Flame",
+        basePower: 196,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {
+            protect: 1,
+            distance: 1
+        },
+        secondary: false,
+        onModifyMove: function (move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Mega Flame');
+        },
+        priority: 0,
+        target: "any",
+        type: "Fire",
+    },
+    "volcanicstrike": {
+        id: "volcanicstrike",
+        name: "Volcanic Strike",
+        basePower: 160,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {
+            protect: 1,
+            distance: 1
+        },
+        secondary: false,
+        onModifyMove: function (move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Volcanic Strike');
+        },
+        priority: 0,
+        target: "any",
+        type: "Fire",
+    },
+    "pummelwhack": {
+        id: "pummelwhack",
+        name: "Pummel Whack",
+        basePower: 170,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {
+            protect: 1,
+            distance: 1
+        },
+        secondary: false,
+        onModifyMove: function (move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Pummel Whack');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
+    "spinningneedle": {
+        id: "spinningneedle",
+        name: "Spinning Needle",
+        basePower: 152,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {
+            protect: 1,
+            distance: 1
+        },
+        secondary: false,
+        onModifyMove: function (move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Spinning Needle');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
+    "scissorclaw": {
+        id: "scissorclaw",
+        name: "Scissor Claw",
+        basePower: 172,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {
+            protect: 1,
+            distance: 1
+        },
+        secondary: false,
+        onModifyMove: function (move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Scissor Claw');
+        },
+        priority: 0,
+        target: "any",
+        type: "Mech",
+    },
+    "blastingspout": {
+        id: "blastingspout",
+        name: "Blasting Spout",
+        basePower: 150,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {
+            protect: 1,
+            distance: 1
+        },
+        secondary: false,
+        onModifyMove: function (move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Blastin Spout');
+        },
+        priority: 0,
+        target: "any",
+        type: "Ice",
+    },
+    "subzeroicepunch": {
+        id: "subzeroicepunch",
+        name: "Sub Zero Ice Punch",
+        basePower: 157,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Sub Zero Ice Punch');
+        },
+        priority: 0,
+        target: "any",
+        type: "Ice",
+    },
+    "partytime": {
+        id: "partytime",
+        name: "Party Time",
+        basePower: 100,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Party Time');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
+    "fireball": {
+        id: "fireball",
+        name: "Fireball",
+        basePower: 155,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Fireball');
+        },
+        priority: 0,
+        target: "any",
+        type: "Fire",
+    },
+    "drillspin": {
+        id: "drillspin",
+        name: "Drill Spin",
+        basePower: 150,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Drill Spin');
+        },
+        priority: 0,
+        target: "any",
+        type: "Mech",
+    },
+    "fistofthebeastking": {
+        id: "fistofthebeastking",
+        name: "Fist Of The Beast King",
+        basePower: 170,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Fist Of The Beast King');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
+    "frozenfireshot": {
+        id: "frozenfireshot",
+        name: "Frozen Fire Shot",
+        basePower: 159,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1,  defrost: 1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Frozen Fire Shot');
+        },
+        priority: 0,
+        target: "any",
+        type: "Fire",
+    },
+    "sweetbreath": {
+        id: "sweetbreath",
+        name: "Sweet Breath",
+        basePower: 130,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Sweet Breath');
+        },
+        priority: 0,
+        target: "any",
+        type: "Ice",
+    },
+    "hydropressure": {
+        id: "hydropressure",
+        name: "Hydro Pressure",
+        basePower: 155,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Hydro Pressure');
+        },
+        priority: 0,
+        target: "any",
+        type: "Ice",
+    },
+    "boneboomerang": {
+        id: "boneboomerang",
+        name: "boneboomerang",
+        basePower: 148,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Bone Boomerang');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
+    "meteorwing": {
+        id: "meteorwing",
+        name: "Meteor Wing",
+        basePower: 158,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Meteor Wing');
+        },
+        priority: 0,
+        target: "any",
+        type: "Mech",
+    },
+    "blazeblast": {
+        id: "blazeblast",
+        name: "Blaze Blast",
+        basePower: 174,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Blaze Blast');
+        },
+        priority: 0,
+        target: "any",
+        type: "Fire",
+    },
+    "handoffate": {
+        id: "handoffate",
+        name: "Hand Of Fate",
+        basePower: 166,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Hand Of Fate');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
+    "aerialattack": {
+        id: "aerialattack",
+        name: "Aerial Attack",
+        basePower: 153,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Aerial Attack');
+        },
+        priority: 0,
+        target: "any",
+        type: "Air",
+    },
+    "igaschoolthrowingknife": {
+        id: "igaschoolthrowingknife",
+        name: "Iga School Throwing Knife",
+        basePower: 150,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Iga School Throwing Knife');
+        },
+        priority: 0,
+        target: "any",
+        type: "Mech",
+    },
+    "variabledarts": {
+        id: "variabledarts",
+        name: "Variable Darts",
+        basePower: 153,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Variable Darts');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
+    "solarray": {
+        id: "solarray",
+        name: "Solar Ray",
+        basePower: 167,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Solar Ray');
+        },
+        priority: 0,
+        target: "any",
+        type: "Earth",
+    },
+    "deathclaw": {
+        id: "deathclaw",
+        name: "Death Claw",
+        basePower: 180,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Death Claw');
+        },
+        priority: 0,
+        target: "any",
+        type: "Filth",
+    },
+    "darkclaw": {
+        id: "darkclaw",
+        name: "darkclaw",
+        basePower: 143,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Dark Claw');
+        },
+        priority: 0,
+        target: "any",
+        type: "Filth",
+    },
+    "electroshocker": {
+        id: "electroshocker",
+        name: "Electro Shocker",
+        basePower: 170,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Electro Shocker');
+        },
+        priority: 0,
+        target: "any",
+        type: "Air",
+    },
+    "iceblast": {
+        id: "iceblast",
+        name: "Ice Blast",
+        basePower: 162,
+        accuracy: 100,
+        category: "Physical",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Ice Blast');
+        },
+        priority: 0,
+        target: "any",
+        type: "Ice",
+    },
+    "howlingblaster": {
+        id: "howlingblaster",
+        name: "Howling Blaster",
+        basePower: 183,
+        accuracy: 100,
+        category: "Special",
+        pp: 0.625,
+        flags: {protect:1, distance:1},
+        secondary: false,
+        onModifyMove: function(move, pokemon, target) {
+            move.type = '???';
+            this.add('-activate', pokemon, 'move: Howling Blaster');
+        },
+        priority: 0,
+        target: "any",
+        type: "Battle",
+    },
 };
