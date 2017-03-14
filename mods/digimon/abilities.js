@@ -11,15 +11,13 @@ exports.BattleAbilities = {
 					this.debug('Data boost');
 					return this.chainModify(1.5);
 				}
-			}
-			if (attacker.ability) {
-				if (attacker.ability === 'virus') {
+				else if (attacker.ability === 'virus') {
 					this.debug('Data weaken');
 					return this.chainModify(0.5);
 				}
 			}
 		},
-	},	
+	},
 	"vaccine": {
 		id: "vaccine",
 		name: "Vaccine",
@@ -30,9 +28,7 @@ exports.BattleAbilities = {
 					this.debug('Vaccine boost');
 					return this.chainModify(1.5);
 				}
-			}
-			if (attacker.ability) {
-				if (attacker.ability === 'data') {
+				else if (attacker.ability === 'data') {
 					this.debug('Vaccine weaken');
 					return this.chainModify(0.5);
 				}
@@ -49,9 +45,7 @@ exports.BattleAbilities = {
 					this.debug('Virus boost');
 					return this.chainModify(1.5);
 				}
-			}
-			if (attacker.ability) {
-				if (attacker.ability === 'vaccine') {
+				else if (attacker.ability === 'vaccine') {
 					this.debug('Virus weaken');
 					return this.chainModify(0.5);
 				}
