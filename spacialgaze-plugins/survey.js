@@ -278,13 +278,11 @@ exports.commands = {
 				}, (timeout * 60000));
 				room.add("The survey timer was turned on: the survey will end in " + timeout + " minute(s).");
 				return this.privateModCommand("(The survey timer was set to " + timeout + " minute(s) by " + user.name + ".)");
-			}
-			else {
+			} else {
 				if (!this.runBroadcast()) return;
 				if (room.survey.timeout) {
 					return this.sendReply("The survey timer is on and will end in " + room.survey.timeoutMins + " minute(s).");
-				}
-				else {
+				} else {
 					return this.sendReply("The survey timer is off.");
 				}
 			}
