@@ -398,12 +398,30 @@ exports.Formats = [
 		},
 	},
 	{
-		
 		name: "Digimon Showdown",
+		section: "Exiled's Custom Gamemodes",
 		mod: "digimon",
 		team: "randomDigimon",
-		gameType: "triples",
+		gameType: "doubles",
 		ruleset: ['Cancel Mod', 'HP Percentage Mod'],
+		onBegin: function () {
+			this.add('c|~Insist|Hey players, I\'m the Head Developer of this gamemode, and for some reason I\'m here to give you a **DISCLAIMER**, so be ready....');
+			this.add('c|~Insist|This gamemode was made solely for the enjoyment of the players of the Pokemon Showdown community, and we do not claim to own or be responsible to any rights/copyrights related to Digimon.');
+			this.add('c|~Insist|Now that that\'s out of the way, go ahead and meet our developers! Oh, wow! Here they are, let them introduce themselves.');
+			this.add('c|%Ashley the Pikachu|Haha, hey! I am the Head Researcher that made this gamemode possible!');
+			this.add('c|%Ashley the Pikachu|Oh yeah, if you need some information on this meta I made a manual for a few basic things, check it out, it\'s right below this.');
+			this.add('c|+Stellation|Hey, I was in charge of assisting the other developers. I did my own fair share of coding when needed and made this thing open source so you all can download, edit, and play this meta! :3');
+			this.add('c| AlfaStorm|Hey, you see all those items, and move animations, haha that was my job ^~^');
+			this.add('c|~HoeenHero|Hey, I helped creating mechanics for this gamemode to work as it does :D');
+			this.add('raw', '<acronym title="Digimon Music"><audio src="https://puu.sh/uLuiq/362ce3e54b.mp3" controls="" style="width: 95% ; padding: 5px; border: 1px solid #FFF; background: #222; color: #FFF; text-shadow: 0px -1px 0px #000; border-radius: 8px; margin: 3px;"></audio></acronym>');
+			this.add('raw', '<acronym title="Digimon Music"><audio src="https://puu.sh/uLuj6/a8d57f579b.mp3" controls="" style="width: 95% ; padding: 5px; border: 1px solid #FFF; background: #222; color: #FFF; text-shadow: 0px -1px 0px #000; border-radius: 8px; margin: 3px;"></audio></acronym>');
+			this.add('raw', '<acronym title="Digimon Music"><audio src="https://puu.sh/uLujT/a65aecfbd5.mp3" controls="" style="width: 95% ; padding: 5px; border: 1px solid #FFF; background: #222; color: #FFF; text-shadow: 0px -1px 0px #000; border-radius: 8px; margin: 3px;"></audio></acronym>');
+		},
+		desc: [
+			"You may have thought this was Pokemon Showdown, but I must reassure you that you were mistaken, welcome to DIGIMON SHOWDOWN",
+			"Ahem, but in all seriousness, the following developers listed below created Digimon in Pokemon Showdown, so why not just try it out :D",
+			"Ashley the Pikachu (Head Researcher, Began the project), Insist (Head Developer), AlphaStorm (Animations), Stellation (Assisted other developers), HoeenHero (Assisted with Mechanics)"
+		],
 	},	
 
 	// Other Metagames
