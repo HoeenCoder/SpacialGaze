@@ -29,7 +29,7 @@ exports.BattleMovedex = {
 		category: "Physical",
 		secondary: {
 			chance: 25,
-			volatileStatus: "flinch"
+			volatileStatus: "flinch",
 		},
 		priority: 0,
 		target: "any",
@@ -53,7 +53,7 @@ exports.BattleMovedex = {
 				chance: 20,
 				boosts: {
 					spa: -2,
-					atk: -2
+					atk: -2,
 				},
 			},
 		},
@@ -109,7 +109,7 @@ exports.BattleMovedex = {
 		category: "Physical",
 		secondary: {
 			chance: 25,
-			volatileStatus: "confusion"
+			volatileStatus: "confusion",
 		},
 		priority: 0,
 		target: "any",
@@ -132,7 +132,7 @@ exports.BattleMovedex = {
 			chance: 50,
 			boosts: {
 				spa: -3,
-				atk: -3
+				atk: -3,
 			},
 		},
 		priority: 0,
@@ -214,7 +214,7 @@ exports.BattleMovedex = {
 		pp: 25,
 		boosts: {
 			atk: 2,
-			spa: 2
+			spa: 2,
 		},
 		onHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -240,7 +240,7 @@ exports.BattleMovedex = {
 			def: 1,
 			spa: 1,
 			spd: 1,
-			spe: 1
+			spe: 1,
 		},
 		onHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -386,7 +386,6 @@ exports.BattleMovedex = {
 		pp: 5,
 		category: "Special",
 		priority: 0,
-		secondary: false,
 		flags: {protect: 1, distance: 1},
 		onHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -565,7 +564,7 @@ exports.BattleMovedex = {
 			chance: 5,
 			boosts: {
 				atk: -3,
-				spa: -3
+				spa: -3,
 			},
 		},
 		category: "Physical",
@@ -590,7 +589,7 @@ exports.BattleMovedex = {
 			spa: 1,
 			spd: 1,
 			spe: 1,
-			accuracy: 1
+			accuracy: 1,
 		},
 		accuracy: 100,
 		pp: 40,
@@ -673,7 +672,7 @@ exports.BattleMovedex = {
 			chance: 35,
 			boosts: {
 				atk: -3,
-				spa: -3
+				spa: -3,
 			},
 		},
 		priority: 0,
@@ -813,7 +812,7 @@ exports.BattleMovedex = {
 			spa: 1,
 			spd: 1,
 			spe: 1,
-			accuracy: 1
+			accuracy: 1,
 		},
 		pp: 20,
 		secondary: false,
@@ -836,7 +835,7 @@ exports.BattleMovedex = {
 			chance: 10,
 			boosts: {
 				atk: -3,
-				spa: -3
+				spa: -3,
 			},
 		},
 		pp: 10,
@@ -871,7 +870,7 @@ exports.BattleMovedex = {
 			chance: 50,
 			boosts: {
 				atk: -3,
-				spa: -3
+				spa: -3,
 			},
 		},
 		pp: 40,
@@ -970,7 +969,7 @@ exports.BattleMovedex = {
 			chance: 10,
 			boosts: {
 				atk: -3,
-				spa: -3
+				spa: -3,
 			},
 		},
 		priority: 0,
@@ -1007,7 +1006,7 @@ exports.BattleMovedex = {
 			def: 2,
 			spa: 2,
 			spd: 2,
-			spe: 2
+			spe: 2,
 		},
 		secondary: false,
 		flags: {snatch: 1},
@@ -1037,7 +1036,7 @@ exports.BattleMovedex = {
 			chance: 20,
 			boosts: {
 				atk: -3,
-				spa: -3
+				spa: -3,
 			},
 		},
 		priority: 0,
@@ -1197,7 +1196,7 @@ exports.BattleMovedex = {
 			chance: 10,
 			boosts: {
 				atk: -3,
-				spa: -3
+				spa: -3,
 			},
 		},
 		priority: 0,
@@ -1350,12 +1349,10 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
-		onHit: function (target, source) {
+		onHit: function (pokemon, target, source) {
+			pokemon.cureStatus();
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
-		},
-		onHit: function (pokemon) {
-			pokemon.cureStatus();
 		},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
@@ -1372,7 +1369,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
 		boosts: {
-			evasion: 1
+			evasion: 1,
 		},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
@@ -1405,7 +1402,7 @@ exports.BattleMovedex = {
 				pokemon.volatiles['leppaberry'].move = move;
 			}
 		},
-		onHit: function (pokemon) {
+		onHit: function (pokemon, target, source) {
 			let move;
 			if (pokemon.volatiles['leppaberry']) {
 				move = pokemon.volatiles['leppaberry'].move;
@@ -1435,14 +1432,12 @@ exports.BattleMovedex = {
 			}
 			pokemon.isStale = 2;
 			pokemon.isStaleSource = 'useleppa';
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Recover", source);
 		},
 		secondary: false,
 		heal: [1, 1],
 		target: "adjacentAllyOrSelf",
-		onHit: function (target, source) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Recover", source);
-		},
 	},
 	//Double Floppy
 	doublefloppy: {
@@ -1515,7 +1510,7 @@ exports.BattleMovedex = {
 		flags: {snatch: 1, distance: 1},
 		boosts: {
 			atk: 1,
-			spa: 1
+			spa: 1,
 		},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
@@ -1537,7 +1532,7 @@ exports.BattleMovedex = {
 		flags: {snatch: 1, distance: 1},
 		boosts: {
 			spd: 1,
-			def: 1
+			def: 1,
 		},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
@@ -1558,7 +1553,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
 		boosts: {
-			spe: 1
+			spe: 1,
 		},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
@@ -1577,6 +1572,10 @@ exports.BattleMovedex = {
 		name: "Super Defense Disk",
 		pp: 0.625,
 		priority: 0,
+		boosts: {
+			def: 2,
+			spd: 2,
+		},
 		flags: {snatch: 1, distance: 1},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
@@ -1597,8 +1596,8 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
 		boosts: {
-			spd: 1,
-			def: 1
+			spa: 2,
+			atk: 2,
 		},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
@@ -1619,7 +1618,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
 		boosts: {
-			spe: 1
+			spe: 2,
 		},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
@@ -1643,7 +1642,7 @@ exports.BattleMovedex = {
 			atk: 1,
 			def: 1,
 			spa: 1,
-			spd: 1
+			spd: 1,
 		},
 		secondary: false,
 		target: "adjacentAllyOrSelf",
