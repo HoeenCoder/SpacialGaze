@@ -193,7 +193,7 @@ exports.BattleMovedex = {
 		id: "tremar",
 		name: "Tremar",
 		basePower: 178,
-		accuracy: 90,
+		accuracy: 85,
 		pp: 20,
 		target: "allPokemon",
 		priority: 0,
@@ -664,6 +664,8 @@ exports.BattleMovedex = {
 		type: "Earth",
 	},
 	"dangersting": {
+		id: "dangersting",
+		name: "Danger Sting",
 		basePower: 157,
 		accuracy: 100,
 		category: "Physical",
@@ -2143,7 +2145,7 @@ exports.BattleMovedex = {
 	},
 	"boneboomerang": {
 		id: "boneboomerang",
-		name: "boneboomerang",
+		name: "Bone Boomerang",
 		basePower: 148,
 		accuracy: 100,
 		category: "Physical",
