@@ -13,10 +13,10 @@ exports.BattlePokedex = {
 			def: 50,
 			spa: 100,
 			spd: 50,
-			spe: 50
+			spe: 50,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 2.3,
 		color: "Black",
@@ -32,10 +32,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 100,
 			spd: 100,
-			spe: 50
+			spe: 50,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 2.3,
 		color: "White",
@@ -51,10 +51,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 50,
 			spd: 100,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 2.3,
 		color: "Red",
@@ -70,10 +70,10 @@ exports.BattlePokedex = {
 			def: 50,
 			spa: 50,
 			spd: 50,
-			spe: 50
+			spe: 50,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 2.3,
 		color: "White",
@@ -90,10 +90,10 @@ exports.BattlePokedex = {
 			def: 50,
 			spa: 100,
 			spd: 50,
-			spe: 50
+			spe: 50,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 4.5,
 		color: "Pink",
@@ -110,10 +110,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 100,
 			spd: 100,
-			spe: 50
+			spe: 50,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 4.5,
 		color: "White",
@@ -130,10 +130,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 50,
 			spd: 100,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 4.5,
 		color: "Brown",
@@ -150,10 +150,10 @@ exports.BattlePokedex = {
 			def: 50,
 			spa: 50,
 			spd: 50,
-			spe: 50
+			spe: 50,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 4.5,
 		color: "Green",
@@ -171,10 +171,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 200,
 			spd: 100,
-			spe: 150
+			spe: 150,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 6.8,
 		color: "Yellow",
@@ -191,10 +191,10 @@ exports.BattlePokedex = {
 			def: 200,
 			spa: 100,
 			spd: 200,
-			spe: 200
+			spe: 200,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 6.8,
 		color: "White",
@@ -211,10 +211,10 @@ exports.BattlePokedex = {
 			def: 200,
 			spa: 200,
 			spd: 200,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 6.8,
 		color: "Brown",
@@ -231,10 +231,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 200,
 			spd: 100,
-			spe: 200
+			spe: 200,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 6.8,
 		color: "Red",
@@ -251,10 +251,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 100,
 			spd: 100,
-			spe: 200
+			spe: 200,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 6.8,
 		color: "Pink",
@@ -271,10 +271,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 200,
 			spd: 100,
-			spe: 130
+			spe: 130,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 6.8,
 		color: "Yellow",
@@ -291,10 +291,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 100,
 			spd: 100,
-			spe: 120
+			spe: 120,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 6.8,
 		color: "Green",
@@ -311,10 +311,10 @@ exports.BattlePokedex = {
 			def: 200,
 			spa: 100,
 			spd: 200,
-			spe: 130
+			spe: 130,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 6.8,
 		color: "Green",
@@ -331,10 +331,10 @@ exports.BattlePokedex = {
 			def: 200,
 			spa: 100,
 			spd: 200,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 6.8,
 		color: "Blue",
@@ -352,10 +352,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 250
+			spe: 250,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 13.6,
 		color: "Brown",
@@ -372,10 +372,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 18.1,
 		color: "Gray",
@@ -392,10 +392,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 300,
 			spd: 300,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 13.6,
 		color: "Green",
@@ -412,10 +412,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 200,
 			spd: 100,
-			spe: 400
+			spe: 400,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 13.6,
 		color: "Blue",
@@ -432,10 +432,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 13.6,
 		color: "Red",
@@ -452,10 +452,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 100,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 18.1,
 		color: "Blue",
@@ -472,10 +472,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 100,
 			spd: 300,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 18.1,
 		color: "Blue",
@@ -492,10 +492,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 100,
 			spd: 100,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 2.3,
 		color: "Brown",
@@ -512,10 +512,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 160
+			spe: 160,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 9.1,
 		color: "Red",
@@ -532,10 +532,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 100,
 			spd: 300,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 18.1,
 		color: "Purple",
@@ -555,7 +555,7 @@ exports.BattlePokedex = {
 			spe: 300
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 9.1,
 		color: "Yellow",
@@ -572,10 +572,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 13.6,
 		color: "White",
@@ -592,10 +592,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 130
+			spe: 130,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 4.5,
 		color: "Green",
@@ -612,10 +612,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 100,
 			spd: 300,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 18.1,
 		color: "Pink",
@@ -632,10 +632,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 100,
 			spd: 300,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 9.1,
 		color: "White",
@@ -652,39 +652,16 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 305
+			spe: 305,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 9.1,
 		color: "Red",
 		evo: ["Phoenixmon", "Vademon"],
 		prevo: ["Agumon", "Biyomon"],
 	},
-	/*
-	Template for speed creating Digimon
-	:{
-		num: ,
-		species: "",
-		types: [""],
-		baseStats: {
-			hp: ,
-			atk: ,
-			def: ,
-			spa: ,
-			spd: ,
-			spe:
-		},
-		abilities: {
-			0: ""
-		},
-		color: "",
-		weightkg: ,
-		prevos: [""],
-		evos: [""],
-	},
-					*/
 	tyrannomon: {
 		num: -332,
 		species: "Tyrannomon",
@@ -695,10 +672,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 300,
 			spd: 300,
-			spe: 150
+			spe: 150,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		color: "Red",
 		weightkg: 13.6,
@@ -715,10 +692,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 9.1,
 		color: "White",
@@ -735,10 +712,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 100,
 			spd: 300,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 13.6,
 		color: "White",
@@ -755,10 +732,10 @@ exports.BattlePokedex = {
 			def: 150,
 			spa: 150,
 			spd: 150,
-			spe: 150
+			spe: 150,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 4.5,
 		color: "Red",
@@ -775,10 +752,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 100,
 			spd: 300,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 13.6,
 		color: "White",
@@ -795,10 +772,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 100,
 			spd: 100,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 2.3,
 		color: "Green",
@@ -815,10 +792,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 13.6,
 		color: "Brown",
@@ -835,10 +812,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 9.1,
 		color: "Black",
@@ -855,10 +832,10 @@ exports.BattlePokedex = {
 			def: 170,
 			spa: 170,
 			spd: 170,
-			spe: 170
+			spe: 170,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 9.1,
 		color: "White",
@@ -875,10 +852,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 13.6,
 		color: "Blue",
@@ -895,10 +872,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 100,
 			spd: 300,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		weightkg: 13.6,
 		color: "Blue",
@@ -915,10 +892,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 100,
 			spd: 300,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		weightkg: 13.6,
 		color: "White",
@@ -935,10 +912,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 100,
 			spd: 100,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		weightkg: 2.3,
 		color: "Yellow",
@@ -956,10 +933,10 @@ exports.BattlePokedex = {
 			def: 500,
 			spa: 500,
 			spd: 500,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		color: "Purple",
 		weightkg: 22.7,
@@ -975,10 +952,10 @@ exports.BattlePokedex = {
 			def: 400,
 			spa: 400,
 			spd: 400,
-			spe: 200
+			spe: 200,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		color: "White",
 		weightkg: 13.6,
@@ -994,10 +971,10 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 400,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		color: "Purple",
 		weightkg: 2.3,
@@ -1013,10 +990,10 @@ exports.BattlePokedex = {
 			def: 400,
 			spa: 500,
 			spd: 400,
-			spe: 400
+			spe: 400,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		color: "Yellow",
 		weightkg: 18.1,
@@ -1032,10 +1009,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 400,
 			spd: 300,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		color: "Gray",
 		weightkg: 2.3,
@@ -1051,10 +1028,10 @@ exports.BattlePokedex = {
 			def: 500,
 			spa: 500,
 			spd: 500,
-			spe: 200
+			spe: 200,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		color: "Red",
 		weightkg: 13.6,
@@ -1070,10 +1047,10 @@ exports.BattlePokedex = {
 			def: 199,
 			spa: 199,
 			spd: 199,
-			spe: 199
+			spe: 199,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		color: "Pink",
 		weightkg: 2.3,
@@ -1089,10 +1066,10 @@ exports.BattlePokedex = {
 			def: 200,
 			spa: 400,
 			spd: 200,
-			spe: 400
+			spe: 400,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		color: "Brown",
 		weightkg: 6.8,
@@ -1108,10 +1085,10 @@ exports.BattlePokedex = {
 			def: 400,
 			spa: 200,
 			spd: 400,
-			spe: 200
+			spe: 200,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		color: "Gray",
 		weightkg: 18.1,
@@ -1127,10 +1104,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 500,
 			spd: 300,
-			spe: 400
+			spe: 400,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		color: "Red",
 		weightkg: 24.9,
@@ -1146,10 +1123,10 @@ exports.BattlePokedex = {
 			def: 200,
 			spa: 200,
 			spd: 200,
-			spe: 500
+			spe: 500,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		color: "Yellow",
 		weightkg: 13.6,
@@ -1165,10 +1142,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 300,
 			spd: 300,
-			spe: 400
+			spe: 400,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		color: "Pink",
 		weightkg: 2.3,
@@ -1184,10 +1161,10 @@ exports.BattlePokedex = {
 			def: 400,
 			spa: 500,
 			spd: 400,
-			spe: 400
+			spe: 400,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		color: "Gray",
 		weightkg: 4.6,
@@ -1203,10 +1180,10 @@ exports.BattlePokedex = {
 			def: 300,
 			spa: 300,
 			spd: 300,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
-			0: "Vaccine"
+			0: "Vaccine",
 		},
 		color: "Yellow",
 		weightkg: 18.1,
@@ -1222,10 +1199,10 @@ exports.BattlePokedex = {
 			def: 400,
 			spa: 400,
 			spd: 400,
-			spe: 400
+			spe: 400,
 		},
 		abilities: {
-			0: "Data"
+			0: "Data",
 		},
 		color: "White",
 		weightkg: 4.5,
@@ -1242,10 +1219,10 @@ exports.BattlePokedex = {
 			def: 500,
 			spa: 500,
 			spd: 500,
-			spe: 100
+			spe: 100,
 		},
 		abilities: {
-			0: "Virus"
+			0: "Virus",
 		},
 		color: "Gray",
 		weightkg: 36.3,
