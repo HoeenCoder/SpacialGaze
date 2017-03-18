@@ -11,8 +11,8 @@
 exports.BattleScripts = {
 	randomDigimonTeam: function (side) {
 		let team = [];
-		var variant = (this.random(2) === 1);
-		var sets = {
+		let variant = (this.random(2) === 1);
+		let sets = {
 			"Botamon": {
 				species: "Botamon",
 				ability: "Data",
@@ -513,8 +513,7 @@ exports.BattleScripts = {
 				}
 				if (!rejected) {
 					choosenItems.push(itemChoosen);
-				}
-				else {
+				} else {
 					h--;
 				}
 				if (h === 2 && choosenItems.length !== 3) h--;
