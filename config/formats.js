@@ -422,11 +422,10 @@ exports.Formats = [
 			"Ahem, but in all seriousness, the following developers listed below created Digimon in Pokemon Showdown, so why not just try it out :D",
 			"Ashley the Pikachu (Head Researcher, Began the project), Insist (Head Developer), AlphaStorm (Animations), Stellation (Assisted other developers), HoeenHero (Assisted with Mechanics)".
 		],
-	},	
-	{
+	},
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
-		
+	{	
 		section: "OM of the Month",
 		column: 2,
 	},
