@@ -552,7 +552,7 @@ exports.BattlePokedex = {
 			def: 100,
 			spa: 300,
 			spd: 100,
-			spe: 300
+			spe: 300,
 		},
 		abilities: {
 			0: "Vaccine",
