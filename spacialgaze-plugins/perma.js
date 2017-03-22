@@ -23,8 +23,8 @@ exports.commands = {
 			if (Users.usergroups[target]) {
 				Users.setOfflineGroup(target, ' ');
 				Monitor.log('[CrisisMonitor] Trusted user ' + target + ' was permalocked by ' + user.name + ' and was automatically demoted from ' + Users.usergroups[target].substr(0, 1) + '.');
-		}
-		if (Rooms('upperstaff')) Rooms('upperstaff').add('[Perma Monitor] ' + user.name + ' has (offline) permalocked ' + target + '.').update();
+			}
+			if (Rooms('upperstaff')) Rooms('upperstaff').add('[Perma Monitor] ' + user.name + ' has (offline) permalocked ' + target + '.').update();
 			return this.addModCommand(target + ' was permalocked by ' + user.name + '.');
 		}
 		target = Users(target);
