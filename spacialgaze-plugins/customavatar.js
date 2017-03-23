@@ -11,28 +11,31 @@
 
 const fs = require('fs');
 const path = require('path');
-const request = require('request');
-
+let Stream = require('stream').Transform;
 // The path where custom avatars are stored.
 const AVATAR_PATH = path.join(__dirname, '../config/avatars/');
+
+let request;
 
 // The valid file extensions allowed.
 const VALID_EXTENSIONS = ['.jpg', '.png', '.gif'];
 
-function downloadImage(image_url, name, extension) {
-	request
-		.get(image_url)
-		.on('error', err => {
-			console.error(err);
-		})
-		.on('response', response => {
-			if (response.statusCode !== 200) return;
-			let type = response.headers['content-type'].split('/');
-			if (type[0] !== 'image') return;
-
-			response.pipe(fs.createWriteStream(AVATAR_PATH + name + extension));
+function downloadImage(image_url, name, room, connection) {
+	let ext = path.extname(image_url);
+	if (image_url.startsWith('http://')) request = require('https');
+	request = require('http');
+	request.request(image_url, function (response) {
+		let data = new Stream();
+		response.on('data', function (chunk) {
+			data.push(chunk);
+		});                                                                         
+		response.on('end', function() {
+			fs.writeFileSync((AVATAR_PATH + name + ext), data.read()); 
 		});
+	}).end();
 }
+
+SG.downloadImage = downloadImage;
 
 function loadCustomAvatars() {
 	fs.readdir(AVATAR_PATH, (err, files) => {
@@ -67,7 +70,7 @@ exports.commands = {
 
 			Config.customavatars[name] = name + ext;
 
-			downloadImage(avatarUrl, name, ext);
+			downloadImage(avatarUrl, name);
 			this.sendReply("|raw|" + name + "'s avatar was successfully set. Avatar:<br /><img src='" + avatarUrl + "' width='80' height='80'>");
 			if (Users(name)) Users(name).popup("|html|" + SG.nameColor(user.name, true) + " set your custom avatar.<br /><center><img src='" + avatarUrl + "' width='80' height='80'></center><br /> Refresh your page if you don\'t see it.");
 		},
