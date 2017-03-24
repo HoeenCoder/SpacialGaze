@@ -80,7 +80,7 @@ exports.commands = {
 		}
 		if (!tarUser.registered) return this.errorReply('Only registered users can be permalocked.');
 		if (Db.perma.get(tarUser.userid, 0) === 6) return this.errorReply(tarUser.name + ' is already permabanned.');
-		if (tarUser.trusted) && cmd !== 'forcepermaban') return this.errorReply(tarUser.name + ' is a trusted user. If your sure you want to permaban them, please use /forcepermaban');
+		if (tarUser.trusted && cmd !== 'forcepermaban') return this.errorReply(tarUser.name + ' is a trusted user. If your sure you want to permaban them, please use /forcepermaban');
 		Db.perma.set(tarUser.userid, 6);
 		tarUser.popup('You have been permabanned by ' + user.name + '.\nUnlike permabans issued by the main server, this permaban only effects this server.');
 		Punishments.ban(tarUser, Date.now() + (1000 * 60 * 60 * 24 * 30), tarUser.userid, `Permabanned as ${tarUser.userid}`);
