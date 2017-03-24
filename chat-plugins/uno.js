@@ -158,8 +158,7 @@ class UNOgame extends Rooms.RoomGame {
 			return playerList.sort().map(id => SG.nameColor(this.players[id].name, false, true));
 		}
 		if (this.direction === -1) playerList = playerList.reverse();
-		if (hashColor) return playerList.map(id => `${(this.currentPlayer && this.currentPlayer === id ? "<strong>" : "")}${SG.nameColor(this.players[id].name, false, true)} (${this.players[id].hand.length}) ${(this.currentPlayer && this.currentPlayer === id ? "</strong>" : "")}`);
-		return playerList.map(id => `${(this.currentPlayer && this.currentPlayer === id ? "<strong>" : "")}${Chat.escapeHTML(this.players[id].name)} (${this.players[id].hand.length}) ${(this.currentPlayer && this.currentPlayer === id ? "</strong>" : "")}`);
+		return playerList.map(id => `${(this.currentPlayer && this.currentPlayer === id ? "<strong>" : "")}${SG.nameColor(this.players[id].name, false, true)} (${this.players[id].hand.length}) ${(this.currentPlayer && this.currentPlayer === id ? "</strong>" : "")}`);
 	}
 
 	nextTurn(starting) {
@@ -379,10 +378,10 @@ class UNOgame extends Rooms.RoomGame {
 					Economy.logTransaction(player.name + ' has won ' + prize + ' ' + (prize === 1 ? global.currencyName : global.currencyPlural) + ' from a game of UNO.');
 				});
 			});
-			this.getPlayers().forEach(unoPlayer => {
-				if (Users(unoPlayer).unoBoost) Users(unoPlayer).unoBoost = false;
-				if (Users(unoPlayer).unoBoost) Users(unoPlayer).gameBoost = false;
-			});
+			for (let i = 0; i < this.players.length; i++) {
+				if (Users(this.players[i].unoBoost) Users(this.players[i]).unoBoost = false;
+				if (Users(this.players[i].gameBoost) Users(this.players[i]).gameBoost = false;
+			}
 		}
 		this.destroy();
 	}
