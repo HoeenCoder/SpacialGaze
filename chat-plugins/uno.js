@@ -154,8 +154,8 @@ class UNOgame extends Rooms.RoomGame {
 
 	getPlayers(showCards, hashColor) {
 		let playerList = Object.keys(this.players);
-		if (!showCards) {
-			return playerList.sort().map(id => Chat.escapeHTML(this.players[id].name));
+		if (!showCards && hashColor) {
+			return playerList.sort().map(id => SG.nameColor(this.players[id].name, true));
 		}
 		if (this.direction === -1) playerList = playerList.reverse();
 		if (hashColor) return playerList.map(id => `${(this.currentPlayer && this.currentPlayer === id ? "<strong>" : "")}${SG.nameColor(this.players[id].name, true)} (${this.players[id].hand.length}) ${(this.currentPlayer && this.currentPlayer === id ? "</strong>" : "")}`);
