@@ -172,7 +172,7 @@ class UNOgame extends Rooms.RoomGame {
 
 		clearTimeout(this.timer);
 		let player = this.players[this.currentPlayer];
-		this.room.send(`|html|${SG.nameColor(player.name)}'s turn.`);
+		this.room.send(`|html|${SG.nameColor(player.name, true)}'s turn.`);
 		this.state = 'play';
 		if (player.cardLock) delete player.cardLock;
 		player.sendDisplay();
@@ -490,13 +490,13 @@ exports.commands = {
 
 			room.game = new UNOgame(room, target);
 			room.add(`|uhtml|uno-${room.gameNumber}|<div class="broadcast-green"><p style="font-size: 14pt; text-align: center">A new game of <strong>UNO</strong> is starting!</p><p style="font-size: 9pt; text-align: center">Use <strong>/uno join</strong> to join the game.</p></div>`).update();
-			this.privateModCommand(`(A game of UNO was created by ${SG.nameColor(user.name, true)}.)`);
+			this.privateModCommand(`(A game of UNO was created by ${user.name}.)`);
 		},
 
 		start: function (target, room, user) {
 			if (!this.can('minigame', null, room)) return;
 			if (!room.game || room.game.gameid !== 'uno' || room.game.state !== 'signups') return this.errorReply("There is no UNO game in signups phase in this room.");
-			if (room.game.onStart()) this.privateModCommand(`(The game of UNO was started by ${SG.nameColor(user.name, true)}.)`);
+			if (room.game.onStart()) this.privateModCommand(`(The game of UNO was started by ${user.name}.)`);
 		},
 
 		stop: 'end',
@@ -505,7 +505,7 @@ exports.commands = {
 			if (!room.game || room.game.gameid !== 'uno') return this.errorReply("There is no UNO game going on in this room.");
 			room.game.destroy();
 			room.add("The game of UNO was forcibly ended.").update();
-			this.privateModCommand(`(The game of UNO was ended by ${SG.nameColor(user.name, true)}.)`);
+			this.privateModCommand(`(The game of UNO was ended by ${user.name}.)`);
 		},
 
 		timer: function (target, room, user) {
@@ -531,7 +531,7 @@ exports.commands = {
 
 			let disqualified = room.game.eliminate(toId(target));
 			if (disqualified === false) return this.errorReply(`Unable to disqualify ${target}.`);
-			this.privateModCommand(`(${SG.nameColor(user.name, true)} has disqualified ${disqualified} from the UNO game.)`);
+			this.privateModCommand(`(${user.name} has disqualified ${disqualified} from the UNO game.)`);
 			room.add(`${SG.nameColor(target, true)} has been disqualified from the UNO game.`).update();
 		},
 
@@ -541,7 +541,7 @@ exports.commands = {
 			if (!room.game || room.game.gameid !== 'uno') return this.errorReply("There is no UNO game going on in this room right now.");
 			if (!this.canTalk()) return false;
 			if (!room.game.joinGame(user)) return this.errorReply("Unable to join the game.");
-
+			room.add(SG.nameColor(user.name) + " has joined the game of UNO.")
 			return this.sendReply("You have joined the game of UNO.");
 		},
 
