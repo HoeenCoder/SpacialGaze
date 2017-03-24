@@ -596,7 +596,7 @@ exports.commands = {
 		getusers: function (target, room, user) {
 			if (!room.game || room.game.gameid !== 'uno') return this.errorReply("There is no UNO game going on in this room right now.");
 			if (!this.runBroadcast()) return false;
-			this.sendReplyBox(`<strong>Players (${room.game.playerCount})</strong>:<br />${room.game.getPlayers(true, true).join(", ")}`);
+			this.sendReplyBox(`<strong>Players (${room.game.playerCount})</strong>:<br />${room.game.getPlayers(false, true).join(", ")}`);
 		},
 
 		help: function (target, room, user) {
