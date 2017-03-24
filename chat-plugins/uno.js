@@ -152,9 +152,9 @@ class UNOgame extends Rooms.RoomGame {
 		this.room.add(msg).update();
 	}
 
-	getPlayers(showCards, hashColor) {
+	getPlayers(showCards) {
 		let playerList = Object.keys(this.players);
-		if (!showCards && hashColor) {
+		if (!showCards) {
 			return playerList.sort().map(id => SG.nameColor(this.players[id].name, false, true));
 		}
 		if (this.direction === -1) playerList = playerList.reverse();
@@ -379,8 +379,8 @@ class UNOgame extends Rooms.RoomGame {
 				});
 			});
 			for (let i = 0; i < this.players.length; i++) {
-				if (Users(this.players[i].unoBoost) Users(this.players[i]).unoBoost = false;
-				if (Users(this.players[i].gameBoost) Users(this.players[i]).gameBoost = false;
+				if (Users(this.players[i].unoBoost)) Users(this.players[i]).unoBoost = false;
+				if (Users(this.players[i].gameBoost)) Users(this.players[i]).gameBoost = false;
 			}
 		}
 		this.destroy();
