@@ -15,7 +15,7 @@ exports.commands = {
 		if (!toId(target)) return this.parse('/help permalock');
 		let tarUser = Users(target);
 		if (!tarUser && (cmd !== 'offlinepermalock' && cmd !== 'forceofflinepermalock')) return this.errorReply('User ' + target + ' not found. If your sure you want to permalock them, use /offlinepermalock.');
-		if (tarUser && (cmd !== 'offlinepermalock' && cmd !== 'forceofflinepermalock')) return this.parse('/permalock ' + target);
+		if (tarUser && (cmd === 'offlinepermalock' || cmd === 'forceofflinepermalock')) return this.parse('/permalock ' + target);
 		if (cmd === 'offlinepermalock' || cmd === 'forceofflinepermalock') {
 			target = toId(target);
 			if (Db.perma.get(target, 0) === 5) return this.errorReply(target + ' is already permalocked.');
@@ -29,14 +29,17 @@ exports.commands = {
 			return this.addModCommand(target + ' was permalocked by ' + user.name + '.');
 		}
 		if (!tarUser.registered) return this.errorReply('Only registered users can be permalocked.');
+		user.sendReply('checking status');
 		if (Db.perma.get(tarUser.userid, 0) >= 5) {
+			user.sendReply('already permad');
 			if (Db.perma.get(tarUser.userid, 0) === 5) return this.errorReply(tarUser.name + ' is already permalocked.');
 			if (cmd !== 'forcepermalock') return this.errorReply(tarUser.name + ' is permabanned and cannot be permalocked. If you want to change thier permaban to a permalock, please use /forcepermalock');
 		}
-		if ((tarUser.trusted || Users.usergroups[tarUser.userid]) && cmd !== 'forcepermalock') return this.errorReply(tarUser.name + ' is a trusted user. If your sure you want to permalock them, please use /forcepermalock');
+		user.sendReply('checking trusted');
+		if (tarUser.trusted && cmd !== 'forcepermalock') return this.errorReply(tarUser.name + ' is a trusted user. If your sure you want to permalock them, please use /forcepermalock');
 		Db.perma.set(tarUser.userid, 5);
 		if (Punishments.userids.get(tarUser.userid) && Punishments.userids.get(tarUser.userid)[0] !== 'BAN') Punishments.lock(tarUser, Date.now() + (1000 * 60 * 60 * 24 * 30), tarUser.userid, `Permalocked as ${tarUser.userid}`);
-		//tarUser.popup('You have been permalocked by ' + user.name + '.\nUnlike permalocks issued by the main server, this permalock only effects this server.');
+		tarUser.popup('You have been permalocked by ' + user.name + '.\nUnlike permalocks issued by the main server, this permalock only effects this server.');
 		Monitor.log('[CrisisMonitor] Trusted user ' + tarUser.userid + ' was permalocked by ' + user.name + ' and was automatically demoted from ' + tarUser.distrust() + '.');
 		if (Rooms('upperstaff')) Rooms('upperstaff').add('[Perma Monitor] ' + user.name + ' has permalocked ' + tarUser.name + '.').update();
 		return this.addModCommand(tarUser.name + ' was permalocked by ' + user.name + '.');
