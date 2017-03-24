@@ -29,13 +29,13 @@ exports.commands = {
 			return this.addModCommand(target + ' was permalocked by ' + user.name + '.');
 		}
 		if (!tarUser.registered) return this.errorReply('Only registered users can be permalocked.');
-		user.sendReply('checking status');
+		this.sendReply('checking status');
 		if (Db.perma.get(tarUser.userid, 0) >= 5) {
-			user.sendReply('already permad');
+			this.sendReply('already permad');
 			if (Db.perma.get(tarUser.userid, 0) === 5) return this.errorReply(tarUser.name + ' is already permalocked.');
 			if (cmd !== 'forcepermalock') return this.errorReply(tarUser.name + ' is permabanned and cannot be permalocked. If you want to change thier permaban to a permalock, please use /forcepermalock');
 		}
-		user.sendReply('checking trusted');
+		this.sendReply('checking trusted');
 		if (tarUser.trusted && cmd !== 'forcepermalock') return this.errorReply(tarUser.name + ' is a trusted user. If your sure you want to permalock them, please use /forcepermalock');
 		Db.perma.set(tarUser.userid, 5);
 		if (Punishments.userids.get(tarUser.userid) && Punishments.userids.get(tarUser.userid)[0] !== 'BAN') Punishments.lock(tarUser, Date.now() + (1000 * 60 * 60 * 24 * 30), tarUser.userid, `Permalocked as ${tarUser.userid}`);
