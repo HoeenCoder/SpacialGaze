@@ -540,7 +540,7 @@ exports.commands = {
 			if (!room.game || room.game.gameid !== 'uno') return this.errorReply("There is no UNO game going on in this room right now.");
 			if (!this.canTalk()) return false;
 			if (!room.game.joinGame(user)) return this.errorReply("Unable to join the game.");
-			room.add(SG.nameColor(user.name, true, true) + " has joined the game of UNO.")
+			room.add(SG.nameColor(user.name, true, true) + " has joined the game of UNO.");
 			return this.sendReply("You have joined the game of UNO.");
 		},
 
