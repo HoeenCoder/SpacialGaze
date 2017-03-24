@@ -383,7 +383,6 @@ class UNOgame extends Rooms.RoomGame {
 				if (Users(unoPlayer).unoBoost) Users(unoPlayer).unoBoost = false;
 				if (Users(unoPlayer).unoBoost) Users(unoPlayer).gameBoost = false;
 			});
-			
 		}
 		this.destroy();
 	}
