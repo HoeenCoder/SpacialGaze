@@ -506,10 +506,10 @@ class Game {
 	}
 
 	runDQ() {
-		//set a disqualification timer for 90 seconds
+		//set a disqualification timer for 2 minutes
 		this.timer = setTimeout(function () {
 			this.disqualify(this.player);
-		}.bind(this), 90000);
+		}.bind(this), 120000);
 	}
 
 	initNextTurn() {
