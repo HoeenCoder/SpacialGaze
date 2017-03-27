@@ -271,7 +271,7 @@ exports.commands = {
 			let msg = '';
 			let starters = [['Bulbasaur', 'Chikorita', 'Treecko', 'Turtwig', 'Snivy', 'Chespin', 'Rowlet'], ['Charmander', 'Cyndaquil', 'Torchic', 'Chimchar', 'Tepig', 'Fennekin', 'Litten'], ['Squirtle', 'Totodile', 'Mudkip', 'Piplup', 'Oshawott', 'Froakie', 'Popplio'], ['Pikachu', 'Eevee']];
 			for (let i = 0; i < starters.length; i++) {
-				let color = (i === 0 ? 'green' : (i === 1 ? 'red' : 'blue' : 'yellow' : 'grey'));
+				let color = (i === 0 ? 'green' : (i === 1 ? 'red' : (i=== 2 ? 'blue' : (i === 3 ? 'yellow' : 'grey'))));
 				for (let j = 0; j < starters[i].length; j++) {
 					msg += '<button name="send" value="/pickstarter ' + starters[i][j] + '" style="border: none; background: none; color: ' + color + '"><u>' + starters[i][j] + '</u></button> ';
 				}
