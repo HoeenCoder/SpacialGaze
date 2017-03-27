@@ -403,6 +403,8 @@ class User {
 		if (this.namelocked) {
 			return '‽' + this.name;
 		}
+		let inv = ["~","&","#","\u2606","*","@","%","+"," "];
+		let reg = inv.slice(0).reverse();
 		if (roomid && roomid !== 'global') {
 			let room = Rooms(roomid);
 			if (!room) {
@@ -411,11 +413,13 @@ class User {
 			if (room.isMuted(this)) {
 				return '!' + this.name;
 			}
-			if ((!room.auth || !room.auth[this.userid]) && this.customSymbol) return this.customSymbol + this.name;
-			return room.getAuth(this) + this.name;
+			/*if ((!room.auth || !room.auth[this.userid]) && this.customSymbol) return this.customSymbol + this.name;
+			return room.getAuth(this) + this.name;*/
+			return inv[reg.indexOf(room.getAuth(this))];
 		}
-		if (this.customSymbol) return this.customSymbol + this.name;
-		return this.group + this.name;
+		/*if (this.customSymbol) return this.customSymbol + this.name;
+		return this.group + this.name;*/
+		return inv[reg.indexOf(this.group)];
 	}
 	authAtLeast(minAuth, room) {
 		if (!minAuth || minAuth === ' ') return true;
