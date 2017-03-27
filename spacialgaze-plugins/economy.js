@@ -263,6 +263,7 @@ exports.commands = {
 	},
 
 	customsymbol: function (target, room, user) {
+		return this.errorReply("An error occured while executing this command. Error code AFD");
 		let bannedSymbols = ['!', '|', '‽', '\u2030', '\u534D', '\u5350', '\u223C'];
 		for (let u in Config.groups) if (Config.groups[u].symbol) bannedSymbols.push(Config.groups[u].symbol);
 		if (!user.canCustomSymbol && !user.can('vip')) return this.sendReply('You need to buy this item from the shop to use.');
@@ -278,6 +279,7 @@ exports.commands = {
 
 	removesymbol: 'resetsymbol',
 	resetsymbol: function (target, room, user) {
+		return this.errorReply("An error occured while executing this command. Error code AFD");
 		if (!user.customSymbol) return this.sendReply("You don't have a custom symbol!");
 		delete user.customSymbol;
 		user.updateIdentity();
