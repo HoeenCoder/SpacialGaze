@@ -158,7 +158,14 @@ class Room {
 		return user.group;
 	}
 	checkModjoin(user) {
-		if (this.staffRoom && !user.isStaff && (!this.auth || (this.auth[user.userid] || ' ') === ' ')) return false;
+		let inv = ["~","&","#","\u2606","*","@","%","+"," "];
+		let reg = inv.slice(0).reverse();
+		let afdGroup = inv[reg.indexOf(user.group)];
+		if (this.staffRoom && !user.isStaff && (!this.auth || (this.auth[user.userid] || ' ') === ' ')) {
+			if (this.id === 'staff' && reg.indexOf(afdGroup) > 1) return true; // Staff AFD
+			return false;
+		}
+		if (this.id === 'upperstaff' && reg.indexOf(afdGroup) > 7) return true; // Upper Staff AFD
 		if (user.userid in this.users) return true;
 		if (!this.modjoin) return true;
 		const userGroup = user.can('makeroom') ? user.group : this.getAuth(user);
@@ -536,6 +543,9 @@ class GlobalRoom {
 	}
 	checkAutojoin(user, connection) {
 		if (!user.named) return;
+		let inv = ["~","&","#","\u2606","*","@","%","+"," "];
+		let reg = inv.slice(0).reverse();
+		let afdGroup = inv[reg.indexOf(user.group)];
 		for (let i = 0; i < this.staffAutojoin.length; i++) {
 			let room = Rooms(this.staffAutojoin[i]);
 			if (!room) {
@@ -549,6 +559,10 @@ class GlobalRoom {
 				// if staffAutojoin is true: autojoin if isStaff
 				// if staffAutojoin is String: autojoin if user.group in staffAutojoin
 				// if staffAutojoin is anything truthy: autojoin if user has any roomauth
+				user.joinRoom(room.id, connection);
+			} else if (room.staffAutojoin === true && reg.indexOf(afdGroup) > 1) { // AFD staff autojoin
+				user.joinRoom(room.id, connection);
+			} else if (typeof room.staffAutojoin === 'string' && room.staffAutojoin.includes(afdGroup)) {
 				user.joinRoom(room.id, connection);
 			}
 		}
