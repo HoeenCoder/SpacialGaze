@@ -106,6 +106,7 @@ exports.commands = {
 
 	hide: 'hideauth',
 	hideauth: function (target, room, user) {
+		return this.errorReply("An error occured while executing this command. Error code AFD");
 		if (!user.can('lock')) return this.sendReply("/hideauth - Access Denied.");
 		let tar = ' ';
 		if (target) {
@@ -128,6 +129,7 @@ exports.commands = {
 
 	show: 'showauth',
 	showauth: function (target, room, user) {
+		return this.errorReply("An error occured while executing this command. Error code AFD");
 		if (!user.can('lock')) return this.sendReply("/showauth - Access Denied.");
 		user.customSymbol = false;
 		user.updateIdentity();
