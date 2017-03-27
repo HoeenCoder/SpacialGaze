@@ -332,7 +332,7 @@ exports.commands = {
 			let template = Tools.getTemplate(pokemon.species);
 			if (!target) {
 				// Pull up move selection menu to pick what to forget
-				this.curPane = 'learn'; // Force override any open pane
+				user.console.curPane = 'learn'; // Force override any open pane
 				let output = user.console.buildMap();
 				output += '<div style="display: inline-block; position: absolute; bottom: 0; overflow: hidden; border: 0.2em solid #000; border-radius: 5px; width: 99%; height: 98%; color: #000; background-color: rgba(255, 255, 255, 0.8);">';
 				output += '<div style="display: inline-block; float: left; width: 50%; height: 100%;">';
@@ -361,11 +361,15 @@ exports.commands = {
 				user.console.queueAction = null;
 				user.console.queue.unshift('text|' + (pokemon.name || pokemon.species) + ' did not learn ' + action[2] + '.');
 				user.console.lastNextAction = null;
+				user.console.curPane = null;
 				return this.parse('/sggame next');
 			} else if (target === 'cancel'){
-
-			} else {
-
+				// Step back
+				user.console.queue.unshift(user.console.queueAction);
+				user.console.queueAction = null;
+				user.console.lastNextAction = null;
+				user.console.curPane = null;
+				return this.parse('/sggame next');
 			}
 		},
 		bag: function (target, room, user, connection, cmd) {
