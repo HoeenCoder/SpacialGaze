@@ -339,7 +339,7 @@ class Battle {
 						}
 					}
 					// Evolution
-					// TODO 
+					// TODO
 					// Add the evo array onto the end of the move array
 					user.console.queue = actions.concat(user.console.queue);
 				}
