@@ -363,7 +363,7 @@ exports.commands = {
 				user.console.lastNextAction = null;
 				user.console.curPane = null;
 				return this.parse('/sggame next');
-			} else if (target === 'cancel'){
+			} else if (target === 'cancel') {
 				// Step back
 				user.console.queue.unshift(user.console.queueAction);
 				user.console.queueAction = null;
