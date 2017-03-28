@@ -71,4 +71,5 @@ exports.BattleAbilities = {
 		effect: {
 			duration: 2,
 		},
+	},
 };
