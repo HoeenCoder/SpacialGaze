@@ -305,6 +305,7 @@ class Battle {
 			let user = Users(userid);
 			let gameObj = Db.players.get(userid);
 			let run = false;
+			let actions = [];
 			for (let i = 0; i < data.length; i++) {
 				let cur = data[i].split('|');
 				cur[0] = Number(cur[0]);
@@ -328,7 +329,6 @@ class Battle {
 					if (!pokemon.learnset && baseSpecies && baseSpecies.learnset) {
 						pokemon.learnset = baseSpecies.learnset;
 					}
-					let actions = [];
 					let used = [];
 					for (let move in pokemon.learnset) {
 						for (let learned in pokemon.learnset[move]) {
@@ -344,10 +344,13 @@ class Battle {
 					// TODO
 					// Add the evo array onto the end of the move array
 					user.sendTo(Rooms('lobby'), 'Actions: ' + actions.join(" ")); // DEBUG
-					user.console.queue = actions.concat(user.console.queue);
 				}
 			}
 			Db.players.set(userid, gameObj);
+			actions.reverse();
+			for (let i = 0; i < actions.length; i++) {
+				user.console.queue.unshift(actions[i]);
+			}
 			if (run) user.console.next();
 			break;
 		}
