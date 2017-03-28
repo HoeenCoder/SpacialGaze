@@ -378,24 +378,18 @@ exports.commands = {
 		let type, typeColor;
 		if (starters.indexOf(target) <= 6) {
 			type = "Grass";
+			typeColor = "green";
 		} else if (starters.indexOf(target) >= 7 && starters.indexOf(target) <= 13) {
 			type = "Fire";
+			typeColor = "red";
 		} else if (starters.indexOf(target) >= 14 && starters.indexOf(target) <= 20) {
 			type = "Water";
+			typeColor = "blue";
 		} else if (starters.indexOf(target) === 21) {
 			type = "Electric";
-		} else {
-			type = "Normal";
-		}
-		if (type === "Grass") {
-			typeColor = "green";
-		} else if (type === "Fire") {
-			typeColor = "red";
-		} else if (type === "Water") {
-			typeColor = "blue";
-		} else if (type === "Electric") {
 			typeColor = "yellow";
 		} else {
+			type = "Normal";
 			typeColor = "#B08257";
 		}
 		switch (cmd) {
