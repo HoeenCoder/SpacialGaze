@@ -269,9 +269,9 @@ exports.commands = {
 				'Were not done creating the game yet so its limited as to what you can do.<br/>But you can help out by testing whats here, and reporting any issues you find!',
 				'Lets get you setup.<br/>Pick a starter:'];
 			let msg = '';
-			let starters = [['Bulbasaur', 'Chikorita', 'Treecko', 'Turtwig', 'Snivy', 'Chespin', 'Rowlet'], ['Charmander', 'Cyndaquil', 'Torchic', 'Chimchar', 'Tepig', 'Fennekin', 'Litten'], ['Squirtle', 'Totodile', 'Mudkip', 'Piplup', 'Oshawott', 'Froakie', 'Popplio'], ['Pikachu', 'Eevee']];
+			let starters = [['Bulbasaur', 'Chikorita', 'Treecko', 'Turtwig', 'Snivy', 'Chespin', 'Rowlet'], ['Charmander', 'Cyndaquil', 'Torchic', 'Chimchar', 'Tepig', 'Fennekin', 'Litten'], ['Squirtle', 'Totodile', 'Mudkip', 'Piplup', 'Oshawott', 'Froakie', 'Popplio'], ['Pikachu'], ['Eevee']];
 			for (let i = 0; i < starters.length; i++) {
-				let color = (i === 0 ? 'green' : (i === 1 ? 'red' : (i === 2 ? 'blue' : (i === 3 ? 'yellow' : 'grey'))));
+				let color = (i === 0 ? 'green' : (i === 1 ? 'red' : (i === 2 ? 'blue' : (i === 3 ? '#E5DA2A' : '#B08257'))));
 				for (let j = 0; j < starters[i].length; j++) {
 					msg += '<button name="send" value="/pickstarter ' + starters[i][j] + '" style="border: none; background: none; color: ' + color + '"><u>' + starters[i][j] + '</u></button> ';
 				}
@@ -380,12 +380,13 @@ exports.commands = {
 			type = "Grass";
 		} else if (starters.indexOf(target) >= 7 && starters.indexOf(target) <= 13) {
 			type = "Fire";
-		} else if (starters.indexOf(target) >= 14) {
+		} else if (starters.indexOf(target) >= 14 && starters.indexOf(target) <= 20) {
 			type = "Water";
-		} else if (starters.indexOF(target) = 15) {
+		} else if (starters.indexOf(target) === 21) {
 			type = "Electric";
-		} else if (starters.indexOF(target) = 16) {
+		} else {
 			type = "Normal";
+		}
 		if (type === "Grass") {
 			typeColor = "green";
 		} else if (type === "Fire") {
@@ -395,7 +396,7 @@ exports.commands = {
 		} else if (type === "Electric") {
 			typeColor = "yellow";
 		} else {
-			typeColor = "grey";
+			typeColor = "#B08257";
 		}
 		switch (cmd) {
 		case 'pickstarter':
