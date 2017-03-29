@@ -11,7 +11,6 @@
 exports.BattleScripts = {
 	randomDigimonTeam: function (side) {
 		let team = [];
-		let variant = (this.random(2) === 1);
 		let sets = {
 			"Botamon": {
 				species: "Botamon",
