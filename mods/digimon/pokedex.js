@@ -262,7 +262,7 @@ exports.BattlePokedex = {
 		prevo: ["Tokomon"],
 	},
 	kunemon: {
-		num: 013,
+		num: 13,
 		species: "Kunemon",
 		types: ["Earth", "Air"],
 		baseStats: {
@@ -703,7 +703,7 @@ exports.BattlePokedex = {
 		evo: ["Andromon", "Devimon", "Phoenixmon", "Vademon"],
 	},
 	unimon: {
-		num: 078,
+		num: 78,
 		species: "Unimon",
 		types: ["Air", "Battle"],
 		baseStats: {
@@ -763,7 +763,7 @@ exports.BattlePokedex = {
 		evo: ["MegaSeadramon", "Vademon"],
 	},
 	numemon: {
-		num: 089,
+		num: 89,
 		species: "Numemon",
 		types: ["Filth"],
 		baseStats: {
@@ -1133,7 +1133,7 @@ exports.BattlePokedex = {
 		prevos: ["Aidramon", "Angemon", "Birdramon", "Kokatorimon", "Unimon"],
 	},
 	piximon:{
-		num: 039,
+		num: 39,
 		species: "Piximon",
 		types: ["Earth", "Air"],
 		baseStats: {
