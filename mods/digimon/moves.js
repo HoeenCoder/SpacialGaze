@@ -1367,7 +1367,7 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		priority: 0,
 		flags: {heal: 1, snatch: 1, distance: 1},
-		onHit: function (pokemon) {
+		onHit: function (pokemon, source) {
 			pokemon.cureStatus();
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
