@@ -181,8 +181,8 @@ exports.commands = {
 			return this.privateModCommand("(A survey was started by " + user.name + ".)");
 		},
 		newhelp: ["/survey create [question] - Create a survey. Requires % @ # & ~"],
-
-		answer: function (target, room, user, connection, cmd, message) {
+		
+		sa: function (target, room, user, connection, cmd, message) {
 			if (!room.survey) return this.errorReply("There is no survey running in the room.");
 			if (!target) return this.parse('/help survey answer');
 			if (target.length > 600) return this.errorReply('Your answer is too long.');
@@ -190,7 +190,8 @@ exports.commands = {
 			target = Chat.escapeHTML(target);
 			room.survey.answer(user, target);
 		},
-		answerhelp: ["/survey answer [answer] - Answer a survey."],
+		
+		sahelp: ["/sa [answer] - Answers the survey."],
 
 		results: function (target, room, user, connection, cmd, message) {
 			if (!room.survey) return this.errorReply("There is no survey running in the room.");
