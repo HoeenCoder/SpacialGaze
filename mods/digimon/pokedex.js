@@ -1281,7 +1281,7 @@ exports.BattlePokedex = {
 			spa: 500,
 			spd: 500,
 			spe: 100,
-		},	
+		},
 		abilities: {
 			0: "Virus",
 		},
