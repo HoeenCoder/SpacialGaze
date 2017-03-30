@@ -165,7 +165,7 @@ exports.commands = {
 		this.parse('/survey answer ' + target);
 	},
 	sahelp: function (target, room, user) {
-		this.parse('/survey answerhelp');
+		this.parse('/help survey answer');
 	},
 	survey: {
 		htmlcreate: 'new',
