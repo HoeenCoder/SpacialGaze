@@ -161,9 +161,6 @@ function validateAnswer(room, message) {
 }
 
 exports.commands = {
-	sa: function (target, room, user) {
-		this.parse('/survey answer ' + target);
-	},
 	survey: {
 		htmlcreate: 'new',
 		create: 'new',
@@ -299,7 +296,7 @@ exports.commands = {
 	surveyhelp: ["/survey allows rooms to run their own surveys. These surveys are limited to one survey at a time per room.",
 		"Accepts the following commands:",
 		"/survey create [question] - Create a survey. Requires % @ # & ~",
-		"/survey answer [answer] - Answer a survey.",
+		"/sa [answer] - Answer a survey.",
 		"/survey results - View the results of the survey. You cant go back and answer if you havent already.",
 		"/survey display - Display the survey.",
 		"/survey remove [user] - Removes a users reply and prevents them from sending in a new one for this survey. Requires: % @ # & ~",
