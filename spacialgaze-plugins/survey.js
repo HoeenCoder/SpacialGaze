@@ -161,6 +161,16 @@ function validateAnswer(room, message) {
 }
 
 exports.commands = {
+	sa: function (target, room, user, connection, cmd, message) {
+			if (!room.survey) return this.errorReply("There is no survey running in the room.");
+			if (!target) return this.parse('/help survey answer');
+			if (target.length > 600) return this.errorReply('Your answer is too long.');
+			if (!validateAnswer(room, target)) return this.errorReply('Your answer contained a banned phrase');
+			target = Chat.escapeHTML(target);
+			room.survey.answer(user, target);
+	},
+	sahelp: ["/sa [answer] - Answers the survey."],
+	
 	survey: {
 		htmlcreate: 'new',
 		create: 'new',
@@ -182,17 +192,6 @@ exports.commands = {
 		},
 		newhelp: ["/survey create [question] - Create a survey. Requires % @ # & ~"],
 		
-		sa: function (target, room, user, connection, cmd, message) {
-			if (!room.survey) return this.errorReply("There is no survey running in the room.");
-			if (!target) return this.parse('/help survey answer');
-			if (target.length > 600) return this.errorReply('Your answer is too long.');
-			if (!validateAnswer(room, target)) return this.errorReply('Your answer contained a banned phrase');
-			target = Chat.escapeHTML(target);
-			room.survey.answer(user, target);
-		},
-		
-		sahelp: ["/sa [answer] - Answers the survey."],
-
 		results: function (target, room, user, connection, cmd, message) {
 			if (!room.survey) return this.errorReply("There is no survey running in the room.");
 			return room.survey.blankanswer(user);
