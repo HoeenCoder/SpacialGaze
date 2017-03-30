@@ -161,9 +161,16 @@ function validateAnswer(room, message) {
 }
 
 exports.commands = {
-	sa: function (target, room, user) {
-		this.parse('/survey answer ' + target);
+	sa: function (target, room, user, connection, cmd, message) {
+			if (!room.survey) return this.errorReply("There is no survey running in the room.");
+			if (!target) return this.parse('/help survey answer');
+			if (target.length > 600) return this.errorReply('Your answer is too long.');
+			if (!validateAnswer(room, target)) return this.errorReply('Your answer contained a banned phrase');
+			target = Chat.escapeHTML(target);
+			room.survey.answer(user, target);
 	},
+	sahelp: ["/sa [answer] - Answers the survey."],
+	
 	survey: {
 		htmlcreate: 'new',
 		create: 'new',
@@ -184,17 +191,7 @@ exports.commands = {
 			return this.privateModCommand("(A survey was started by " + user.name + ".)");
 		},
 		newhelp: ["/survey create [question] - Create a survey. Requires % @ # & ~"],
-
-		answer: function (target, room, user, connection, cmd, message) {
-			if (!room.survey) return this.errorReply("There is no survey running in the room.");
-			if (!target) return this.parse('/help survey answer');
-			if (target.length > 600) return this.errorReply('Your answer is too long.');
-			if (!validateAnswer(room, target)) return this.errorReply('Your answer contained a banned phrase');
-			target = Chat.escapeHTML(target);
-			room.survey.answer(user, target);
-		},
-		answerhelp: ["/survey answer [answer] - Answer a survey."],
-
+		
 		results: function (target, room, user, connection, cmd, message) {
 			if (!room.survey) return this.errorReply("There is no survey running in the room.");
 			return room.survey.blankanswer(user);
@@ -299,7 +296,7 @@ exports.commands = {
 	surveyhelp: ["/survey allows rooms to run their own surveys. These surveys are limited to one survey at a time per room.",
 		"Accepts the following commands:",
 		"/survey create [question] - Create a survey. Requires % @ # & ~",
-		"/survey answer [answer] - Answer a survey.",
+		"/sa [answer] - Answer a survey.",
 		"/survey results - View the results of the survey. You cant go back and answer if you havent already.",
 		"/survey display - Display the survey.",
 		"/survey remove [user] - Removes a users reply and prevents them from sending in a new one for this survey. Requires: % @ # & ~",
