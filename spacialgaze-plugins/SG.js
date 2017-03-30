@@ -6,8 +6,9 @@ const Autolinker = require('autolinker');
 
 let regdateCache = {};
 
-SG.nameColor = function (name, bold) {
-	return (bold ? "<b>" : "") + "<font color=" + SG.hashColor(name) + ">" + (Users(name) && Users(name).connected && Users.getExact(name) ? Chat.escapeHTML(Users.getExact(name).name) : Chat.escapeHTML(name)) + "</font>" + (bold ? "</b>" : "");
+SG.nameColor = function (name, bold, userGroup) {
+	let userGroupSymbol = Users.usergroups[toId(name)] ? '<b><font color=#948A88>' + Users.usergroups[toId(name)].substr(0, 1) + '</font></b>' : "";
+	return (userGroup ? userGroupSymbol : "") + (bold ? "<b>" : "") + "<font color=" + SG.hashColor(name) + ">" + (Users(name) && Users(name).connected && Users.getExact(name) ? Chat.escapeHTML(Users.getExact(name).name) : Chat.escapeHTML(name)) + "</font>" + (bold ? "</b>" : "");
 };
 // usage: SG.nameColor(user.name, true) for bold OR SG.nameColor(user.name, false) for non-bolded.
 
@@ -56,32 +57,6 @@ SG.regdate = function (target, callback) {
 	});
 };
 
-/*SG.setTitle = function (userid, title, callback) {
-	userid = toId(userid);
-	SG.database.all("SELECT * FROM users WHERE userid=$userid", {$userid: userid}, function (err, rows) {
-		if (rows.length < 1) {
-			SG.database.run("INSERT INTO users(userid, title) VALUES ($userid, $title)", {$userid: userid, $title: title}, function (err) {
-				if (err) return console.log(err);
-				if (callback) return callback();
-			});
-		} else {
-			SG.database.run("UPDATE users SET title=$title WHERE userid=$userid", {$title: title, $userid: userid}, function (err) {
-				if (err) return console.log(err);
-				if (callback) return callback();
-			});
-		}
-	});
-};
-
-SG.getTitle = function (userid, callback) {
-	if (!callback) return false;
-	userid = toId(userid);
-	SG.database.all("SELECT title FROM users WHERE userid=$userid", {$userid: userid}, function (err, rows) {
-		if (err) return console.log(err);
-		callback(((rows[0] && rows[0].title) ? rows[0].title : ""));
-	});
-};*/
-
 SG.parseMessage = function (message) {
 	if (message.substr(0, 5) === "/html") {
 		message = message.substr(5);
@@ -116,6 +91,23 @@ SG.reloadCSS = function () {
 	http.get(options);
 };
 
+//Daily Rewards System for SpacialGaze by Lord Haji
+SG.giveDailyReward = function (userid, user) {
+	if (!user || !userid) return false;
+	userid = toId(userid);
+	if (!Db.DailyBonus.has(userid)) {
+		Db.DailyBonus.set(userid, [1, Date.now()]);
+		return false;
+	}
+	let lastTime = Db.DailyBonus.get(userid)[1];
+	if ((Date.now() - lastTime) < 86400000) return false;
+	if ((Date.now() - lastTime) >= 127800000) Db.DailyBonus.set(userid, [1, Date.now()]);
+	if (Db.DailyBonus.get(userid)[0] === 8) Db.DailyBonus.set(userid, [7, Date.now()]);
+	Economy.writeMoney(userid, Db.DailyBonus.get(userid)[0]);
+	user.send('|popup||wide||html| <center><u><b><font size="3">SpacialGaze Daily Bonus</font></b></u><br>You have been awarded ' + Db.DailyBonus.get(userid)[0] + ' Stardust.<br>' + showDailyRewardAni(userid) + '<br>Because you have connected to the server for the past ' + Db.DailyBonus.get(userid)[0] + ' Days.</center>');
+	Db.DailyBonus.set(userid, [(Db.DailyBonus.get(userid)[0] + 1), Date.now()]);
+};
+
 // last two functions needed to make sure SG.regdate() fully works
 function loadRegdateCache() {
 	try {
@@ -126,4 +118,14 @@ loadRegdateCache();
 
 function saveRegdateCache() {
 	fs.writeFileSync('config/regdate.json', JSON.stringify(regdateCache));
+}
+
+function showDailyRewardAni(userid) {
+	userid = toId(userid);
+	let streak = Db.DailyBonus.get(userid)[0];
+	let output = '';
+	for (let i = 1; i <= streak; i++) {
+		output += "<img src='http://i.imgur.com/ZItWCLB.png' width='16' height='16'> ";
+	}
+	return output;
 }

@@ -425,6 +425,24 @@ function runDexsearch(target, cmd, canAll, message) {
 				break;
 			}
 
+			if (target === 'zrecovery') {
+				if (parameters.length > 1) return {reply: "The parameter 'zrecovery' cannot have alternative parameters"};
+				let recoveryMoves = ["aromatherapy", "bellydrum", "conversion2", "haze", "healbell", "mist", "psychup", "refresh", "spite", "stockpile", "teleport", "transform"];
+				for (let k = 0; k < recoveryMoves.length; k++) {
+					let invalid = validParameter("moves", recoveryMoves[k], isNotSearch, target);
+					if (invalid) return {reply: invalid};
+					if (isNotSearch) {
+						let bufferObj = {moves: {}};
+						bufferObj.moves[recoveryMoves[k]] = false;
+						searches.push(bufferObj);
+					} else {
+						orGroup.moves[recoveryMoves[k]] = true;
+					}
+				}
+				if (isNotSearch) orGroup.skip = true;
+				break;
+			}
+
 			if (target === 'priority') {
 				if (parameters.length > 1) return {reply: "The parameter 'priority' cannot have alternative parameters"};
 				for (let move in Tools.data.Movedex) {
@@ -743,6 +761,15 @@ function runMovesearch(target, cmd, canAll, message) {
 			continue;
 		}
 
+		if (target === 'zrecovery') {
+			if (!searches['zrecovery']) {
+				searches['zrecovery'] = !isNotSearch;
+			} else if ((searches['zrecovery'] && isNotSearch) || (searches['zrecovery'] === false && !isNotSearch)) {
+				return {reply: 'A search cannot both exclude and include z-recovery moves.'};
+			}
+			continue;
+		}
+
 		let template = Tools.getTemplate(target);
 		if (template.exists) {
 			if (Object.keys(lsetData).length) return {reply: "A search can only include one Pok\u00e9mon learnset."};
@@ -847,6 +874,26 @@ function runMovesearch(target, cmd, canAll, message) {
 			continue;
 		}
 
+		if (target.substr(0, 8) === 'zboosts ') {
+			switch (target.substr(8)) {
+			case 'attack': target = 'atk'; break;
+			case 'defense': target = 'def'; break;
+			case 'specialattack': target = 'spa'; break;
+			case 'spatk': target = 'spa'; break;
+			case 'specialdefense': target = 'spd'; break;
+			case 'spdef': target = 'spd'; break;
+			case 'speed': target = 'spe'; break;
+			case 'acc': target = 'accuracy'; break;
+			case 'evasiveness': target = 'evasion'; break;
+			default: target = target.substr(8);
+			}
+			if (!(target in allBoosts)) return {reply: "'" + escapeHTML(target.substr(8)) + "' is not a recognized stat."};
+			if (!searches['zboost']) searches['zboost'] = {};
+			if ((searches['zboost'][target] && isNotSearch) || (searches['zboost'][target] === false && !isNotSearch)) return {reply: 'A search cannot both exclude and include a stat boost.'};
+			searches['zboost'][target] = !isNotSearch;
+			continue;
+		}
+
 		let oldTarget = target;
 		if (target.charAt(target.length - 1) === 's') target = target.substr(0, target.length - 1);
 		switch (target) {
@@ -930,6 +977,13 @@ function runMovesearch(target, cmd, canAll, message) {
 			}
 			break;
 
+		case 'zrecovery':
+			for (let move in dex) {
+				let hasRecovery = (dex[move].zMoveEffect === 'heal');
+				if ((!hasRecovery && searches[search]) || (hasRecovery && !searches[search])) delete dex[move];
+			}
+			break;
+
 		case 'property':
 			for (let prop in searches[search]) {
 				for (let move in dex) {
@@ -966,6 +1020,18 @@ function runMovesearch(target, cmd, canAll, message) {
 					} else if (dex[move].secondary && dex[move].secondary.self && dex[move].secondary.self.boosts) {
 						if ((dex[move].secondary.self.boosts[boost] > 0 && searches[search][boost]) ||
 							(dex[move].secondary.self.boosts[boost] < 1 && !searches[search][boost])) continue;
+					}
+					delete dex[move];
+				}
+			}
+			break;
+
+		case 'zboost':
+			for (let boost in searches[search]) {
+				for (let move in dex) {
+					if (dex[move].zMoveBoost) {
+						if ((dex[move].zMoveBoost[boost] > 0 && searches[search][boost]) ||
+							(dex[move].zMoveBoost[boost] < 1 && !searches[search][boost])) continue;
 					}
 					delete dex[move];
 				}
@@ -1310,7 +1376,7 @@ function runLearn(target, cmd) {
 	let buffer = "In " + formatName + ", ";
 	buffer += "" + template.name + (problem ? " <span class=\"message-learn-cannotlearn\">can't</span> learn " : " <span class=\"message-learn-canlearn\">can</span> learn ") + (targets.length > 2 ? "these moves" : move.name);
 	if (!problem) {
-		let sourceNames = {E:"egg", S:"event", D:"dream world", X:"egg, traded back", Y: "event, traded back"};
+		let sourceNames = {E:"egg", S:"event", D:"dream world", V:"virtual console transfer from gen 1", X:"egg, traded back", Y:"event, traded back"};
 		let sourcesBefore = lsetData.sourcesBefore;
 		if (lsetData.sources || sourcesBefore < gen) buffer += " only when obtained";
 		buffer += " from:<ul class=\"message-learn-list\">";
@@ -1330,6 +1396,7 @@ function runLearn(target, cmd) {
 				let source = sources[i];
 				let hatchAs = ['6E', '7E'].includes(source.substr(0, 2)) ? 'hatched as ' : '';
 				if (source.substr(0, 2) === prevSourceType) {
+					if (!hatchAs && source.length <= 2) continue;
 					if (prevSourceCount < 0) {
 						buffer += ": " + hatchAs + source.substr(2);
 					} else if (all || prevSourceCount < 3) {

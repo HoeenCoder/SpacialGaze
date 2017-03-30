@@ -1,4 +1,5 @@
 /config/*
+!/config/formats.js
 /logs/*
 /node_modules
 /eslint-cache
@@ -6,6 +7,7 @@
 /spacialgaze-plugins/filter.js
 /spacialgaze-plugins/shop.js
 /spacialgaze-plugins/leagues.js
+/spacialgaze-plugins/auth2.js
 npm-debug.log
 .eslintcache
 

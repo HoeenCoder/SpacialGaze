@@ -28,7 +28,12 @@ describe('Rooms features', function () {
 
 		let room;
 		afterEach(function () {
-			if (room) room.expire();
+			Users.users.forEach(user => {
+				room.onLeave(user);
+				user.disconnectAll();
+				user.destroy();
+			});
+			if (room) room.destroy();
 		});
 
 		it('should allow two users to join the battle', function () {
@@ -77,17 +82,13 @@ describe('Rooms features', function () {
 				},
 			};
 			room = Rooms.global.startBattle(p1, p2, 'customgame', packedTeam, packedTeam, options);
+			roomStaff.joinRoom(room);
 			administrator.joinRoom(room);
 			assert.strictEqual(room.getAuth(roomStaff), '%', 'before promotion attempt');
 			Chat.parse("/roomvoice Room auth", room, p1, p1.connections[0]);
 			assert.strictEqual(room.getAuth(roomStaff), '%', 'after promotion attempt');
 			Chat.parse("/roomvoice Room auth", room, administrator, administrator.connections[0]);
 			assert.strictEqual(room.getAuth(roomStaff), '+', 'after being promoted by an administrator');
-
-			for (const user of [roomStaff, administrator]) {
-				user.disconnectAll();
-				user.destroy();
-			}
 		});
 	});
 });

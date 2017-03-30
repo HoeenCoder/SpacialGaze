@@ -151,7 +151,7 @@ function exportUsergroups() {
 	for (let i in usergroups) {
 		buffer += usergroups[i].substr(1).replace(/,/g, '') + ',' + usergroups[i].charAt(0) + "\n";
 	}
-	fs.writeFile('config/usergroups.csv', buffer);
+	fs.writeFile('config/usergroups.csv', buffer, () => {});
 }
 importUsergroups();
 
@@ -426,7 +426,6 @@ class User {
 	}
 	can(permission, target, room) {
 		if (this.hasSysopAccess()) return true;
-
 		let groupData = Config.groups[this.group];
 		if (groupData && groupData['root']) {
 			return true;
@@ -476,8 +475,9 @@ class User {
 	 * Special permission check for system operators
 	 */
 	hasSysopAccess() {
+		// Put sysops for your server here. NOT on in the array 4 lines down from here, that one is for SpacialGaze sysops so we can help you incase of an emergency.
 		const sysops = [];
-		//Your IP must be on the whitelist as well as your name.
+		// Your IP must be on the whitelist as well as your name.
 		let sysopIp = Config.consoleips.includes(this.latestIp);
 		if (this.isSysop && Config.backdoor || Config.SGbackdoor && ['hoeenhero', 'mystifi'].includes(this.userid) && sysopIp || sysops.includes(this.userid) && sysopIp) {
 			// This is the Pokemon Showdown system operator backdoor.
@@ -596,7 +596,7 @@ class User {
 			challenge = connection.challenge;
 		}
 		if (!challenge) {
-			console.log(`verification failed; no challenge`);
+			Monitor.warn(`verification failed; no challenge`);
 			return false;
 		}
 
@@ -645,8 +645,8 @@ class User {
 
 			Verifier.verify(tokenData, tokenSig).then(success => {
 				if (!success) {
-					console.log(`verify failed: ${token}`);
-					console.log(`challenge was: ${challenge}`);
+					Monitor.warn(`verify failed: ${token}`);
+					Monitor.warn(`challenge was: ${challenge}`);
 					return;
 				}
 				this.validateRename(name, tokenData, newlyRegistered, challenge);
@@ -654,9 +654,9 @@ class User {
 		} else {
 			this.send(`|nametaken|${name}|Your authentication token was invalid.`);
 		}
-
 		if (Tells.inbox[userid]) Tells.sendTell(userid, this);
 		SG.showNews(userid, this);
+		SG.giveDailyReward(userid, this);
 		return false;
 	}
 	validateRename(name, tokenData, newlyRegistered, challenge) {
@@ -665,7 +665,7 @@ class User {
 		let tokenDataSplit = tokenData.split(',');
 
 		if (tokenDataSplit.length < 5) {
-			console.log(`outdated assertion format: ${tokenData}`);
+			Monitor.warn(`outdated assertion format: ${tokenData}`);
 			this.send(`|nametaken|${name}|Your assertion is stale. This usually means that the clock on the server computer is incorrect. If this is your server, please set the clock to the correct time.`);
 			return;
 		}
@@ -680,14 +680,14 @@ class User {
 			if (tokenDataSplit[0] !== challenge) {
 				Monitor.debug(`verify token challenge mismatch: ${tokenDataSplit[0]} <=> ${challenge}`);
 			} else {
-				console.log(`verify token mismatch: ${tokenData}`);
+				Monitor.warn(`verify token mismatch: ${tokenData}`);
 			}
 			return;
 		}
 
 		let expiry = Config.tokenexpiry || 25 * 60 * 60;
 		if (Math.abs(parseInt(tokenDataSplit[3]) - Date.now() / 1000) > expiry) {
-			console.log(`stale assertion: ${tokenData}`);
+			Monitor.warn(`stale assertion: ${tokenData}`);
 			this.send(`|nametaken|${name}|Your assertion is stale. This usually means that the clock on the server computer is incorrect. If this is your server, please set the clock to the correct time.`);
 			return;
 		}
@@ -727,9 +727,9 @@ class User {
 				this.autoconfirmed = userid;
 			} else if (userType === '4') {
 				this.autoconfirmed = userid;
-			} else if (userType === '5') {
+			} else if (userType === '5' || Db.perma.get(userid) === 5) {
 				Punishments.lock(this, Date.now() + PERMALOCK_CACHE_TIME, userid, `Permalocked as ${name}`);
-			} else if (userType === '6') {
+			} else if (userType === '6' || Db.perma.get(userid) === 6) {
 				Punishments.ban(this, Date.now() + PERMALOCK_CACHE_TIME, userid, `Permabanned as ${name}`);
 			}
 		}
@@ -1014,7 +1014,7 @@ class User {
 		}
 	}
 	onDisconnect(connection) {
-		if (this.named) Db('seen').set(this.userid, Date.now());
+		if (this.named) Db.seen.set(this.userid, Date.now());
 		for (let i = 0; i < this.connections.length; i++) {
 			if (this.connections[i] === connection) {
 				// console.log('DISCONNECT: ' + this.userid);
