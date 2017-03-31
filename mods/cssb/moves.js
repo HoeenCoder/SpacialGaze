@@ -112,18 +112,18 @@ exports.BattleMovedex = {
 			let ratio = (pokemon.getStat('spe') / target.getStat('spe'));
 			this.debug([40, 60, 80, 120, 150][(Math.floor(ratio) > 4 ? 4 : Math.floor(ratio))] + ' bp');
 			if (ratio >= 4) {
-				return 40;
+				return 150;
 			}
 			if (ratio >= 3) {
-				return 60;
+				return 120;
 			}
 			if (ratio >= 2) {
 				return 80;
 			}
 			if (ratio >= 1) {
-				return 120;
+				return 60;
 			}
-			return 150;
+			return 40;
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -136,7 +136,7 @@ exports.BattleMovedex = {
 		},
 		self: {
 			boosts: {
-				spe: 1,
+				spe: -1,
 			},
 		},
 		pp: 10,
@@ -159,7 +159,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Blizzard", source);
 		},
 		onHit: function (target, pokemon, move) {
-			this.useMove('Blizzard', pokemon);
+			this.useMove('powder snow', pokemon);
 		},
 		pp: 10,
 		weather: 'sandstorm',
@@ -170,8 +170,8 @@ exports.BattleMovedex = {
 	//Fighting
 	beatdown: {
 		category: "Physical",
-		basePower: 90,
-		accuracy: 80,
+		basePower: 1,
+		accuracy: 100,
 		id: "beatdown",
 		name: "Beat Down",
 		isNonstandard: true,
@@ -336,7 +336,7 @@ exports.BattleMovedex = {
 		},
 		secondary: false,
 		pp: 10,
-		priority: 0,
+		priority: -9,
 		target: "normal",
 		type: "Rock",
 	},
@@ -357,10 +357,13 @@ exports.BattleMovedex = {
 			mirror: 1,
 		},
 		willCrit: true,
-		secondary: false,
+		secondary: {
+			chance: 100,
+			status: 'frz',
+		},
 		pp: 10,
-		priority: -9,
-		target: "normal",
+		priority: 0,
+		target: "self",
 		type: "Ghost",
 	},
 	//Dragon
@@ -490,9 +493,9 @@ exports.BattleMovedex = {
 		},
 		name: "Rocket Punch",
 		pp: 10,
-		priority: 1,
+		priority: -1,
 		target: "Normal",
-		type: "Fire",
+		type: "normal",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flare Blitz", source);
