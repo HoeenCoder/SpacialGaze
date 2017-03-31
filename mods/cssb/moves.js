@@ -492,6 +492,7 @@ exports.BattleMovedex = {
 			protect: true,
 		},
 		name: "Rocket Punch",
+		selfdestruct: "always",
 		pp: .625,
 		priority: -1,
 		target: "Normal",
