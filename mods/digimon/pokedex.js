@@ -191,7 +191,7 @@ exports.BattlePokedex = {
 		prevo: ["Koromon"],
 	},
 	gabumon: {
-		num: 774,
+		num: 775,
 		species: "Gabumon",
 		types: ["Battle", "Fire"],
 		baseStats: {
@@ -1270,7 +1270,7 @@ exports.BattlePokedex = {
 		prevos: ["Nanimon"],
 	},
 	//Mega Digimon
-	machinedramon:{
+	machinedramon: {
 		num: 649,
 		species: "Machinedramon",
 		types: ["Mech", "Air", "Battle"],
