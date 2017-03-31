@@ -1294,8 +1294,12 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		priority: 0,
 		flags: {snatch: 1, distance: 1},
-		onHit: function (pokemon, target, source) {
-			pokemon.cureStatus();
+		onHit: function (pokemon, source) {
+			this.add('-activate', source, 'move: Various');
+			let side = pokemon.side;
+			for (let i = 0; i < side.pokemon.length; i++) {
+				side.pokemon[i].cureStatus();
+			}
 		},
 		onTryHit: function (pokemon, target, source) {
 			this.attrLastMove('[still]');
