@@ -570,8 +570,6 @@ exports.BattleMovedex = {
 		zMovePower: 590,
 		contestType: "Tough",
 	},
-
-	},
 	//DEFAULT-MONS CUSTOM MOVES (Save incase or re-addition)
 	// SpaceGazer
 	/*spacialblast: {
