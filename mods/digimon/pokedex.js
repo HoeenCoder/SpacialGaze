@@ -3,8 +3,8 @@
 'use strict';
 
 exports.BattlePokedex = {
-	botamon: {
-		num: 771,
+	pyukumuku: {
+		inherit: true,
 		species: "Botamon",
 		types: ["Fire"],
 		baseStats: {
@@ -23,8 +23,8 @@ exports.BattlePokedex = {
 		color: "Black",
 		evos: ["Koromon", "Sukamon"],
 	},
-	poyomon: {
-		num: 582,
+	vanillite: {
+		inherit: true,
 		species: "Poyomon",
 		types: ["Air"],
 		baseStats: {
@@ -43,8 +43,8 @@ exports.BattlePokedex = {
 		color: "White",
 		evos: ["Tokomon", "Sukamon"],
 	},
-	punimon: {
-		num: 554,
+	darumaka: {
+		inherit: true,
 		species: "Punimon",
 		types: ["Air"],
 		baseStats: {
@@ -63,8 +63,8 @@ exports.BattlePokedex = {
 		color: "Red",
 		evos: ["Tsunomon", "Sukamon"],
 	},
-	yuramon: {
-		num: 268,
+	cascoon: {
+		inherit: true,
 		species: "Yuramon",
 		types: ["Earth"],
 		baseStats: {
@@ -84,8 +84,8 @@ exports.BattlePokedex = {
 		evos: ["Tanemon", "Sukamon"],
 	},
 	//In-Training, 100% Ready/
-	koromon: {
-		num: 174,
+	igglybuff: {
+		inherit: true,
 		species: "Koromon",
 		types: ["Fire", "Battle"],
 		baseStats: {
@@ -105,8 +105,8 @@ exports.BattlePokedex = {
 		evos: ["Agumon", "Gabumon", "Kunemon", "Sukamon"],
 		prevo: ["Botamon"],
 	},
-	tokomon: {
-		num: 266,
+	silcoon: {
+		inherit: true,
 		species: "Tokomon",
 		types: ["Air", "Battle"],
 		baseStats: {
@@ -126,8 +126,8 @@ exports.BattlePokedex = {
 		evos: ["Patamon", "Biyomon", "Kunemon", "Sukamon"],
 		prevos: ["Poyomon"],
 	},
-	tsunomon: {
-		num: 220,
+	swinub: {
+		inherit: true,
 		species: "Tsunomon",
 		types: ["Air", "Ice"],
 		baseStats: {
@@ -147,8 +147,8 @@ exports.BattlePokedex = {
 		evos: ["Elecmon", "Penguinmon", "Kunemon", "Sukamon"],
 		prevos: ["Punimon"],
 	},
-	tanemon: {
-		num: 191,
+	sunkern: {
+		inherit: true,
 		species: "Tanemon",
 		types: ["Earth", "Ice"],
 		baseStats: {
@@ -169,8 +169,8 @@ exports.BattlePokedex = {
 		prevos: ["Yuramon"],
 	},
 	//Rookie, 100% ready
-	agumon: {
-		num: 694,
+	helioptile: {
+		inherit: true,
 		species: "Agumon",
 		types: ["Fire", "Battle"],
 		baseStats: {
@@ -190,8 +190,8 @@ exports.BattlePokedex = {
 		evo: ["Birdramon", "Centarumon", "Greymon", "Meramon", "Monochromon", "Tyrannomon", "Nanimon", "Numemon", "Sukamon"],
 		prevo: ["Koromon"],
 	},
-	gabumon: {
-		num: 774,
+	rockruff: {
+		inherit: true,
 		species: "Gabumon",
 		types: ["Battle", "Fire"],
 		baseStats: {
@@ -211,8 +211,8 @@ exports.BattlePokedex = {
 		evo: ["Centarumon", "Drimogemon", "Garurumon", "Monochromon", "Ogremon", "Tyrannomon", "Nanimon", "Numemon", "Sukamon"],
 		prevo: ["Koromon"],
 	},
-	patamon: {
-		num: 702,
+	dedenne: {
+		inherit: true,
 		species: "Patamon",
 		types: ["Battle", "Air"],
 		baseStats: {
@@ -232,8 +232,8 @@ exports.BattlePokedex = {
 		evo: ["Angemon", "Leomon", "Ogremon", "Unimon", "Ogremon", "Nanimon", "Numemon", "Sukamon"],
 		prevo: ["Tokomon"],
 	},
-	elecmon: {
-		num: 309,
+	electrike: {
+		inherit: true,
 		species: "Elecmon",
 		types: ["Air", "Battle"],
 		baseStats: {
@@ -253,8 +253,8 @@ exports.BattlePokedex = {
 		evo: ["Angemon", "Leomon", "Kokatorimon", "Nanimon", "Numemon", "Sukamon"],
 		prevo: ["Tsunomon"],
 	},
-	biyomon: {
-		num: 661,
+	oricoriopau: {
+		inherit: true,
 		species: "Biyomon",
 		types: ["Air", "Fire"],
 		baseStats: {
@@ -274,8 +274,8 @@ exports.BattlePokedex = {
 		evo: ["Airdramon", "Birdramon", "Kabuterimon", "Kokatorimon", "Unimon", "Nanimon", "Numemon", "Sukamon"],
 		prevo: ["Tokomon"],
 	},
-	kunemon: {
-		num: 13,
+	weedle: {
+		inherit: true,
 		species: "Kunemon",
 		types: ["Earth", "Air"],
 		baseStats: {
@@ -295,8 +295,8 @@ exports.BattlePokedex = {
 		evo: ["Kabuterimon", "Kuwagamon", "Vegiemon"],
 		prevo: ["Koromon", "Tokomon", "Tsunomon", "Tanemon", "Sukamon"],
 	},
-	palmon: {
-		num: 192,
+	sunflora: {
+		inherit: true,
 		species: "Palmon",
 		types: ["Earth", "Ice"],
 		baseStats: {
@@ -316,8 +316,8 @@ exports.BattlePokedex = {
 		evo: ["Coelamon", "Kuwagamon", "Ninjamon", "Vegiemon", "Whamon", "Nanimon", "Numemon", "Sukamon"],
 		prevo: ["Tanemon"],
 	},
-	betamon: {
-		num: 258,
+	mudkip: {
+		inherit: true,
 		species: "Betamon",
 		types: ["Ice", "Air"],
 		baseStats: {
@@ -337,8 +337,8 @@ exports.BattlePokedex = {
 		evo: ["Coelamon", "Drimogemon", "Seadramon", "Shellmon", "Whamon", "Nanimon", "Numemon", "Sukamon"],
 		prevo: ["Tanemon"],
 	},
-	penguinmon: {
-		num: 225,
+	delibird: {
+		inherit: true,
 		species: "Penguinmon",
 		types: ["Ice", "Earth"],
 		baseStats: {
@@ -359,8 +359,8 @@ exports.BattlePokedex = {
 		prevo: ["Tsunomon"],
 	},
 	//Champion/
-	greymon: {
-		num: 695,
+	heliolisk: {
+		inherit: true,
 		species: "Greymon",
 		types: ["Fire", "Battle", "Air"],
 		baseStats: {
@@ -380,8 +380,8 @@ exports.BattlePokedex = {
 		evo: ["MetalGreymon", "SkullGreymon", "Vademon"],
 		prevo: ["Agumon"],
 	},
-	monochromon: {
-		num: 111,
+	rhyhorn: {
+		inherit: true,
 		species: "Monochromon",
 		types: ["Fire", "Battle", "Earth"],
 		baseStats: {
@@ -401,8 +401,8 @@ exports.BattlePokedex = {
 		evo: ["MetalGreymon", "MetalMamemon", "Vademon"],
 		prevo: ["Agumon", "Gabumon"],
 	},
-	ogremon: {
-		num: 105,
+	marowak: {
+		inherit: true,
 		species: "Ogremon",
 		types: ["Battle", "Fire", "Earth"],
 		baseStats: {
@@ -422,8 +422,8 @@ exports.BattlePokedex = {
 		evo: ["Andromon", "Giromon", "Vademon"],
 		prevo: ["Gabumon", "Patamon"],
 	},
-	airdramon: {
-		num: 334,
+	altaria: {
+		inherit: true,
 		species: "Airdramon",
 		types: ["Air", "Fire"],
 		baseStats: {
@@ -443,8 +443,8 @@ exports.BattlePokedex = {
 		evo: ["Megadramon", "Phoenixmon", "Vademon"],
 		prevo: ["Biyomon"],
 	},
-	kuwagamon: {
-		num: 794,
+	buzzwole: {
+		inherit: true,
 		species: "Kuwagamon",
 		types: ["Earth", "Battle", "Air"],
 		baseStats: {
@@ -464,8 +464,8 @@ exports.BattlePokedex = {
 		evo: ["HerculesKabuterimon", "Piximon", "Vademon"],
 		prevo: ["Kunemon", "Palmon"],
 	},
-	whamon: {
-		num: 321,
+	wailord: {
+		inherit: true,
 		species: "Whamon",
 		types: ["Ice", "Earth"],
 		baseStats: {
@@ -485,8 +485,8 @@ exports.BattlePokedex = {
 		evo: ["Mamemon", "MegaSeadramon", "Vademon"],
 		prevo: ["Betamon", "Palmon", "Penguinmon"],
 	},
-	frigimon: {
-		num: 614,
+	beartic: {
+		inherit: true,
 		species: "Frigimon",
 		types: ["Ice", "Battle"],
 		baseStats: {
@@ -506,8 +506,8 @@ exports.BattlePokedex = {
 		evo: ["Mamemon", "MetalMamemon", "Vademon"],
 		prevo: ["Penguinmon"],
 	},
-	nanimon: {
-		num: 101,
+	electrode: {
+		inherit: true,
 		species: "Nanimon",
 		types: ["Filth", "Battle"],
 		baseStats: {
@@ -527,8 +527,8 @@ exports.BattlePokedex = {
 		evo: ["Digitamamon", "Vademon"],
 		prevo: ["Agumon", "Betamon", "Biyomon", "Elecmon", "Gabumon", "Kunemon", "Palmon", "Patamon", "Penguinmon"],
 	},
-	meramon: {
-		num: 126,
+	magmar: {
+		inherit: true,
 		species: "Meramon",
 		types: ["Fire", "Battle"],
 		baseStats: {
@@ -548,8 +548,8 @@ exports.BattlePokedex = {
 		evo: ["Andromon", "MetalGreymon", "Vademon"],
 		prevo: ["Agumon"],
 	},
-	drimogemon: {
-		num: 530,
+	excadrill: {
+		inherit: true,
 		species: "Drimogemon",
 		types: ["Battle", "Earth"],
 		baseStats: {
@@ -569,8 +569,8 @@ exports.BattlePokedex = {
 		evo: ["MetalGreymon", "Vademon"],
 		prevo: ["Betamon", "Gabumon"],
 	},
-	leomon: {
-		num: 668,
+	pyroar: {
+		inherit: true,
 		species: "Leomon",
 		types: ["Battle", "Air"],
 		baseStats: {
@@ -590,8 +590,8 @@ exports.BattlePokedex = {
 		evo: ["Andromon", "Mamemon", "Vademon"],
 		prevo: ["Elecmon", "Patamon"],
 	},
-	kokatorimon: {
-		num: 256,
+	combusken: {
+		inherit: true,
 		species: "Kokatorimon",
 		types: ["Air", "Battle"],
 		baseStats: {
@@ -611,8 +611,8 @@ exports.BattlePokedex = {
 		evo: ["Andromon", "Mamemon", "Vademon"],
 		prevo: ["Elecmon", "Patamon"],
 	},
-	vegiemon: {
-		num: 455,
+	carnivine: {
+		inherit: true,
 		species: "Vegiemon",
 		types: ["Earth", "Ice"],
 		baseStats: {
@@ -632,8 +632,8 @@ exports.BattlePokedex = {
 		evo: ["Piximon", "Vademon"],
 		prevo: ["Kunemon", "Palmon"],
 	},
-	shellmon: {
-		num: 558,
+	crustle: {
+		inherit: true,
 		species: "Shellmon",
 		types: ["Ice", "Earth"],
 		baseStats: {
@@ -653,8 +653,8 @@ exports.BattlePokedex = {
 		evo: ["MegaSeadramon", "HerculesKabuterimon", "Vademon"],
 		prevo: ["Betamon", "Pengiunmon"],
 	},
-	mojyamon: {
-		num: 288,
+	vigoroth: {
+		inherit: true,
 		species: "Mojyamon",
 		types: ["Ice", "Battle", "Earth"],
 		baseStats: {
@@ -674,8 +674,8 @@ exports.BattlePokedex = {
 		evo: ["Mamemon", "SkullGreymon", "Vademon"],
 		prevo: ["Penguinmon"],
 	},
-	birdramon: {
-		num: 146,
+	moltres: {
+		inherit: true,
 		species: "Birdramon",
 		types: ["Fire", "Air"],
 		baseStats: {
@@ -695,8 +695,8 @@ exports.BattlePokedex = {
 		evo: ["Phoenixmon", "Vademon"],
 		prevo: ["Agumon", "Biyomon"],
 	},
-	tyrannomon: {
-		num: 697,
+	tyrantrum: {
+		inherit: true,
 		species: "Tyrannomon",
 		types: ["Fire", "Battle"],
 		baseStats: {
@@ -716,8 +716,8 @@ exports.BattlePokedex = {
 		prevo: ["Agumon", "Gabumon", "Patamon"],
 		evo: ["MetalGreymon", "Megadramon", "Vademon"],
 	},
-	angemon: {
-		num: 176,
+	togetic: {
+		inherit: true,
 		species: "Angemon",
 		types: ["Air", "Battle"],
 		baseStats: {
@@ -737,8 +737,8 @@ exports.BattlePokedex = {
 		prevo: ["Elecmon", "Patamon"],
 		evo: ["Andromon", "Devimon", "Phoenixmon", "Vademon"],
 	},
-	unimon: {
-		num: 78,
+	rapidash: {
+		inherit: true,
 		species: "Unimon",
 		types: ["Air", "Battle"],
 		baseStats: {
@@ -758,8 +758,8 @@ exports.BattlePokedex = {
 		prevo: ["Biyomon", "Patamon"],
 		evo: ["Giromon", "Phoenixmon", "Vademon"],
 	},
-	ninjamon: {
-		num: 617,
+	accelgor: {
+		inherit: true,
 		species: "Ninjamon",
 		types: ["Earth", "Battle", "Fire"],
 		baseStats: {
@@ -779,8 +779,8 @@ exports.BattlePokedex = {
 		prevo: ["Palmon"],
 		evo: ["Mamemon", "Metalmamemon", "Piximon", "Vademon"],
 	},
-	coelamon: {
-		num: 369,
+	relicanth: {
+		inherit: true,
 		species: "Coelamon",
 		types: ["Ice", "Earth"],
 		baseStats: {
@@ -800,8 +800,8 @@ exports.BattlePokedex = {
 		prevo: ["Betamon", "Palmon"],
 		evo: ["MegaSeadramon", "Vademon"],
 	},
-	numemon: {
-		num: 89,
+	muk: {
+		inherit: true,
 		species: "Numemon",
 		types: ["Filth"],
 		baseStats: {
@@ -821,8 +821,8 @@ exports.BattlePokedex = {
 		prevo: ["Agumon", "Betamon", "Biyomon", "Elecmon", "Gabumon", "Kunemon", "Palmon", "Patamon", "Penguinmon"],
 		evo: ["Monzemon", "Vademon"],
 	},
-	centarumon: {
-		num: 750,
+	mudsdale: {
+		inherit: true,
 		species: "Centarumon",
 		types: ["Fire", "Battle"],
 		baseStats: {
@@ -842,8 +842,8 @@ exports.BattlePokedex = {
 		prevo: ["Agumon", "Gabumon"],
 		evo: ["Andromon", "Giromon", "Vademon"],
 	},
-	devimon: {
-		num: 354,
+	banette: {
+		inherit: true,
 		species: "Devimon",
 		types: ["Battle", "Air", "Ice"],
 		baseStats: {
@@ -863,8 +863,8 @@ exports.BattlePokedex = {
 		prevo: ["Angemon"],
 		evo: ["Megadramon", "SkullGreymon", "Vademon"],
 	},
-	bakemon: {
-		num: 778,
+	mimikyu: {
+		inherit: true,
 		species: "Bakemon",
 		types: ["Air", "Ice"],
 		baseStats: {
@@ -884,8 +884,8 @@ exports.BattlePokedex = {
 		prevo: ["Agumon", "Betamon", "Biyomon", "Elecmon", "Gabumon", "Kunemon", "Palmon", "Patamon", "Penguinmon"],
 		evo: ["SkullGreymon", "Giromon", "Vademon"],
 	},
-	kabuterimon: {
-		num: 214,
+	heracross: {
+		inherit: true,
 		species: "Kabuterimon",
 		types: ["Earth", "Fire", "Air"],
 		baseStats: {
@@ -905,8 +905,8 @@ exports.BattlePokedex = {
 		prevo: ["Biyomon", "Kunemon"],
 		evo: ["HerculesKabuterimon", "MetalMamemon", "Vademon"],
 	},
-	seadramon: {
-		num: 148,
+	dragonair: {
+		inherit: true,
 		species: "Seadramon",
 		types: ["Ice", "Earth", "Fire"],
 		baseStats: {
@@ -926,8 +926,8 @@ exports.BattlePokedex = {
 		prevo: ["Betamon"],
 		evo: ["MegaSeadramon", "Megadramon", "Vademon"],
 	},
-	garurumon: {
-		num: 745,
+	lycanroc: {
+		inherit: true,
 		species: "Garurumon",
 		types: ["Ice", "Fire", "Battle"],
 		baseStats: {
@@ -947,8 +947,8 @@ exports.BattlePokedex = {
 		prevo: ["Gabumon", "Penguinmon"],
 		evo: ["MegaSeadramon", "SkullGreymon", "Vademon"],
 	},
-	sukamon: {
-		num: 569,
+	garbodor: {
+		inherit: true,
 		species: "Sukamon",
 		types: ["Filth"],
 		baseStats: {
@@ -969,8 +969,8 @@ exports.BattlePokedex = {
 		evo: ["Etemon", "Vademon"],
 	},
 	//Ultimate Digimon
-	metalgreymon:{
-		num: 621,
+	druddigon: {
+		inherit: true,
 		species: "MetalGreymon",
 		types: ["Mech", "Fire", "Battle"],
 		baseStats: {
@@ -989,8 +989,8 @@ exports.BattlePokedex = {
 		weightkg: 22.7,
 		prevos: ["Greymon", "Monochromon"],
 	},
-	skullgreymon:{
-		num: 306,
+	aggron: {
+		inherit: true,
 		species: "SkullGreymon",
 		types: ["Battle", "Ice", "Mech"],
 		baseStats: {
@@ -1009,8 +1009,8 @@ exports.BattlePokedex = {
 		weightkg: 13.6,
 		prevos: ["Bakemon", "Devimon", "Garurumon", "Greymon", "Mojyamon"],
 	},
-	giromon:{
-		num: 624,
+	pawniard: {
+		inherit: true,
 		species: "Giromon",
 		types: ["Mech", "Air", "Battle"],
 		baseStats: {
@@ -1029,8 +1029,8 @@ exports.BattlePokedex = {
 		weightkg: 2.3,
 		prevos: ["Bakemon", "Centarumon", "Ogremon", "Unimon"],
 	},
-	herculeskabuterimon:{
-		num: 127,
+	pinsirmega: {
+		inherit: true,
 		species: "HerculesKabuterimon",
 		types: ["Earth", "Battle", "Fire"],
 		baseStats: {
@@ -1049,8 +1049,8 @@ exports.BattlePokedex = {
 		weightkg: 18.1,
 		prevos: ["Kabuterimon", "Kuwagamon", "Shellmon"],
 	},
-	mamemon:{
-		num: 433,
+	chingling: {
+		inherit: true,
 		species: "Mamemon",
 		types: ["Battle", "Mech"],
 		baseStats: {
@@ -1069,8 +1069,8 @@ exports.BattlePokedex = {
 		weightkg: 2.3,
 		prevos: ["Frigimon", "Leomon", "Mojyamon", "Ninjamon", "Whamon"],
 	},
-	megaseadramon:{
-		num: 130,
+	gyarados: {
+		inherit: true,
 		species: "MegaSeadramon",
 		types: ["Ice", "Air"],
 		baseStats: {
@@ -1089,8 +1089,8 @@ exports.BattlePokedex = {
 		weightkg: 13.6,
 		prevos: ["Coelamon", "Garurumon", "Seadramon", "Shellmon", "Whamon"],
 	},
-	vademon:{
-		num: 606,
+	beheeyem: {
+		inherit: true,
 		species: "Vademon",
 		types: ["Mech", "Earth"],
 		baseStats: {
@@ -1109,8 +1109,8 @@ exports.BattlePokedex = {
 		weightkg: 2.3,
 		prevos: ["Airdramon", "Angemon", "Bakemon", "Birdramon", "Centarumon", "Coelamon", "Devimon", "Drimogemon", "Frigimon", "Garurumon", "Greymon", "Kabuterimon", "Kokatorimon", "Kuwagamon", "Leomon", "Meramon", "Mojyamon", "Monochromon", "Nanimon", "Numemon", "Ogremon", "Seadramon", "Shellmon", "Sukamon", "Tyrannomon", "Unimon", "Vegiemon", "Whamon"],
 	},
-	etemon:{
-		num: 514,
+	simisear: {
+		inherit: true,
 		species: "Etemon",
 		types: ["Battle", "Air", "Filth"],
 		baseStats: {
@@ -1129,8 +1129,8 @@ exports.BattlePokedex = {
 		weightkg: 6.8,
 		prevos: ["Sukamon"],
 	},
-	andromon:{
-		num: 379,
+	registeel: {
+		inherit: true,
 		species: "Andromon",
 		types: ["Mech", "Battle", "Air"],
 		baseStats: {
@@ -1149,8 +1149,8 @@ exports.BattlePokedex = {
 		weightkg: 18.1,
 		prevos: ["Angemon", "Centarumon", "Meramon", "Ogremon"],
 	},
-	megadramon:{
-		num: 718,
+	zygarde: {
+		inherit: true,
 		species: "Megadramon",
 		types: ["Mech", "Ice", "Battle"],
 		baseStats: {
@@ -1169,8 +1169,8 @@ exports.BattlePokedex = {
 		weightkg: 24.9,
 		prevos: ["Airdramon", "Devimon", "Seadramon", "Tyrannomon"],
 	},
-	phoenixmon:{
-		num: 250,
+	hooh: {
+		inherit: true,
 		species: "Phoenixmon",
 		types: ["Air", "Fire"],
 		baseStats: {
@@ -1189,8 +1189,8 @@ exports.BattlePokedex = {
 		weightkg: 13.6,
 		prevos: ["Aidramon", "Angemon", "Birdramon", "Kokatorimon", "Unimon"],
 	},
-	piximon:{
-		num: 39,
+	jigglypuff: {
+		inherit: true,
 		species: "Piximon",
 		types: ["Earth", "Air"],
 		baseStats: {
@@ -1209,8 +1209,8 @@ exports.BattlePokedex = {
 		weightkg: 2.3,
 		prevos: ["Kokatorimon", "Kuwagamon", "Ninjamon", "Vegiemon"],
 	},
-	metalmamemon:{
-		num: 597,
+	ferroseed: {
+		inherit: true,
 		species: "MetalMamemon",
 		types: ["Battle", "Mech"],
 		baseStats: {
@@ -1229,8 +1229,8 @@ exports.BattlePokedex = {
 		weightkg: 4.6,
 		prevos: ["Frigimon", "Kabuterimon", "Monochromon", "Ninjamon"],
 	},
-	monzaemon:{
-		num: 760,
+	bewear: {
+		inherit: true,
 		species: "Monzaemon",
 		types: ["Battle", "Air"],
 		baseStats: {
@@ -1249,8 +1249,8 @@ exports.BattlePokedex = {
 		weightkg: 18.1,
 		prevos: ["Numemon"],
 	},
-	digitamamon:{
-		num: 175,
+	togepi: {
+		inherit: true,
 		species: "DigiTamamon",
 		types: ["Fire", "Air", "Ice"],
 		baseStats: {
@@ -1270,8 +1270,8 @@ exports.BattlePokedex = {
 		prevos: ["Nanimon"],
 	},
 	//Mega Digimon
-	machinedramon:{
-		num: 649,
+	genesect: {
+		inherit: true,
 		species: "Machinedramon",
 		types: ["Mech", "Air", "Battle"],
 		baseStats: {
@@ -1281,7 +1281,7 @@ exports.BattlePokedex = {
 			spa: 500,
 			spd: 500,
 			spe: 100,
-		},
+		},	
 		abilities: {
 			0: "Virus",
 		},
