@@ -457,7 +457,7 @@ exports.BattleMovedex = {
 	majesticdust: {
 		category: "phsyical",
 		accuracy: 90,
-		basePower: 75,
+		basePower: 0,
 		id: "majesticdust",
 		name: "Majestic Dust",
 		isNonstandard: true,
@@ -469,6 +469,9 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Powder", target);
 		},
+		onHit: function (target, pokemon, move) {
+			this.useMove('Lunar Dance', pokemon);
+		},	
 		secondary: false,
 		pp: 10,
 		target: "normal",
