@@ -492,7 +492,7 @@ exports.BattleMovedex = {
 			protect: true,
 		},
 		name: "Rocket Punch",
-		pp: 10,
+		pp: .625,
 		priority: -1,
 		target: "Normal",
 		type: "normal",
