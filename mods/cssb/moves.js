@@ -547,6 +547,7 @@ exports.BattleMovedex = {
 		id: "toxicendeavors",
 		name: "Toxic Endeavors",
 		pp: 5,
+		isNonstandard: true,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onTry: function (pokemon, target) {
