@@ -566,7 +566,7 @@ exports.BattleMovedex = {
 			status: 'tox',
 		},
 		target: "normal",
-		type: "Normal",
+		type: "Bug",
 		zMovePower: 590,
 		contestType: "Tough",
 	},
