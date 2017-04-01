@@ -3,10 +3,10 @@
 'use strict';
 
 exports.BattlePokedex = {
-    pyukumuku: {
+	pyukumuku: {
 		inherit: true,
 		species: "Pyukumuku",
-        digimon: "Botamon",
+		digimon: "Botamon",
 		types: ["Fire"],
 		baseStats: {
 			hp: 35,
@@ -23,10 +23,10 @@ exports.BattlePokedex = {
 		color: "Black",
 		evos: ["Koromon", "Sukamon"],
 	},
-    vanillite: {
+	vanillite: {
 		inherit: true,
 		species: "Vanillite",
-        digimon: "Poyomon",
+		digimon: "Poyomon",
 		types: ["Air"],
 		baseStats: {
 			hp: 35,
@@ -43,10 +43,10 @@ exports.BattlePokedex = {
 		color: "White",
 		evos: ["Tokomon", "Sukamon"],
 	},
-    darumaka: {
+	darumaka: {
 		inherit: true,
 		species: "Darumaka",
-        digimon: "Punimon",
+		digimon: "Punimon",
 		types: ["Air"],
 		baseStats: {
 			hp: 35,
@@ -66,7 +66,7 @@ exports.BattlePokedex = {
 	cascoon: {
 		inherit: true,
 		species: "Cascoon",
-        digimon: "Yuramon",
+		digimon: "Yuramon",
 		types: ["Earth"],
 		baseStats: {
 			hp: 55,
@@ -87,7 +87,7 @@ exports.BattlePokedex = {
 	igglybuff: {
 		inherit: true,
 		species: "Igglybuff",
-        digimon: "Koromon",
+		digimon: "Koromon",
 		types: ["Fire", "Battle"],
 		baseStats: {
 			hp: 50,
@@ -108,7 +108,7 @@ exports.BattlePokedex = {
 	swirlix: {
 		inherit: true,
 		species: "Swirlix",
-        digimon: "Tokomon",
+		digimon: "Tokomon",
 		types: ["Air", "Battle"],
 		baseStats: {
 			hp: 50,
@@ -129,7 +129,7 @@ exports.BattlePokedex = {
 	swinub: {
 		inherit: true,
 		species: "Swinub",
-        digimon: "Tsunomon",
+		digimon: "Tsunomon",
 		types: ["Air", "Ice"],
 		baseStats: {
 			hp: 50,
@@ -150,7 +150,7 @@ exports.BattlePokedex = {
 	sunkern: {
 		inherit: true,
 		species: "Sunkern",
-        digimon: "Tanemon",
+		digimon: "Tanemon",
 		types: ["Earth", "Ice"],
 		baseStats: {
 			hp: 70,
@@ -172,7 +172,7 @@ exports.BattlePokedex = {
 	helioptile: {
 		inherit: true,
 		species: "Helioptile",
-        digimon: "Agumon",
+		digimon: "Agumon",
 		types: ["Fire", "Battle"],
 		baseStats: {
 			hp: 100,
@@ -193,7 +193,7 @@ exports.BattlePokedex = {
 	rockruff: {
 		inherit: true,
 		species: "Rockruff",
-        digimon: "Gabumon",
+		digimon: "Gabumon",
 		types: ["Battle", "Fire"],
 		baseStats: {
 			hp: 100,
@@ -214,7 +214,7 @@ exports.BattlePokedex = {
 	dedenne: {
 		inherit: true,
 		species: "Dedenne",
-        digimon: "Patamon",
+		digimon: "Patamon",
 		types: ["Battle", "Air"],
 		baseStats: {
 			hp: 120,
@@ -235,7 +235,7 @@ exports.BattlePokedex = {
 	electrike: {
 		inherit: true,
 		species: "Electrike",
-        digimon: "Elecmon",
+		digimon: "Elecmon",
 		types: ["Air", "Battle"],
 		baseStats: {
 			hp: 100,
@@ -256,7 +256,7 @@ exports.BattlePokedex = {
 	oricoriopau: {
 		inherit: true,
 		species: "oricoriopau",
-        digimon: "Biyomon",
+		digimon: "Biyomon",
 		types: ["Air", "Fire"],
 		baseStats: {
 			hp: 120,
@@ -277,7 +277,7 @@ exports.BattlePokedex = {
 	weedle: {
 		inherit: true,
 		species: "Weedle",
-        digimon: "Kunemon",
+		digimon: "Kunemon",
 		types: ["Earth", "Air"],
 		baseStats: {
 			hp: 100,
@@ -298,7 +298,7 @@ exports.BattlePokedex = {
 	sunflora: {
 		inherit: true,
 		species: "Sunflora",
-        digimon: "Palmon",
+		digimon: "Palmon",
 		types: ["Earth", "Ice"],
 		baseStats: {
 			hp: 120,
@@ -319,7 +319,7 @@ exports.BattlePokedex = {
 	mudkip: {
 		inherit: true,
 		species: "Mudkip",
-        digimon: "Betamon",
+		digimon: "Betamon",
 		types: ["Ice", "Air"],
 		baseStats: {
 			hp: 100,
@@ -340,7 +340,7 @@ exports.BattlePokedex = {
 	delibird: {
 		inherit: true,
 		species: "Delibird",
-        digimon: "Penguinmon",
+		digimon: "Penguinmon",
 		types: ["Ice", "Earth"],
 		baseStats: {
 			hp: 120,
@@ -362,7 +362,7 @@ exports.BattlePokedex = {
 	heliolisk: {
 		inherit: true,
 		species: "Heliolisk",
-        digimon: "Greymon",
+		digimon: "Greymon",
 		types: ["Fire", "Battle", "Air"],
 		baseStats: {
 			hp: 170,
@@ -383,7 +383,7 @@ exports.BattlePokedex = {
 	rhyhorn: {
 		inherit: true,
 		species: "Rhyhorn",
-        digimon: "Monochromon",
+		digimon: "Monochromon",
 		types: ["Fire", "Battle", "Earth"],
 		baseStats: {
 			hp: 220,
@@ -404,7 +404,7 @@ exports.BattlePokedex = {
 	marowak: {
 		inherit: true,
 		species: "Marowak",
-        digimon: "Ogremon",
+		digimon: "Ogremon",
 		types: ["Battle", "Fire", "Earth"],
 		baseStats: {
 			hp: 200,
@@ -425,7 +425,7 @@ exports.BattlePokedex = {
 	altaria: {
 		inherit: true,
 		species: "Altaria",
-        digimon: "Airdramon",
+		digimon: "Airdramon",
 		types: ["Air", "Fire"],
 		baseStats: {
 			hp: 170,
@@ -446,7 +446,7 @@ exports.BattlePokedex = {
 	buzzwole: {
 		inherit: true,
 		species: "Buzzwole",
-        digimon: "Kuwagamon",
+		digimon: "Kuwagamon",
 		types: ["Earth", "Battle", "Air"],
 		baseStats: {
 			hp: 220,
@@ -467,7 +467,7 @@ exports.BattlePokedex = {
 	wailord: {
 		inherit: true,
 		species: "wailord",
-        digimon: "Whamon",
+		digimon: "Whamon",
 		types: ["Ice", "Earth"],
 		baseStats: {
 			hp: 220,
@@ -488,7 +488,7 @@ exports.BattlePokedex = {
 	beartic: {
 		inherit: true,
 		species: "Beartic",
-        digimon: "Frigimon",
+		digimon: "Frigimon",
 		types: ["Ice", "Battle"],
 		baseStats: {
 			hp: 220,
@@ -509,7 +509,7 @@ exports.BattlePokedex = {
 	electrode: {
 		inherit: true,
 		species: "Electrode",
-        digimon: "Nanimon",
+		digimon: "Nanimon",
 		types: ["Filth", "Battle"],
 		baseStats: {
 			hp: 150,
@@ -530,7 +530,7 @@ exports.BattlePokedex = {
 	magmar: {
 		inherit: true,
 		species: "Magmar",
-        digimon: "Meramon",
+		digimon: "Meramon",
 		types: ["Fire", "Battle"],
 		baseStats: {
 			hp: 150,
@@ -551,7 +551,7 @@ exports.BattlePokedex = {
 	excadrill: {
 		inherit: true,
 		species: "Excadrill",
-        digimon: "Drimogemon",
+		digimon: "Drimogemon",
 		types: ["Battle", "Earth"],
 		baseStats: {
 			hp: 150,
@@ -572,7 +572,7 @@ exports.BattlePokedex = {
 	pyroar: {
 		inherit: true,
 		species: "Pyroar",
-        digimon: "Leomon",
+		digimon: "Leomon",
 		types: ["Battle", "Air"],
 		baseStats: {
 			hp: 170,
@@ -593,7 +593,7 @@ exports.BattlePokedex = {
 	combusken: {
 		inherit: true,
 		species: "Combusken",
-        digimon: "Kokatorimon",
+		digimon: "Kokatorimon",
 		types: ["Air", "Battle"],
 		baseStats: {
 			hp: 170,
@@ -614,7 +614,7 @@ exports.BattlePokedex = {
 	carnivine: {
 		inherit: true,
 		species: "Carnivine",
-        digimon: "Vegiemon",
+		digimon: "Vegiemon",
 		types: ["Earth", "Ice"],
 		baseStats: {
 			hp: 150,
@@ -635,7 +635,7 @@ exports.BattlePokedex = {
 	crustle: {
 		inherit: true,
 		species: "Crustle",
-        digimon: "Shellmon",
+		digimon: "Shellmon",
 		types: ["Ice", "Earth"],
 		baseStats: {
 			hp: 220,
@@ -656,7 +656,7 @@ exports.BattlePokedex = {
 	vigoroth: {
 		inherit: true,
 		species: "Vigoroth",
-        digimon: "Mojyamon",
+		digimon: "Mojyamon",
 		types: ["Ice", "Battle", "Earth"],
 		baseStats: {
 			hp: 200,
@@ -677,7 +677,7 @@ exports.BattlePokedex = {
 	moltres: {
 		inherit: true,
 		species: "Moltres",
-        digimon: "Birdramon",
+		digimon: "Birdramon",
 		types: ["Fire", "Air"],
 		baseStats: {
 			hp: 150,
@@ -698,7 +698,7 @@ exports.BattlePokedex = {
 	tyrantrum: {
 		inherit: true,
 		species: "Tyrantrum",
-        digimon: "Tyrannomon",
+		digimon: "Tyrannomon",
 		types: ["Fire", "Battle"],
 		baseStats: {
 			hp: 200,
@@ -719,7 +719,7 @@ exports.BattlePokedex = {
 	togetic: {
 		inherit: true,
 		species: "Togetic",
-        digimon: "Angemon",
+		digimon: "Angemon",
 		types: ["Air", "Battle"],
 		baseStats: {
 			hp: 170,
@@ -740,7 +740,7 @@ exports.BattlePokedex = {
 	rapidash: {
 		inherit: true,
 		species: "Rapidash",
-        digimon: "Unimon",
+		digimon: "Unimon",
 		types: ["Air", "Battle"],
 		baseStats: {
 			hp: 200,
@@ -761,7 +761,7 @@ exports.BattlePokedex = {
 	accelgor: {
 		inherit: true,
 		species: "Accelgor",
-        digimon: "Ninjamon",
+		digimon: "Ninjamon",
 		types: ["Earth", "Battle", "Fire"],
 		baseStats: {
 			hp: 150,
@@ -782,7 +782,7 @@ exports.BattlePokedex = {
 	relicanth: {
 		inherit: true,
 		species: "Relicanth",
-        digimon: "Coelamon",
+		digimon: "Coelamon",
 		types: ["Ice", "Earth"],
 		baseStats: {
 			hp: 150,
@@ -803,7 +803,7 @@ exports.BattlePokedex = {
 	mukalola: {
 		inherit: true,
 		species: "Mukalola",
-        digimon: "Numemon",
+		digimon: "Numemon",
 		types: ["Filth"],
 		baseStats: {
 			hp: 150,
@@ -824,7 +824,7 @@ exports.BattlePokedex = {
 	mudsdale: {
 		inherit: true,
 		species: "Mudsdale",
-        digimon: "Centarumon",
+		digimon: "Centarumon",
 		types: ["Fire", "Battle"],
 		baseStats: {
 			hp: 170,
@@ -845,7 +845,7 @@ exports.BattlePokedex = {
 	banette: {
 		inherit: true,
 		species: "Banette",
-        digimon: "Devimon",
+		digimon: "Devimon",
 		types: ["Battle", "Air", "Ice"],
 		baseStats: {
 			hp: 170,
@@ -866,7 +866,7 @@ exports.BattlePokedex = {
 	mimikyu: {
 		inherit: true,
 		species: "Mimikyu",
-        digimon: "Bakemon",
+		digimon: "Bakemon",
 		types: ["Air", "Ice"],
 		baseStats: {
 			hp: 150,
@@ -887,7 +887,7 @@ exports.BattlePokedex = {
 	heracross: {
 		inherit: true,
 		species: "Heracross",
-        digimon: "Kabuterimon",
+		digimon: "Kabuterimon",
 		types: ["Earth", "Fire", "Air"],
 		baseStats: {
 			hp: 200,
@@ -908,7 +908,7 @@ exports.BattlePokedex = {
 	dragonair: {
 		inherit: true,
 		species: "Dragonair",
-        digimon: "Seadramon",
+		digimon: "Seadramon",
 		types: ["Ice", "Earth", "Fire"],
 		baseStats: {
 			hp: 200,
@@ -929,7 +929,7 @@ exports.BattlePokedex = {
 	lycanroc: {
 		inherit: true,
 		species: "Lycanroc",
-        digimon: "Garurumon",
+		digimon: "Garurumon",
 		types: ["Ice", "Fire", "Battle"],
 		baseStats: {
 			hp: 150,
@@ -950,7 +950,7 @@ exports.BattlePokedex = {
 	garbodor: {
 		inherit: true,
 		species: "Garbodor",
-        digimon: "Sukamon",
+		digimon: "Sukamon",
 		types: ["Filth"],
 		baseStats: {
 			hp: 150,
@@ -972,7 +972,7 @@ exports.BattlePokedex = {
 	druddigon: {
 		inherit: true,
 		species: "Druddigon",
-        digimon: "MetalGreymon",
+		digimon: "MetalGreymon",
 		types: ["Mech", "Fire", "Battle"],
 		baseStats: {
 			hp: 400,
@@ -992,7 +992,7 @@ exports.BattlePokedex = {
 	aggron: {
 		inherit: true,
 		species: "Aggron",
-        digimon: "SkullGreymon",
+		digimon: "SkullGreymon",
 		types: ["Battle", "Ice", "Mech"],
 		baseStats: {
 			hp: 400,
@@ -1012,7 +1012,7 @@ exports.BattlePokedex = {
 	pawniard: {
 		inherit: true,
 		species: "Pawniard",
-        digimon: "Giromon",
+		digimon: "Giromon",
 		types: ["Mech", "Air", "Battle"],
 		baseStats: {
 			hp: 200,
@@ -1032,7 +1032,7 @@ exports.BattlePokedex = {
 	pinsirmega: {
 		inherit: true,
 		species: "Pinsirmega",
-        digimon: "HerculesKabuterimon",
+		digimon: "HerculesKabuterimon",
 		types: ["Earth", "Battle", "Fire"],
 		baseStats: {
 			hp: 300,
@@ -1052,7 +1052,7 @@ exports.BattlePokedex = {
 	chingling: {
 		inherit: true,
 		species: "Chingling",
-        digimon: "Mamemon",
+		digimon: "Mamemon",
 		types: ["Battle", "Mech"],
 		baseStats: {
 			hp: 100,
@@ -1072,7 +1072,7 @@ exports.BattlePokedex = {
 	gyarados: {
 		inherit: true,
 		species: "Gyarados",
-        digimon: "MegaSeadramon",
+		digimon: "MegaSeadramon",
 		types: ["Ice", "Air"],
 		baseStats: {
 			hp: 300,
@@ -1092,7 +1092,7 @@ exports.BattlePokedex = {
 	beheeyem: {
 		inherit: true,
 		species: "Beheeyem",
-        digimon: "Vademon",
+		digimon: "Vademon",
 		types: ["Mech", "Earth"],
 		baseStats: {
 			hp: 199,
@@ -1112,7 +1112,7 @@ exports.BattlePokedex = {
 	simisear: {
 		inherit: true,
 		species: "Simisear",
-        digimon: "Etemon",
+		digimon: "Etemon",
 		types: ["Battle", "Air", "Filth"],
 		baseStats: {
 			hp: 200,
@@ -1132,7 +1132,7 @@ exports.BattlePokedex = {
 	registeel: {
 		inherit: true,
 		species: "Registeel",
-        digimon: "Andromon",
+		digimon: "Andromon",
 		types: ["Mech", "Battle", "Air"],
 		baseStats: {
 			hp: 200,
@@ -1152,7 +1152,7 @@ exports.BattlePokedex = {
 	zygarde: {
 		inherit: true,
 		species: "Zygarde",
-        digimon: "Megadramon",
+		digimon: "Megadramon",
 		types: ["Mech", "Ice", "Battle"],
 		baseStats: {
 			hp: 300,
@@ -1172,7 +1172,7 @@ exports.BattlePokedex = {
 	hooh: {
 		inherit: true,
 		species: "Ho-Oh",
-        digimon: "Phoenixmon",
+		digimon: "Phoenixmon",
 		types: ["Air", "Fire"],
 		baseStats: {
 			hp: 500,
@@ -1192,7 +1192,7 @@ exports.BattlePokedex = {
 	jigglypuff: {
 		inherit: true,
 		species: "Jigglypuff",
-        digimon: "Piximon",
+		digimon: "Piximon",
 		types: ["Earth", "Air"],
 		baseStats: {
 			hp: 100,
@@ -1212,7 +1212,7 @@ exports.BattlePokedex = {
 	ferroseed: {
 		inherit: true,
 		species: "Ferroseed",
-        digimon: "MetalMamemon",
+		digimon: "MetalMamemon",
 		types: ["Battle", "Mech"],
 		baseStats: {
 			hp: 100,
@@ -1232,7 +1232,7 @@ exports.BattlePokedex = {
 	bewear: {
 		inherit: true,
 		species: "Bewear",
-        digimon: "Monzaemon",
+		digimon: "Monzaemon",
 		types: ["Battle", "Air"],
 		baseStats: {
 			hp: 300,
@@ -1252,7 +1252,7 @@ exports.BattlePokedex = {
 	togepi: {
 		inherit: true,
 		species: "Togepi",
-        digimon: "DigiTamamon",
+		digimon: "DigiTamamon",
 		types: ["Fire", "Air", "Ice"],
 		baseStats: {
 			hp: 300,
@@ -1273,7 +1273,7 @@ exports.BattlePokedex = {
 	genesect: {
 		inherit: true,
 		species: "Genesect",
-        digimon: "Machinedramon",
+		digimon: "Machinedramon",
 		types: ["Mech", "Air", "Battle"],
 		baseStats: {
 			hp: 940,
