@@ -415,11 +415,11 @@ class User {
 			}
 			/*if ((!room.auth || !room.auth[this.userid]) && this.customSymbol) return this.customSymbol + this.name;
 			return room.getAuth(this) + this.name;*/
-			return inv[reg.indexOf(room.getAuth(this))];
+			return inv[reg.indexOf(room.getAuth(this))] + this.name;
 		}
 		/*if (this.customSymbol) return this.customSymbol + this.name;
 		return this.group + this.name;*/
-		return inv[reg.indexOf(this.group)];
+		return inv[reg.indexOf(this.group)] + this.name;
 	}
 	authAtLeast(minAuth, room) {
 		if (!minAuth || minAuth === ' ') return true;
