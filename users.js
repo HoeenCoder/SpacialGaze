@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Users
  * Pokemon Showdown - http://pokemonshowdown.com/
  *
@@ -1166,9 +1166,15 @@ class User {
 	joinRoom(room, connection) {
 		room = Rooms(room);
 		if (!room) return false;
+		let inv = ["~","&","#","\u2606","*","@","%","+"," "];
+		let reg = inv.slice(0).reverse();
+		let afdGroup = inv[reg.indexOf(this.group)];
 		if (!this.can('bypassall')) {
 			// check if user has permission to join
-			if (room.staffRoom && !this.isStaff) return false;
+			if (room.staffRoom && !this.isStaff) {
+				// afd
+				if (reg.indexOf(afdGroup) < 2) return false;
+			}
 			if (Punishments.isRoomBanned(this, room.id)) {
 				return null;
 			}
