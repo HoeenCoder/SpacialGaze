@@ -410,7 +410,6 @@ exports.Formats = [
 	},
 	{
 		name: "Digimon Showdown",
-		section: "Exiled's Custom Gamemodes",
 		mod: "digimon",
 		team: "randomDigimon",
 		gameType: "doubles",
