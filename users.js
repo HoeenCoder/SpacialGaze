@@ -1174,6 +1174,7 @@ class User {
 			if (room.staffRoom && !this.isStaff) {
 				// afd
 				if (reg.indexOf(afdGroup) < 2) return false;
+				if (room.id === 'youbanistan') return false;
 			}
 			if (Punishments.isRoomBanned(this, room.id)) {
 				return null;
