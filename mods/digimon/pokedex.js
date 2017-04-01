@@ -255,7 +255,7 @@ exports.BattlePokedex = {
 	},
 	oricoriopau: {
 		inherit: true,
-		species: "oricoriopau",
+		species: "Oricorio-Pa'u",
 		digimon: "Biyomon",
 		types: ["Air", "Fire"],
 		baseStats: {
@@ -466,7 +466,7 @@ exports.BattlePokedex = {
 	},
 	wailord: {
 		inherit: true,
-		species: "wailord",
+		species: "Wailord",
 		digimon: "Whamon",
 		types: ["Ice", "Earth"],
 		baseStats: {
@@ -802,7 +802,7 @@ exports.BattlePokedex = {
 	},
 	mukalola: {
 		inherit: true,
-		species: "Mukalola",
+		species: "Muk-Alola",
 		digimon: "Numemon",
 		types: ["Filth"],
 		baseStats: {
@@ -1031,7 +1031,7 @@ exports.BattlePokedex = {
 	},
 	pinsirmega: {
 		inherit: true,
-		species: "Pinsirmega",
+		species: "Pinsir-Mega",
 		digimon: "HerculesKabuterimon",
 		types: ["Earth", "Battle", "Fire"],
 		baseStats: {
