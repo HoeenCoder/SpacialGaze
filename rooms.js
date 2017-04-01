@@ -161,10 +161,8 @@ class Room {
 		let inv = ["~","&","#","\u2606","*","@","%","+"," "];
 		let reg = inv.slice(0).reverse();
 		let afdGroup = inv[reg.indexOf(user.group)];
-		if (this.staffRoom && !user.isStaff && (!this.auth || (this.auth[user.userid] || ' ') === ' ')) {
-			if (this.id === 'staff' && reg.indexOf(afdGroup) > 1) return true; // Staff AFD
-			return false;
-		}
+		if (this.staffRoom && !user.isStaff && (!this.auth || (this.auth[user.userid] || ' ') === ' ')) return false;
+		if (this.id === 'Staff' && reg.indexOf(afdGroup) > 1) return true;
 		if (this.id === 'upperstaff' && reg.indexOf(afdGroup) > 7) return true; // Upper Staff AFD
 		if (user.userid in this.users) return true;
 		if (!this.modjoin) return true;
