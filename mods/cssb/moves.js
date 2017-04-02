@@ -112,18 +112,18 @@ exports.BattleMovedex = {
 			let ratio = (pokemon.getStat('spe') / target.getStat('spe'));
 			this.debug([40, 60, 80, 120, 150][(Math.floor(ratio) > 4 ? 4 : Math.floor(ratio))] + ' bp');
 			if (ratio >= 4) {
-				return 40;
+				return 150;
 			}
 			if (ratio >= 3) {
-				return 60;
+				return 120;
 			}
 			if (ratio >= 2) {
 				return 80;
 			}
 			if (ratio >= 1) {
-				return 120;
+				return 60;
 			}
-			return 150;
+			return 40;
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -136,7 +136,7 @@ exports.BattleMovedex = {
 		},
 		self: {
 			boosts: {
-				spe: 1,
+				spe: -1,
 			},
 		},
 		pp: 10,
@@ -159,7 +159,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Blizzard", source);
 		},
 		onHit: function (target, pokemon, move) {
-			this.useMove('Blizzard', pokemon);
+			this.useMove('powder snow', pokemon);
 		},
 		pp: 10,
 		weather: 'sandstorm',
@@ -170,8 +170,8 @@ exports.BattleMovedex = {
 	//Fighting
 	beatdown: {
 		category: "Physical",
-		basePower: 90,
-		accuracy: 80,
+		basePower: 1,
+		accuracy: 100,
 		id: "beatdown",
 		name: "Beat Down",
 		isNonstandard: true,
@@ -336,7 +336,7 @@ exports.BattleMovedex = {
 		},
 		secondary: false,
 		pp: 10,
-		priority: 0,
+		priority: -9,
 		target: "normal",
 		type: "Rock",
 	},
@@ -357,10 +357,13 @@ exports.BattleMovedex = {
 			mirror: 1,
 		},
 		willCrit: true,
-		secondary: false,
+		secondary: {
+			chance: 100,
+			status: 'frz',
+		},
 		pp: 10,
-		priority: -9,
-		target: "normal",
+		priority: 0,
+		target: "self",
 		type: "Ghost",
 	},
 	//Dragon
@@ -457,7 +460,7 @@ exports.BattleMovedex = {
 	majesticdust: {
 		category: "phsyical",
 		accuracy: 90,
-		basePower: 75,
+		basePower: 0,
 		id: "majesticdust",
 		name: "Majestic Dust",
 		isNonstandard: true,
@@ -469,6 +472,9 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Powder", target);
 		},
+		onHit: function (target, pokemon, move) {
+			this.useMove('Lunar Dance', pokemon);
+		},	
 		secondary: false,
 		pp: 10,
 		target: "normal",
@@ -486,10 +492,11 @@ exports.BattleMovedex = {
 			protect: true,
 		},
 		name: "Rocket Punch",
-		pp: 10,
-		priority: 1,
+		selfdestruct: "always",
+		pp: .625,
+		priority: -1,
 		target: "Normal",
-		type: "Fire",
+		type: "normal",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flare Blitz", source);
@@ -497,38 +504,30 @@ exports.BattleMovedex = {
 		},
 	},
 	// Stellation
-	teamplayer: {
+	toxicendeavors: {
 		accuracy: 100,
-		category: "Status",
-		id: "teamplayer",
+		basePower: 0,
+		category: "Physical",
+		id: "toxicendeavors",
+		name: "Toxic Endeavors",
+		pp: 5,
 		isNonstandard: true,
-		name: "Team Player",
-		pp: 10,
-		target: "self",
-		selfSwitch: 'copyvolatile',
-		type: "Normal",
-		onHit: function (target) {
-			let stats = [];
-			for (let stat in target.boosts) {
-				if (target.boosts[stat] < 6) {
-					stats.push(stat);
-				}
-			}
-			if (stats.length) {
-				let randomStat = stats[this.random(stats.length)];
-				let boost = {};
-				boost[randomStat] = -3;
-				this.boost(boost);
-			} else {
-				return false;
-			}
-		},
-		secondary: false,
-		onPrepareHit: function (target, source) {
+		priority: 0,
+		flags: {mirror: 1},
+		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Acupressure", source);
-			this.add('-anim', source, "Baton Pass", source);
+			this.add('-anim', source, "Toxic", source);
+			this.add('-anim', source, "Endeavor", source);
 		},
+		onHit: function (target, pokemon, move) {
+			this.useMove('Baton Pass', pokemon);
+		},	
+		secondary: false,
+		sideCondition: 'stealthrock',
+		target: "self",
+		type: "Bug",
+		zMovePower: 590,
+		contestType: "Tough",
 	},
 	//DEFAULT-MONS CUSTOM MOVES (Save incase or re-addition)
 	// SpaceGazer
