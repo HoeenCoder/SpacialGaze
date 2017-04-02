@@ -556,7 +556,8 @@ exports.BattleMovedex = {
 				return null;
 			}
 		},
-		this.attrLastMove('[still]');
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Jab", target);
 		},
 		secondary: {
