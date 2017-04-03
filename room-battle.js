@@ -351,7 +351,7 @@ class Battle {
 			for (let i = 0; i < actions.length; i++) {
 				user.console.queue.unshift(actions[i]);
 			}
-			if (run) user.console.next();
+			if (run) user.console.update(null, user.console.next(), null);
 			break;
 		}
 		Monitor.activeIp = null;
