@@ -391,7 +391,7 @@ exports.commands = {
 		if (!target) return this.parse("/help etour");
 		this.parse("/tour create " + target + ", elimination");
 	},
-	etourhelp: ["/etour [format] - Creates an elimination tournament."],
+	etourhelp: ["/etour [format] - Creates a single elimination tournament."],
 
 	rtour: function (target, room, user) {
 		if (!target) return this.parse("/help rtour");
