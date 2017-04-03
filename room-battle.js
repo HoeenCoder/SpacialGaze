@@ -306,12 +306,12 @@ class Battle {
 			let gameObj = Db.players.get(userid);
 			let run = false;
 			let actions = [];
+			user.sendTo(Rooms('lobby'), 'Raw data: ' + lines[2]); // DEBUG
 			for (let i = 0; i < data.length; i++) {
 				let cur = data[i].split('|');
 				cur[0] = Number(cur[0]);
 				let pokemon = Tools.getTemplate(gameObj.party[cur[0]].species);
 				let olvl = gameObj.party[cur[0]].level;
-				user.sendTo(Rooms('lobby'), 'EXP gain: ' + (isNaN(Number(cur[1])) ? 0 : Number(cur[1]))); // DEBUG
 				gameObj.party[cur[0]].exp += (isNaN(Number(cur[1])) ? 0 : Number(cur[1]));
 				gameObj.party[cur[0]].level += (isNaN(Number(cur[1])) ? 0 : Number(cur[2]));
 				let lvl = olvl + (isNaN(Number(cur[1])) ? 0 : Number(cur[2]));
