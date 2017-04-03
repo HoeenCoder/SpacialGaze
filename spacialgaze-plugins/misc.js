@@ -392,7 +392,7 @@ exports.commands = {
 		this.parse("/tour create " + target + ", elimination");
 	},
 	etourhelp: ["/etour [format] - Creates an elimination tournament."],
-	
+
 	rtour: function (target, room, user) {
 		if (!target) return this.parse("/help rtour");
 		this.parse("/tour create " + target + ", roundrobin");
