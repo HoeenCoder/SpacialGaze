@@ -311,6 +311,7 @@ class Battle {
 				cur[0] = Number(cur[0]);
 				let pokemon = Tools.getTemplate(gameObj.party[cur[0]].species);
 				let olvl = gameObj.party[cur[0]].level;
+				user.sendTo(Rooms('lobby'), 'EXP gain: ' + (isNaN(Number(cur[1])) ? 0 : Number(cur[1]))); // DEBUG
 				gameObj.party[cur[0]].exp += (isNaN(Number(cur[1])) ? 0 : Number(cur[1]));
 				gameObj.party[cur[0]].level += (isNaN(Number(cur[1])) ? 0 : Number(cur[2]));
 				let lvl = olvl + (isNaN(Number(cur[1])) ? 0 : Number(cur[2]));
@@ -322,7 +323,6 @@ class Battle {
 					j++;
 				}
 				if (olvl !== lvl) {
-					user.sendTo(Rooms('lobby'), 'Levels dont match'); // DEBUG
 					// New Moves
 					let baseSpecies = null;
 					if (pokemon.baseSpecies) baseSpecies = Tools.getTemplate(pokemon.baseSpecies);
@@ -339,11 +339,9 @@ class Battle {
 							}
 						}
 					}
-					user.sendTo(Rooms('lobby'), 'Moves: ' + used.join(", ")); // DEBUG
 					// Evolution
 					// TODO
 					// Add the evo array onto the end of the move array
-					user.sendTo(Rooms('lobby'), 'Actions: ' + actions.join(" ")); // DEBUG
 				}
 			}
 			Db.players.set(userid, gameObj);
