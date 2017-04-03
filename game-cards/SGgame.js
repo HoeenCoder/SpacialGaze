@@ -344,16 +344,16 @@ exports.commands = {
 				output += '<b>OT</b>:' + pokemon.ot + '<br/>';
 				output += '<b>Level</b>:' + pokemon.level + '<br/>';
 				let nextLevel = SG.calcExp(pokemon.species, pokemon.level + 1), curLevel = SG.calcExp(pokemon.species, pokemon.level);
-				output += '<b>Exp:</b>:' + Math.round(pokemon.exp) + ' / ' + Math.round(nextLevel) + '<br/>';
+				output += '<b>Exp</b>:' + Math.round(pokemon.exp) + ' / ' + Math.round(nextLevel) + '<br/>';
 				output += '<progress max="' + (nextLevel - curLevel) + '" value="' + (pokemon.exp - curLevel) + '"></progress></center></div>';
 				let move = null;
 				output += '<div style="display: inline-block; float: right; width: 50%; height: 100%; text-align: center;"><div class="movemenu"><center>';
 				for (let m = 0; m < pokemon.moves.length; m++) {
 					move = Tools.getMove(pokemon.moves[m]);
-					output += '<button name="send" value="/sggame learn ' + move.id + '" class="Type-' + move.type + '">' + move.name + '<br/><small class="type">' + move.type + '</small> <small class="pp">' + move.pp + '/' + move.pp + '</small>&nbsp;</button><br/><br/><br/>';
+					output += '<button name="send" value="/sggame learn ' + move.id + '" class="type-' + move.type + '">' + move.name + '<br/><small class="type">' + move.type + '</small> <small class="pp">' + move.pp + '/' + move.pp + '</small>&nbsp;</button><br/><br/><br/>';
 				}
 				move = Tools.getMove(action[2]);
-				output += '<button name="send" value="/sggame learn cancel" class="Type-' + move.type + '">' + move.name + '<br/><small class="type">' + move.type + '</small> <small class="pp">' + move.pp + '/' + move.pp + '</small>&nbsp;</button><br/><br/><br/>';
+				output += '<button name="send" value="/sggame learn cancel" class="type-' + move.type + '">' + move.name + '<br/><small class="type">' + move.type + '</small> <small class="pp">' + move.pp + '/' + move.pp + '</small>&nbsp;</button><br/><br/><br/>';
 				output += '</center></div></div></div>';
 				user.console.update(null, output, null);
 			} else if (target === 'reject') {
