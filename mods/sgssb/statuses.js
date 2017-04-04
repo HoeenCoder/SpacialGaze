@@ -275,4 +275,36 @@ exports.BattleStatuses = {
 			this.add('c', '+Xavier1942', 'Nuuuuu! MY BEAUTIFUL WALL! ');
 		},
 	},
+	primalsurge: {
+		effectType: 'Terrain',
+		duration: 0,
+		onTryMove: function (target, source, effect) {
+			if (effect.type === 'terrain') {
+				this.debug('Primal Surge suppresses other terrains from forming.');
+				this.add('-fail', source, effect, '[from] Primal Surge');
+				return null;
+			}
+		},
+		onBasePower: function (basePower, attacker, defender, move) {
+				if (move.type === 'Electric' && attacker.isGrounded() && !attacker.isSemiInvulnerable()) {
+					this.debug('Electric Terrain boost');
+					return this.chainModify(1.5);
+				}
+		},
+		onStart: function (battle, source, effect) {
+			if (effect && effect.effectType === 'Ability') {
+			this.add('-fieldstart', 'move: Electric Terrain', '[from] ability: ' + effect, '[of] ' + source);
+		} else {
+			this.add('-fieldstart', 'move: Electric Terrain');
+			}
+		},
+		onResidualOrder: 1,
+		onResidual: function () {
+			this.add('-terrain', 'Primal Surge', '[upkeep]');
+			this.eachEvent('Terrain');
+		},
+		onEnd: function () {
+			this.add('-terrain', 'none');
+		},
+	},
 };
