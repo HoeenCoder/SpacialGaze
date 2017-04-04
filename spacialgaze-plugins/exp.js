@@ -199,12 +199,12 @@ exports.commands = {
 		Rooms('staff').add('|html|[EXP Monitor] ' + SG.nameColor(user.name, true) + ' has reset the XP of ' + SG.nameColor(target, true));
 		room.update();
 	},
-/*
+
 	xpladder: 'expladder',
 	expladder: function (target, room, user) {
 		if (!this.runBroadcast()) return;
 		let display = '<center><u><b>Exp</b></u></center><br><table border="1" cellspacing="0" cellpadding="5" width="100%"><tbody><tr><th>Rank</th><th>Username</th><th>EXP</th></tr>';
-		let keys = Object.keys(Db.exp.object()).map(function (name))
+		let keys = Db.exp.keys.map(function (name));			   
 		if (!keys.length) return this.sendReplyBox("Exp ladder is empty.");
 		keys.sort(function (a, b) {
 			return b.exp - a.exp;
@@ -215,7 +215,7 @@ exports.commands = {
 		display += "</tbody></table>";
 		this.sendReply("|raw|" + display);
 	},
-*/
+
 	cleanexp: function (target, room, user) {
 		if (!this.can('root')) return this.errorReply("/cleanexp - Access denied.");
 		Db.exp.keys().filter(key => Db.exp.get(key) < 1).forEach(key => Db.exp.remove(key));
