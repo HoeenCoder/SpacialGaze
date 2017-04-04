@@ -195,6 +195,12 @@ class Hangman extends Rooms.RoomGame {
 }
 
 exports.commands = {
+	g: function (target, room, user) {
+		this.parse('/guess ' + target);
+	},
+	ghelp: function (target, room, user) {
+		this.parse('/help guess');
+	},
 	hangman: {
 		create: 'new',
 		new: function (target, room, user) {
@@ -306,7 +312,7 @@ exports.commands = {
 		room.game.guess(target, user);
 	},
 	guesshelp: [
-		"/guess - Shortcut for /hangman guess.", "/hangman guess [letter] - Makes a guess for the letter entered.",
+		"/guess or /g - Shortcut for /hangman guess.", "/hangman guess [letter] - Makes a guess for the letter entered.",
 		"/hangman guess [word] - Same as a letter, but guesses an entire word.",
 	],
 };
