@@ -212,7 +212,7 @@ class CommandContext {
 						this.room.messageCount++;
 					}
 					this.room.add(`|c|${this.user.getIdentity(this.room.id)}|${message}`).update();
-					SG.addExp(this.user, this.room, 1);	
+					SG.addExp(this.user, this.room, 1);
 				}
 			}
 		}
