@@ -1358,10 +1358,10 @@ class ChatRoom extends Room {
 				'</div>';
 		}
 		if (this.slowchat && user.can('mute', null, this)) {
- -			message += (message ? '<br />' : '\n|raw|<div class="infobox">') + '<div class="broadcast-red">' +
- -				'Messages must have at least ' + this.slowchat + ' seconds between them.' +
- -				'</div>';
- -		}		
+			message += (message ? '<br />' : '\n|raw|<div class="infobox">') + '<div class="broadcast-red">' +
+				'Messages must have at least ' + this.slowchat + ' seconds between them.' +
+				'</div>';
+		}		
 		if (message) message += '</div>';
 		return message;
 	}
