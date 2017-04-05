@@ -432,7 +432,7 @@ exports.Formats = [
 		column: 2,
 	},
 	{
-		name: "[Gen 7] Full Potential",
+		name: "[Gen 7] Full Potentiall",
 		desc: [
 			"A Pok&eacute;mon's highest stat, barring HP, is used when calculating the damage their attacks inflict.",
 			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3596777/\">Full Potential</a>",
