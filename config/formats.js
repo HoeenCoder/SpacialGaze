@@ -308,6 +308,7 @@ exports.Formats = [
 		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
 		onBegin: function () {
 			this.add('message', 'GET READY FOR THE NEXT BATTLE!');
+			this.add('message', 'Wanna know what all these cool moves do? Please see our <a href="url">Player\'s Guide!</a>');
 
 			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
 			for (let i = 0, len = allPokemon.length; i < len; i++) {
