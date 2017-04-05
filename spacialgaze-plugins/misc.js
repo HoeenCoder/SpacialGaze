@@ -224,6 +224,10 @@ exports.commands = {
 		return this.parse('/hotpatch validator');
 	},
 
+	hd: function (room, user, cmd) {
+		return this.parse('/hotpatch dnsbl');
+	},
+
 	regdate: function (target, room, user, connection) {
 		if (!target) target = user.name;
 		target = toId(target);
