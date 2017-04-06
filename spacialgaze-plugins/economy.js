@@ -274,6 +274,8 @@ exports.commands = {
 	richestusers: 'richestuser',
 	richestuser: function (target, room, user) {
 		if (!target) target = 100;
+ 		target = Number(target);
+ 		if (isNaN(target)) target = 100;
 		if (!this.runBroadcast()) return;
 		let keys = Db.currency.keys().map(function (name) {
 			return {name: name, money: Db.currency.get(name)};
