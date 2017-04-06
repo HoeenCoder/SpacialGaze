@@ -280,7 +280,7 @@ exports.commands = {
 		});
 		if (!keys.length) return this.sendReplyBox("Money ladder is empty.");
 		keys.sort(function (a, b) { return b.money - a.money; });
-		this.sendReplyBox(rankLadder('Richest Users', 'Money', keys.slice(0, target), 'money') + '</div>');
+		this.sendReplyBox(rankLadder('Richest Users', currencyPlural, keys.slice(0, target), 'money') + '</div>');
 	},
 
 	customsymbol: function (target, room, user) {
@@ -294,7 +294,7 @@ exports.commands = {
 		user.customSymbol = target;
 		user.updateIdentity();
 		user.canCustomSymbol = false;
-		this.sendReply('Your Symbol is now ' + target + '. It will be saved until you log off for more than an hour, or the server restarts. You can remove it with /resetsymbol');
+		this.sendReply('Your symbol is now ' + target + '. It will be saved until you log off for more than an hour, or the server restarts. You can remove it with /resetsymbol');
 	},
 
 	removesymbol: 'resetsymbol',
