@@ -358,7 +358,6 @@ exports.grouplist = [
 		forcerename: true,
 		ip: true,
 		alts: '@u',
-		tournaments: true,
 		game: true,
 	},
 	{
@@ -378,7 +377,6 @@ exports.grouplist = [
 		alts: '%u',
 		bypassblocks: 'u%@&~',
 		receiveauthmessages: true,
-		tournamentsmoderation: true,
 		jeopardy: true,
 		joinbattle: true,
 		minigame: true,
@@ -390,6 +388,8 @@ exports.grouplist = [
 		inherit: ' ',
 		alts: 's',
 		broadcast: true,
+		tournaments: true,
+		tournamentsmoderation: true,
 	},
 	{
 		symbol: ' ',
