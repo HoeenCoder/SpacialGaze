@@ -6,12 +6,13 @@
 'use strict';
 
 function generateNews(user) {
-	let newsData, newsDisplay = [];
+	let newsData, curNews, newsDisplay = [];
 	user = toId(user);
-	Db.news.keys().forEach(announcement => {
-		newsData = Db.news.get(announcement);
-		newsDisplay.push(`<h4>${announcement}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
-	});
+	for (let i = 0; i < Db.news.keys().length; i++) {
+		curNews = Db.news.keys()[i];
+		newsData = Db.news.get(curNews);
+		newsDisplay.push(`<h4>${curNews}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
+	}
 	return newsDisplay;
 }
 
