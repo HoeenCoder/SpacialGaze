@@ -14,7 +14,7 @@ function generateNews(userid) {
 	for (let i = 0; i < keys.length; i++) {
 		newsData = Db.news.get(keys[i]);
 		newsDisplay.push(`<h4>${keys[i]}</h4>${newsData[1]}<br /><br />—${SG.nameColor(newsData[0], true)} <small>on ${newsData[2]}</small>`);
-	}	
+	}
 	return newsDisplay;
 }
 
