@@ -1,4 +1,4 @@
-/*
+/**
  * News System for SpacialGaze
  * This Shows News via the /news view command and sends news ns PMs when users connect to the server if they have subscribed
  * Uses nef to add News to nef's json database
@@ -20,13 +20,13 @@ function generateNews(userid) {
 
 function showSubButton(userid) {
 	let hasSubscribed = Db.NewsSubscribers.get(userid, false);
-	let subStatus = [(hasSubscribed ? `unsubscribe` : `subscribe`), (hasSubscribed ? `Unsubscribe from the news` : `Subscribe to the news`)]
+	let subStatus = [(hasSubscribed ? `unsubscribe` : `subscribe`), (hasSubscribed ? `Unsubscribe from the news` : `Subscribe to the news`)];
 	return `<hr><center><button class="button" name="send" value="/news ${subStatus[0]}">${subStatus[1]}</button></center>`;
 }
 SG.showNews = function (userid, user) {
 	if (!user || !userid) return false;
 	let newsDisplay = generateNews(userid);
-	if (!hasSubscribed(userid)) return false;
+	if (!Db.NewsSubscribers.has(userid)) return false;
 	if (newsDisplay.length > 0) {
 		newsDisplay = `${newsDisplay.join(`<hr>`)}${showSubButton(userid)}`;
 		return user.send(`|pm| SG Server|${user.getIdentity()}|/raw ${newsDisplay}`);
@@ -42,8 +42,8 @@ exports.commands = {
 		view: function (target, room, user) {
 			if (!this.runBroadcast()) return;
 			let output = `<center><strong>SpacialGaze News:</strong></center>${generateNews().join(`<hr>`)}${showSubButton(user.userid)}`;
-			if (this.broadcasting) return this.sendReplyBox("<div class =\"infobox-limited\"" + output + "</div>");
-			return user.send('|popup||wide||html|' + output);
+			if (this.broadcasting) return this.sendReplyBox(`<div class="infobox-limited">${output}</div>`);
+			return user.send(`|popup||wide||html|${output}`);
 		},
 		remove: 'delete',
 		delete: function (target, room, user) {
@@ -80,14 +80,14 @@ exports.commands = {
 			if (Db.NewsSubscribers.has(user.userid)) return this.errorReply("You are alreading subscribing SpacialGaze News.");
 			Db.NewsSubscribers.set(user.userid, true);
 			this.sendReply("You have subscribed SpacialGaze News.");
-			this.popupReply("|wide||html|You will receive SpacialGaze News automatically once you connect to the SpacialGaze next time.<br><hr><button class='button' name = 'send' value = '/news'>View News</button>");
+			this.popupReply("|wide||html|You will receive SpacialGaze News automatically once you connect to the SpacialGaze next time.<br><hr><center><button class='button' name='send' value ='/news'>View News</button></center>");
 		},
 		unsubscribe: function (target, room, user) {
 			if (!user.named) return this.errorReply('You must choose a name before unsubscribing');
 			if (!Db.NewsSubscribers.has(user.userid)) return this.errorReply("You have not subscribed SpacialGaze News.");
 			Db.NewsSubscribers.remove(user.userid);
 			this.sendReply("You have unsubscribed SpacialGaze News.");
-			this.popupReply("|wide||html|You will no longer automatically receive SpacialGaze News.<br><hr><button class='button' name='send' value='/news'>View News</button>");
+			this.popupReply("|wide||html|You will no longer automatically receive SpacialGaze News.<br><hr><center><button class='button' name='send' value='/news'>View News</button></center>");
 		},
 	},
 	serverannouncementshelp: ["/news view - Views current SpacialGaze news.",
