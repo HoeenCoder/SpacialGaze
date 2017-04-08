@@ -1,10 +1,10 @@
 /*
-* News System for SpacialGaze
-* This Shows News via the /news view command and sends news ns PMs when users connect to the server if they have subscribed
-* Uses nef to add News to nef's json database
-* Credits: Lord Haji, HoeenHero
-* @lisence MIT
-*/
+ * News System for SpacialGaze
+ * This Shows News via the /news view command and sends news ns PMs when users connect to the server if they have subscribed
+ * Uses nef to add News to nef's json database
+ * Credits: Lord Haji, HoeenHero
+ * @license MIT license
+ */
 
 'use strict';
 
