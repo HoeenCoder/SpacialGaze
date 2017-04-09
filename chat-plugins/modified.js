@@ -404,10 +404,9 @@ exports.commands = {
 	away: function (target, room, user, connection, cmd) {
 		if (!user.isAway && user.name.length > 19 && !user.can('lock')) return this.sendReply("Your username is too long for any kind of use of this command.");
 		if (!this.canTalk()) return false;
-
+		if (/^\s*$/.test(target)) target = 'AWAY';
 		target = target ? target.replace(/[^a-zA-Z0-9]/g, '') : 'AWAY';
 		if (cmd !== 'away') target = cmd;
-		if (target === '-') return this.errorReply("Your away status cannot be black");
 		let newName = user.name;
 		let status = parseStatus(target, true);
 		let statusLen = status.length;
