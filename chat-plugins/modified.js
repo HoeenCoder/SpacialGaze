@@ -407,6 +407,7 @@ exports.commands = {
 
 		target = target ? target.replace(/[^a-zA-Z0-9]/g, '') : 'AWAY';
 		if (cmd !== 'away') target = cmd;
+		if (target === '-') return this.errorReply("Your away status cannot be black");
 		let newName = user.name;
 		let status = parseStatus(target, true);
 		let statusLen = status.length;
