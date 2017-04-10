@@ -376,7 +376,7 @@ exports.commands = {
 			if (!target[2]) return this.errorReply('/usetoken disableintroscroll, [room]');
 			target[1] = toId(target[1]);
 			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeemed roomintro scroll disabler token.<br/>";
-			msg += '<button class="button" name="send" value="/disableintroscroll ' + target[1] + '">Disable Intro Scrool for ' + Rooms(target[1]) + '</button></center>';
+			msg += '<button class="button" name="send" value="/disableintroscroll ' + target[1] + '">Disable Intro Scrool for <b>' + Rooms(target[1]).title + '</b></button></center>';
 		default:
 			return this.errorReply('An error occured in the command.'); // This should never happen.
 		}
