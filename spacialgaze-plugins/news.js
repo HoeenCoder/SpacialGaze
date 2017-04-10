@@ -20,13 +20,12 @@ function generateNews(userid) {
 
 function showSubButton(userid) {
 	let hasSubscribed = Db.NewsSubscribers.get(userid, false);
-	let subStatus = [(hasSubscribed ? `unsubscribe` : `subscribe`), (hasSubscribed ? `Unsubscribe from the news` : `Subscribe to the news`)];
-	return `<hr><center><button class="button" name="send" value="/news ${subStatus[0]}">${subStatus[1]}</button></center>`;
+	return `<hr><center><button class="button" name="send" value="/news ${(hasSubscribed ? `unsubscribe` : `subscribe`}">${hasSubscribed ? `Unsubscribe from the news` : `Subscribe to the news`}</button></center>`;
 }
 SG.showNews = function (userid, user) {
 	if (!user || !userid) return false;
-	let newsDisplay = generateNews(userid);
 	if (!Db.NewsSubscribers.has(userid)) return false;
+	let newsDisplay = generateNews(userid);
 	if (newsDisplay.length > 0) {
 		newsDisplay = `${newsDisplay.join(`<hr>`)}${showSubButton(userid)}`;
 		return user.send(`|pm| SG Server|${user.getIdentity()}|/raw ${newsDisplay}`);
