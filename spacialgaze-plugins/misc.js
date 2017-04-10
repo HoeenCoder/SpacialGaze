@@ -398,7 +398,7 @@ exports.commands = {
 		this.parse("/tour create " + target + ", roundrobin");
 	},
 	rtourhelp: ["/rtour [format] - Creates a round robin tournament in the format provided."],
-	
+
 	disableintroscroll: function (target, room, user) {
 		if (!this.can('lock')) return false;
 		if (!target) return this.errorReply("No Room Specified");
