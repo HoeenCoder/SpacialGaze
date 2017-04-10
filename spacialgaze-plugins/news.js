@@ -8,7 +8,7 @@
 
 'use strict';
 
-function generateNews(userid) {
+function generateNews() {
 	let newsData, newsDisplay = [];
 	let keys = Db.news.keys();
 	for (let i = 0; i < keys.length; i++) {
@@ -25,7 +25,7 @@ function showSubButton(userid) {
 SG.showNews = function (userid, user) {
 	if (!user || !userid) return false;
 	if (!Db.NewsSubscribers.has(userid)) return false;
-	let newsDisplay = generateNews(userid);
+	let newsDisplay = generateNews();
 	if (newsDisplay.length > 0) {
 		newsDisplay = `${newsDisplay.join(`<hr>`)}${showSubButton(userid)}`;
 		return user.send(`|pm| SG Server|${user.getIdentity()}|/raw ${newsDisplay}`);
