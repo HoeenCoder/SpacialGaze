@@ -2,10 +2,9 @@
  * Miscellaneous commands
  *
  * Fixed/Improved upon by: The Run, HoeenHero, Mystifi and Lord Haji.
- *
  * Some of this code was borrowed from panpawn/jd/other contributors; as
  * such, credits go to them as well.
- * @lisence MIT lisence
+ * @license MIT license
  */
 'use strict';
 
@@ -406,6 +405,6 @@ exports.commands = {
 		target = toId(target);
 		if (!Rooms(target)) return this.errorReply(`${target} is not a room`);
 		Db.AllowScrolls.set(target, true);
-	}
+	},
 	disableintroscrollhelp: ["/disableintroscroll [room] - Disables scroll bar preset in the room's roomintro."],
 };
