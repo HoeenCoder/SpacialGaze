@@ -97,16 +97,16 @@ function rankLadder(title, type, array, prop, group) {
 	for (let i = 0; i < array.length; i++) {
 		if (i === 0) {
 			midColumn = '</td><td ' + first + '>';
-			tableRows += '<tr><td ' + first + '>' + (i + 1) + midColumn + SG.nameColor(array[i].name, true, true) + midColumn + array[i][prop] + '</td></tr>';
+			tableRows += '<tr><td ' + first + '>' + (i + 1) + midColumn + SG.nameColor(array[i].name, true) + midColumn + array[i][prop] + '</td></tr>';
 		} else if (i === 1) {
 			midColumn = '</td><td ' + second + '>';
-			tableRows += '<tr><td ' + second + '>' + (i + 1) + midColumn + SG.nameColor(array[i].name, true, true) + midColumn + array[i][prop] + '</td></tr>';
+			tableRows += '<tr><td ' + second + '>' + (i + 1) + midColumn + SG.nameColor(array[i].name, true) + midColumn + array[i][prop] + '</td></tr>';
 		} else if (i === 2) {
 			midColumn = '</td><td ' + third + '>';
-			tableRows += '<tr><td ' + third + '>' + (i + 1) + midColumn + SG.nameColor(array[i].name, true, true) + midColumn + array[i][prop] + '</td></tr>';
+			tableRows += '<tr><td ' + third + '>' + (i + 1) + midColumn + SG.nameColor(array[i].name, true) + midColumn + array[i][prop] + '</td></tr>';
 		} else {
 			midColumn = '</td><td ' + tdStyle + '>';
-			tableRows += '<tr><td ' + tdStyle + '>' + (i + 1) + midColumn + SG.nameColor(array[i].name, true, true) + midColumn + array[i][prop] + '</td></tr>';
+			tableRows += '<tr><td ' + tdStyle + '>' + (i + 1) + midColumn + SG.nameColor(array[i].name, true) + midColumn + array[i][prop] + '</td></tr>';
 		}
 	}
 	return ladderTitle + tableTop + tableRows + tableBottom;
