@@ -406,7 +406,6 @@ exports.commands = {
 		if (!this.canTalk()) return false;
 		target = toId(target);
 		if (/^\s*$/.test(target)) target = 'away';
-		target = target ? target.replace(/[^a-zA-Z0-9]/g, '') : 'away';
 		if (cmd !== 'away') target = cmd;
 		let newName = user.name;
 		let status = parseStatus(target, true);
