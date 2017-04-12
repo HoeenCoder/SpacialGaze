@@ -572,10 +572,9 @@ exports.BattleMovedex = {
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bullet Seed", target);
-			this.add('-anim', source, "Rest", target);
+			this.add('-anim', target, "Rest", target);
 		},
 		status: 'slp',
-		ignoreImmunity: true,
 		target: "normal",
 		type: "Normal",
 	},
@@ -613,7 +612,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Smokescreen", target);
 		},
-		boosts: {accuracy: -3},
+		boosts: {accuracy: -1},
 		priority: 0,
 		secondary: false,
 		target: "normal",
