@@ -421,5 +421,5 @@ exports.commands = {
 		if (!Rooms(target)) return this.errorReply(`${target} is not a room`);
 		Db.AllowScrolls.remove(target);
 	},
-	disableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],	
+	enableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],	
 };
