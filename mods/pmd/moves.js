@@ -666,27 +666,6 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Water",
 	},
-	//Drought Orb
-	droughtorb: {
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		pp: 0.625,
-		id: "droughtorb",
-		name: "Drought Orb",
-		priority: 0,
-		flags: {},
-		weather: 'desolateland',
-		secondary: false,
-		onPrepareHit: function (source) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Sunny Day");
-		},
-		desc: "Sets the weather to Desolate Land.",
-		shortDesc: "Sets Desolate Land.",
-		target: "all",
-		type: "Fire",
-	},
 	//Decoy Orb
 	decoyorb: {
 		accuracy: true,
@@ -734,7 +713,6 @@ exports.BattleMovedex = {
 		name: "Sizebust Orb",
 		pp: 0.625,
 		basePower: 0,
-		//Grass Knot (More damage heavier it is)
 		basePowerCallback: function (pokemon, target) {
 			let targetWeight = target.getWeight();
 			if (targetWeight >= 200) {
