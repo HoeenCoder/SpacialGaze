@@ -374,9 +374,11 @@ exports.commands = {
 			return SG.messageSeniorStaff(msg);
 		case 'disableintroscroll':
 			if (!target[2]) return this.errorReply('/usetoken disableintroscroll, [room]');
-			target[1] = toId(target[1]);
+			let roomid = toId(target[1]);
+			if (Rooms[roomid]) return this.errorReply(`${Room(roomid)} is not a room.`);
+			if (Db.DisabledScrolls.has(roomid)) return this.errorReply(`${Rooms(roomid).title} has already roomintro scroll disabled.`);
 			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeemed roomintro scroll disabler token.<br/>';
-			msg += '<button class="button" name="send" value="/disableintroscroll ' + target[1] + '">Disable Intro Scrool for <b>' + Rooms(target[1]).title + '</b></button></center>';
+			msg += '<button class="button" name="send" value="/disableintroscroll ' + target[1] + '">Disable Intro Scrool for <b>' + Rooms(roomid).title + '</b></button></center>';
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		default:
@@ -407,19 +409,21 @@ exports.commands = {
 	rtourhelp: ["/rtour [format] - Creates a round robin tournament in the format provided."],
 
 	disableintroscroll: function (target, room, user) {
-		if (!this.can('lock')) return false;
+		if (!this.can('roomowner')) return false;
 		if (!target) return this.errorReply("No Room Specified");
 		target = toId(target);
 		if (!Rooms(target)) return this.errorReply(`${target} is not a room`);
-		Db.AllowScrolls.set(target, true);
+		if (Db.DisabledScrolls.has(target)) return this.errorReply(`${Rooms(target).title} has roomintro scroll disabled.`);
+		Db.DisabledScrolls.set(target, true);
 	},
 	disableintroscrollhelp: ["/disableintroscroll [room] - Disables scroll bar preset in the room's roomintro."],
 	enableintroscroll: function (target, room, user) {
-		if (!this.can('lock')) return false;
+		if (!this.can('roomowner')) return false;
 		if (!target) return this.errorReply("No Room Specified");
 		target = toId(target);
 		if (!Rooms(target)) return this.errorReply(`${target} is not a room`);
-		Db.AllowScrolls.remove(target);
+		if (!Db.DisabledScrolls.has(target)) return this.errorReply(`${Rooms(target).title} has roomintro scroll enabled.`);
+		Db.DisabledScrolls.remove(target);
 	},
 	enableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],	
 };
