@@ -414,4 +414,12 @@ exports.commands = {
 		Db.AllowScrolls.set(target, true);
 	},
 	disableintroscrollhelp: ["/disableintroscroll [room] - Disables scroll bar preset in the room's roomintro."],
+	enableintroscroll: function (target, room, user) {
+		if (!this.can('lock')) return false;
+		if (!target) return this.errorReply("No Room Specified");
+		target = toId(target);
+		if (!Rooms(target)) return this.errorReply(`${target} is not a room`);
+		Db.AllowScrolls.remove(target);
+	},
+	disableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],	
 };
