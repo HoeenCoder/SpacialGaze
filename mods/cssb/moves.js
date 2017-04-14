@@ -598,16 +598,9 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 20,
 			onHit: function (target, source) {
-				let result = this.random(3);
-				if (result === 0) {
-					target.trySetStatus('brn', source);
-				} else if (result === 1) {
-					target.trySetStatus('par', source);
-				//This is a bug. I dont know how to make sure only 2 events happen. if someone can fix it ill be really happe ~Eelek
-				} else {
-					return false;
-				}
-			},
+				let result = this.random(2);
+				if (result === 0) { par } else { brn }
+			}
 		},
 		target: "Normal",
 		type: "Electric",
