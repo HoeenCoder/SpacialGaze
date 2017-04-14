@@ -587,13 +587,13 @@ exports.BattleMovedex = {
 		type: "Water",
 	},
 	//eelek
-	randomness: {
+	diceroll: {
 		accuracy: 100,
-		basePower: 20,
+		basePower: 60,
 		category: "Physical",
-		id: "randomness",
+		id: "diceroll",
 		inNonstandard: true,
-		name: "Randomness",
+		name: "Dice Roll",
 		pp: 10,
 		priority: 0,
 		onPrepareHit: function (target, source) {
