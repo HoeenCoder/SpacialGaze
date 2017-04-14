@@ -569,6 +569,50 @@ exports.BattleMovedex = {
 		zMovePower: 590,
 		contestType: "Tough",
 	},
+	//Eelek(tross)
+	"electrofryer": {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		id: "electrofryer",
+		name: "Electro-Fryer",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onEffectiveness: function (typeMod, type, move) {
+			return typeMod + this.getEffectiveness('Fire', type);
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Discharge", target);
+			this.add('-anim', target, "Sacred Fire", target);
+		},
+		onAfterHit: function (target, source) {
+			if (source.hp) {
+				let item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Electro-Fryer', '[of] ' + source);
+				}
+			}
+		},
+		secondary: {
+			chance: 20,
+			onHit: function (target, source) {
+				let result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else if (result === 1) {
+					target.trySetStatus('par', source);
+				//This is a bug. I dont know how to make sure only 2 events happen. if someone can fix it ill be really happe ~Eelek
+				} else {
+					return false;
+				}
+			},
+		},
+		target: "Normal",
+		type: "Electric",
+		ignoreImmunity: {'Electric': true},
+	},
 	//DEFAULT-MONS CUSTOM MOVES (Save incase or re-addition)
 	// SpaceGazer
 	/*spacialblast: {
