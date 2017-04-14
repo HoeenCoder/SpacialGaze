@@ -426,7 +426,7 @@ exports.BattleScripts = {
 				item: "Assault Vest",
 				gender: "M",
 				moves: ['Zing Zap', 'Icicle Crash', 'Flame Charge'],
-				signatureMove: "Randomness",
+				signatureMove: "Dice Roll",
 				evs: {
 					atk: 252,
 					spe: 252,
