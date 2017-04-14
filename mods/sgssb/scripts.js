@@ -425,7 +425,7 @@ exports.BattleScripts = {
 				ability: "Serene Grace",
 				item: "Assault Vest",
 				gender: "M",
-				moves: ['Zing Zap', 'Icicle Crash', 'Flame Charge'
+				moves: ['Zing Zap', 'Icicle Crash', 'Flame Charge',
 				],
 				signatureMove: "Dice Roll",
 				evs: {
