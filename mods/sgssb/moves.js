@@ -603,22 +603,7 @@ exports.BattleMovedex = {
 		flags: {protect: 1, mirror: 1, Contact: 1},
 		secondary: {
 			chance: 25,
-			onHit: function (target, source) {
-				let result = this.random(6);
-				if (result === 0) {
-					target.trySetStatus('brn', source);
-				} else if (result === 1) {
-					target.trySetStatus('par', source);
-				} else if (result === 2) {
-					target.trySetStatus('psn', source);
-				} else if (result === 3) {
-					target.trySetStatus('tox', source);
-				} else if (result === 4) {
-					target.trySetStatus('slp', source);
-				} else {
-					target.trySetStatus('frz', source);
-				}
-			},
+			target.trySetStatus(['brn', 'par', 'psn', 'tox', 'slp',  'frz'][this.random(6)], source);
 		},
 		target: "normal",
 		type: "Normal",
