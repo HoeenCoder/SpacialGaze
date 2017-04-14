@@ -586,13 +586,14 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Water",
 	},
-	'???': {
+	//eelek
+	randomness: {
 		accuracy: 100,
 		basePower: 20,
 		category: "Physical",
-		id: "???",
+		id: "randomness",
 		inNonstandard: true,
-		name: "???",
+		name: "Randomness",
 		pp: 10,
 		priority: 0,
 		onPrepareHit: function (target, source) {
