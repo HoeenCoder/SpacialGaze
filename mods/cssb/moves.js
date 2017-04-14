@@ -569,7 +569,7 @@ exports.BattleMovedex = {
 		zMovePower: 590,
 		contestType: "Tough",
 	},
-	//Eelek(tross)
+	//Eelek
 	"electrofryer": {
 		accuracy: 100,
 		basePower: 100,
