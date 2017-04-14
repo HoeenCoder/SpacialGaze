@@ -275,7 +275,7 @@ exports.BattleStatuses = {
 			this.add('c', '+Xavier1942', 'Nuuuuu! MY BEAUTIFUL WALL! ');
 		},
 	},
-	xavier1942: {
+	eelek: {
 		exists: true,
 		onStart: function () {
 			this.add('c', '+Eelek', 'Oh hey there! :3');
