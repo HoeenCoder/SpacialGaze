@@ -603,7 +603,7 @@ exports.BattleMovedex = {
 		flags: {protect: 1, mirror: 1, Contact: 1},
 		secondary: {
 			chance: 25,
-			target.trySetStatus(['brn', 'par', 'psn', 'tox', 'slp',  'frz'][this.random(6)], source);
+			target.trySetStatus(['brn', 'par', 'psn', 'tox', 'slp', 'frz'][this.random(6)], source);
 		},
 		target: "normal",
 		type: "Normal",
