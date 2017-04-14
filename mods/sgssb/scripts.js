@@ -420,13 +420,13 @@ exports.BattleScripts = {
 				},
 				nature: 'Adamant',
 			},
-			"@Eelek": {
+			"+Eelek": {
 				species: "Eelektross",
 				ability: "Serene Grace",
 				item: "Assault Vest",
 				gender: "M",
 				moves: ['Zing Zap', 'Icicle Crash', 'Flame Charge'],
-				signatureMove: "???",
+				signatureMove: "Randomness",
 				evs: {
 					atk: 252,
 					spe: 252,
