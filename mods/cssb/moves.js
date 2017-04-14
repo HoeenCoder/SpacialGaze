@@ -569,6 +569,52 @@ exports.BattleMovedex = {
 		zMovePower: 590,
 		contestType: "Tough",
 	},
+	//Eelek(tross)
+	"electrofryer": {
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		id: "electrofryer",
+		name: "Electro-Fryer",
+		pp: 5,
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
+		onBasePowerPriority: 4,
+		onBasePower: function (basePower, source, target, move) {
+			let item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemData, target, source, move, item)) return;
+			if (item.id) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAfterHit: function (target, source) {
+			if (source.hp) {
+				let item = target.takeItem();
+				if (item) {
+					this.add('-message', 'The high voltage burned the item to a crisp!');
+				}
+			}
+		},
+		secondary: {
+			chance: 25,
+			onHit: function (target, source) {
+				let result = this.random(2);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else  {
+					target.trySetStatus('par', source);
+				}
+			},
+		},
+		onEffectiveness: function (typeMod, type, move) {
+			return typeMod + this.getEffectiveness('Fire', type);
+		},
+		ignoreImmunity: {'Electric': true},
+		target: "normal",
+		type: "electric",
+		zMovePower: 200,
+		contestType: "Cool",
+	},
 	//DEFAULT-MONS CUSTOM MOVES (Save incase or re-addition)
 	// SpaceGazer
 	/*spacialblast: {
