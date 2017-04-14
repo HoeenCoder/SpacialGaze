@@ -598,9 +598,13 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 20,
 			onHit: function (target, source) {
-				let result = this.random(2);
-				if (result === 0) { par } else { brn }
-			}
+				let result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('brn', source);
+				} else {
+					target.trySetStatus('par', source);
+				}
+			},
 		},
 		target: "Normal",
 		type: "Electric",
