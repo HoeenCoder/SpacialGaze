@@ -281,7 +281,7 @@ exports.BattleStatuses = {
 			this.add('c', '+Eelek', 'Oh hey there! :3');
 		},
 		onSwitchOut: function (pokemon) {
-			this.add('c', '+Eelek', 'Gotta go, I\'ll be back when I get to the cemetary.');
+			this.add('c', '+Eelek', 'Gotta go, I\'ll be back when I get to the cemetery.');
 		},
 		onFaint: function (pokemon) {
 			this.add('c', '+Eelek', 'If I\'m dead, I\'m taking the whole server down with me.');
