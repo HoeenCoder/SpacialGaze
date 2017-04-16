@@ -413,8 +413,8 @@ exports.commands = {
 		if (!target) return this.errorReply("No Room Specified");
 		target = toId(target);
 		if (!Rooms(target)) return this.errorReply(`${target} is not a room`);
-		if (Db.DisabledScrolls.has(target)) return this.errorReply(`${Rooms(target).title} has roomintro scroll disabled.`);
-		Db.DisabledScrolls.set(target, true);
+		if (Db.disabledScrolls.has(target)) return this.errorReply(`${Rooms(target).title} has roomintro scroll disabled.`);
+		Db.disabledScrolls.set(target, true);
 	},
 	disableintroscrollhelp: ["/disableintroscroll [room] - Disables scroll bar preset in the room's roomintro."],
 	enableintroscroll: function (target, room, user) {
@@ -422,8 +422,8 @@ exports.commands = {
 		if (!target) return this.errorReply("No Room Specified");
 		target = toId(target);
 		if (!Rooms(target)) return this.errorReply(`${target} is not a room`);
-		if (!Db.DisabledScrolls.has(target)) return this.errorReply(`${Rooms(target).title} has roomintro scroll enabled.`);
-		Db.DisabledScrolls.remove(target);
+		if (!Db.disabledScrolls.has(target)) return this.errorReply(`${Rooms(target).title} has roomintro scroll enabled.`);
+		Db.disabledScrolls.remove(target);
 	},
 	enableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],
 };
