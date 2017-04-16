@@ -8,6 +8,8 @@
 
 'use strict';
 
+const notifiedUsers = {};
+
 function generateNews() {
 	let newsData, newsDisplay = [];
 	let keys = Db.news.keys();
@@ -24,10 +26,15 @@ function showSubButton(userid) {
 }
 SG.showNews = function (userid, user) {
 	if (!user || !userid) return false;
-	if (!Db.NewsSubscribers.has(userid)) return false;
+	if (!Db.NewsSubscribers.has(userid) || (userid in notifiedUsers)) return false;
 	let newsDisplay = generateNews();
 	if (newsDisplay.length > 0) {
 		newsDisplay = `${newsDisplay.join(`<hr>`)}${showSubButton(userid)}`;
+		newsDisplay = newsDisplay.join('<hr>');
+		newsDisplay += showSubButton(userid);
+		notifiedUsers[userid] = setTimeout(() => {
+			delete notifiedUsers[userid];
+		}, 60 * 60 * 1000);
 		return user.send(`|pm| SG Server|${user.getIdentity()}|/raw ${newsDisplay}`);
 	}
 };
