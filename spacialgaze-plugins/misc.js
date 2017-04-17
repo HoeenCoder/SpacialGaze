@@ -375,7 +375,7 @@ exports.commands = {
 		case 'disableintroscroll':
 			if (!target[2]) return this.errorReply('/usetoken disableintroscroll, [room]');
 			let roomid = toId(target[1]);
-			if (!Rooms[roomid]) return this.errorReply(`${roomid} is not a room.`);
+			if (!Rooms(roomid)) return this.errorReply(`${roomid} is not a room.`);
 			if (Db.disabledScrolls.has(roomid)) return this.errorReply(`${Rooms(roomid).title} has already roomintro scroll disabled.`);
 			msg += '/html <center>' + SG.nameColor(user.name, true) + ' has redeemed roomintro scroll disabler token.<br/>';
 			msg += '<button class="button" name="send" value="/disableintroscroll ' + target[1] + '">Disable Intro Scrool for <b>' + Rooms(roomid).title + '</b></button></center>';
