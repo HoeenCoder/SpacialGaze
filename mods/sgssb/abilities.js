@@ -2,9 +2,9 @@
 
 exports.BattleAbilities = {
 	//Eelek
-	impatience: {
-		id: 'impatience',
-		name: 'Impatience',
+	impatient: {
+		id: 'impatient',
+		name: 'Impatient',
 		//Serene Grace
 		onModifyMovePriority: -2,
 		onModifyMove: function (move) {
