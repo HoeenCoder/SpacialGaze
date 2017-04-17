@@ -265,6 +265,7 @@ exports.commands = {
 			);
 		},
 	},
+	'!profile': true,
 	profile: function (target, room, user) {
 		target = toId(target);
 		if (!target) target = user.name;
