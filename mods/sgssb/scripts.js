@@ -422,10 +422,10 @@ exports.BattleScripts = {
 			},
 			"+Eelek": {
 				species: "Eelektross",
-				ability: "impatient",
+				ability: "Impatient",
 				item: "Assault Vest",
 				gender: "M",
-				moves: ['Zing Zap', 'Icicle Crash', 'Flame Charge',
+				moves: ['Zing Zap', 'Icicle Crash', 'Needle Arm',
 				],
 				signatureMove: "Dice Roll",
 				evs: {
