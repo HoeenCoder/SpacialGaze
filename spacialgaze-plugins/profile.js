@@ -319,7 +319,6 @@ exports.commands = {
 				}
 				profile += '<br clear="all">';
 				self.sendReplyBox(profile);
-				room.update();
 			});
 		}
 	},
