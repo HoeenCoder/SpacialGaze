@@ -1,6 +1,29 @@
 'use strict';
 
 exports.BattleAbilities = {
+	//Eelek
+	impatient: {
+		id: 'impatient',
+		name: 'Impatient',
+		//Serene Grace
+		onModifyMovePriority: -2,
+		onModifyMove: function (move) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (let i = 0; i < move.secondaries.length; i++) {
+					move.secondaries[i].chance *= 2;
+				}
+			}
+		},
+		//speed Boost
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual: function (pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe:1});
+			}
+		},
+	},
 	//Ashley the Pikachu
 	primalsurge: {
 		name: 'Primal Surge',
