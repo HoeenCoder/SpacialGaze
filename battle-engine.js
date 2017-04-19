@@ -3970,7 +3970,7 @@ class Battle extends Tools.BattleDex {
 				faintData.target.isActive = false;
 				faintData.target.isStarted = false;
 				faintData.target.side.faintedThisTurn = true;
-				if (Tools.getFormat(this.format).useSGgame && !Tools.getFormat(this.format).noExp && faintData.source.side.name !== 'SG Server') {
+				if (Tools.getFormat(this.format).useSGgame && !Tools.getFormat(this.format).noExp && ((faintData.source && faintData.source.side.name !== 'SG Server') || faintData.target.side.name === 'SG Server')) {
 					// Award Experience
 					let out = SG.onFaint(faintData.source.side.name, this, faintData);
 					this.send('updateExp', out.substring(0, out.length - 1));
