@@ -370,6 +370,18 @@ exports.commands = {
 				user.console.lastNextAction = null;
 				user.console.curPane = null;
 				return this.parse('/sggame next');
+			} else {
+				// Attempt to forget the specified move, and learn action[2]
+				if (pokemon.moves.indexOf(toId(target) === -1)) return false; // The pokemon dosent know this move.
+				let obj = Db.players.get(user.userid);
+				obj.party[Number(action[1])].moves.splice(pokemon.moves.indexOf(toId(target)), 1);
+				obj.party[Number(action[1])].moves.push(toId(action[2]));
+				Db.players.set(user.userid, obj);
+				user.console.queueAction = null;
+				user.console.queue.unShift('text|1, 2, 3 and... POOF!<br/>' + (pokemon.name || pokemon.species) + ' forgot ' + target + ' and learned ' action[2] '!');
+				user.console.lastNextAction = null;
+				user.console.curPane = null;
+				return this.parse('/sggame next');
 			}
 		},
 		bag: function (target, room, user, connection, cmd) {
