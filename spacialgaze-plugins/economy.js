@@ -277,7 +277,7 @@ exports.commands = {
 		target = Number(target);
 		if (isNaN(target)) target = 100;
 		if (!this.runBroadcast()) return;
-		let keys = Db.currency.keys().map(function (name) {
+		let keys = Db.currency.keys().map(name => {
 			return {name: name, money: Db.currency.get(name)};
 		});
 		if (!keys.length) return this.sendReplyBox("Money ladder is empty.");
