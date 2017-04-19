@@ -434,11 +434,11 @@ exports.SG = {
 		let levelUps = 0;
 		while ((curExp + activeExp) >= this.calcExp(faintData.source.species, (faintData.source.level + 1))) {
 			battle.add('message', (faintData.source.name || faintData.source.species) + " grew to level " + (faintData.source.level + 1) + "!");
-			battle[faintData.source.side.substring(0, 2)].pokemon[faintData.source.slot].level++;
+			battle[faintData.source.side.id].pokemon[faintData.source.slot].level++;
 			faintData.source.level++;
 			levelUps++;
 		}
-		battle[faintData.source.side.substring(0, 2)].pokemon[faintData.source.slot].exp += activeExp;
+		battle[faintData.source.side.id].pokemon[faintData.source.slot].exp += activeExp;
 		out += "|" + levelUps;
 		// New evs
 		let newEvs = this.getEvGain(faintData.source);
@@ -475,10 +475,10 @@ exports.SG = {
 			levelUps = 0;
 			while ((cur.exp + mon.exp) >= this.calcExp(mon.species, (mon.level + 1))) {
 				battle.add('message', (mon.name || mon.species) + " grew to level " + (mon.level + 1) + "!");
-				battle[faintData.source.side.substring(0, 2)].pokemon[mon.slot].level++;
+				battle[faintData.source.side.id].pokemon[mon.slot].level++;
 				mon.level++;
 			}
-			battle[faintData.source.side.substring(0, 2)].pokemon[mon.slot].exp += cur.exp;
+			battle[faintData.source.side.id].pokemon[mon.slot].exp += cur.exp;
 			out += "|" + levelUps;
 			// New Evs
 			totalEvs = 0, newCount = 0; // eslint-disable-line
