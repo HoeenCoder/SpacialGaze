@@ -435,7 +435,6 @@ exports.SG = {
 		while ((curExp + activeExp) >= this.calcExp(faintData.source.species, (faintData.source.level + 1))) {
 			battle.add('message', (faintData.source.name || faintData.source.species) + " grew to level " + (faintData.source.level + 1) + "!");
 			battle[faintData.source.side.id].pokemon[faintData.source.slot].level++;
-			faintData.source.level++;
 			levelUps++;
 		}
 		battle[faintData.source.side.id].pokemon[faintData.source.slot].exp += activeExp;
@@ -476,7 +475,6 @@ exports.SG = {
 			while ((cur.exp + mon.exp) >= this.calcExp(mon.species, (mon.level + 1))) {
 				battle.add('message', (mon.name || mon.species) + " grew to level " + (mon.level + 1) + "!");
 				battle[faintData.source.side.id].pokemon[mon.slot].level++;
-				mon.level++;
 			}
 			battle[faintData.source.side.id].pokemon[mon.slot].exp += cur.exp;
 			out += "|" + levelUps;
