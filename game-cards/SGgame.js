@@ -378,7 +378,7 @@ exports.commands = {
 				obj.party[Number(action[1])].moves.push(toId(action[2]));
 				Db.players.set(user.userid, obj);
 				user.console.queueAction = null;
-				user.console.queue.unShift('text|1, 2, 3 and... POOF!<br/>' + (pokemon.name || pokemon.species) + ' forgot ' + target + ' and learned ' + action[2] + '!');
+				user.console.queue.unshift('text|1, 2, 3 and... POOF!<br/>' + (pokemon.name || pokemon.species) + ' forgot ' + target + ' and learned ' + action[2] + '!');
 				user.console.lastNextAction = null;
 				user.console.curPane = null;
 				return this.parse('/sggame next');
