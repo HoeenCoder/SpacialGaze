@@ -409,6 +409,101 @@ exports.SG = {
 		// If we reach here its an error
 		throw new Error('MAXIMUM STACK LIMIT EXCEEDED');
 	},
+	onFaint: function (userid, battle, faintData) {
+		userid = toId(userid);
+		let out = userid + "]";
+		let exp = faintData.source.side.battled[faintData.target.slot].map(mon => {
+			let pkmn = null;
+			for (let i = 0; i < faintData.source.side.pokemon.length; i++) {
+				if (faintData.source.side.pokemon[i].slot === mon) {
+					pkmn = faintData.source.side.pokemon[i];
+					break;
+				}
+			}
+			if (pkmn.slot !== faintData.source.slot) {
+				return {exp: SG.getGain(userid, pkmn, faintData.target, true), slot: pkmn.slot, mon: pkmn};
+			}
+			return null;
+		});
+		// EXP
+		let activeExp = SG.getGain(userid, faintData.source, faintData.target, true);
+		battle.add('message', (faintData.source.name || faintData.source.species) + " gained " + Math.round(activeExp) + " Exp. Points!");
+		out += faintData.source.slot + "|" + activeExp;
+		// Level ups
+		let curExp = faintData.source.exp;
+		let levelUps = 0;
+		while ((curExp + activeExp) >= SG.calcExp(faintData.source.species, (faintData.source.level + 1))) {
+			battle.add('message', (faintData.source.name || faintData.source.species) + " grew to level " + (faintData.source.level + 1) + "!");
+			battle[faintData.source.side].pokemon[faintData.source.slot].level++;
+			faintData.source.level++;
+			levelUps++;
+		}
+		battle[faintData.source.side].pokemon[faintData.source.slot].exp += activeExp;
+		out += "|" + levelUps;
+		// New evs
+		let newEvs = SG.getEvGain(faintData.source);
+		let totalEvs = 0, newCount = 0;
+		for (let ev in newEvs) {
+			if (faintData.source.set.evs[ev] >= 255) newEvs[ev] = 0;
+			totalEvs += faintData.source.set.evs[ev];
+			newCount += newEvs[ev];
+		}
+		if (totalEvs >= 510) {
+			newEvs = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0};
+		} else if (newCount + totalEvs > 510) {
+			// Apply as many evs as possible
+			for (let ev in newEvs) {
+				if (faintData.source.evs[ev] + newEvs[ev] > 255 || totalEvs >= 510) newEvs[ev] = 0;
+				totalEvs += newEvs[ev];
+			}
+		}
+		out += "|";
+		for (let ev in newEvs) {
+			out += newEvs[ev] + (ev === 'spe' ? ']' : ',');
+		}
+		battle.add('');
+		// Non-Active pokemon
+		while (exp.length) {
+			let cur = exp.shift();
+			if (!cur) continue;
+			let mon = cur.mon;
+			if (mon.fainted) continue;
+			// EXP
+			battle.add('message', (mon.name || mon.species) + " gained " + Math.round(cur.exp) + " Exp. Points!");
+			out += mon.slot + "|" + cur.exp;
+			// Level Ups
+			levelUps = 0;
+			while ((cur.exp + mon.exp) >= SG.calcExp(mon.species, (mon.level + 1))) {
+				battle.add('message', (mon.name || mon.species) + " grew to level " + (mon.level + 1) + "!");
+				battle[faintData.source.side].pokemon[mon.slot].level++;
+				mon.level++;
+			}
+			battle[faintData.source.side].pokemon[mon.slot].exp += cur.exp;
+			out += "|" + levelUps;
+			// New Evs
+			totalEvs = 0, newCount = 0; // eslint-disable-line
+			for (let ev in newEvs) {
+				if (mon.set.evs[ev] >= 255) newEvs[ev] = 0;
+				totalEvs += mon.set.evs[ev];
+				newCount += newEvs[ev];
+			}
+			if (totalEvs >= 510) {
+				newEvs = {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0};
+			} else if (newCount + totalEvs > 510) {
+				// Apply as many evs as possible
+				for (let ev in newEvs) {
+					if (mon.set.evs[ev] + newEvs[ev] > 255 || totalEvs >= 510) newEvs[ev] = 0;
+					totalEvs += newEvs[ev];
+				}
+			}
+			out += "|";
+			for (let ev in newEvs) {
+				out += newEvs[ev] + (ev === 'spe' ? ']' : ',');
+			}
+			battle.add('');
+		}
+		return out;
+	},
 	// Ripped from client, modified for SGgame
 	getPokemonIcon: function (pokemon) {
 		let base = pokemon;
