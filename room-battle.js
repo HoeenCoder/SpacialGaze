@@ -306,7 +306,6 @@ class Battle {
 			let gameObj = Db.players.get(userid);
 			let run = false;
 			let actions = [];
-			user.sendTo(Rooms('lobby'), 'Raw data: ' + lines[2]); // DEBUG
 			for (let i = 0; i < data.length; i++) {
 				let cur = data[i].split('|');
 				cur[0] = Number(cur[0]);
