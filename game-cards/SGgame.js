@@ -47,6 +47,14 @@ class SGgame extends Console.Console {
 				return base;
 			}
 			let poke = Db.players.get(this.userid).party[Number(msg.split('|')[1])];
+			if (poke.moves.length < 4) {
+				// Automatically learn the move
+				let obj = Db.players.get(this.userid);
+				obj.party[Number(msg.split('|')[1])].moves.push(toId(msg.split('|')[2]));
+				Db.players.set(this.userid, obj);
+				parts = base.split('<!--split-->');
+				return parts.shift() + '<div style="display: inline-block; position: absolute; bottom: 0; overflow: hidden; border: 0.2em solid #000; border-radius: 5px; width: 99%; color: #000;">' + (poke.name || poke.species) + ' learned ' + msg.split('|')[2] + '!</div>' + parts.join('');
+			}
 			this.queueAction = msg;
 			parts = base.split('<!--split-->');
 			return parts.shift() + '<div style="display: inline-block; position: absolute; bottom: 0; overflow: hidden; border: 0.2em solid #000; border-radius: 5px; width: 99%; color: #000;"><center>' + (poke.name || poke.species) + ' wants to learn the move ' + msg.split('|')[2] + '.<br/>Should a move be forgotten for ' + msg.split('|')[2] + '<br/><button name="send" value="/sggame learn" style="border: none; background: none; color: grey">Forget a move</button> <button name="send" value="/sggame learn reject" style="border: none; background: none; color: grey">Keep old moves</button></center></div>' + parts.join('');
