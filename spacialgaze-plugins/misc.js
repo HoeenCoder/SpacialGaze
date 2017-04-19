@@ -373,7 +373,7 @@ exports.commands = {
 			delete user.tokens[target[0]];
 			return SG.messageSeniorStaff(msg);
 		case 'disableintroscroll':
-			if (!target[2]) return this.errorReply('/usetoken disableintroscroll, [room]');
+			if (!target[1) return this.errorReply('/usetoken disableintroscroll, [room]');
 			let roomid = toId(target[1]);
 			if (!Rooms(roomid)) return this.errorReply(`${roomid} is not a room.`);
 			if (Db.disabledScrolls.has(roomid)) return this.errorReply(`${Rooms(roomid).title} has already roomintro scroll disabled.`);
