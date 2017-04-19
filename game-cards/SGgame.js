@@ -355,7 +355,7 @@ exports.commands = {
 				move = Tools.getMove(action[2]);
 				output += '<button name="send" value="/sggame learn cancel" class="type-' + move.type + '">' + move.name + '<br/><small class="type">' + move.type + '</small> <small class="pp">' + move.pp + '/' + move.pp + '</small>&nbsp;</button><br/><br/><br/>';
 				output += '</center></div></div></div>';
-				user.console.update(null, output, null);
+				return user.console.update(null, output, null);
 			} else if (target === 'reject') {
 				// Cancel the move learning.
 				user.console.queueAction = null;
@@ -372,7 +372,7 @@ exports.commands = {
 				return this.parse('/sggame next');
 			} else {
 				// Attempt to forget the specified move, and learn action[2]
-				if (pokemon.moves.indexOf(toId(target) === -1)) return false; // The pokemon dosent know this move.
+				if (pokemon.moves.indexOf(toId(target)) === -1) return false; // The pokemon dosent know this move.
 				let obj = Db.players.get(user.userid);
 				obj.party[Number(action[1])].moves.splice(pokemon.moves.indexOf(toId(target)), 1);
 				obj.party[Number(action[1])].moves.push(toId(action[2]));
