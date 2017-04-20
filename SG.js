@@ -412,6 +412,7 @@ exports.SG = {
 	onFaint: function (userid, battle, faintData) {
 		userid = toId(userid);
 		let out = userid + "]";
+		let active = null;
 		let exp = faintData.source.side.battled[faintData.target.slot].map(mon => {
 			let pkmn = null;
 			for (let i = 0; i < faintData.source.side.pokemon.length; i++) {
@@ -422,10 +423,13 @@ exports.SG = {
 			}
 			if (pkmn.slot !== faintData.source.slot) {
 				return {exp: this.getGain(userid, pkmn, faintData.target, true), slot: pkmn.slot, mon: pkmn};
+			} else {
+				active = {exp: this.getGain(userid, pkmn, faintData.target, true), slot: pkmn.slot, mon: pkmn};
+				return null;
 			}
-			return null;
 		});
-		// EXP
+		exp.unshift(active);
+		/*// EXP
 		let activeExp = this.getGain(userid, faintData.source, faintData.target, true);
 		battle.add('message', (faintData.source.name || faintData.source.species) + " gained " + Math.round(activeExp) + " Exp. Points!");
 		out += faintData.source.slot + "|" + activeExp;
@@ -460,8 +464,7 @@ exports.SG = {
 		for (let ev in newEvs) {
 			out += newEvs[ev] + (ev === 'spe' ? ']' : ',');
 		}
-		battle.add('');
-		// Non-Active pokemon
+		battle.add('');*/
 		while (exp.length) {
 			let cur = exp.shift();
 			if (!cur) continue;
