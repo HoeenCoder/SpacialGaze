@@ -412,7 +412,7 @@ exports.SG = {
 	onFaint: function (userid, battle, faintData) {
 		userid = toId(userid);
 		let out = userid + "]";
-		let active = null;
+		let active = null, levelUps = 0, newEvs = this.getEvGain(faintData.source), totalEvs = 0, newCount = 0;
 		let exp = faintData.source.side.battled[faintData.target.slot].map(mon => {
 			let pkmn = null;
 			for (let i = 0; i < faintData.source.side.pokemon.length; i++) {
