@@ -3972,6 +3972,8 @@ class Battle extends Tools.BattleDex {
 				faintData.target.side.faintedThisTurn = true;
 				if (Tools.getFormat(this.format).useSGgame && !Tools.getFormat(this.format).noExp && ((faintData.source && faintData.source.side.name !== 'SG Server') || faintData.target.side.name === 'SG Server')) {
 					// Award Experience
+					// If the source of the KO is a falsey value, use the current foe for calculating EXP. This can happen with things such as sandstorm.
+					if (!faintData.source) faintData.source = this[faintData.target.side.foe.id].pokemon[0];
 					let out = SG.onFaint(faintData.source.side.name, this, faintData);
 					this.send('updateExp', out.substring(0, out.length - 1));
 				}
