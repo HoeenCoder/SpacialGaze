@@ -65,6 +65,9 @@ function toToken(item) {
 	case 'customemote':
 	case 'emote':
 		return 'emote';
+
+	case 'intro':
+	case 'disableintro':
 	case 'disableintroscroll':
 		return 'disableintroscroll';
 
