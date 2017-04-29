@@ -468,7 +468,7 @@ exports.Formats = [
 
 		team: 'randomPvZ',
 		ruleset: ['HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
-			if (move.id === 'trickortreat') {
+			if (move.id === 'growth') {
 				switch (this.random(7)) {
 				case 0:
 					move.category = 'Special';
