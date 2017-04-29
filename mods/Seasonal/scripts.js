@@ -1,47 +1,33 @@
-randomSpoopyTeam: function () {
+randomPvZTeam: function () {
 		let pool = [
-			'ekans', 'arbok', 'golbat', 'parasect', 'muk', 'gengar', 'marowak', 'weezing', 'tangela', 'mr. mime', 'ditto',
-			'kabutops', 'noctowl', 'ariados', 'crobat', 'umbreon', 'murkrow', 'misdreavus', 'gligar', 'granbull', 'sneasel',
-			'houndoom', 'mightyena', 'dustox', 'shiftry', 'shedinja', 'exploud', 'sableye', 'mawile', 'swalot', 'carvanha',
-			'sharpedo', 'cacturne', 'seviper', 'lunatone', 'claydol', 'shuppet', 'banette', 'duskull', 'dusclops', 'absol',
-			'snorunt', 'glalie', 'drifloon', 'drifblim', 'mismagius', 'honchkrow', 'skuntank', 'spiritomb', 'drapion',
-			'toxicroak', 'weavile', 'tangrowth', 'gliscor', 'dusknoir', 'froslass', 'rotom', 'rotomwash', 'rotomheat',
-			'rotommow', 'purrloin', 'liepard', 'swoobat', 'whirlipede', 'scolipede', 'basculin', 'krookodile', 'sigilyph',
-			'yamask', 'cofagrigus', 'garbodor', 'zorua', 'zoroark', 'gothita', 'gothorita', 'gothitelle', 'frillish',
-			'jellicent', 'joltik', 'galvantula', 'elgyem', 'beheeyem', 'litwick', 'lampent', 'chandelure', 'golurk',
-			'zweilous', 'hydreigon', 'volcarona', 'espurr', 'meowstic', 'honedge', 'doublade', 'aegislash', 'malamar',
-			'phantump', 'trevenant', 'pumpkaboo', 'gourgeist', 'noibat', 'noivern', 'magikarp', 'farfetchd', 'machamp',
+			'Abomasnow', 'Amoonguss', 'Bayleef', 'Bellossom', 'Bellsprout', 'Bounsweet', 'Breloom', 'Bulbasaur', 'Cacnea', 'Cacturne', 'Carnivine',
+			'Cherrim', 'Cherubi', 'Chikorita', 'Comfey', 'Cottonee', 'Exeggcute', 'Exeggutor', 'Ferroseed', 'Ferrothorn', 'Fomantis', 'Foongus',
+			'Gloom', 'Grotle', 'Hoppip', 'Ivysaur', 'Jumpluff', 'Lilligant', 'Lombre', 'Lotad', 'Ludicolo', 'Lurantis', 'Maractus', 'Meganium',
+			'Morelull', 'Nuzleaf', 'Oddish', 'Paras', 'Parasect', 'Petilil', 'Phantump', 'Roselia', 'Roserade', 'Seedot', 'Serperior', 'Servine',
+			'Shiftry', 'Shiinotic', 'Shroomish', 'Skiploom', 'Snivy', 'Snover', 'Steenee', 'Sunflora', 'Sunkern', 'Tangela', 'Tangrowth', 'Torterra',
+			'Trevenant', 'Tropius', 'Tsareena', 'Turtwig', 'Venusaur', 'Victreebel', 'Vileplume', 'Weepinbell, Whimsicott, Accelgor,
+			'Araquanid', 'Ariados, Beautifly, Beedrill, Burmy, Butterfree, Cascoon, Caterpie, Charjabug, Combee, Crustle,
+			'Cutiefly', 'Dewpider', 'Drapion', 'Durant', 'Dustox', 'Dwebble', 'Escavalier', 'Flygon', 'Forretress', 'Galvantula', 'Gligar',
+			'Gliscor', 'Golisopod', 'Grubbin', 'Heracross', 'Illumise', 'Joltik', 'Kakuna', 'Karrablast', 'Kricketot', 'Kricketune',
+			'Larvesta', 'Leavanny', 'Ledian', 'Ledyba', 'Masquerain', 'Metapod, Mothim, Nincada, Ninjask, Pineco, Pinsir,
+			'Ribombee', 'Scatterbug', 'Scizor', 'Scolipede', 'Scyther', 'Sewaddle', 'Shelmet', 'Shuckle', 'Silcoon', 'Skorupi', 'Spewpa',
+			'Spinarak', 'Surskit', 'Swadloon', 'Trapinch', 'Venipede', 'Venomoth', 'Venonat', 'Vespiquen', 'Vibrava', 'Vikavolt', 'Vivillon',
+			'Volbeat', 'Volcarona', 'Weedle', 'Whirlipede', 'Wimpod', 'Wormadam', 'Wurmple', 'Yanma', 'Yanmega',
 		];
 		let team = [];
 
 		for (let i = 0; i < 6; i++) {
 			let mon = this.sampleNoReplace(pool);
 			let template = this.getTemplate(mon);
-			if (mon === 'pumpkaboo' || mon === 'gourgeist') {
-				let forme = this.random(4);
-				if (forme > 0) {
-					mon = template.otherFormes[forme - 1];
-					template = this.getTemplate(mon);
-				}
-			}
 			let set = this.randomSet(template, i, {megaCount: 1});
 			set.species = mon;
-			if (mon === 'magikarp') {
-				set.name = 'ayy lmao';
-				set.item = 'powerherb';
+			if (mon === 'ludicolo') {
+				set.name = 'HoeenHero';
+				set.item = 'leftovers';
 				set.ability = 'primordialsea';
-				set.moves = ['hyperbeam', 'geomancy', 'originpulse', 'aquaring', 'trickortreat'];
-			} else {
-				if (mon === 'golurk') {
-					set.name = 'Spoopy Skilenton';
-				} else if (mon === 'farfetchd') {
-					set.name = 'Le Toucan of Luck';
-				} else if (mon === 'machamp') {
-					set.name = 'John Cena';
-				} else if (mon === 'espurr') {
-					set.name = 'Devourer of Souls';
-				}
-				set.moves[4] = 'trickortreat';
+				set.moves = ['scald', 'gigadrain', 'calmmind', 'focusblast', 'growth'];
+			} 
+				set.moves[5] = 'growth';
 				if (set.item === 'Assault Vest') {
 					set.item = 'Leftovers';
 				}
