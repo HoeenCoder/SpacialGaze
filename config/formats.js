@@ -542,16 +542,6 @@ exports.Formats = [
 				}
 			}
 		},
-		onResidual: function () {
-			let allpokes = this.p1.active.concat(this.p2.active);
-			let pokemon;
-			for (let i = 0; i < allpokes.length; i++) {
-				pokemon = allpokes[i];
-				if (pokemon.hp && pokemon.volatiles['wonderring']) {
-					this.heal(pokemon.maxhp / 8, pokemon, pokemon, 'dank memes');
-				}
-			}
-		},
 	},
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
