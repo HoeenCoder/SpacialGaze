@@ -563,7 +563,7 @@ exports.BattleMovedex = {
 		target: "Normal",
 		type: "Water",
 	},
-	//CelestialTater
+	// CelestialTater
 	shellbreak: {
 		category: "Status",
 		id: "shellbreak",
@@ -586,10 +586,9 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Water",
 	},
-	//VXN
+	// VXN
 	crash: {
 		accuracy: true,
-		basePower: 0,
 		category: "Status",
 		id: "crash",
 		inNonstandard: true,
@@ -598,7 +597,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		onHit: function (pokemon) {
 			pokemon.faint();
-			this.add('raw|<div class=\"broadcast-red\"><b>The server has crashed:</b> TypeError: Cannot read property \'Overpowered\' of undefined at CommandContext.meme (/SpacialGaze/SpacialGaze Plugins/HoeenHero/Spellcheck.js:420:69)</div>');
+			this.add('raw|<div class=\"broadcast-red\"><b>The server has crashed:</b><br/>TypeError: Cannot read property \'Overpowered\' of undefined at CommandContext.meme (./SpacialGaze/spacialgaze-plugins/hoeenhero/spellcheck.js:420:69)</div>');
 		},
 		onPrepareHit: function (target, source) {
 			this.add('-anim', source, "Hex", source);
@@ -608,7 +607,7 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Dragon",
 	},
-	//insist
+	// Insist
 	aquasubscribe: {
 		id: "aquasubscribe",
 		name: "Aqua Subscribe",
