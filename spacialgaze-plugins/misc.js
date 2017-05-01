@@ -148,7 +148,7 @@ exports.commands = {
 			"- " + SG.nameColor('Opple', true) + " (Policy and Media)<br />" +
 			"- " + SG.nameColor('Kraken Mare', true) + " (Development)<br />" +
 			"- " + SG.nameColor('HiroZ', true) + " (Policy)<br />" +
-			"- " + SG.nameColor('Aeon Lucid', true) + " (Development)<br />" +
+			"- " + SG.nameColor('AeonLucid', true) + " (Development)<br />" +
 			"- " + SG.nameColor('Ashley the Pikachu', true) + " (CSS, Spriting)<br />" +
 			"- " + SG.nameColor('Insist', true) + " (Development)<br />" +
 			"- " + SG.nameColor('Eelek', true) + " (Development)<br />" +
