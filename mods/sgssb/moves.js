@@ -598,7 +598,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		onHit: function (pokemon) {
 			pokemon.faint();
-			this.add('raw|<div class=\"broadcast-red\"><b>TypeError: Cannot read property \'Overpowered\' of undefined</b><br />at CommandContext.meme (/SpacialGaze/SpacialGaze Plugins/HoeenHero/Spellcheck.js:420:69)</div>');
+			this.add('raw|<div class=\"broadcast-red\"><b>The server has crashed:</b> TypeError: Cannot read property \'Overpowered\' of undefined at CommandContext.meme (/SpacialGaze/SpacialGaze Plugins/HoeenHero/Spellcheck.js:420:69)</div>');
 		},
 		onPrepareHit: function (target, source) {
 			this.add('-anim', source, "Hex", source);
