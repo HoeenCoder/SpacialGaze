@@ -9,7 +9,6 @@ exports.BattleScripts = {
 				species: 'Pikachu',
 				ability: 'Static',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Signal Beam', 'Thunderbolt', 'Fake Out', 'Thunder Wave'],
 				weather: null,
 				evs: {
@@ -19,12 +18,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Hasty',
 			},
-
 			'Meowth': {
 				species: 'Meowth',
 				ability: 'Technician',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Fake Out', 'Scratch', 'Water Pulse', 'Faint Attack'],
 				weather: null,
 				evs: {
@@ -34,12 +31,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Hardy',
 			},
-
 			'Psyduck': {
 				species: 'Psyduck',
 				ability: 'Cloud Nine',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Scratch', 'Water Gun', 'Zen Headbutt', 'Psychic'],
 				weather: 'rain',
 				evs: {
@@ -49,12 +44,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Hardy',
 			},
-
 			'Riolu': {
 				species: 'Riolu',
 				ability: 'Prankster',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Force Palm', 'Bite', 'Swords Dance', 'Poison Jab'],
 				weather: null,
 				evs: {
@@ -64,12 +57,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Sassy',
 			},
-
 			'Shinx': {
 				species: 'Shinx',
 				ability: 'Intimidate',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Discharge', 'Spark', 'Bite', 'Tackle'],
 				weather: null,
 				evs: {
@@ -79,12 +70,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Hasty',
 			},
-
 			'Phanpy': {
 				species: 'Phanpy',
 				ability: 'Sturdy',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Dig', 'Tackle', 'Body Slam', 'Rollout'],
 				weather: 'sand',
 				evs: {
@@ -94,12 +83,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Relaxed',
 			},
-
 			'Munchlax': {
 				species: 'Munchlax',
 				ability: 'Thick Fat',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Tackle', 'Body Slam', 'Flamethrower', 'Water Pulse'],
 				weather: null,
 				evs: {
@@ -109,7 +96,6 @@ exports.BattleScripts = {
 				},
 				nature: 'Brave',
 			},
-
 			'Cubone': {
 				species: 'Cubone',
 				ability: 'Lightning Rod',
@@ -139,7 +125,6 @@ exports.BattleScripts = {
 				},
 				nature: 'Jolly',
 			},
-
 			'Skitty': {
 				species: 'Skitty',
 				ability: 'Cute Charm',
@@ -169,12 +154,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Adamant',
 			},
-
 			'Vulpix': {
 				species: 'Vulpix',
 				ability: 'Flash Fire',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Lava Plume', 'Incinerate', 'Faint Attack', 'Dig'],
 				weather: 'sun',
 				evs: {
@@ -184,12 +167,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Relaxed',
 			},
-
 			'Axew': {
 				species: 'Axew',
 				ability: 'Rivalry',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Dragon Rage', 'Hone Claws', 'Rock Tomb', 'Slash'],
 				weather: null,
 				evs: {
@@ -204,7 +185,6 @@ exports.BattleScripts = {
 				species: 'Bulbasaur',
 				ability: 'Overgrow',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Tackle', 'Bullet Seed', 'Seed Bomb', 'Sludge Bomb'],
 				weather: null,
 				evs: {
@@ -249,7 +229,6 @@ exports.BattleScripts = {
 				species: 'Chikorita',
 				ability: 'Overgrow',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Reflect', 'Light Screen', 'Magical Leaf', 'Toxic'],
 				weather: null,
 				evs: {
@@ -264,7 +243,6 @@ exports.BattleScripts = {
 				species: 'Cyndaquil',
 				ability: 'Blaze',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Incinerate', 'Lava Plume', 'Tackle', 'Flamethrower'],
 				weather: 'sun',
 				evs: {
@@ -279,7 +257,6 @@ exports.BattleScripts = {
 				species: 'Totodile',
 				ability: 'Torrent',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Scratch', 'Ice Fang', 'Crunch', 'Waterfall'],
 				weather: 'rain',
 				evs: {
@@ -324,7 +301,6 @@ exports.BattleScripts = {
 				species: 'Mudkip',
 				ability: 'Torrent',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Toxic', 'Water Pulse', 'Whirlpool', 'Protect'],
 				weather: 'rain',
 				evs: {
@@ -335,12 +311,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Rash',
 			},
-
 			'Turtwig': {
 				species: 'Turtwig',
 				ability: 'Overgrow',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Tackle', 'Crunch', 'Giga Drain', 'Stealth Rock'],
 				weather: null,
 				evs: {
@@ -351,12 +325,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Bold',
 			},
-
 			'Chimchar': {
 				species: 'Chimchar',
 				ability: 'Blaze',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Scratch', 'Stealth Rock', 'Flame Wheel', 'Swords Dance'],
 				weather: 'sun',
 				evs: {
@@ -366,12 +338,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Naive',
 			},
-
 			'Piplup': {
 				species: 'Piplup',
 				ability: 'Torrent',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Defog', 'Surf', 'Toxic', 'Roar'],
 				weather: 'rain',
 				evs: {
@@ -382,12 +352,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Impish',
 			},
-
 			'Snivy': {
 				species: 'Snivy',
 				ability: 'Overgrow',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Giga Drain', 'Leaf Tornado', 'Round', 'Calm Mind'],
 				evs: {
 					hp: 4,
@@ -401,7 +369,6 @@ exports.BattleScripts = {
 				species: 'Tepig',
 				ability: 'Blaze',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Tackle', 'Assurance', 'Flame Charge', 'Body Slam'],
 				weather: 'sun',
 				evs: {
@@ -416,7 +383,6 @@ exports.BattleScripts = {
 				species: 'Oshawott',
 				ability: 'Torrent',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Tackle', 'Razor Shell', 'Water Gun', 'Icy Wind'],
 				weather: 'rain',
 				evs: {
@@ -431,7 +397,6 @@ exports.BattleScripts = {
 				species: 'Chespin',
 				ability: 'Overgrow',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Pin Missile', 'Rollout', 'Seed Bomb', 'Bulk Up'],
 				weather: null,
 				evs: {
@@ -441,12 +406,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Bold',
 			},
-
 			'Fennekin': {
 				species: 'Fennekin',
 				ability: 'Blaze',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Will-O-Wisp', 'Light Screen', 'Fire Pledge', 'Psybeam'],
 				weather: 'sun',
 				evs: {
@@ -456,12 +419,10 @@ exports.BattleScripts = {
 				},
 				nature: 'Gentle',
 			},
-
 			'Froakie': {
 				species: 'Froakie',
 				ability: 'Torrent',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Toxic Spikes', 'Water Pulse', 'Round', 'Icy Wind'],
 				weather: 'rain',
 				evs: {
@@ -475,7 +436,6 @@ exports.BattleScripts = {
 				species: 'Snorunt',
 				ability: 'Ice Body',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Ice Shard', 'Ice Beam', 'Spikes', 'Hidden Power Ground'],
 				weather: 'hail',
 				evs: {
@@ -489,7 +449,6 @@ exports.BattleScripts = {
 				species: 'Snover',
 				ability: 'Snow Warning',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Blizzard', 'Ice Shard', 'Energy Ball', 'Hidden Power Rock'],
 				weather: 'hail',
 				evs: {
@@ -503,7 +462,8 @@ exports.BattleScripts = {
 				species: 'Wigglytuff',
 				ability: 'Cute Charm',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'M',
+				level: 15,
+				gender: 'M',
 				moves: ['Double Slap', 'Sing', 'Defense Curl', 'Rollout'],
 				weather: null,
 				evs: {
@@ -517,7 +477,8 @@ exports.BattleScripts = {
 				species: 'Chatot',
 				ability: 'Tangled Feet',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'M',
+				level: 15,
+				gender: 'M',
 				moves: ['Hyper Voice', 'Fury Attack', 'Peck', 'Mirror Move'],
 				weather: null,
 				evs: {
@@ -531,7 +492,7 @@ exports.BattleScripts = {
 				species: 'Bidoof',
 				ability: 'Simple',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'M',
+				gender: 'M',
 				moves: ['Curse', 'Headbutt', 'Rollout', 'Super Fang'],
 				weather: null,
 				evs: {
@@ -545,7 +506,8 @@ exports.BattleScripts = {
 				species: 'Sunflora',
 				ability: 'Chlorophyll',
 				item: '',
-				gender: (variant === 1) ? 'F' : 'F',
+				level: 20,
+				gender: 'F',
 				moves: ['Leaf Storm', 'Sleep Powder', 'Bullet Seed', 'Growth'],
 				weather: 'Sun',
 				evs: {
@@ -559,7 +521,8 @@ exports.BattleScripts = {
 				species: 'Chimecho',
 				ability: 'Levitate',
 				item: '',
-				gender: (variant === 1) ? 'F' : 'F',
+				level: 15,
+				gender: 'F',
 				moves: ['Psybeam', 'Wish', 'Ominous Wind', 'Future Sight'],
 				weather: null,
 				evs: {
@@ -573,7 +536,7 @@ exports.BattleScripts = {
 				species: 'Diglett',
 				ability: 'Sand Force',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'M',
+				gender: 'M',
 				moves: ['Magnitude', 'Scratch', 'Sucker Punch', 'Screech'],
 				weather: null,
 				evs: {
@@ -587,7 +550,8 @@ exports.BattleScripts = {
 				species: 'Dugtrio',
 				ability: 'Sand Force',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'M',
+				level: 15,
+				gender: 'M',
 				moves: ['Earthquake', 'Slash', 'Sucker Punch', 'Shadow Claw'],
 				weather: null,
 				evs: {
@@ -601,7 +565,7 @@ exports.BattleScripts = {
 				species: 'Croagunk',
 				ability: 'Poison Touch',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'M',
+				gender: 'M',
 				moves: ['Fake Out', 'Sludge Bomb', 'Drain Punch', 'Poison Jab'],
 				weather: null,
 				evs: {
@@ -615,7 +579,8 @@ exports.BattleScripts = {
 				species: 'Loudred',
 				ability: 'Scrappy',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'M',
+				level: 15,
+				gender: 'M',
 				moves: ['Uproar', 'Pound', 'Shadow Ball', 'Screech'],
 				weather: null,
 				evs: {
@@ -629,7 +594,7 @@ exports.BattleScripts = {
 				species: 'Corphish',
 				ability: 'Adaptability',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'M',
+				gender: 'M',
 				moves: ['Bubblebeam', 'Vice Grip', 'Dragon Dance', 'Razor Shell'],
 				weather: null,
 				evs: {
