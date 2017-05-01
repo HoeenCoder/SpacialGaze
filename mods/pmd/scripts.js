@@ -100,7 +100,6 @@ exports.BattleScripts = {
 				species: 'Cubone',
 				ability: 'Lightning Rod',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Headbutt', 'Bone Club', 'Rock Slide', 'Aerial Ace'],
 				weather: 'sand',
 				evs: {
@@ -199,7 +198,6 @@ exports.BattleScripts = {
 				species: 'Charmander',
 				ability: 'Blaze',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Scratch', 'Flamethrower', 'Fire Spin', 'Will-O-Wisp'],
 				weather: 'sun',
 				evs: {
@@ -214,7 +212,6 @@ exports.BattleScripts = {
 				species: 'Squirtle',
 				ability: 'Torrent',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Tackle', 'Water Gun', 'Aqua Tail', 'Ice Beam'],
 				weather: 'rain',
 				evs: {
@@ -286,7 +283,6 @@ exports.BattleScripts = {
 				species: 'Torchic',
 				ability: 'Blaze',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Scratch', 'Incinerate', 'Fire Spin', 'Slash'],
 				weather: 'sun',
 				evs: {
