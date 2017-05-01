@@ -151,7 +151,7 @@ exports.commands = {
 			"- " + SG.nameColor('Aeon Lucid', true) + " (Development)<br />" +
 			"- " + SG.nameColor('Ashley the Pikachu', true) + " (CSS, Spriting)<br />" +
 			"- " + SG.nameColor('Insist', true) + " (Development)<br />" +
-			"- " + SG.nameColor('Eelek', true) + " (Development)<br />" +
+			"- " + SG.nameColor('VXN', true) + " (Development)<br />" +
 			"<br />" +
 			"<u><b>Retired Staff:</b></u><br />" +
 			"- " + SG.nameColor('The Run', true) + " (Former Server Owner, Development)<br />" +
