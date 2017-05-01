@@ -1,7 +1,7 @@
 'use strict';
 
 exports.BattleItems = {
-	"playniumz": {
+	playniumz: {
 		spritenum: 656,
 		onTakeItem: false,
 		id: "playniumz",
