@@ -587,28 +587,26 @@ exports.BattleMovedex = {
 		type: "Water",
 	},
 	//eelek
-	diceroll: {
-		accuracy: 100,
-		basePower: 60,
-		category: "Physical",
-		id: "diceroll",
+	crash: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		id: "crash",
 		inNonstandard: true,
-		name: "Dice Roll",
-		pp: 10,
+		name: "Crash",
+		pp: 5,
 		priority: 0,
+		onHit: function (pokemon) {
+			pokemon.faint();
+			this.add('raw|Subscribe to http://youtube.com/DeathlyPlays');
+		},
 		onPrepareHit: function (target, source) {
-			this.add('-anim', source, "Teeter Dance", source);
-			this.add('-anim', source, "Mega Punch", target);
+			this.add('-anim', source, "Hex", source);
 		},
-		flags: {protect: 1, mirror: 1, Contact: 1},
-		secondary: {
-			chance: 25,
-			onAfterHit: function (target, source) {
-				target.trySetStatus(['brn', 'par', 'psn', 'tox', 'slp', 'frz'][this.random(6)], source);
-			},
-		},
-		target: "normal",
-		type: "Normal",
+		flags: {},
+		secondary: false,
+		target: "self",
+		type: "Dragon",
 	},
 	//insist
 	aquasubscribe: {
