@@ -3,7 +3,6 @@
 exports.BattleScripts = {
 	randomPmdTeam: function (side) {
 		let team = [];
-		let variant = (this.random(2) === 1);
 		let sets = {
 			'Pikachu': {
 				species: 'Pikachu',
@@ -114,7 +113,6 @@ exports.BattleScripts = {
 				species: 'Eevee',
 				ability: 'Adaptability',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Tackle', 'Quick Attack', 'Bite', 'Dig'],
 				weather: null,
 				evs: {
@@ -128,7 +126,6 @@ exports.BattleScripts = {
 				species: 'Skitty',
 				ability: 'Cute Charm',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Tackle', 'Double Slap', 'Faint Attack', 'Zen Headbutt'],
 				weather: null,
 				evs: {
@@ -143,7 +140,6 @@ exports.BattleScripts = {
 				species: 'Machop',
 				ability: 'Guts',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['ThunderPunch', 'Wake Up Slap', 'Dig', 'Rock Slide'],
 				weather: null,
 				evs: {
@@ -268,7 +264,6 @@ exports.BattleScripts = {
 				species: 'Treecko',
 				ability: 'Overgrow',
 				item: '',
-				gender: (variant === 1) ? 'M' : 'F',
 				moves: ['Pound', 'Giga Drain', 'Energy Ball', 'Rock Tomb'],
 				weather: null,
 				evs: {
