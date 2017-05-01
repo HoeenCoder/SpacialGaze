@@ -2,7 +2,7 @@
 
 exports.BattleAbilities = {
 	//Ashley the Pikachu
-	"primalsurge": {
+	primalsurge: {
 		name: "Primal Surge",
 		id: "primalsurge",
 		onStart: function (source) {
@@ -28,7 +28,7 @@ exports.BattleAbilities = {
 		},
 	},
 	//Insist
-	"cripplingdepression": {
+	cripplingdepression: {
 		id: "cripplingdepression",
 		name: "Crippling Depression",
 		//primordialseas
