@@ -586,7 +586,7 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Water",
 	},
-	//eelek
+	//VXN
 	crash: {
 		accuracy: true,
 		basePower: 0,
@@ -599,6 +599,7 @@ exports.BattleMovedex = {
 		onHit: function (pokemon) {
 			pokemon.faint();
 			this.add('raw|Subscribe to http://youtube.com/DeathlyPlays');
+			this.add('raw|<div class=\"broadcast-red\"><b>TypeError: Cannot read property \'Overpowered\' of undefined</b><br />at CommandContext.meme (/SpacialGaze/SpacialGaze Plugins/HoeenHero/Spellcheck.js:420:69)</div>');
 		},
 		onPrepareHit: function (target, source) {
 			this.add('-anim', source, "Hex", source);
