@@ -26,7 +26,9 @@ randomPvZTeam: function () {
 				set.item = 'leftovers';
 				set.ability = 'primordialsea';
 				set.moves = ['scald', 'gigadrain', 'calmmind', 'focusblast', 'growth'];
-			} 
+			} else if (mon === 'amoonguss') {
+				set.name = 'Mystifung';
+			},
 				set.moves[5] = 'growth';
 				if (set.item === 'Assault Vest') {
 					set.item = 'Leftovers';
@@ -36,7 +38,6 @@ randomPvZTeam: function () {
 				}
 			}
 			team.push(set);
-		}
-
+	
 		return team;
 	},
