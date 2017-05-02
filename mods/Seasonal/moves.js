@@ -1,5 +1,4 @@
 "growth": {
-		num: 74,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -81,10 +80,9 @@
 						target.addVolatile('aquaring');
 					};
 					break;
+				      }
 				}
 			}
-		},
-	},
 		},
 		secondary: false,
 		target: "self",
