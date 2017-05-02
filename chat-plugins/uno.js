@@ -82,9 +82,6 @@ const cardImages = {
 	},
 };
 
-
-const textShadow = 'text-shadow: 1px 0px black, -1px 0px black, 0px -1px black, 0px 1px black, 2px -2px black;';
-
 function cardImg(card, fullsize) {
 	let img = cardImages[card.color][card.value];
 	if (!img) return null;
@@ -765,7 +762,7 @@ exports.commands = {
 			}
 			output += '</div>';
 			this.sendReply('|raw|' + output);
-		}
+		},
 	},
 
 	unohelp: [
