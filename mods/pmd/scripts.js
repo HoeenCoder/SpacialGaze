@@ -602,7 +602,7 @@ exports.BattleScripts = {
 		for (let i = 0; i < 4; i++) {
 			let name = this.sampleNoReplace(pool);
 			let set = sets[name];
-			set.level = 25;
+			if (!set.level) set.level = 25;
 			set.name = name;
 			if (!set.ivs) {
 				set.ivs = {
