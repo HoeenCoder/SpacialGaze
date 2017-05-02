@@ -73,7 +73,7 @@ const cardImages = {
 		'7': ['http://i.imgur.com/RyXPBMg.png', 'http://i.imgur.com/zP01ZYe.png'],
 		'8': ['http://i.imgur.com/sDbboPr.png', 'http://i.imgur.com/xEuvkv2.png'],
 		'9': ['http://i.imgur.com/a2quFol.png', 'http://i.imgur.com/1SW5q43.png'],
-		'Reverse': ['http://i.imgur.com/1SW5q43.png', 'http://i.imgur.com/uIWoGVs.png'],
+		'Reverse': ['http://i.imgur.com/1II7MXH.png', 'http://i.imgur.com/PGSUrZr.png'],
 		'Skip': ['http://i.imgur.com/CQwVUIJ.png', 'http://i.imgur.com/MbLnz6v.png'],
 	},
 	'Black': {
