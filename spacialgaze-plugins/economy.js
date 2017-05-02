@@ -294,10 +294,10 @@ exports.commands = {
 		if (!this.can('roomowner')) return false;
 		if (!target) return this.parse('/help resetmoney');
 		target = toId(target);
-		Economy.writeMoney(target, Economy.readMoney(target));
+		Economy.writeMoney(target, 0);
 		this.sendReply(target + " now has 0 " + currencyName + ".");
 	},
-	resetmoneyhelp: ['/resetmoney [target] - Resets target user\'s money to 0.'],
+	resetmoneyhelp: ['/resetmoney [user] - Resets target user\'s currency to 0. Requires: &, ~'],
 
 	customsymbol: function (target, room, user) {
 		let bannedSymbols = ['!', '|', '‽', '\u2030', '\u534D', '\u5350', '\u223C'];
