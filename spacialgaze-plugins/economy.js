@@ -295,9 +295,9 @@ exports.commands = {
 		if (!target) return this.parse('/help resetmoney');
 		target = toId(target);
 		Economy.writeMoney(target, Economy.readMoney(target));
-		this.sendReply(target + " now has 0 + " currencyName + ".");
+		this.sendReply(target + " now has 0 " + currencyName + ".");
 	},
-	resetmoneyhelp: ['/resetmoney [target] - Resets target user\'s money to 0'],
+	resetmoneyhelp: ['/resetmoney [target] - Resets target user\'s money to 0.'],
 
 	customsymbol: function (target, room, user) {
 		let bannedSymbols = ['!', '|', '‽', '\u2030', '\u534D', '\u5350', '\u223C'];
