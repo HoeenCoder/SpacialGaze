@@ -31,8 +31,8 @@ const cardImages = {
 		'7': ['http://i.imgur.com/QqlZL9g.png', 'http://i.imgur.com/ZsN4ifx.png'],
 		'8': ['http://i.imgur.com/Hhv8ksq.png', 'http://i.imgur.com/r7MEZLv.png'],
 		'9': ['http://i.imgur.com/AFRMTbR.png', 'http://i.imgur.com/ujT4RZd.png'],
-		'R': ['http://i.imgur.com/V3CwGyS.png', 'http://i.imgur.com/lFgbnTr.png'],
-		'S': ['http://i.imgur.com/lwFr0br.png', 'http://i.imgur.com/rIYeKLf.png'],
+		'Reverse': ['http://i.imgur.com/V3CwGyS.png', 'http://i.imgur.com/lFgbnTr.png'],
+		'Skip': ['http://i.imgur.com/lwFr0br.png', 'http://i.imgur.com/rIYeKLf.png'],
 	},
 	'Yellow': {
 		'+2': ['http://i.imgur.com/xTf5XmZ.png', 'http://i.imgur.com/v4cuEdg.png'],
@@ -45,8 +45,8 @@ const cardImages = {
 		'7': ['http://i.imgur.com/Zm5HHaj.png', 'http://i.imgur.com/h3ffVEN.png'],
 		'8': ['http://i.imgur.com/zwqe5pM.png', 'http://i.imgur.com/TaFtImG.png'],
 		'9': ['http://i.imgur.com/ap3JsDn.png', 'http://i.imgur.com/8uuosgz.png'],
-		'R': ['http://i.imgur.com/4lQkz6H.png', 'http://i.imgur.com/gPJaL6C.png'],
-		'S': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png'],
+		'Reverse': ['http://i.imgur.com/4lQkz6H.png', 'http://i.imgur.com/gPJaL6C.png'],
+		'Skip': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png'],
 	},
 	'Blue': {
 		'+2': ['http://i.imgur.com/MjmlJj8.png', 'http://i.imgur.com/A1ltMae.png'],
@@ -59,8 +59,8 @@ const cardImages = {
 		'7': ['http://i.imgur.com/QisrljZ.png', 'http://i.imgur.com/DPun9mw.png'],
 		'8': ['http://i.imgur.com/pW83Jsh.png', 'http://i.imgur.com/u4eePOS.png'],
 		'9': ['http://i.imgur.com/IbdFVqk.png', 'http://i.imgur.com/yzbuZca.png'],
-		'R': ['http://i.imgur.com/8OF02AN.png', 'http://i.imgur.com/nBX4VEL.png'],
-		'S': ['http://i.imgur.com/HHo8uUL.png', 'http://i.imgur.com/MgnVpN8.png'],
+		'Reverse': ['http://i.imgur.com/8OF02AN.png', 'http://i.imgur.com/nBX4VEL.png'],
+		'Skip': ['http://i.imgur.com/HHo8uUL.png', 'http://i.imgur.com/MgnVpN8.png'],
 	},
 	'Red': {
 		'+2': ['http://i.imgur.com/SRBX717.png', 'http://i.imgur.com/CXgepLg.png'],
@@ -73,12 +73,12 @@ const cardImages = {
 		'7': ['http://i.imgur.com/RyXPBMg.png', 'http://i.imgur.com/zP01ZYe.png'],
 		'8': ['http://i.imgur.com/sDbboPr.png', 'http://i.imgur.com/xEuvkv2.png'],
 		'9': ['http://i.imgur.com/a2quFol.png', 'http://i.imgur.com/1SW5q43.png'],
-		'R': ['http://i.imgur.com/1SW5q43.png', 'http://i.imgur.com/uIWoGVs.png'],
-		'S': ['http://i.imgur.com/CQwVUIJ.png', 'http://i.imgur.com/MbLnz6v.png'],
+		'Reverse': ['http://i.imgur.com/1SW5q43.png', 'http://i.imgur.com/uIWoGVs.png'],
+		'Skip': ['http://i.imgur.com/CQwVUIJ.png', 'http://i.imgur.com/MbLnz6v.png'],
 	},
 	'Black': {
 		'Wild': null,
-		'+4': null,
+		'+4': ['http://i.imgur.com/pM1p5n5.png', 'http://i.imgur.com/KMEXUL7.png'],
 	},
 };
 
@@ -95,7 +95,7 @@ function cardImg(card, fullsize) {
 
 function cardHTML(card, fullsize) {
 	let img = cardImg(card, fullsize);
-	return `<button class="button" style="height: 135px; width: ${fullsize ? '72' : '37'}px; border-radius: 10px 2px 2px 3px; background-image: url('${img}');" name=send value="/uno play ${card.name}"></button>`;
+	return `<button class="button" style="height: 135px; width: ${fullsize ? '72' : '37'}px; border-radius: 10px 2px 2px 3px; background-image: url('${img}');" name=send value="/uno play ${card.name}" title="${card.color + card.value}"></button>`;
 }
 
 function createDeck() {
