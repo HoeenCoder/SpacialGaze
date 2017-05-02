@@ -40,7 +40,7 @@ const cardImages = {
 		'8': ['http://i.imgur.com/Hhv8ksq.png', 'http://i.imgur.com/r7MEZLv.png'],
 		'9': ['http://i.imgur.com/AFRMTbR.png', 'http://i.imgur.com/ujT4RZd.png'],
 		'R': ['http://i.imgur.com/V3CwGyS.png', 'http://i.imgur.com/lFgbnTr.png'],
-		'S': ['http://i.imgur.com/lwFr0br.png', 'http://i.imgur.com/rIYeKLf.png']
+		'S': ['http://i.imgur.com/lwFr0br.png', 'http://i.imgur.com/rIYeKLf.png'],
 	},
 	'Yellow': {
 		'+2': ['http://i.imgur.com/xTf5XmZ.png', 'http://i.imgur.com/v4cuEdg.png'],
@@ -54,7 +54,7 @@ const cardImages = {
 		'8': ['http://i.imgur.com/zwqe5pM.png', 'http://i.imgur.com/TaFtImG.png'],
 		'9': ['http://i.imgur.com/ap3JsDn.png', 'http://i.imgur.com/8uuosgz.png'],
 		'R': ['http://i.imgur.com/4lQkz6H.png', 'http://i.imgur.com/gPJaL6C.png'],
-		'S': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png']
+		'S': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png'],
 	},
 	'Blue': {
 		'+2': ['http://i.imgur.com/MjmlJj8.png', 'http://i.imgur.com/A1ltMae.png'],
@@ -68,7 +68,7 @@ const cardImages = {
 		'8': ['http://i.imgur.com/pW83Jsh.png', 'http://i.imgur.com/u4eePOS.png'],
 		'9': ['http://i.imgur.com/IbdFVqk.png', 'http://i.imgur.com/yzbuZca.png'],
 		'R': ['http://i.imgur.com/8OF02AN.png', 'http://i.imgur.com/nBX4VEL.png'],
-		'S': ['http://i.imgur.com/HHo8uUL.png', 'http://i.imgur.com/MgnVpN8.png']
+		'S': ['http://i.imgur.com/HHo8uUL.png', 'http://i.imgur.com/MgnVpN8.png'],
 	},
 	'Red': {},
 	'Black': {
