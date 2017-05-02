@@ -30,6 +30,7 @@ const textColors = {
 const cardImages = {
 	'Green': {},
 	'Yellow': {
+		'+2': ['http://i.imgur.com/xTf5XmZ.png', 'http://i.imgur.com/v4cuEdg.png'],
 		'1': ['http://i.imgur.com/jweYpeI.png', 'http://i.imgur.com/RGzdVmY.png'],
 		'2': ['http://i.imgur.com/qJ3DcP4.png', 'http://i.imgur.com/7TVKRSL.png'],
 		'3': ['http://i.imgur.com/GTny7TF.png', 'http://i.imgur.com/JZMGlyS.png'],
@@ -40,8 +41,7 @@ const cardImages = {
 		'8': ['http://i.imgur.com/zwqe5pM.png', 'http://i.imgur.com/TaFtImG.png'],
 		'9': ['http://i.imgur.com/ap3JsDn.png', 'http://i.imgur.com/8uuosgz.png'],
 		'R': ['http://i.imgur.com/4lQkz6H.png', 'http://i.imgur.com/gPJaL6C.png'],
-		'S': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png'],
-		'+2': ['http://i.imgur.com/xTf5XmZ.png', 'http://i.imgur.com/v4cuEdg.png'],
+		'S': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png']
 	},
 	'Blue': {},
 	'Red': {},
