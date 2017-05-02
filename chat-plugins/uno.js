@@ -11,14 +11,6 @@
 
 const maxTime = 120; // seconds
 
-const rgbGradients = {
-	'Green': "rgba(0, 122, 0, 1), rgba(0, 185, 0, 0.9)",
-	'Yellow': "rgba(255, 225, 0, 1), rgba(255, 255, 85, 0.9)",
-	'Blue': "rgba(40, 40, 255, 1), rgba(125, 125, 255, 0.9)",
-	'Red': "rgba(255, 0, 0, 1), rgba(255, 125, 125, 0.9)",
-	'Black': "rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.55)",
-};
-
 const textColors = {
 	'Green': "rgb(0, 128, 0)",
 	'Yellow': "rgb(175, 165, 40)",
@@ -28,48 +20,6 @@ const textColors = {
 };
 
 const cardImages = {
-	'Green': {
-		'+2': ['http://i.imgur.com/74qtObm.png', 'http://i.imgur.com/rCAFAaF.png'],
-		'1': ['http://i.imgur.com/jwIO2Dd.png', 'http://i.imgur.com/XC9xcWS.png'],
-		'2': ['http://i.imgur.com/siRbfoZ.png', 'http://i.imgur.com/RkzPxsz.png'],
-		'3': ['http://i.imgur.com/xPYUiES.png', 'http://i.imgur.com/LJ80n29.png'],
-		'4': ['http://i.imgur.com/493r5fq.png', 'http://i.imgur.com/WgOvo7c.png'],
-		'5': ['http://i.imgur.com/s4rYl5j.png', 'http://i.imgur.com/6d0fVOS.png'],
-		'6': ['http://i.imgur.com/Q4DVYd4.png', 'http://i.imgur.com/4IT7hIg.png'],
-		'7': ['http://i.imgur.com/QqlZL9g.png', 'http://i.imgur.com/ZsN4ifx.png'],
-		'8': ['http://i.imgur.com/Hhv8ksq.png', 'http://i.imgur.com/r7MEZLv.png'],
-		'9': ['http://i.imgur.com/AFRMTbR.png', 'http://i.imgur.com/ujT4RZd.png'],
-		'R': ['http://i.imgur.com/V3CwGyS.png', 'http://i.imgur.com/lFgbnTr.png'],
-		'S': ['http://i.imgur.com/lwFr0br.png', 'http://i.imgur.com/rIYeKLf.png'],
-	},
-	'Yellow': {
-		'+2': ['http://i.imgur.com/xTf5XmZ.png', 'http://i.imgur.com/v4cuEdg.png'],
-		'1': ['http://i.imgur.com/jweYpeI.png', 'http://i.imgur.com/RGzdVmY.png'],
-		'2': ['http://i.imgur.com/qJ3DcP4.png', 'http://i.imgur.com/7TVKRSL.png'],
-		'3': ['http://i.imgur.com/GTny7TF.png', 'http://i.imgur.com/JZMGlyS.png'],
-		'4': ['http://i.imgur.com/3ne6WOb.png', 'http://i.imgur.com/c7o8cuV.png'],
-		'5': ['http://i.imgur.com/Bv7Kks1.png', 'http://i.imgur.com/GmUgZSh.png'],
-		'6': ['http://i.imgur.com/C5PmmaD.png', 'http://i.imgur.com/jWBYofF.png'],
-		'7': ['http://i.imgur.com/Zm5HHaj.png', 'http://i.imgur.com/h3ffVEN.png'],
-		'8': ['http://i.imgur.com/zwqe5pM.png', 'http://i.imgur.com/TaFtImG.png'],
-		'9': ['http://i.imgur.com/ap3JsDn.png', 'http://i.imgur.com/8uuosgz.png'],
-		'R': ['http://i.imgur.com/4lQkz6H.png', 'http://i.imgur.com/gPJaL6C.png'],
-		'S': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png'],
-	},
-	'Blue': {
-		'+2': ['http://i.imgur.com/MjmlJj8.png', 'http://i.imgur.com/A1ltMae.png'],
-		'1': ['http://i.imgur.com/fOxlUkX.png', 'http://i.imgur.com/1XWzjhQ.png'],
-		'2': ['http://i.imgur.com/kkffTLF.png', 'http://i.imgur.com/0wEeMma.png'],
-		'3': ['http://i.imgur.com/E7BogQc.png', 'http://i.imgur.com/aFsqFUq.png'],
-		'4': ['http://i.imgur.com/PIpdQuH.png', 'http://i.imgur.com/Ra8aQHT.png'],
-		'5': ['http://i.imgur.com/MfSXzV0.png', 'http://i.imgur.com/6Bpue7T.png'],
-		'6': ['http://i.imgur.com/03W1FKN.png', 'http://i.imgur.com/OPVRGqW.png'],
-		'7': ['http://i.imgur.com/QisrljZ.png', 'http://i.imgur.com/DPun9mw.png'],
-		'8': ['http://i.imgur.com/pW83Jsh.png', 'http://i.imgur.com/u4eePOS.png'],
-		'9': ['http://i.imgur.com/IbdFVqk.png', 'http://i.imgur.com/yzbuZca.png'],
-		'R': ['http://i.imgur.com/8OF02AN.png', 'http://i.imgur.com/nBX4VEL.png'],
-		'S': ['http://i.imgur.com/HHo8uUL.png', 'http://i.imgur.com/MgnVpN8.png'],
-	},
 	'Green': {
 		'+2': ['http://i.imgur.com/74qtObm.png', 'http://i.imgur.com/rCAFAaF.png'],
 		'1': ['http://i.imgur.com/jwIO2Dd.png', 'http://i.imgur.com/XC9xcWS.png'],
@@ -130,6 +80,65 @@ const cardImages = {
 		'Wild': null,
 		'+4': null,
 	},
+};
+
+global.img = {
+	'Green': {
+		'+2': ['http://i.imgur.com/74qtObm.png', 'http://i.imgur.com/rCAFAaF.png'],
+		'1': ['http://i.imgur.com/jwIO2Dd.png', 'http://i.imgur.com/XC9xcWS.png'],
+		'2': ['http://i.imgur.com/siRbfoZ.png', 'http://i.imgur.com/RkzPxsz.png'],
+		'3': ['http://i.imgur.com/xPYUiES.png', 'http://i.imgur.com/LJ80n29.png'],
+		'4': ['http://i.imgur.com/493r5fq.png', 'http://i.imgur.com/WgOvo7c.png'],
+		'5': ['http://i.imgur.com/s4rYl5j.png', 'http://i.imgur.com/6d0fVOS.png'],
+		'6': ['http://i.imgur.com/Q4DVYd4.png', 'http://i.imgur.com/4IT7hIg.png'],
+		'7': ['http://i.imgur.com/QqlZL9g.png', 'http://i.imgur.com/ZsN4ifx.png'],
+		'8': ['http://i.imgur.com/Hhv8ksq.png', 'http://i.imgur.com/r7MEZLv.png'],
+		'9': ['http://i.imgur.com/AFRMTbR.png', 'http://i.imgur.com/ujT4RZd.png'],
+		'R': ['http://i.imgur.com/V3CwGyS.png', 'http://i.imgur.com/lFgbnTr.png'],
+		'S': ['http://i.imgur.com/lwFr0br.png', 'http://i.imgur.com/rIYeKLf.png'],
+	},
+	'Yellow': {
+		'+2': ['http://i.imgur.com/xTf5XmZ.png', 'http://i.imgur.com/v4cuEdg.png'],
+		'1': ['http://i.imgur.com/jweYpeI.png', 'http://i.imgur.com/RGzdVmY.png'],
+		'2': ['http://i.imgur.com/qJ3DcP4.png', 'http://i.imgur.com/7TVKRSL.png'],
+		'3': ['http://i.imgur.com/GTny7TF.png', 'http://i.imgur.com/JZMGlyS.png'],
+		'4': ['http://i.imgur.com/3ne6WOb.png', 'http://i.imgur.com/c7o8cuV.png'],
+		'5': ['http://i.imgur.com/Bv7Kks1.png', 'http://i.imgur.com/GmUgZSh.png'],
+		'6': ['http://i.imgur.com/C5PmmaD.png', 'http://i.imgur.com/jWBYofF.png'],
+		'7': ['http://i.imgur.com/Zm5HHaj.png', 'http://i.imgur.com/h3ffVEN.png'],
+		'8': ['http://i.imgur.com/zwqe5pM.png', 'http://i.imgur.com/TaFtImG.png'],
+		'9': ['http://i.imgur.com/ap3JsDn.png', 'http://i.imgur.com/8uuosgz.png'],
+		'R': ['http://i.imgur.com/4lQkz6H.png', 'http://i.imgur.com/gPJaL6C.png'],
+		'S': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png'],
+	},
+	'Blue': {
+		'+2': ['http://i.imgur.com/MjmlJj8.png', 'http://i.imgur.com/A1ltMae.png'],
+		'1': ['http://i.imgur.com/fOxlUkX.png', 'http://i.imgur.com/1XWzjhQ.png'],
+		'2': ['http://i.imgur.com/kkffTLF.png', 'http://i.imgur.com/0wEeMma.png'],
+		'3': ['http://i.imgur.com/E7BogQc.png', 'http://i.imgur.com/aFsqFUq.png'],
+		'4': ['http://i.imgur.com/PIpdQuH.png', 'http://i.imgur.com/Ra8aQHT.png'],
+		'5': ['http://i.imgur.com/MfSXzV0.png', 'http://i.imgur.com/6Bpue7T.png'],
+		'6': ['http://i.imgur.com/03W1FKN.png', 'http://i.imgur.com/OPVRGqW.png'],
+		'7': ['http://i.imgur.com/QisrljZ.png', 'http://i.imgur.com/DPun9mw.png'],
+		'8': ['http://i.imgur.com/pW83Jsh.png', 'http://i.imgur.com/u4eePOS.png'],
+		'9': ['http://i.imgur.com/IbdFVqk.png', 'http://i.imgur.com/yzbuZca.png'],
+		'R': ['http://i.imgur.com/8OF02AN.png', 'http://i.imgur.com/nBX4VEL.png'],
+		'S': ['http://i.imgur.com/HHo8uUL.png', 'http://i.imgur.com/MgnVpN8.png'],
+	},
+	'Red': {
+		'+2': ['http://i.imgur.com/SRBX717.png', 'http://i.imgur.com/CXgepLg.png'],
+		'1': ['http://i.imgur.com/YKLHzZZ.png', 'http://i.imgur.com/qXXKPfg.png'],
+		'2': ['http://i.imgur.com/FgXhDAQ.png', 'http://i.imgur.com/b1wahJY.png'],
+		'3': ['http://i.imgur.com/SJ5W8Mj.png', 'http://i.imgur.com/6a6fyZT.png'],
+		'4': ['http://i.imgur.com/QyTsfbh.png', 'http://i.imgur.com/QyTsfbh.png'],
+		'5': ['http://i.imgur.com/9RFVkbQ.png', 'http://i.imgur.com/IJ9mJaE.png'],
+		'6': ['http://i.imgur.com/mCylBMJ.png', 'http://i.imgur.com/d6jhJ2e.png'],
+		'7': ['http://i.imgur.com/RyXPBMg.png', 'http://i.imgur.com/zP01ZYe.png'],
+		'8': ['http://i.imgur.com/sDbboPr.png', 'http://i.imgur.com/xEuvkv2.png'],
+		'9': ['http://i.imgur.com/a2quFol.png', 'http://i.imgur.com/1SW5q43.png'],
+		'R': ['http://i.imgur.com/1SW5q43.png', 'http://i.imgur.com/uIWoGVs.png'],
+		'S': ['http://i.imgur.com/CQwVUIJ.png', 'http://i.imgur.com/MbLnz6v.png'],
+	},
 	'Black': {
 		'Wild': null,
 		'+4': null,
@@ -148,11 +157,7 @@ function cardImg(card, fullsize) {
 
 function cardHTML(card, fullsize) {
 	let img = cardImg(card, fullsize);
-	let surface = card.value.replace(/[^A-Z0-9\+]/g, "");
-	let background = rgbGradients[card.color];
-	if (surface === 'R') surface = '<i class="fa fa-refresh" aria-hidden="true"></i>';
-
-	return `<button class="button" style="font-size: 14px; font-weight: bold; color: white; ${textShadow} padding-bottom: 117px; text-align: left; height: 135px; width: ${fullsize ? '72' : '37'}px; border-radius: 10px 2px 2px 3px; color: white; background: ${card.color}; background: -webkit-linear-gradient(${background}); background: -o-linear-gradient(${background}); background: -moz-linear-gradient(${background}); background: linear-gradient(${background})${img ? `background-image: url("${img}"); background-size: cover; background-position: center, center;` : ``}" name=send value="/uno play ${card.name}">${surface}</button>`;
+	return `<button class="button" style="height: 135px; width: ${fullsize ? '72' : '37'}px; border-radius: 10px 2px 2px 3px; background-image: url('${img}');" name=send value="/uno play ${card.name}"></button>`;
 }
 
 function createDeck() {
@@ -804,6 +809,25 @@ exports.commands = {
 			delete room.game.spectators[user.userid];
 			this.sendReply("You are no longer spectating this private UNO game.");
 		},
+		showcase: function (target, room, user) {
+			let output = '<div class = "infobox infobox-limited">';
+			let colors = ['Green', 'Yellow', 'Blue', 'Red'];
+			let values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'R', 'S', '+2'];
+			let curColor, curVal;
+			for (let i = 0; i < colors.length; i++) {
+				curColor = colors[i];
+				output += '<div style="border: 2px solid #000; border-radius:3px; padding: 5px;">';
+				for (let j = 0; j < values.length; j++) {
+					curVal = values[j];
+					for (let k = 0; k < cardImages[curColor][curVal].length; k++) {
+						output += `<img src=${cardImages[curColor][curVal][k]} />&nbsp;&nbsp;`;
+					}
+				}
+				output += `</div><br />`;
+			}
+			output += '</div>';
+			this.sendReply('|raw|' + output);
+		}
 	},
 
 	unohelp: [
