@@ -334,7 +334,7 @@ exports.commands = {
 		if (target.length < 2) return this.parse('/help usetoken');
 		target[0] = toId(target[0]);
 		let msg = '';
-		if (['avatar', 'declare', 'icon', 'color', 'emote', 'title'].indexOf(target[0]) === -1) return this.parse('/help usetoken');
+		if (['avatar', 'declare', 'icon', 'color', 'emote', 'title', 'disableintroscroll'].indexOf(target[0]) === -1) return this.parse('/help usetoken');
 		if (!user.tokens || !user.tokens[target[0]]) return this.errorReply('You need to buy this from the shop first.');
 		target[1] = target[1].trim();
 
