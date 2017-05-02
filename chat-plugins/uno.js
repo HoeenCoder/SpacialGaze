@@ -42,7 +42,6 @@ const cardImages = {
 		'R': ['http://i.imgur.com/4lQkz6H.png', 'http://i.imgur.com/gPJaL6C.png'],
 		'S': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png'],
 		'+2': ['http://i.imgur.com/xTf5XmZ.png', 'http://i.imgur.com/v4cuEdg.png'],
-		
 	},
 	'Blue': {},
 	'Red': {},
