@@ -19,17 +19,15 @@ let Economy = global.Economy = {
  	* @return {Function} callback
  	*/
 	readMoney: function (userid, callback) {
+		if (typeof callback !== 'function') {
+			throw new Error("Economy.readMoney: Expected callback parameter to be a function, instead received " + typeof callback);
+		}
+
 		// In case someone forgot to turn `userid` into an actual ID...
 		userid = toId(userid);
 
 		let amount = Db.currency.get(userid, DEFAULT_AMOUNT);
-		if (callback && typeof callback === 'function') {
-			// If a callback is specified, return `amount` through the callback.
-			return callback(amount);
-		} else {
-			// If there is no callback, just return the amount.
-			return amount;
-		}
+		return callback(amount);
 	},
 	/**
  	* Writes the specified amount of money to the user's "bank."
@@ -246,6 +244,7 @@ exports.commands = {
 			});
 		});
 	},
+
 	moneylog: function (target, room, user) {
 		if (!this.can('forcewin')) return false;
 		if (!target) return this.sendReply("Usage: /moneylog [number] to view the last x lines OR /moneylog [text] to search for text.");
@@ -272,6 +271,7 @@ exports.commands = {
 		}
 		user.popup("|wide|" + output);
 	},
+
 	'!richestuser': true,
 	richestusers: 'richestuser',
 	richestuser: function (target, room, user) {
@@ -287,6 +287,18 @@ exports.commands = {
 		this.sendReplyBox(rankLadder('Richest Users', currencyPlural, keys.slice(0, target), 'money') + '</div>');
 	},
 
+	resetstardust: 'resetmoney',
+	resetmoney: function (target, room, user) {
+		if (!this.can('roomowner')) return false;
+		if (!target) return this.parse('/help resetmoney');
+		target = toId(target);
+		Economy.readMoney(target, money => {
+			Economy.writeMoney(target, -money);
+			this.sendReply(target + " now has 0 + " currencyName + ".");
+		});
+	},
+	resetmoneyhelp: ['/resetmoney [target] - Resets target user\'s money to 0'],
+	
 	customsymbol: function (target, room, user) {
 		let bannedSymbols = ['!', '|', '‽', '\u2030', '\u534D', '\u5350', '\u223C'];
 		for (let u in Config.groups) if (Config.groups[u].symbol) bannedSymbols.push(Config.groups[u].symbol);
