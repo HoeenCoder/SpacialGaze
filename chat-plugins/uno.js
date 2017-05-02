@@ -35,18 +35,18 @@ const cardImages = {
 		'Skip': ['http://i.imgur.com/lwFr0br.png', 'http://i.imgur.com/rIYeKLf.png'],
 	},
 	'Yellow': {
-		'+2': ['http://i.imgur.com/xTf5XmZ.png', 'http://i.imgur.com/v4cuEdg.png'],
-		'1': ['http://i.imgur.com/jweYpeI.png', 'http://i.imgur.com/RGzdVmY.png'],
-		'2': ['http://i.imgur.com/qJ3DcP4.png', 'http://i.imgur.com/7TVKRSL.png'],
-		'3': ['http://i.imgur.com/GTny7TF.png', 'http://i.imgur.com/JZMGlyS.png'],
-		'4': ['http://i.imgur.com/3ne6WOb.png', 'http://i.imgur.com/c7o8cuV.png'],
-		'5': ['http://i.imgur.com/Bv7Kks1.png', 'http://i.imgur.com/GmUgZSh.png'],
-		'6': ['http://i.imgur.com/C5PmmaD.png', 'http://i.imgur.com/jWBYofF.png'],
-		'7': ['http://i.imgur.com/Zm5HHaj.png', 'http://i.imgur.com/h3ffVEN.png'],
-		'8': ['http://i.imgur.com/zwqe5pM.png', 'http://i.imgur.com/TaFtImG.png'],
-		'9': ['http://i.imgur.com/ap3JsDn.png', 'http://i.imgur.com/8uuosgz.png'],
-		'Reverse': ['http://i.imgur.com/4lQkz6H.png', 'http://i.imgur.com/gPJaL6C.png'],
-		'Skip': ['http://i.imgur.com/rJtqifJ.png', 'http://i.imgur.com/FyVsGcn.png'],
+		'+2': ['http://i.imgur.com/eMYpZI0.png', 'http://i.imgur.com/5ZVAGyW.png'],
+		'1': ['http://i.imgur.com/iuBKJK3.png', 'http://i.imgur.com/gLKaoiX.png'],
+		'2': ['http://i.imgur.com/CRsDiE0.png', 'http://i.imgur.com/kKiNrnG.png'],
+		'3': ['http://i.imgur.com/t51aCvW.png', 'http://i.imgur.com/WMTnBrh.png'],
+		'4': ['http://i.imgur.com/w7CfOhG.png', 'http://i.imgur.com/wenaxRC.png'],
+		'5': ['http://i.imgur.com/il4ot0O.png', 'http://i.imgur.com/YqljaUj.png'],
+		'6': ['http://i.imgur.com/TDGzvlE.png', 'http://i.imgur.com/96lpoMf.png'],
+		'7': ['http://i.imgur.com/h65iQaC.png', 'http://i.imgur.com/sx1LhK9.png'],
+		'8': ['http://i.imgur.com/QSTYJxq.png', 'http://i.imgur.com/zSiYPZ4.png'],
+		'9': ['http://i.imgur.com/8lV4UPp.png', 'http://i.imgur.com/IKxT4a5.png'],
+		'Reverse': ['http://i.imgur.com/lUPmvTW.png', 'http://i.imgur.com/65Rdy35.png'],
+		'Skip': ['http://i.imgur.com/z99dERC.png', 'http://i.imgur.com/Ps7xyC1.png'],
 	},
 	'Blue': {
 		'+2': ['http://i.imgur.com/MjmlJj8.png', 'http://i.imgur.com/A1ltMae.png'],
@@ -77,14 +77,15 @@ const cardImages = {
 		'Skip': ['http://i.imgur.com/CQwVUIJ.png', 'http://i.imgur.com/MbLnz6v.png'],
 	},
 	'Black': {
-		'Wild': null,
-		'+4': ['http://i.imgur.com/pM1p5n5.png', 'http://i.imgur.com/KMEXUL7.png'],
+		'Wild': [['http://i.imgur.com/9B7R9wl.png', 'http://i.imgur.com/fnlUPX6.png'], ['http://i.imgur.com/0zKKGxk.png', 'http://i.imgur.com/cYxMLWe.png'], ['http://i.imgur.com/rRnImud.png', 'http://i.imgur.com/0S3Q1Zp.png'], ['http://i.imgur.com/j3TG0I1.png', 'http://i.imgur.com/MEe4yQj.png']],
+		'+4': ['http://i.imgur.com/25T2j9b.png', 'http://i.imgur.com/sunITaw.png'],
 	},
 };
 
 function cardImg(card, fullsize) {
 	let img = cardImages[card.color][card.value];
 	if (!img) return null;
+	if (typeof img === 'object') img = img[Math.floor(Math.random() * img.length)];
 	img = img[(fullsize ? 1 : 0)];
 	if (!img) return null;
 	return img;
