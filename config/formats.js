@@ -459,13 +459,8 @@ exports.Formats = [
 	},
 	//SpacialGaze Seasonal
 	{
-		section: 'Spacialgaze Seasonal',
-		column: 2,
-	},
-	{
-		name: "Garden Warefare",
-		desc: ["&bullet; <a href=\"https://www.smogon.com/forums/threads/3491902/\">Seasonal Ladder</a>"],
-
+		name: "[Gen 7] Seasonal: Garden Warefare",
+		desc: ["placeholder"],
 		team: 'randomPvZ',
 		ruleset: ['HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
 	},
