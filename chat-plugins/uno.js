@@ -6,8 +6,10 @@
  *
  * Coded by sparkychild
  *
- * Pokémon Plays UNO! Coded by Lord Haji
+ * Pokémon Plays UNO! Coded by Lord Haji and HoeenHero
  * UNO Card Images by Ashley The Pikachu
+ * Most sprites for Card Art Ripped by Kyleboy(https://www.spriters-resource.com/game_boy_gbc/pokemontradingcardgame2/),
+ * PokéDoll Sprite by Nemu(https://www.spriters-resource.com/game_boy_gbc/pokemontradingcardgame/sheet/8885/)
  *
  * @license MIT license
  */
