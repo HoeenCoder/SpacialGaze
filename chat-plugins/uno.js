@@ -751,13 +751,14 @@ exports.commands = {
 			this.sendReply("You are no longer spectating this private UNO game.");
 		},
 		showcase: function (target, room, user) {
+			if (!this.runBroadcast()) return;
 			let output = '<div class = "infobox infobox-limited">';
 			let colors = ['Green', 'Yellow', 'Blue', 'Red'];
-			let values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'R', 'S', '+2'];
+			let values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Skip', '+2'];
 			let curColor, curVal;
 			for (let i = 0; i < colors.length; i++) {
 				curColor = colors[i];
-				output += '<div style="border: 2px solid #000; border-radius:3px; padding: 5px;">';
+				output += '<div class="infobox" style="overflow-x: auto; white-space: nowrap; width: 100%">';
 				for (let j = 0; j < values.length; j++) {
 					curVal = values[j];
 					for (let k = 0; k < cardImages[curColor][curVal].length; k++) {
@@ -781,5 +782,6 @@ exports.commands = {
 		"/uno getusers - displays the players still in the game.",
 		"/uno [spectate | unspectate] - spectate / unspectate the current private UNO game.",
 		"/uno suppress [on | off] - Toggles suppression of game messages.",
+		"/uno showcase - Displays all of the Pokémon Plays UNO! Cards."
 	],
 };
