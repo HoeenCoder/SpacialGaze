@@ -82,7 +82,7 @@ const cardImages = {
 		'+2': ['http://i.imgur.com/Ie83rhz.png', 'http://i.imgur.com/T4uwyQC.png'],
 	},
 	'Black': {
-		'Wild': [['http://i.imgur.com/9B7R9wl.png', 'http://i.imgur.com/fnlUPX6.png'], ['http://i.imgur.com/0zKKGxk.png', 'http://i.imgur.com/cYxMLWe.png'], ['http://i.imgur.com/rRnImud.png', 'http://i.imgur.com/0S3Q1Zp.png'], ['http://i.imgur.com/j3TG0I1.png', 'http://i.imgur.com/MEe4yQj.png']],
+		'Wild': ['http://i.imgur.com/9B7R9wl.png', 'http://i.imgur.com/fnlUPX6.png'], // TEMP
 		'+4': ['http://i.imgur.com/25T2j9b.png', 'http://i.imgur.com/sunITaw.png'],
 	},
 };
@@ -90,7 +90,6 @@ const cardImages = {
 function cardImg(card, fullsize) {
 	let img = cardImages[card.color][card.value];
 	if (!img) return null;
-	if (typeof img === 'object') img = img[Math.floor(Math.random() * img.length)];
 	img = img[(fullsize ? 1 : 0)];
 	if (!img) return null;
 	return img;
@@ -757,16 +756,15 @@ exports.commands = {
 			let values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Skip', '+2'];
 			let curColor, curVal;
 			for (let i = 0; i < colors.length; i++) {
-				curColor = colors[i];
 				output += '<div class="infobox" style="overflow-x: auto; white-space: nowrap; width: 100%">';
 				for (let j = 0; j < values.length; j++) {
-					curVal = values[j];
-					for (let k = 0; k < cardImages[curColor][curVal].length; k++) {
-						output += `<img src=${cardImages[curColor][curVal][k]} />&nbsp;&nbsp;`;
+					for (let k = 0; k < cardImages[colors[i]][values[j]].length; k++) {
+						output += `<img src=${cardImages[colors[i]][values[j]][k]} />&nbsp;&nbsp;`;
 					}
 				}
 				output += `</div><br />`;
 			}
+			output += `<div class="infobox" style="overflow-x: auto; white-space: nowrap; width: 100%"><img src=${cardImages['Black']['Wild'][0]} />&nbsp;&nbsp;<img src=${cardImages['Black']['Wild'][1]} />&nbsp;&nbsp;<img src=${cardImages['Black']['+4'][0]} />&nbsp;&nbsp;<img src=${cardImages['Black']['+4'][1]} />&nbsp;&nbsp;</div><br/>`;
 			output += '</div>';
 			this.sendReply('|raw|' + output);
 		},
