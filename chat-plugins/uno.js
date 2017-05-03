@@ -782,6 +782,6 @@ exports.commands = {
 		"/uno getusers - displays the players still in the game.",
 		"/uno [spectate | unspectate] - spectate / unspectate the current private UNO game.",
 		"/uno suppress [on | off] - Toggles suppression of game messages.",
-		"/uno showcase - Displays all of the Pokémon Plays UNO! Cards."
+		"/uno showcase - Displays all of the Pokémon Plays UNO! Cards.",
 	],
 };
