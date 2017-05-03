@@ -1,3 +1,7 @@
+"use strict";
+
+exports.BattleMovedex = {
+
 "growth": {
 		accuracy: true,
 		basePower: 0,
@@ -6,6 +10,7 @@
 		shortDesc: "Raises user's Attack and Sp. Atk by 1; 2 in Sun.",
 		id: "growth",
 		name: "Growth",
+		inherit: true,
 		pp: 20,
 		priority: 0,
 		flags: {snatch: 1},
@@ -81,12 +86,12 @@
 					};
 					break;
 				      }
-				}
-			}
-		},
+		}
+},
 		secondary: false,
 		target: "self",
 		type: "Normal",
 		zMoveBoost: {spa: 1},
 		contestType: "Beautiful",
 	},
+},
