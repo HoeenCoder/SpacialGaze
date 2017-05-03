@@ -4,7 +4,7 @@
  *
  * This plugin allows rooms to run games of scripted UNO
  *
- * Coded by sparkychild
+ * Credits: sparkychild
  *
  * Pokémon Plays UNO! Coded by Lord Haji and HoeenHero
  * UNO Card Images(Card Art) by Ashley The Pikachu
