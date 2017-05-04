@@ -93,6 +93,9 @@ const cardImages = {
 	},
 };
 
+const colors = ['Green', 'Yellow', 'Blue', 'Red'];
+const values = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Skip', '+2'];
+
 function cardImg(card, fullsize) {
 	let img = cardImages[card.color][card.value];
 	if (!img) return null;
@@ -107,9 +110,6 @@ function cardHTML(card, fullsize) {
 }
 
 function createDeck() {
-	const colors = ['Red', 'Blue', 'Green', 'Yellow'];
-	const values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Skip', '+2'];
-
 	let basic = [];
 
 	for (let i = 0; i < 4; i++) {
@@ -758,8 +758,6 @@ exports.commands = {
 		showcase: function (target, room, user) {
 			if (!this.runBroadcast()) return;
 			let output = `<div class = "infobox infobox-limited">`;
-			let colors = ['Green', 'Yellow', 'Blue', 'Red'];
-			let values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Skip', '+2'];
 			for (let i = 0; i < colors.length; i++) {
 				output += `<div class="infobox" style="overflow-x: auto; white-space: nowrap; width: 100%">`;
 				for (let j = 0; j < values.length; j++) {
