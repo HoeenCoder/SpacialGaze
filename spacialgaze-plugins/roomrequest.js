@@ -123,6 +123,7 @@ exports.commands = {
 			if (demoted.length) Rooms.global.writeChatRoomData();
 			if (targetUser) targetUser.popup(`|html|<center>${user.name} has banned you from owning rooms. (${target[2]})<br/>You have been automatcally demoted from room owner in all rooms you had it in (if any).<br/>To appeal your room ownership blacklist, PM a & or ~.</center>`);
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was banned from owning rooms by ${user.name} ${(demoted.length ? `and demoted from # in ${demoted.join(', ')}` : ``)}. ${(target[2] ? `(${target[2]})` : ``)}`);
+			this.globalModlog("ROOMOWNERBAN", targetUser, " by " + user.name + (target[2] ? ": " + target[2] : ""));
 			return this.sendReply(`${target[1]} was banned from owning rooms.`);
 			break;
 		case 'unblacklist':
@@ -132,6 +133,7 @@ exports.commands = {
 			if (!req || !req.blacklisted) return this.errorReply(`${target[1]} is not banned from owning rooms.`);
 			Db.rooms.set(target[1], undefined);
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was unbanned from owning rooms by ${user.name}.`);
+			this.globalModlog("UNROOMOWNERBAN", target[1], " by " + user.name);
 			return this.sendReply(`${target[1]} is no longer banned from owning rooms.`);
 			break;
 		case 'viewblacklist':
