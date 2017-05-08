@@ -595,6 +595,49 @@ exports.BattleScripts = {
 				},
 				nature: 'Adamant',
 			},
+			'Skulls Skuntank': {
+				species: 'Skuntank',
+				ability: 'Aftermath',
+				item: '',
+				gender: 'M',
+				level: 15,
+				moves: ['Night Slash', 'Flamethrower', 'Smog', 'Slash'],
+				weather: null,
+				evs: {
+					hp: 248,
+					atk: 252,
+					spa: 8,
+				},
+				nature: 'Adamant',
+			},
+			'Skulls Koffing': {
+				species: 'Koffing',
+				ability: 'Levitate',
+				item: '',
+				gender: 'M',
+				moves: ['Toxic', 'Venoshock', 'Will-o-Wisp', 'Flamethrower'],
+				weather: null,
+				evs: {
+					hp: 248,
+					spa: 252,
+					def: 8,
+				},
+				nature: 'Modest',
+			},
+			'Skulls Zubat': {
+				species: 'Zubat',
+				ability: 'Infiltrator',
+				item: '',
+				gender: 'M',
+				moves: ['Wing Attack', 'Roost', 'Leech Life', 'Poison Fang'],
+				weather: null,
+				evs: {
+					hp: 248,
+					atk: 252,
+					spa: 8,
+				},
+				nature: 'Adamant',
+			},
 		};
 
 		//Generate the team randomly.
