@@ -8,7 +8,7 @@ exports.BattleScripts = {
 			'Gloom', 'Grotle', 'Hoppip', 'Ivysaur', 'Jumpluff', 'Lilligant', 'Lombre', 'Lotad', 'Ludicolo', 'Lurantis', 'Maractus', 'Meganium',
 			'Morelull', 'Nuzleaf', 'Oddish', 'Paras', 'Parasect', 'Petilil', 'Phantump', 'Roselia', 'Roserade', 'Seedot', 'Serperior', 'Servine',
 			'Shiftry', 'Shiinotic', 'Shroomish', 'Skiploom', 'Snivy', 'Snover', 'Steenee', 'Sunflora', 'Sunkern', 'Tangela', 'Tangrowth', 'Torterra',
-			'Trevenant', 'Tropius', 'Tsareena', 'Turtwig', 'Venusaur', 'Victreebel', 'Vileplume', 'Weepinbell', 'Whimsicott', 'Accelgor',
+			'Trevenant', 'Tropius', 'Tsareena', 'Turtwig', 'Venusaur', 'Victreebel', 'Vileplume', 'Weepinbell', 'Whimsicott', 'Accelgor', 
 			'Araquanid', 'Ariados', 'Beautifly', 'Beedrill', 'Burmy', 'Butterfree', 'Cascoon', 'Caterpie','Charjabug', 'Combee', 'Crustle',
 			'Cutiefly', 'Dewpider', 'Drapion', 'Durant', 'Dustox', 'Dwebble', 'Escavalier', 'Flygon', 'Forretress', 'Galvantula', 'Gligar',
 			'Gliscor', 'Golisopod', 'Grubbin', 'Heracross', 'Illumise', 'Joltik', 'Kakuna', 'Karrablast', 'Kricketot', 'Kricketune',
