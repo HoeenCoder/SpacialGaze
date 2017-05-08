@@ -65,7 +65,7 @@ exports.commands = {
 			}
 			output += `</table></div>`;
 			return user.sendTo(room, `|html|${output}`);
-			break;
+			//break;
 		case 'accept':
 			if (!target[1]) return this.parse('/help roomrequest');
 			let req = Db.rooms.get(toId(target[1]));
@@ -79,7 +79,7 @@ exports.commands = {
 			this.parse(`/${(req.type === 'public' ? `makechatroom` : `makeprivatechatroom`)} ${req.name}`);
 			user.popup(`|html|<center>You accepted the room request from ${target[1]}.<br/>The Room "${req.name}" was created, make sure to appoint ${target[1]} room founder!</center>`);
 			return this.parse(`/join ${req.name}`);
-			break;
+			//break;
 		case 'reject':
 			if (!target[1]) return this.parse('/help roomrequest');
 			let req = Db.rooms.get(toId(target[1]));
@@ -90,16 +90,16 @@ exports.commands = {
 			req.by = user.userid;
 			req.cooldown = Date.now();
 			Db.rooms.set(toId(target[1]), req);
-			this.sendReply(`You rejected the room request from ${target[1]}`);
-			break;
+			return this.sendReply(`You rejected the room request from ${target[1]}`);
+			//break;
 		case 'delete':
 			if (!target[1]) return this.parse('/help roomrequest');
 			let req = Db.rooms.get(toId(target[1]));
 			if (!req) return this.errorReply(`${target[1]} does not have a room request.`);
 			if (req.blacklisted) return this.errorReply(`${target[1]} is banned from owning rooms. If you want to undo the blacklist do /roomrequests unblacklist, ${target[1]}`);
 			Db.rooms.set(toId(target[1]), undefined);
-			this.sendReply(`You deleted the room request from ${target[1]}`);
-			break;
+			return this.sendReply(`You deleted the room request from ${target[1]}`);
+			//break;
 		case 'blacklist':
 			if (!target[1]) return this.parse('/help roomrequest');
 			target[1] = toId(target[1]);
@@ -125,7 +125,7 @@ exports.commands = {
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was banned from owning rooms by ${user.name} ${(demoted.length ? `and demoted from # in ${demoted.join(', ')}` : ``)}. ${(target[2] ? `(${target[2]})` : ``)}`);
 			this.globalModlog("ROOMOWNERBAN", targetUser, " by " + user.name + (target[2] ? ": " + target[2] : ""));
 			return this.sendReply(`${target[1]} was banned from owning rooms.`);
-			break;
+			//break;
 		case 'unblacklist':
 			if (!target[1]) return this.parse('/help roomrequest');
 			target[1] = toId(target[1]);
@@ -135,7 +135,7 @@ exports.commands = {
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was unbanned from owning rooms by ${user.name}.`);
 			this.globalModlog("UNROOMOWNERBAN", target[1], " by " + user.name);
 			return this.sendReply(`${target[1]} is no longer banned from owning rooms.`);
-			break;
+			//break;
 		case 'viewblacklist':
 			if (target[1]) {
 				target[1] = toId(target[1]);
@@ -150,7 +150,7 @@ exports.commands = {
 			}
 			if (!list.length) return this.sendReply('No users are banned from owning rooms.');
 			return this.sendReply(`The following ${list.length} users are banned from owning rooms: ${list.join(', ')}.`);
-			break;
+			//break;
 		default:
 			return this.parse('/help roomrequest');
 		}
