@@ -58,7 +58,7 @@ exports.BattleMovedex = {
 				move.type = 'Dark';
 				move.basePower = 500;
 				move.self = {
-					volatileStatus: 'mustrecharge'
+					volatileStatus: 'mustrecharge',
 				};
 				move.onTryHit = function () {
 					this.add('-message', "Ultimate Super Hiper Mega Awesome Beam destroyer of worlds!");
