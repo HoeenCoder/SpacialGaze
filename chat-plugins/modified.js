@@ -118,6 +118,9 @@ exports.commands = {
 		}
 
 		if (!this.can('makeroom')) return false;
+		
+		let req = Db.rooms.get(userid);
+		if (req && req.blacklisted) return this.errorReply(`${name} is banned from owning rooms.`);
 
 		if (!room.auth) room.auth = room.chatRoomData.auth = {};
 
@@ -165,6 +168,9 @@ exports.commands = {
 		if (!user.can('makeroom')) {
 			if (user.userid !== room.founder) return false;
 		}
+		
+		let req = Db.rooms.get(userid);
+		if (req && req.blacklisted) return this.errorReply(`${name} is banned from owning rooms.`);
 
 		if (!room.auth) room.auth = room.chatRoomData.auth = {};
 
