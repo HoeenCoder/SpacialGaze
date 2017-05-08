@@ -28,11 +28,11 @@ exports.BattleScripts = {
 				set.name = 'HoeenHero';
 				set.item = 'leftovers';
 				set.ability = 'primordialsea';
-				set.moves = ['scald', 'gigadrain', 'calmmind', 'focusblast', 'growth'];
+				set.moves = ['scald', 'gigadrain', 'calmmind', 'focusblast'];
 			} else if (mon === 'amoonguss') {
 				set.name = 'Mystifung';
 			}
-			set.moves[5] = 'growth';
+			set.moves[4] = 'growth';
 			if (set.item === 'Assault Vest') {
 				set.item = 'Leftovers';
 			}
