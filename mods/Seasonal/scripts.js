@@ -1,4 +1,7 @@
-randomPvZTeam: function () {
+'use strict';
+
+exports.BattleScripts = {
+	randomPvZTeam: function () {
 		let pool = [
 			'Abomasnow', 'Amoonguss', 'Bayleef', 'Bellossom', 'Bellsprout', 'Bounsweet', 'Breloom', 'Bulbasaur', 'Cacnea', 'Cacturne', 'Carnivine',
 			'Cherrim', 'Cherubi', 'Chikorita', 'Comfey', 'Cottonee', 'Exeggcute', 'Exeggutor', 'Ferroseed', 'Ferrothorn', 'Fomantis', 'Foongus',
@@ -28,16 +31,17 @@ randomPvZTeam: function () {
 				set.moves = ['scald', 'gigadrain', 'calmmind', 'focusblast', 'growth'];
 			} else if (mon === 'amoonguss') {
 				set.name = 'Mystifung';
-			},
-				set.moves[5] = 'growth';
-				if (set.item === 'Assault Vest') {
-					set.item = 'Leftovers';
-				}
-				if (set.item === 'Choice Band' || set.item === 'Choice Specs') {
-					set.item = 'Life Orb';
-				}
 			}
-			team.push(set);
-	
+			set.moves[5] = 'growth';
+			if (set.item === 'Assault Vest') {
+				set.item = 'Leftovers';
+			}
+			if (set.item === 'Choice Band' || set.item === 'Choice Specs') {
+				set.item = 'Life Orb';
+			}
+		}
+		team.push(set);
+
 		return team;
 	},
+};
