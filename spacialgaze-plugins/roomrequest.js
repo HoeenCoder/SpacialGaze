@@ -1,4 +1,11 @@
-"use strict";
+/**
+ * Room Request plugin
+ * Allows users to request for rooms and allows upper staff to properly manage it
+ *
+ * @license MIT license
+ */
+
+'use strict';
 
 exports.commands = {
 	requestroom: function (target, room, user) {
@@ -35,6 +42,7 @@ exports.commands = {
 		return this.sendReply('Your room request has been sent to Upper Staff.');
 	},
 	requestroomhelp: ["/requestroom [name], [public|private], [why this room should be created] - Sends a room creation request to the Upper Staff. You can only request 1 room every (TBD) days/weeks. Upper staff will most likely contact you for further information before the room is created. We reserve the right to reject any requests."],
+
 	checkroomrequest: function (target, room, user) {
 		target = toId(target);
 		if (!target) target = user.userid;
@@ -46,28 +54,23 @@ exports.commands = {
 		this.sendReplyBox(output);
 	},
 	checkroomrequesthelp: ["/checkroomrequest (username) - Check a users current room request. leave username blank to default to your request. Requires: &, ~ if username is not your username."],
+
 	roomrequests: function (target, room, user) {
 		if (!this.can('roomowner')) return;
 		target = target.split(',');
 		switch (toId(target[0])) {
 		case '':
 		case 'view':
-			
 			break;
 		case 'accept':
-			
 			break;
 		case 'reject':
-			
 			break;
 		case 'delete':
-			
 			break;
 		case 'blacklist':
-			
 			break;
 		case 'unblacklist':
-			
 			break;
 		default:
 			return this.parse('/help roomrequest');
