@@ -1,8 +1,10 @@
 "use strict";
 
 exports.commands = {
-	requestroom: function (target, room, user) {
+	confirmrequestroom: 'requestroom',
+	requestroom: function (target, room, user, connection, cmd) {
 		if (!user.named) return this.errorReply(`Please choose a name before requesting a room`);
+		if (!user.registered) return this.errorReply(`Unregistered names cannot be promoted, so they cannot request rooms.`);
 		if (!user.autoconfirmed) return this.errorReply(`You must be autoconfirmed to request a room.`);
 		let curRequest = Db.rooms.get(user.userid, null);
 		if (curRequest) {
@@ -30,6 +32,9 @@ exports.commands = {
 			staff: user.isStaff,
 			status: "pending",
 		};
+		if (cmd !== 'confirmrequestroom') {
+			return this.sendReplyBox(`<center><h3>Please confirm your room request</h3><br/><b>Room Name</b>:${curRequest.name}<br/><b>Room Type</b>:${curRequest.type}<br/><b>Description</b>:${curRequest.desc}<br/><button name="send" value="/confirmrequestroom ${curRequest.name}, ${curRequest.type}, ${curRequest.desc}" class="button">Yes, this is correct</button><button class="button" name="receive" value="|c|~SG Server|Request the room again, but with the changes you want to make to it.">No, I want to change something</button></center>`);
+		}
 		Db.rooms.set(user.userid, curRequest);
 		SG.messageSeniorStaff(`/html ${user.name} has requested a room. <button class="button" name="send" value="/checkroomrequest ${user.userid}">Check request</button>`);
 		return this.sendReply('Your room request has been sent to Upper Staff.');
@@ -49,6 +54,7 @@ exports.commands = {
 	roomrequests: function (target, room, user) {
 		if (!this.can('roomowner')) return;
 		target = target.split(',');
+		let req = null;
 		switch (toId(target[0])) {
 		case '':
 		case 'view':
@@ -67,8 +73,8 @@ exports.commands = {
 			return user.sendTo(room, `|html|${output}`);
 			//break;
 		case 'accept':
-			if (!target[1]) return this.parse('/help roomrequest');
-			let req = Db.rooms.get(toId(target[1]));
+			if (!target[1]) return this.parse('/help roomrequests');
+			req = Db.rooms.get(toId(target[1]));
 			if (!req) return this.errorReply(`${target[1]} does not have a room request.`);
 			if (req.blacklisted) return this.errorReply(`${target[1]} is banned from owning rooms.`);
 			if (req.status !== 'pending') return this.errorReply(`${target[1]}'s current request has already been ${req.status}.`);
@@ -81,8 +87,8 @@ exports.commands = {
 			return this.parse(`/join ${req.name}`);
 			//break;
 		case 'reject':
-			if (!target[1]) return this.parse('/help roomrequest');
-			let req = Db.rooms.get(toId(target[1]));
+			if (!target[1]) return this.parse('/help roomrequests');
+			req = Db.rooms.get(toId(target[1]));
 			if (!req) return this.errorReply(`${target[1]} does not have a room request.`);
 			if (req.blacklisted) return this.errorReply(`${target[1]} is banned from owning rooms.`);
 			if (req.status !== 'pending') return this.errorReply(`${target[1]}'s current request has already been ${req.status}.`);
@@ -93,18 +99,39 @@ exports.commands = {
 			return this.sendReply(`You rejected the room request from ${target[1]}`);
 			//break;
 		case 'delete':
-			if (!target[1]) return this.parse('/help roomrequest');
-			let req = Db.rooms.get(toId(target[1]));
+			if (!target[1]) return this.parse('/help roomrequests');
+			req = Db.rooms.get(toId(target[1]));
 			if (!req) return this.errorReply(`${target[1]} does not have a room request.`);
 			if (req.blacklisted) return this.errorReply(`${target[1]} is banned from owning rooms. If you want to undo the blacklist do /roomrequests unblacklist, ${target[1]}`);
 			Db.rooms.set(toId(target[1]), undefined);
 			return this.sendReply(`You deleted the room request from ${target[1]}`);
 			//break;
+		case 'modify':
+			if (!target[3]) return this.parse('/help roomrequests');
+			req = Db.rooms.get(toId(target[1]));
+			if (!req) return this.errorReply(`${target[1]} does not have a room request.`);
+			if (req.blacklisted) return this.errorReply(`${target[1]} is banned from owning rooms.`);
+			if (req.status !== 'pending') return this.errorReply(`${target[1]}'s current request has already been ${req.status}.`);
+			target[2] = toId(target[2]);
+			if (target[2] === 'name') {
+				req.name = Chat.escapeHTML(target[3].trim());
+				Db.rooms.set(toId(target[1]), req);
+				return this.sendReply(`The room name of ${target[1]}'s request has been changed to: ${req.name}`);
+			} else if (target[2] === 'type') {
+				if (['public', 'private'].indexOf(toId(target[3])) === -1) return this.errorReply(`Room types can be public or private`);
+				if (req.type === toid(target[3])) return this.errorReply(`The room type of ${target[1]}'s request has been changed to: ${req.type}`);
+				req.type = toId(target[3]);
+				Db.rooms.set(toId(target[1]), req);
+				return this.sendReply(`The room type of ${target[1]}'s request has been changed to: ${req.type}`);
+			} else {
+				return this.errorReply(`/roomrequests modify, [request], [name|type], [new name || public|private]`);
+			}
+			//break;
 		case 'blacklist':
-			if (!target[1]) return this.parse('/help roomrequest');
+			if (!target[1]) return this.parse('/help roomrequests');
 			target[1] = toId(target[1]);
 			let targetUser = Users(target[1]);
-			let req = Db.rooms.get(target[1]);
+			req = Db.rooms.get(target[1]);
 			if (req && req.blacklisted) return this.errorReply(`${target[1]} is already banned from owning rooms.`);
 			Db.rooms.set(target[1], {blacklisted: true, by: user.userid, reason: (target[2] || undefined)});
 			let demoted = [];
@@ -127,9 +154,9 @@ exports.commands = {
 			return this.sendReply(`${target[1]} was banned from owning rooms.`);
 			//break;
 		case 'unblacklist':
-			if (!target[1]) return this.parse('/help roomrequest');
+			if (!target[1]) return this.parse('/help roomrequests');
 			target[1] = toId(target[1]);
-			let req = Db.rooms.get(target[1]);
+			req = Db.rooms.get(target[1]);
 			if (!req || !req.blacklisted) return this.errorReply(`${target[1]} is not banned from owning rooms.`);
 			Db.rooms.set(target[1], undefined);
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was unbanned from owning rooms by ${user.name}.`);
@@ -152,7 +179,7 @@ exports.commands = {
 			return this.sendReply(`The following ${list.length} users are banned from owning rooms: ${list.join(', ')}.`);
 			//break;
 		default:
-			return this.parse('/help roomrequest');
+			return this.parse('/help roomrequests');
 		}
 	},
 	roomrequestshelp: ["/roomrequests [view|accept|reject|delete|blacklist|unblacklist|viewblacklist], [request|username], (reason if blacklist) - Display and manage the list of current room requests. Requires: &, ~"],
