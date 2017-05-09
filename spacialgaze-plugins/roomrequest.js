@@ -119,7 +119,7 @@ exports.commands = {
 				return this.sendReply(`The room name of ${target[1]}'s request has been changed to: ${req.name}`);
 			} else if (target[2] === 'type') {
 				if (['public', 'private'].indexOf(toId(target[3])) === -1) return this.errorReply(`Room types can be public or private`);
-				if (req.type === toid(target[3])) return this.errorReply(`The room type of ${target[1]}'s request has been changed to: ${req.type}`);
+				if (req.type === toId(target[3])) return this.errorReply(`The room type of ${target[1]}'s request has been changed to: ${req.type}`);
 				req.type = toId(target[3]);
 				Db.rooms.set(toId(target[1]), req);
 				return this.sendReply(`The room type of ${target[1]}'s request has been changed to: ${req.type}`);
