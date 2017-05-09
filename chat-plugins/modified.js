@@ -122,7 +122,6 @@ exports.commands = {
 		if (req && req.blacklisted) return this.errorReply(`${name} is banned from owning rooms.`);
 
 		if (!room.auth) room.auth = room.chatRoomData.auth = {};
-		
 		room.auth[userid] = '#';
 		room.chatRoomData.founder = userid;
 		room.founder = userid;
