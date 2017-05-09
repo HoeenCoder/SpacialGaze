@@ -179,8 +179,8 @@ exports.commands = {
 			}
 			let list = [];
 			let keys = Db.rooms.keys();
-			for (let key in keys) {
-				if (key.blacklisted) list.push(key);
+			for (let key = 0; key < keys.length; key++) {
+				if (keys[key].blacklisted) list.push(keys[key]);
 			}
 			if (!list.length) return this.sendReply('No users are banned from owning rooms.');
 			return this.sendReply(`The following ${list.length} users are banned from owning rooms: ${list.join(', ')}.`);
