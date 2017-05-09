@@ -150,7 +150,7 @@ exports.commands = {
 				if (curRoom.auth[target[1]] === '#') {
 					curRoom.auth[target[1]] = '@';
 					demoted.push(curRoom.id);
-					if (targetUser) room.onUpdateIdentity(targetUser);
+					if (targetUser) curRoom.onUpdateIdentity(targetUser);
 				}
 			});
 			if (demoted.length) Rooms.global.writeChatRoomData();
