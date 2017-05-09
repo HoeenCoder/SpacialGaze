@@ -1,5 +1,7 @@
 "use strict";
 
+const COOLDOWN = 1209600000; // 2 weeks
+
 exports.commands = {
 	confirmrequestroom: 'requestroom',
 	requestroom: function (target, room, user, connection, cmd) {
@@ -10,8 +12,8 @@ exports.commands = {
 		if (curRequest) {
 			if (curRequest.blacklist) return this.errorReply(`You are banned from requesting rooms.`);
 			// TODO vote on cooldown time (defaulting to 2 weeks)
-			if (curRequest.cooldown && Date.now() - curRequest.cooldown < 1209600000) {
-				return this.errorReply(`You cannot request another room for TBA.`);
+			if (curRequest.cooldown && Date.now() - curRequest.cooldown < COOLDOWN) {
+				return this.errorReply(`You cannot request another room for another ${Chat.toDurationString(COOLDOWN - (Date.now() - curRequest.cooldown))}.`);
 			} else if (curRequest.cooldown) {
 				curRequest = null;
 			}
@@ -47,7 +49,7 @@ exports.commands = {
 		let curRequest = Db.rooms.get(target);
 		if (!curRequest) return this.errorReply(`${(target === user.userid ? "You don't " : target + " does not ")} have a pending room request.`);
 		let output = `<center><h1>Spacialgaze Room Request</h1></center><b>Requester</b>: ${target} <br/><b>Room Name</b>: ${curRequest.name}<br/><b>Room Type</b>: ${curRequest.type}<br/><b>Description</b>: ${curRequest.desc}<br/>`;
-		if (user.can('roomowner')) output += `${(curRequest.isStaff ? `The requester is a Spacial Gaze global staff member` : (curRequest.trusted ? `The requester is a trusted user.` : ``))}`;
+		if (user.can('roomowner')) output += `${(curRequest.staff ? `The requester is a Spacial Gaze global staff member` : (curRequest.trusted ? `The requester is a trusted user.` : ``))}`;
 		this.sendReplyBox(output);
 	},
 	checkroomrequesthelp: ["/checkroomrequest (username) - Check a users current room request. leave username blank to default to your request. Requires: &, ~ if username is not your username."],
