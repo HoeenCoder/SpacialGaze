@@ -1,6 +1,7 @@
 "use strict";
 
 const COOLDOWN = 1209600000; // 2 weeks
+let allowRequests = true;
 
 exports.commands = {
 	confirmrequestroom: 'requestroom',
@@ -8,6 +9,7 @@ exports.commands = {
 		if (!user.named) return this.errorReply(`Please choose a name before requesting a room`);
 		if (!user.registered) return this.errorReply(`Unregistered names cannot be promoted, so they cannot request rooms.`);
 		if (!user.autoconfirmed) return this.errorReply(`You must be autoconfirmed to request a room.`);
+		if (!allowRequests) return this.errorReply(`Room requests are currently closed.`);
 		let curRequest = Db.rooms.get(user.userid, null);
 		if (curRequest) {
 			if (curRequest.blacklist) return this.errorReply(`You are banned from requesting rooms.`);
@@ -173,7 +175,7 @@ exports.commands = {
 		case 'viewblacklist':
 			if (target[1]) {
 				target[1] = toId(target[1]);
-				let req = Db.rooms.get(target[1]);
+				req = Db.rooms.get(target[1]);
 				if (!req || !req.blacklisted) return this.errorReply(`${target[1]} is not banned from owning rooms.`);
 				return this.sendReply(`ROOMOWNERBAN by ${req.by} ${(req.reason ? `(${req.reason})` : ``)}.`);
 			}
@@ -184,6 +186,16 @@ exports.commands = {
 			}
 			if (!list.length) return this.sendReply('No users are banned from owning rooms.');
 			return this.sendReply(`The following ${list.length} users are banned from owning rooms: ${list.join(', ')}.`);
+			//break;
+		case 'open':
+			if (allowRequests) return this.errorReply(`Room Requests are already open.`);
+			allowRequests = true;
+			return this.sendReply(`Room Requests are now open.`);
+			//break;
+		case 'close':
+			if (!allowRequests) return this.errorReply(`Room Requests are already closed.`);
+			allowRequests = false;
+			return this.sendReply(`Room Requests are now closed.`);
 			//break;
 		default:
 			return this.parse('/help roomrequests');
@@ -197,5 +209,6 @@ exports.commands = {
 			   "/roomrequests delete, [requester] - Deletes a room request, deleting a room request will not cause a cooldown period before the user can send another request.",
 			   "/roomrequests blacklist [user], (reason) - Bans a user from owning or requesting rooms. They will be automatically de-roomownered server wide as well.",
 			   "/roomrequests unblacklist [user] - Allow a user to request rooms and be a roomowner again.",
-			   "/roomrequests viewblacklist (user) - View the roomowner blacklist. If the user argument is provided, check to see if the user is roomowner banned."],
+			   "/roomrequests viewblacklist (user) - View the roomowner blacklist. If the user argument is provided, check to see if the user is roomowner banned.",
+			   "/roomrequests [open|close] - Opens or closes room requests."],
 };
