@@ -1,3 +1,9 @@
+/**
+ * Room Request System
+ *
+ * Programmed by HoeenHero for SpacialGaze
+ * @license MIT license
+ */
 "use strict";
 
 const COOLDOWN = 1209600000; // 2 weeks
@@ -13,7 +19,6 @@ exports.commands = {
 		let curRequest = Db.rooms.get(user.userid, null);
 		if (curRequest) {
 			if (curRequest.blacklist) return this.errorReply(`You are banned from requesting rooms.`);
-			// TODO vote on cooldown time (defaulting to 2 weeks)
 			if (curRequest.cooldown && Date.now() - curRequest.cooldown < COOLDOWN) {
 				return this.errorReply(`You cannot request another room for another ${Chat.toDurationString(COOLDOWN - (Date.now() - curRequest.cooldown))}.`);
 			} else if (curRequest.cooldown) {
