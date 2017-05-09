@@ -33,7 +33,7 @@ exports.commands = {
 			status: "pending",
 		};
 		if (cmd !== 'confirmrequestroom') {
-			return this.sendReplyBox(`<center><h3>Please confirm your room request</h3><br/><b>Room Name</b>:${curRequest.name}<br/><b>Room Type</b>:${curRequest.type}<br/><b>Description</b>:${curRequest.desc}<br/><button name="send" value="/confirmrequestroom ${curRequest.name}, ${curRequest.type}, ${curRequest.desc}" class="button">Yes, this is correct</button><button class="button" name="receive" value="|c|~SG Server|Request the room again, but with the changes you want to make to it.">No, I want to change something</button></center>`);
+			return this.sendReplyBox(`<center><h3>Please confirm your room request</h3><br/><b>Room Name</b>: ${curRequest.name}<br/><b>Room Type</b>: ${curRequest.type}<br/><b>Description</b>:${curRequest.desc}<br/><button name="send" value="/confirmrequestroom ${curRequest.name}, ${curRequest.type}, ${curRequest.desc}" class="button">Yes, this is correct</button><button class="button" name="receive" value="|c|~SG Server|Request the room again, but with the changes you want to make to it.">No, I want to change something</button></center>`);
 		}
 		Db.rooms.set(user.userid, curRequest);
 		SG.messageSeniorStaff(`/html ${user.name} has requested a room. <button class="button" name="send" value="/checkroomrequest ${user.userid}">Check request</button>`);
@@ -60,8 +60,8 @@ exports.commands = {
 		case 'view':
 			let requests = Db.rooms.keys();
 			let output = `<div class="infobox infobox-limited"><table><tr><th style="border: 1px solid" colspan="6"><b>Spacial Gaze Room Requests</b></th></tr><tr><th style="border: 1px solid">Requester</th><th style="border: 1px solid">Room Name</th><th style="border: 1px solid">Room Type</th><th style="border: 1px solid">Description</th><th style="border: 1px solid">Status</th><th style="border: 1px solid">Options</th></tr>`;
-			for (let key in requests) {
-				let cur = Db.rooms.get(key);
+			for (let i = 0; i < requests.length; i++) {
+				let cur = Db.rooms.get(requests[i]);
 				if (cur.blacklisted) {
 					output += `<tr><td style="border: 1px solid">${key}</td><td style="border: 1px solid; background-color: #ff4d4d; color: black" colspan="5"><center>Blacklisted from owning rooms.</center></td></tr>`;
 					continue;
