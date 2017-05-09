@@ -62,6 +62,10 @@ exports.commands = {
 			let output = `<div class="infobox infobox-limited"><table><tr><th style="border: 1px solid" colspan="6"><b>Spacial Gaze Room Requests</b></th></tr><tr><th style="border: 1px solid">Requester</th><th style="border: 1px solid">Room Name</th><th style="border: 1px solid">Room Type</th><th style="border: 1px solid">Description</th><th style="border: 1px solid">Status</th><th style="border: 1px solid">Options</th></tr>`;
 			for (let key in requests) {
 				let cur = Db.rooms.get(key);
+				if (cur.blacklisted) {
+					output += `<tr><td style="border: 1px solid">${key}</td><td style="border: 1px solid; background-color: #ff4d4d; color: black" colspan="5"><center>Blacklisted from owning rooms.</center></td></tr>`;
+					continue;
+				}
 				output += `<tr><td style="border: 1px solid">${key}</td><td style="border: 1px solid">${cur.name}</td><td style="border: 1px solid">${cur.type}</td><td style="border: 1px solid">${cur.desc}</td><td style="border: 1px solid">${cur.status}</td>`;
 				if (cur.status === 'pending') {
 					output += `<td style="border: 1px solid"><button class="button" name="send" value="/roomrequests accept, ${key}">Accept</button><button class="button" name="send" value="/roomrequests reject, ${key}">Reject</button></td></tr>`;
@@ -150,6 +154,7 @@ exports.commands = {
 			if (demoted.length) Rooms.global.writeChatRoomData();
 			if (targetUser) targetUser.popup(`|html|<center>${user.name} has banned you from owning rooms. (${target[2]})<br/>You have been automatcally demoted from room owner in all rooms you had it in (if any).<br/>To appeal your room ownership blacklist, PM a & or ~.</center>`);
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was banned from owning rooms by ${user.name} ${(demoted.length ? `and demoted from # in ${demoted.join(', ')}` : ``)}. ${(target[2] ? `(${target[2]})` : ``)}`);
+			if (targetUser && targetUser.trusted) Monitor.log("[CrisisMonitor] Trusted user " + targetUser.name + (targetUser.trusted !== targetUser.userid ? " (" + targetUser.trusted + ")" : "") + " was banned from owning rooms by " + user.name + ", and should probably be demoted.");
 			this.globalModlog("ROOMOWNERBAN", targetUser, " by " + user.name + (target[2] ? ": " + target[2] : ""));
 			return this.sendReply(`${target[1]} was banned from owning rooms.`);
 			//break;
@@ -182,5 +187,13 @@ exports.commands = {
 			return this.parse('/help roomrequests');
 		}
 	},
-	roomrequestshelp: ["/roomrequests [view|accept|reject|delete|blacklist|unblacklist|viewblacklist], [request|username], (reason if blacklist) - Display and manage the list of current room requests. Requires: &, ~"],
+	roomrequestshelp: ["/roomrequests - Manage room requests. Requires &, ~. Accepts the following arguments:",
+			   "/roomrequests view - View and manage all current room requests",
+			   "/roomrequests accept, [requester] - Accepts a room request and creates the room.",
+			   "/roomrequests reject, [requester] - Rejects a room request.",
+			   "/roomrequests modify, [requester], [name|type], [new name || public|private] - Modify a room requests name or type.",
+			   "/roomrequests delete, [requester] - Deletes a room request, deleting a room request will not cause a cooldown period before the user can send another request.",
+			   "/roomrequests blacklist [user], (reason) - Bans a user from owning or requesting rooms. They will be automatically de-roomownered server wide as well.",
+			   "/roomrequests unblacklist [user] - Allow a user to request rooms and be a roomowner again.",
+			   "/roomrequests viewblacklist (user) - View the roomowner blacklist. If the user argument is provided, check to see if the user is roomowner banned."],
 };
