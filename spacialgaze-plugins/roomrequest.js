@@ -63,12 +63,12 @@ exports.commands = {
 			for (let i = 0; i < requests.length; i++) {
 				let cur = Db.rooms.get(requests[i]);
 				if (cur.blacklisted) {
-					output += `<tr><td style="border: 1px solid">${key}</td><td style="border: 1px solid; background-color: #ff4d4d; color: black" colspan="5"><center>Blacklisted from owning rooms.</center></td></tr>`;
+					output += `<tr><td style="border: 1px solid">${requests[i]}</td><td style="border: 1px solid; background-color: #ff4d4d; color: black" colspan="5"><center>Blacklisted from owning rooms.</center></td></tr>`;
 					continue;
 				}
-				output += `<tr><td style="border: 1px solid">${key}</td><td style="border: 1px solid">${cur.name}</td><td style="border: 1px solid">${cur.type}</td><td style="border: 1px solid">${cur.desc}</td><td style="border: 1px solid">${cur.status}</td>`;
+				output += `<tr><td style="border: 1px solid">${requests[i]}</td><td style="border: 1px solid">${cur.name}</td><td style="border: 1px solid">${cur.type}</td><td style="border: 1px solid">${cur.desc}</td><td style="border: 1px solid">${cur.status}</td>`;
 				if (cur.status === 'pending') {
-					output += `<td style="border: 1px solid"><button class="button" name="send" value="/roomrequests accept, ${key}">Accept</button><button class="button" name="send" value="/roomrequests reject, ${key}">Reject</button></td></tr>`;
+					output += `<td style="border: 1px solid"><button class="button" name="send" value="/roomrequests accept, ${requests[i]}">Accept</button><button class="button" name="send" value="/roomrequests reject, ${requests[i]}">Reject</button></td></tr>`;
 				} else {
 					output += `<td style="border: 1px solid">${cur.status} by ${cur.by}</td></tr>`;
 				}
