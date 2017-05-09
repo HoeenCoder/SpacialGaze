@@ -325,13 +325,17 @@ exports.commands = {
 	stardust: 'economystats',
 	economystats: function (target, room, user) {
 		if (!this.runBroadcast()) return;
-		const users = Object.keys(Db.currency.object());
-		const total = users.reduce(function (acc, cur) {
-			return acc + Db.currency.get(cur);
-		}, 0);
+		const users = Db.currency.keys();
+		let total = 0;
+		for (let i = 0; i < users.length; i++) {
+			total += Economy.readMoney(users[i]);
+			console.log (Economy.readMoney(users[i]));
+		}
 		let average = Math.floor(total / users.length) || 0;
-		let output = "There " + (total > 1 ? "are " : "is ") + total + (total > 1 ? currencyPlural : currencyName) + " circulating in the economy. ";
-		output += "The average user has " + average + (average > 1 ? currencyPlural : currencyName) + ".";
+		let output = "There " + (total > 1 ? "are " : "is ") + "<strong>" + total + " " + (total > 1 ? currencyPlural : currencyName) + "</strong> circulating in the economy. <br />";
+		output += "The average user has <strong>" + average + " " + (average > 1 ? currencyPlural : currencyName) + "</strong>.<br />";
+		let hasAStardust = Math.round(total / users.length);
+		output += "At least <strong>" + Math.round(total / users.length) + "</strong> users has a <strong>" + currencyName + "</strong>";
 		this.sendReplyBox(output);
 	},
 };
