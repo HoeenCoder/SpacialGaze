@@ -82,7 +82,6 @@ exports.commands = {
 			//break;
 		case 'reject':
 			if (!target[1]) return this.parse('/help roomrequest');
-			let req = Db.rooms.get(toId(target[1]));
 			if (!req) return this.errorReply(`${target[1]} does not have a room request.`);
 			if (req.blacklisted) return this.errorReply(`${target[1]} is banned from owning rooms.`);
 			if (req.status !== 'pending') return this.errorReply(`${target[1]}'s current request has already been ${req.status}.`);
@@ -94,7 +93,6 @@ exports.commands = {
 			//break;
 		case 'delete':
 			if (!target[1]) return this.parse('/help roomrequest');
-			let req = Db.rooms.get(toId(target[1]));
 			if (!req) return this.errorReply(`${target[1]} does not have a room request.`);
 			if (req.blacklisted) return this.errorReply(`${target[1]} is banned from owning rooms. If you want to undo the blacklist do /roomrequests unblacklist, ${target[1]}`);
 			Db.rooms.set(toId(target[1]), undefined);
@@ -104,7 +102,6 @@ exports.commands = {
 			if (!target[1]) return this.parse('/help roomrequest');
 			target[1] = toId(target[1]);
 			let targetUser = Users(target[1]);
-			let req = Db.rooms.get(target[1]);
 			if (req && req.blacklisted) return this.errorReply(`${target[1]} is already banned from owning rooms.`);
 			Db.rooms.set(target[1], {blacklisted: true, by: user.userid, reason: (target[2] || undefined)});
 			let demoted = [];
@@ -129,7 +126,6 @@ exports.commands = {
 		case 'unblacklist':
 			if (!target[1]) return this.parse('/help roomrequest');
 			target[1] = toId(target[1]);
-			let req = Db.rooms.get(target[1]);
 			if (!req || !req.blacklisted) return this.errorReply(`${target[1]} is not banned from owning rooms.`);
 			Db.rooms.set(target[1], undefined);
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was unbanned from owning rooms by ${user.name}.`);
@@ -139,7 +135,6 @@ exports.commands = {
 		case 'viewblacklist':
 			if (target[1]) {
 				target[1] = toId(target[1]);
-				let req = Db.rooms.get(target[1]);
 				if (!req || !req.blacklisted) return this.errorReply(`${target[1]} is not banned from owning rooms.`);
 				return this.sendReply(`ROOMOWNERBAN by ${req.by} ${(req.reason ? `(${req.reason})` : ``)}.`);
 			}
