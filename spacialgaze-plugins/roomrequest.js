@@ -107,7 +107,7 @@ exports.commands = {
 			req = Db.rooms.get(toId(target[1]));
 			if (!req) return this.errorReply(`${target[1]} does not have a room request.`);
 			if (req.blacklisted) return this.errorReply(`${target[1]} is banned from owning rooms. If you want to undo the blacklist do /roomrequests unblacklist, ${target[1]}`);
-			Db.rooms.set(toId(target[1]), undefined);
+			Db.rooms.remove(toId(target[1]));
 			return this.sendReply(`You deleted the room request from ${target[1]}`);
 			//break;
 		case 'modify':
@@ -152,7 +152,7 @@ exports.commands = {
 				}
 			});
 			if (demoted.length) Rooms.global.writeChatRoomData();
-			if (targetUser) targetUser.popup(`|html|<center>${user.name} has banned you from owning rooms. (${target[2]})<br/>You have been automatcally demoted from room owner in all rooms you had it in (if any).<br/>To appeal your room ownership blacklist, PM a & or ~.</center>`);
+			if (targetUser) targetUser.popup(`|html|<center>${user.name} has banned you from owning rooms. (${target[2].trim()})<br/>You have been automatcally demoted from room owner in all rooms you had it in (if any).<br/>To appeal your room ownership blacklist, PM a & or ~.</center>`);
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was banned from owning rooms by ${user.name} ${(demoted.length ? `and demoted from # in ${demoted.join(', ')}` : ``)}. ${(target[2] ? `(${target[2]})` : ``)}`);
 			if (targetUser && targetUser.trusted) Monitor.log("[CrisisMonitor] Trusted user " + targetUser.name + (targetUser.trusted !== targetUser.userid ? " (" + targetUser.trusted + ")" : "") + " was banned from owning rooms by " + user.name + ", and should probably be demoted.");
 			this.globalModlog("ROOMOWNERBAN", targetUser, " by " + user.name + (target[2] ? ": " + target[2] : ""));
@@ -163,7 +163,7 @@ exports.commands = {
 			target[1] = toId(target[1]);
 			req = Db.rooms.get(target[1]);
 			if (!req || !req.blacklisted) return this.errorReply(`${target[1]} is not banned from owning rooms.`);
-			Db.rooms.set(target[1], undefined);
+			Db.rooms.remove(target[1]);
 			if (Rooms('upperstaff')) Monitor.adminlog(`${target[1]} was unbanned from owning rooms by ${user.name}.`);
 			this.globalModlog("UNROOMOWNERBAN", target[1], " by " + user.name);
 			return this.sendReply(`${target[1]} is no longer banned from owning rooms.`);
