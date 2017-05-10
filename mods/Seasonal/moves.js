@@ -9,74 +9,71 @@ exports.BattleMovedex = {
 			switch (this.random(7)) {
 			case 0:
 				move.category = 'Special';
-				move.type = 'Fire';
-				move.basePower = 200;
+				move.type = 'Poison';
+				move.basePower = 80;
 				move.onTryHit = function () {
-					this.add('-message', "Pumpkin bomb!");
+					this.add('-message', "Spore Party!");
 				};
-				move.onHit = function () {};
+				move.onHit: function (target, source) {
+				let result = this.random(3);
+				if (result === 0) {
+					target.trySetStatus('psn', source);
+				} else if (result === 1) {
+					target.trySetStatus('par', source);
+				} else {
+					target.trySetStatus('slp', source);
+				}
+			};
+		},
 				break;
 			case 1:
 				move.category = 'Physical';
-				move.type = 'Poison';
-				move.basePower = 25;
-				move.multihit = 4;
+				move.type = 'Grass';
+				move.basePower = 95;
 				move.onTryHit = function () {
-					this.add('-message', "Toilet paper missile attack!");
+					this.add('-message', "Pollen Bomb!");
 				};
-				move.onHit = function () {};
-				break;
-			case 2:
+			move.onHit: function (target, source) {
+			target.addVolatile('flinch');
+			};
+			break;
+		case 2:
 				move.onTryHit = function () {
-					this.add('-message', "Yum! Chocolate!");
+					this.add('-message', "???");
 				};
-				move.onHit = function (target, source) {
-					this.heal(Math.ceil(target.maxhp * 0.5));
-				};
+				move.weather = 'Hail';
 				break;
 			case 3:
 				move.onTryHit = function () {
-					this.add('-message', "This is a rather bland candy.");
+					this.add('-message', "Oh look the sun, neat.");
 				};
-				move.onHit = function (target, source) {
-					this.heal(Math.ceil(target.maxhp * 0.25));
-					target.setStatus('par');
-					target.addVolatile('confusion');
-				};
+				move.weather = 'SunnyDay';
 				break;
 			case 4:
 				move.onTryHit = function () {
-					this.add('-message', "You are about to be rotten-egged on!");
+					this.add('-message', "Mushroom Samba!");
 				};
 				move.onHit = function (target, source) {
-					target.setStatus('tox');
+					target.addVolatile('confusion');
 					target.addVolatile('torment');
 				};
 				break;
 			case 5:
 				move.category = 'Special';
 				move.type = 'Dark';
-				move.basePower = 500;
-				move.self = {
-					volatileStatus: 'mustrecharge',
-				};
+				move.basePower = true;
 				move.onTryHit = function () {
-					this.add('-message', "Ultimate Super Hiper Mega Awesome Beam destroyer of worlds!");
+					this.add('-message', "The god of plants came to devour the Opponent! Oh, and you as well...");
 				};
-				move.onHit = function (target, source) {
-					this.add('-message', source.name + " was caught in the explosion!");
-					source.setStatus('brn');
-					source.addVolatile('disabled');
-					source.addVolatile('confusion');
+				move.onHit = function (pokemon) {
+					pokemon.faint();
 				};
 				break;
 			case 6:
 				move.onTryHit = function () {
-					this.add('-message', "Have some refreshment, my fellow.");
+					this.add('-message', "April showers bring May flowers...");
 				};
-				move.onHit = function (target, source) {
-					target.addVolatile('aquaring');
-				};
+				move.weather = 'RainDance';
 				break;
 			}
 		},
