@@ -24,7 +24,6 @@ exports.BattleMovedex = {
 					target.trySetStatus('slp', source);
 				}
 			};
-		},
 				break;
 			case 1:
 				move.category = 'Physical';
