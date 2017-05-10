@@ -41,7 +41,7 @@ exports.BattleScripts = {
 			}
 		}
 		team.push(set);
-
+		}
 		return team;
-	},
+	}
 };
