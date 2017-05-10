@@ -11,10 +11,10 @@ exports.BattleMovedex = {
 				move.category = 'Special';
 				move.type = 'Poison';
 				move.basePower = 80;
-				move.onTryHit: function () {
+				move.onTryHit = function () {
 					this.add('-message', "Spore Party!");
 				};
-				move.onHit: function (target, source) {
+				move.onHit = function (target, source) {
 				let result = this.random(3);
 				if (result === 0) {
 					target.trySetStatus('psn', source);
@@ -33,7 +33,7 @@ exports.BattleMovedex = {
 				move.onTryHit = function () {
 					this.add('-message', "Pollen Bomb!");
 				};
-			move.onHit: function (target, source) {
+			move.onHit = function (target, source) {
 			target.addVolatile('flinch');
 			};
 			break;
