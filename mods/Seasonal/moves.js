@@ -11,7 +11,7 @@ exports.BattleMovedex = {
 				move.category = 'Special';
 				move.type = 'Poison';
 				move.basePower = 80;
-				move.onTryHit = function () {
+				move.onTryHit: function () {
 					this.add('-message', "Spore Party!");
 				};
 				move.onHit: function (target, source) {
