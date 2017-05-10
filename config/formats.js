@@ -460,10 +460,11 @@ exports.Formats = [
 	//SpacialGaze Seasonal
 	{
 		name: "[Gen 7] Seasonal: Garden Warefare",
-		desc: ["A fun way to celebrate spring!",
-		      "But anyways, a random team composed of grass and bug types and where growth has a cool effect each time you use it!"
-		      "Coded by Insist and VXN with help from Hoeenhero",
-		      ],
+		desc: [
+			"A fun way to celebrate spring!",
+			"But anyways, a random team composed of grass and bug types and where growth has a cool effect each time you use it!",
+			"Coded by Insist and VXN with help from Hoeenhero",
+		],
 		team: 'randomPvZ',
 		ruleset: ['HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
 	},
