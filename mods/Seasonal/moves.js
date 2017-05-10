@@ -42,12 +42,17 @@ exports.BattleMovedex = {
 					this.add('-message', "???");
 				};
 				move.weather = 'Hail';
+			move.onHit = function (target, source) {};
 				break;
 			case 3:
 				move.onTryHit = function () {
-					this.add('-message', "Oh look the sun, neat.");
+					this.add('-message', "Oh look the sun, and you got sunburned.");
 				};
 				move.weather = 'SunnyDay';
+			move.onHit = function (target, source) {
+				source.Status('brn');
+					target.Status('brn');
+				};
 				break;
 			case 4:
 				move.onTryHit = function () {
@@ -61,7 +66,7 @@ exports.BattleMovedex = {
 			case 5:
 				move.category = 'Special';
 				move.type = 'Dark';
-				move.basePower = true;
+				move.ohko = true;
 				move.onTryHit = function () {
 					this.add('-message', "The god of plants came to devour the Opponent! Oh, and you as well...");
 				};
@@ -74,6 +79,15 @@ exports.BattleMovedex = {
 					this.add('-message', "April showers bring May flowers...");
 				};
 				move.weather = 'RainDance';
+			move.onHit = function (target, source) {};
+				break;
+			case 7:
+				move.onTryHit = function () {
+					this.add('-message', "You planted your roots!");
+				};
+				move.onHit = function (target, source) {
+					source.addVolatile('ingrain');
+				};
 				break;
 			}
 		},
