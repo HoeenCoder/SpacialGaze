@@ -7,3 +7,13 @@ EVs: 252 SpA / 252 Spe / 4 HP
 Moves: Scald/Hydro Pump, Giga Drain, Ice Beam
 Signature Move: Scripting
 Signature Move Details: Psychic type, Status, Confuses target, Activates Rain Dance, and raises the user's SpA by 2 stages and SpD for 1 stages.
+
+Mystifi
+(Clefairy)
+@ Eviolite
+Ability: Analytic
+Bold Nature
+EVs: 252 HP / 252 Def / 4 SpD
+Moves: Cosmic Power/Calm Mind, Soft-Boiled, Stored Power
+Signature Move: Mystic Mirage
+Signature Move Effect: Status, Boosts the user's Def, SpA, and SpD by one stage.
