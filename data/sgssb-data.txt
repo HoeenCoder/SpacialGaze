@@ -6,7 +6,7 @@ Modest Nature
 EVs: 252 SpA / 252 Spe / 4 HP
 Moves: Scald/Hydro Pump, Giga Drain, Ice Beam
 Signature Move: Scripting
-Signature Move Details: Psychic type, Status, Confuses target, Activates Rain Dance, and raises the user's SpA by 2 stages and SpD for 1 stages.
+Signature Move Effects: Psychic type, Status, Confuses target, Activates Rain Dance, and raises the user's SpA by 2 stages and SpD for 1 stages.
 
 Mystifi
 (Clefairy)
@@ -16,4 +16,24 @@ Bold Nature
 EVs: 252 HP / 252 Def / 4 SpD
 Moves: Cosmic Power/Calm Mind, Soft-Boiled, Stored Power
 Signature Move: Mystic Mirage
-Signature Move Effect: Status, Boosts the user's Def, SpA, and SpD by one stage.
+Signature Move Effects: Status, Boosts the user's Def, SpA, and SpD by one stage.
+
+VXN
+(Rayquaza)
+@ Normalium Z
+Ability: Wonder Guard
+Jolly Nature
+EVs: 252 Atk / 252 Spe / 4 SpD
+Moves: Splash, Happy Hour, Celebrate
+Signature Move: Crash
+Signature Move Effects: Displays a server crash message and faints the user.
+
+Insist
+(Ludicolo)
+@ Life Orb
+Ability: Primordial Sea
+Timid Nature
+EVs: 252 SpA / 252 Spe / 4 HP
+Moves: Giga Drain, Focus Blast, Freeze-Dry
+Signature Move: Aqua Subscribe
+Signature Move Effects: Water, Special, +1 priority, 90 BP, Boosts own SpA and Spe by one stage.
