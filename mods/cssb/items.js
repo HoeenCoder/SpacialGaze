@@ -17,15 +17,18 @@
 			if (!this.runEvent('TryHeal', pokemon)) return false;
 		},
 		onEat: function (pokemon) {
-      let result = this.random(2);
-				if (result === 0) {
+      let fakecheck = this.random(1000);
+				if (fakecheck <= 850) {
           this.add('message', pokemon, '\'s belly felt full!');
           this.heal(pokemon.maxhp / 2);
           this.add('message', pokemon, '\'s IQ rose!');
   this.boost({spd:2});
   this.boost({def:2});
 } else {
-  
+  this.add('message', 'Wait... Its a WANDER Gummi!');
+          this.heal(pokemon.maxhp / 100);
+          this.add('message', pokemon, 'Gained the blinker status!');
+  this.boost({accuracy:-6});
 }
 },
   num: -1,
