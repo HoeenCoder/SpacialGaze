@@ -9,6 +9,7 @@ exports.BattleItems = {
 			basePower: 200,
 			type: "???",
 		},
+		isNonStandard: true,
 		onUpdate: function (pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
 				pokemon.eatItem();
