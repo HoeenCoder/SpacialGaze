@@ -9,32 +9,32 @@ exports.BattleItems = {
 			basePower: 200,
 			type: "???",
 		},
-		onUpdate: function(pokemon) {
+		onUpdate: function (pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 && pokemon.hasAbility('gluttony'))) {
 				pokemon.eatItem();
 			}
 		},
-		onTryEatItem: function(item, pokemon) {
+		onTryEatItem: function (item, pokemon) {
 			if (!this.runEvent('TryHeal', pokemon)) return false;
 		},
-		onEat: function(pokemon) {
+		onEat: function (pokemon) {
 			let fakecheck = this.random(1000);
 			if (fakecheck <= 850) {
 				this.add('message', pokemon, '\'s belly felt full!');
 				this.heal(pokemon.maxhp / 2);
 				this.add('message', pokemon, '\'s IQ rose!');
 				this.boost({
-					spd: 2
+					spd: 2,
 				});
 				this.boost({
-					def: 2
+					def: 2,
 				});
 			} else {
 				this.add('message', 'Wait... Its a WANDER Gummi!');
 				this.heal(pokemon.maxhp / 100);
 				this.add('message', pokemon, 'Gained the blinker status!');
 				this.boost({
-					accuracy: -6
+					accuracy: -6,
 				});
 			}
 		},
