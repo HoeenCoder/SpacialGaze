@@ -1,0 +1,9 @@
+HoeenCoder
+(Ludicolo)
+@ Leftovers
+Ability: Swift Swim
+Modest Nature
+EVs: 252 SpA / 252 Spe / 4 HP
+Moves: Scald/Hydro Pump, Giga Drain, Ice Beam
+Signature Move: Scripting
+Signature Move Details: Psychic type, Status, Confuses target, Activates Rain Dance, and raises the user's SpA by 2 stages and SpD for 1 stages.
