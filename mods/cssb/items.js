@@ -1,4 +1,5 @@
 'use strict';
+exports.BattleItems = {
 // VXN
 "wondergummi": {
   id: "wondergummi",
@@ -35,3 +36,5 @@
   gen: -1,
   desc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use.",
 },
+},
+};
