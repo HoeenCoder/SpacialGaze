@@ -7,7 +7,6 @@
  * @license MIT license
  */
 'use strict';
-'use strict';
 
 let fs = require('fs');
 
