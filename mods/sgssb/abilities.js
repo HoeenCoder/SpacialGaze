@@ -5,6 +5,7 @@ exports.BattleAbilities = {
 	primalsurge: {
 		name: "Primal Surge",
 		id: "primalsurge",
+		isNonStandard: true,
 		onStart: function (source) {
 			this.setTerrain('electricterrain');
 			this.terrainData.duration = 0;
@@ -31,6 +32,7 @@ exports.BattleAbilities = {
 	cripplingdepression: {
 		id: "cripplingdepression",
 		name: "Crippling Depression",
+		isNonStandard: true,
 		//primordialseas
 		onStart: function (source) {
 			this.setWeather('primordialsea');
