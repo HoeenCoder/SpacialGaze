@@ -319,9 +319,9 @@ exports.BattleScripts = {
 			},
 			'+Ranfen': {
 				species: 'Flygon',
-				ability: 'Levitate',
-				item: 'Choice Band',
-				moves: ['Outrage', 'Dragon Dance', 'Earthquake',
+				ability: 'DesertDragon',
+				item: 'Focus Sash',
+				moves: ['Stone Edge', 'Dragon Claw', 'Earthquake',
 				],
 				signatureMove: 'Out Ripper',
 				evs: {
