@@ -120,7 +120,6 @@ exports.commands = {
 			let MonthNames = ["January", "February", "March", "April", "May", "June",
 				"July", "August", "September", "October", "November", "December",
 			];
-			console.log(newsId);
 			while (newsRequests[newsId]) newsId--;
 			newsRequests[newsId] = {};
 			newsRequests[newsId].reporter = user.name;
