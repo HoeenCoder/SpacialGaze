@@ -45,9 +45,9 @@ exports.BattleAbilities = {
 		onDamage: function (damage, target, source, effect) {
 			if (effect && effect.id === 'brn') {
 				return damage / 2;
-      }
-    },
-  },
+			}
+		},
+	},
 	//Insist
 	cripplingdepression: {
 		id: "cripplingdepression",
@@ -88,6 +88,15 @@ exports.BattleAbilities = {
 		onModifySpe: function (spe, pokemon) {
 			if (this.isWeather(['raindance', 'primordialsea'])) {
 				return this.chainModify(2);
+			}
+		},
+	},
+	desertdragon: {
+		id: "desertdragon",
+		name: "DesertDragon",
+		onSourceFaint: function (target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk:2, spe: 2}, source);
 			}
 		},
 	},
