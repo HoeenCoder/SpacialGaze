@@ -651,7 +651,7 @@ exports.BattleMovedex = {
 		pp: 0.625,
 		secondary: false,
 		category: "Special",
-		isViable: true,
+		isNonStandard: true,
 		isZ: "playniumz",
 		priority: 1,
 		flags: {
