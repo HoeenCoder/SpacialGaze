@@ -115,12 +115,13 @@ function rankLadder(title, type, array, prop, group) {
 	return ladderTitle + tableTop + tableRows + tableBottom;
 }
 
-function check1Buck() {
-	let users = Db.currency.keys(), hasOne = 0;
+function economyStat() {
+	let users = Db.currency.keys(), hasOne, total = 0;
 	for (let i = 0; i < users.length; i++) {
 		if (Economy.readMoney(users[i]) === 1) hasOne++;
+		total += Economy.readMoney(users[i]);
 	}
-	return hasOne;
+	return [hasOne, total];
 }
 
 exports.commands = {
@@ -334,15 +335,10 @@ exports.commands = {
 	stardust: 'economystats',
 	economystats: function (target, room, user) {
 		if (!this.runBroadcast()) return;
-		const users = Db.currency.keys();
-		let total = 0;
-		for (let i = 0; i < users.length; i++) {
-			total += Economy.readMoney(users[i]);
-		}
 		let average = Math.floor(total / users.length) || 0;
-		let output = "There " + (total > 1 ? "are " : "is ") + "<strong>" + total + " " + (total > 1 ? currencyPlural : currencyName) + "</strong> circulating in the economy. <br />";
+		let output = "There " + (total > 1 ? "are " : "is ") + "<strong>" + economyStat()[1] + " " + (economyStat()[1] > 1 ? currencyPlural : currencyName) + "</strong> circulating in the economy. <br />";
 		output += "The average user has <strong>" + average + " " + (average > 1 ? currencyPlural : currencyName) + "</strong>.<br />";
-		output += "<strong>" + check1Buck + "</strong> users has a " + currencyName;
+		output += "<strong>" + economyStat()[0] + "</strong> users has a " + currencyName;
 		this.sendReplyBox(output);
 	},
 };
