@@ -115,7 +115,7 @@ function rankLadder(title, type, array, prop, group) {
 	return ladderTitle + tableTop + tableRows + tableBottom;
 }
 
-function check1Buck () {
+function check1Buck() {
 	let users = Db.currency.keys(), hasOne = 0;
 	for (let i = 0; i < users.length; i++) {
 		if (Economy.readMoney(users[i]) === 1) hasOne++;
