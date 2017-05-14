@@ -9,6 +9,7 @@ const DEFAULT_AMOUNT = 0;
 global.currencyName = 'Stardust';
 global.currencyPlural = 'Stardust';
 
+
 let Economy = global.Economy = {
 	/**
  	* Reads the specified user's money.
@@ -112,6 +113,14 @@ function rankLadder(title, type, array, prop, group) {
 		}
 	}
 	return ladderTitle + tableTop + tableRows + tableBottom;
+}
+
+function check1Buck () {
+	let users = Db.currency.keys(), hasOne = 0;
+	for (let i = 0; i < users.length; i++) {
+		if (Economy.readMoney(users[i]) === 1) hasOne++;
+	}
+	return hasOne;
 }
 
 exports.commands = {
@@ -329,13 +338,11 @@ exports.commands = {
 		let total = 0;
 		for (let i = 0; i < users.length; i++) {
 			total += Economy.readMoney(users[i]);
-			console.log (Economy.readMoney(users[i]));
 		}
 		let average = Math.floor(total / users.length) || 0;
 		let output = "There " + (total > 1 ? "are " : "is ") + "<strong>" + total + " " + (total > 1 ? currencyPlural : currencyName) + "</strong> circulating in the economy. <br />";
 		output += "The average user has <strong>" + average + " " + (average > 1 ? currencyPlural : currencyName) + "</strong>.<br />";
-		let hasAStardust = Math.round(total / users.length);
-		output += "At least <strong>" + Math.round(total / users.length) + "</strong> users has a <strong>" + currencyName + "</strong>";
+		output += "<strong>" + check1Buck + "</strong> users has a " + currencyName;
 		this.sendReplyBox(output);
 	},
 };
