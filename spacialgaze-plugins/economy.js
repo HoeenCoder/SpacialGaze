@@ -335,8 +335,8 @@ exports.commands = {
 	stardust: 'economystats',
 	economystats: function (target, room, user) {
 		if (!this.runBroadcast()) return;
-		let average = Math.floor(total / users.length) || 0;
-		let output = "There " + (total > 1 ? "are " : "is ") + "<strong>" + economyStat()[1] + " " + (economyStat()[1] > 1 ? currencyPlural : currencyName) + "</strong> circulating in the economy. <br />";
+		let average = Math.floor(economyStat()[1] / users.length) || 0;
+		let output = "There " + (economyStat()[1] > 1 ? "are " : "is ") + "<strong>" + economyStat()[1] + " " + (economyStat()[1] > 1 ? currencyPlural : currencyName) + "</strong> circulating in the economy. <br />";
 		output += "The average user has <strong>" + average + " " + (average > 1 ? currencyPlural : currencyName) + "</strong>.<br />";
 		output += "<strong>" + economyStat()[0] + "</strong> users has a " + currencyName;
 		this.sendReplyBox(output);
