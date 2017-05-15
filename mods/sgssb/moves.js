@@ -613,6 +613,7 @@ exports.BattleMovedex = {
 		name: "Aqua Subscribe",
 		priority: 1,
 		self: {
+			chance: 30,
 			boosts: {
 				spa: 1,
 				spe: 1,
@@ -622,7 +623,6 @@ exports.BattleMovedex = {
 			protect: 1,
 			mirror: 1,
 		},
-		secondary: false,
 		category: "Special",
 		onHit: function (target, source, move) {
 			this.add('c|+Insist|Subscribe to http://youtube.com/DeathlyPlays');
