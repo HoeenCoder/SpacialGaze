@@ -612,7 +612,7 @@ exports.commands = {
 		create: function (target, room, user, connection, cmd) {
 			if (!this.can('minigame', null, room)) return;
 			if (room.unoDisabled) return this.errorReply("UNO is currently disabled for this room.");
-			if (room.game) return this.errorReply("There is already a game in progress in this room.");
+			if (room.game && room.game.gameid === 'uno') return this.errorReply("There is already a game in progress in this room.");
 
 			let suppressMessages = cmd.includes('private') || !(cmd.includes('public') || room.id === 'gamecorner');
 

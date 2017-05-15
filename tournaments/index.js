@@ -1045,7 +1045,7 @@ function createTournament(room, format, generator, playerCap, isRated, args, out
 		output.errorReply("Tournaments can only be created in chat rooms.");
 		return;
 	}
-	if (room.game) {
+	if (room.game && room.game.gameid !== 'uno') {
 		output.errorReply("You cannot have a tournament until the current room activity is over: " + room.game.title);
 		return;
 	}
