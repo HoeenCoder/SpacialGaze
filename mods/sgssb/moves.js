@@ -613,6 +613,7 @@ exports.BattleMovedex = {
 		name: "Aqua Subscribe",
 		priority: 1,
 		self: {
+			chance: 30,
 			boosts: {
 				spa: 1,
 				spe: 1,
