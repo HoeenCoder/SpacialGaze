@@ -342,6 +342,7 @@ exports.Formats = [
 		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
 		onBegin: function () {
 			this.add('message', 'GET READY FOR THE NEXT BATTLE!');
+			this.add('message', 'Wanna know what all these cool moves do? Please see our <a href="url">Player\'s Guide!</a>');
 
 			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
 			for (let i = 0, len = allPokemon.length; i < len; i++) {
@@ -398,6 +399,7 @@ exports.Formats = [
 		ruleset: ['Pokemon', 'Sleep Clause Mod', 'Freeze Clause Mod', 'HP Percentage Mod', 'Cancel Mod'],
 		onBegin: function () {
 			this.add("raw|Retro Super Staff Bros. <b>Return of the old staff!!!!</b>");
+			this.add('message', 'Wanna know what all these cool moves do? Please see our <a href="url">Player\'s Guide!</a>');
 
 			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
 			for (let i = 0, len = allPokemon.length; i < len; i++) {
@@ -440,6 +442,7 @@ exports.Formats = [
 			this.add("raw|<h3>2</h3>");
 			this.add("raw|<h3>1</h3>");
 			this.add("raw|<h1>BATTLE!</h1>");
+			this.add('message', 'Wanna know what all these cool moves do? Please see our <a href="url">Player\'s Guide!</a>');
 		},
 	},
 	{
