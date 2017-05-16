@@ -4,7 +4,7 @@ exports.BattleScripts = {
 		//inser team here
 	},
   //Credits to spandan for the code for metaman so i can use this for reasons
-	pokemon:{
+	pokemon: {
 		moveUsed(move) {
 			this.lastMove = this.battle.getMove(move).id;
 			for (let i = 0; i < this.moveset.length; i++) {
