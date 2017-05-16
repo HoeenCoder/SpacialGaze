@@ -1,5 +1,8 @@
 'use strict';
 exports.BattleScripts = {
+	randomCountryTeam: function (side) {
+		//inser team here
+	},
   //Credits to spandan for the code for metaman so i can use this for reasons
 	pokemon:{
 		moveUsed(move) {
