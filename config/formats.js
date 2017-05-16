@@ -468,14 +468,13 @@ exports.Formats = [
 		team: 'randomcountry',
 		ruleset: ['Random Battle'],
 		mod: "seasonal",
-		onFaint: function(pokemon) {
+		onFaint: function (pokemon) {
 			this.add("-message", pokemon.side.foe.pokemon[0].name + " received " + pokemon.name + "'s " + this.data.Abilities[pokemon.ability].name + "!");
 			pokemon.side.foe.pokemon[0].setAbility(pokemon.ability);
 			pokemon.side.foe.pokemon[0].baseAbility = pokemon.ability;
 			let lastMove = pokemon.lastM;
-			let has
-			if (pokemon.side.foe.pokemon[0].moveset.length <= 9 && lastMove && !pokemon.side.foe.pokemon[0].hasMove(lastMove.id))
-			{
+			//let has;
+			if (pokemon.side.foe.pokemon[0].moveset.length <= 9 && lastMove && !pokemon.side.foe.pokemon[0].hasMove(lastMove.id)) {
 				pokemon.side.foe.pokemon[0].moveset.push(lastMove);
 				pokemon.side.foe.pokemon[0].baseMoveset.push(lastMove);
 				this.add("-message", pokemon.side.foe.pokemon[0].name + " received " + pokemon.name + "'s " + pokemon.lastM.move + "!");
