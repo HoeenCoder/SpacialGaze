@@ -242,7 +242,6 @@ exports.Formats = [
 			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3591794/\">VGC 2017 Viability Rankings</a>",
 			"&bullet; <a href=\"https://www.smogon.com/forums/threads/3590391/\">VGC 2017 Sample Teams</a>",
 		],
-		
 		mod: 'gen7',
 		gameType: 'doubles',
 		forcedLevel: 50,
