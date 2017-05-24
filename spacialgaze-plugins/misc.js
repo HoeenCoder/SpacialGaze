@@ -436,6 +436,7 @@ exports.commands = {
 	},
 	enableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],
 
+	//Credits to OCPU for this run play function
 	'!dub': true,
 	dub: 'dubtrack',
 	music: 'dubtrack',
