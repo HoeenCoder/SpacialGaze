@@ -446,7 +446,7 @@ exports.commands = {
 			res.on('data', chunk => {
 				data += chunk;
 			}).on('end', () => {
-			    console.log(data);
+				console.log(data);
 				output += "<strong>Answer:</strong> " + Chat.escapeHTML(data);
 				console.log(output);
 			});
