@@ -8,6 +8,8 @@
  */
 'use strict';
 
+const http = require('http');
+
 function clearRoom(room) {
 	let len = (room.log && room.log.length) || 0;
 	let users = [];
@@ -439,7 +441,6 @@ exports.commands = {
 	'8ball': 'ai',
 	ai: function (target, room, user) {
 		if (!this.runBroadcast()) return;
-		const http = require('http');
 		target = target.replace(/^[^a-z0-9]+/i, "");
 		let output = "<strong>Question:</strong>" + target + "<br />";
 		http.get(("http://qmarkai.com/qmai.php?q=" + target), res => {
