@@ -447,8 +447,8 @@ exports.commands = {
 				data += chunk;
 			}).on('end', () => {
 			    console.log(data);
-		        output += "<strong>Answer:</strong> " + Chat.escapeHTML(data);
-		        console.log(output);
+				output += "<strong>Answer:</strong> " + Chat.escapeHTML(data);
+				console.log(output);
 			});
 		});
 		this.sendReplyBox(output);
