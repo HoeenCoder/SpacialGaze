@@ -433,6 +433,7 @@ exports.commands = {
 		Db.disabledScrolls.remove(target);
 	},
 	enableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],
+
 	'!ai': true,
 	askai: 'ai',
 	'8ball': 'ai',
