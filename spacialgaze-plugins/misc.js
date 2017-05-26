@@ -449,7 +449,7 @@ exports.commands = {
 				data += chunk;
 			}).on('end', () => {
 				console.log(data);
-				output += "<strong>Answer:</strong> " + Chat.escapeHTML(data);
+				output += "<strong>Answer:</strong> " + data;
 				console.log(output);
 			});
 		});
