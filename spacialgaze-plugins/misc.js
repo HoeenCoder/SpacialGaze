@@ -444,7 +444,6 @@ exports.commands = {
 		http.get(("http://qmarkai.com/qmai.php?q=" + target), res => {
 			let data = '';
 			res.on('data', chunk => {
-			    console.log(chunk);
 				data += chunk;
 			}).on('end', () => {
 			    console.log(data);
