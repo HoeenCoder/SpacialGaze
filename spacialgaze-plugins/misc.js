@@ -438,6 +438,8 @@ exports.commands = {
 
 	'!ai': true,
 	askai: 'ai',
+	'helix': 'ai',
+	'qmark': 'ai',
 	'8ball': 'ai',
 	ai: function (target, room, user) {
 		if (!this.runBroadcast()) return;
