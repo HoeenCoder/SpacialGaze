@@ -442,18 +442,16 @@ exports.commands = {
 	ai: function (target, room, user) {
 		if (!this.runBroadcast()) return;
 		target = target.replace(/^[^a-z0-9]+/i, "");
-		let output = "<strong>Question:</strong>" + target + "<br />";
+		let output = `<strong>Question:</strong> ${target}<br />`;
 		http.get(("http://qmarkai.com/qmai.php?q=" + target), res => {
 			let data = '';
 			res.on('data', chunk => {
 				data += chunk;
 			}).on('end', () => {
-				console.log(data);
-				output += "<strong>Answer:</strong> " + data;
-				console.log(output);
+				output += `<strong>Answer:</strong> ${data.replace(/[\r\n]/g, "")}`;
+				this.sendReplyBox(output);
 			});
 		});
-		this.sendReplyBox(output);
 	},
 	aihelp: ["/ai [question] - Asks Question to QMarkAI(http://qmarkai.com/)"],
 };
