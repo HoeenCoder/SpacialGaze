@@ -451,7 +451,7 @@ exports.commands = {
 			res.on('data', chunk => {
 				data += chunk;
 			}).on('end', () => {
-				output += `<strong>Answer:</strong> ${Chat.escapeHTML(data.replace(/[\r\n]/g, "<br />"))}`;
+				output += `<strong>Answer:</strong> ${Chat.escapeHTML(data).replace(/[\r\n]/g, "<br />")}`;
 				this.sendReplyBox(output);
 			});
 		});
