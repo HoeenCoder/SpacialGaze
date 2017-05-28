@@ -444,7 +444,7 @@ exports.commands = {
 	ai: function (target, room, user) {
 		if (!this.runBroadcast()) return;
 		target = (target.replace(/^[^a-z0-9]+/i, ""));
-		let query = encodeURI(target);
+		const query = encodeURI(target);
 		let output = `<strong>Question:</strong> ${target}<br />`;
 		http.get(("http://qmarkai.com/qmai.php?q=" + query), res => {
 			let data = '';
