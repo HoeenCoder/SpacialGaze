@@ -8,6 +8,8 @@
  */
 'use strict';
 
+const http = require('http');
+
 function clearRoom(room) {
 	let len = (room.log && room.log.length) || 0;
 	let users = [];
@@ -392,9 +394,9 @@ exports.commands = {
 		}
 	},
 	usetokenhelp: ['/usetoken [token], [argument(s)] - Redeem a token from the shop. Accepts the following arguments: ',
-		      '/usetoken avatar, [image] | /usetoken declare, [message] | /usetoken color, [hex code]',
-		      '/usetoken icon [image] | /usetoken title, [name], [hex code] | /usetoken emote, [name], [image]',
-		      '/usetoken disableintroscroll [room name]'],
+			  '/usetoken avatar, [image] | /usetoken declare, [message] | /usetoken color, [hex code]',
+			  '/usetoken icon [image] | /usetoken title, [name], [hex code] | /usetoken emote, [name], [image]',
+			  '/usetoken disableintroscroll [room name]'],
 
 	bonus: 'dailybonus',
 	checkbonus: 'dailybonus',
@@ -433,4 +435,26 @@ exports.commands = {
 		Db.disabledScrolls.remove(target);
 	},
 	enableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],
+
+	'!ai': true,
+	askai: 'ai',
+	'helix': 'ai',
+	'qmark': 'ai',
+	'8ball': 'ai',
+	ai: function (target, room, user) {
+		if (!this.runBroadcast()) return;
+		target = (target.replace(/^[^a-z0-9]+/i, "")).trim();
+		const query = encodeURI(target);
+		let output = `<strong>Question:</strong> ${target}<br />`;
+		http.get(("http://qmarkai.com/qmai.php?q=" + query), res => {
+			let data = '';
+			res.on('data', chunk => {
+				data += chunk;
+			}).on('end', () => {
+				output += `<strong>Answer:</strong> ${Chat.escapeHTML(data).replace(/[\r\n]/g, "<br />")}`;
+				this.sendReplyBox(output);
+			});
+		});
+	},
+	aihelp: ["/ai [question] - Asks Question to QMarkAI(http://qmarkai.com/)"],
 };
