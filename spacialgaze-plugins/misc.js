@@ -443,14 +443,14 @@ exports.commands = {
 	'8ball': 'ai',
 	ai: function (target, room, user) {
 		if (!this.runBroadcast()) return;
-		target = target.replace(/^[^a-z0-9]+/i, "");
+		target = encodeURI(target.replace(/^[^a-z0-9]+/i, ""));
 		let output = `<strong>Question:</strong> ${target}<br />`;
 		http.get(("http://qmarkai.com/qmai.php?q=" + target), res => {
 			let data = '';
 			res.on('data', chunk => {
 				data += chunk;
 			}).on('end', () => {
-				output += `<strong>Answer:</strong> ${data.replace(/[\r\n]/g, "")}`;
+				output += `<strong>Answer:</strong> ${Chat.escapeHTML(data)}`;
 				this.sendReplyBox(output);
 			});
 		});
