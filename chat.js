@@ -407,7 +407,7 @@ class CommandContext {
 		}).join('\n');
 	}
 	sendReply(data) {
-		if (this.broadcasting) {
+		if (this.broadcasting && !Users.ShadowBan.checkBanned(this.user)) {
 			// broadcasting
 			if (this.pmTarget) {
 				data = this.pmTransform(data);
@@ -536,11 +536,14 @@ class CommandContext {
 			// Permission hasn't been checked yet. Do it now.
 			if (!this.canBroadcast(suppressMessage)) return false;
 		}
-
+		let msg = '|c|' + this.user.getIdentity(this.room.id) + '|' + (suppressMessage || this.message);
 		if (this.pmTarget) {
-			this.add('|c~|' + (suppressMessage || this.message));
+			msg = '|c~|' + (suppressMessage || this.message);
+		} else if(Users.ShadowBan.checkBanned(this.user)) {
+			this.sendReply(msg);
+			Users.ShadowBan.addMessage(this.user, (this.pmTarget ? "Private to " + this.pmTarget.getIdentity() : "To " + this.room.id), (suppressMessage || this.message));
 		} else {
-			this.add('|c|' + this.user.getIdentity(this.room.id) + '|' + (suppressMessage || this.message));
+			this.add(msg);
 		}
 		if (!this.pmTarget) {
 			this.room.lastBroadcast = this.broadcastMessage;
