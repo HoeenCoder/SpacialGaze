@@ -100,8 +100,9 @@ This server is brought to you and maintained by the following people:
 
 Owners
 
-[HoeenCoder](https://github.com/HoeenCoder) | [Mystifi](https://github.com/Mystifi)
-
+[![HoeenHero](https://avatars0.githubusercontent.com/u/11671268?v=3&s=400)](http://github.com/HoeenCoder) | [![Mystifi](https://avatars3.githubusercontent.com/u/19177221?v=3&s=400)](https://github.com/Mystifi)
+:---:|:---:|:---:|:---:|:---:
+[HoeenCoder](http://github.com/HoeenCoder) | [Mystifi](https://github.com/Mystifi)
 
 Special thanks
 
