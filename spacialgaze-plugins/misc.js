@@ -16,12 +16,12 @@ function clearRoom(room) {
 	}
 	for (let u in room.users) {
 		users.push(u);
-		Users(u).leaveRoom(room, Users(u).connections[0]);
+		Users.get(u).leaveRoom(room, Users.get(u).connections[0]);
 	}
 	len = users.length;
 	setTimeout(() => {
 		while (len--) {
-			Users(users[len]).joinRoom(room, Users(users[len]).connections[0]);
+			Users.get(users[len]).joinRoom(room, Users.get(users[len]).connections[0]);
 		}
 	}, 1000);
 }
@@ -30,9 +30,7 @@ exports.commands = {
 	clearall: function (target, room, user) {
 		if (!this.can('declare')) return false;
 		if (room.battle) return this.sendReply("You cannot clearall in battle rooms.");
-
 		clearRoom(room);
-
 		this.privateModCommand(`(${user.name} used /clearall.)`);
 	},
 
@@ -40,9 +38,11 @@ exports.commands = {
 	globalclearall: function (target, room, user) {
 		if (!this.can('gdeclare')) return false;
 
-		Rooms.rooms.forEach(room => clearRoom(room));
-		Users.users.forEach(user => user.popup('All rooms have been cleared.'));
-		this.privateModCommand(`(${user.name} used /globalclearall.)`);
+		for (let u in Users.users) {
+			Users.users[u].popup("All rooms are being clear.");
+		}
+		Rooms.rooms.forEach(clearRoom);
+		this.privateModCommand(`(${user.name} used /gclearall.)`);
 	},
 
 	contact: 'whotocontact',
