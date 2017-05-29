@@ -452,14 +452,7 @@ exports.commands = {
 			}
 			options.push(Dex.formats[key].name);
 		}
-		room.poll = new Poll(room, {
-			source: 'What should the next tournament tier be?',
-			supportHTML: false,
-			username: user.name,
-		}, options);
-		room.poll.display();
-		this.logEntry("" + user.name + " used " + message);
-		return this.privateModCommand("(A tier poll was started by " + user.name + ".)");
+		return this.parse('/poll create What should the next tournament tier be?,' + options);
 	},
 	tierpollhelp: ["/tierpoll - (all) Creates a poll with all the common formats as options. All all to use all formats Requires: % @ * # & ~"],
 };
