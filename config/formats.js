@@ -459,6 +459,17 @@ exports.Formats = [
 			this.add('raw', '<center><p><a title="Digimon Showdown Players Guide" href="https://1drv.ms/b/s!AvoD6RnUzzMvgmLcX1rqT8GTnEVK" target="_blank"><img src="https://yheeqg.bn1303.livefilestore.com/y4mcqvreFTM4wIjnVqqSI98LZXT-lFFCxPBYHyHGZtWJTIGuah-spBzqvXbLiWvyJgDnrjSRFziff59ZLLBEtm_t3ZHHeKv9AY6Ml-gQpdGMhNmzaeSt0TD8wmivpfEW81jh93LSBvdXb7-cZUH2YNJwzwiyOTsy4L2dViyJqkiOCFDZhJRIPwPEWgmD7MDJnfafmoq6SN6gEfsAXMiHh529w?width=124&amp;height=42&amp;cropmode=none" alt="" width="124" height="42" /></a></p></center>');
 		},
 	},
+	//SpacialGaze Seasonal
+	{
+		name: "[Gen 7] Seasonal: Garden Warefare",
+		desc: [
+			"A fun way to celebrate spring!",
+			"But anyways, a random team composed of grass and bug types and where growth has a cool effect each time you use it!",
+			"Coded by Insist and VXN with help from Hoeenhero",
+		],
+		team: 'randomPvZ',
+		ruleset: ['HP Percentage Mod', 'Sleep Clause Mod', 'Cancel Mod'],
+	},
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
 	{
