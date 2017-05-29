@@ -436,7 +436,7 @@ exports.commands = {
 
 	fj: 'forcejoin',
 	forcejoin: function (target, room, user) {
-		if (!user.can('lock')) return false;
+		if (!user.can('root')) return false;
 		if (!target) return this.parse('/help forcejoin');
 		let parts = target.split(',');
 		if (!parts[0] || !parts[1]) return this.parse('/help forcejoin');
