@@ -435,7 +435,7 @@ exports.commands = {
 		Db.disabledScrolls.remove(target);
 	},
 	enableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],
-  
+
 	fj: 'forcejoin',
 	forcejoin: function (target, room, user) {
 		if (!user.can('root')) return false;
@@ -449,7 +449,7 @@ exports.commands = {
 		Users.get(userid).joinRoom(roomid);
 	},
 	forcejoinhelp: ["/forcejoin [target], [room] - Forces a user to join a room"],
-  
+
 	//Credits to OCPU for this run play function
 	'!dub': true,
 	dub: 'dubtrack',
