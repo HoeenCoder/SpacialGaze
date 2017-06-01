@@ -447,6 +447,6 @@ exports.commands = {
 			let message = '|pm|' + pmName + '|' + room.users[i].getIdentity() + '| ' + target;
 			room.users[i].send(message);
 		}
-		this.privateModCommand('(' + Chat.escapeHTML(user.name) + ' mass PMd: ' + target + ')');
+		this.privateModCommand('(' + Chat.escapeHTML(user.name) + ' mass room PM\'ed: ' + target + ')');
 	},
 };
