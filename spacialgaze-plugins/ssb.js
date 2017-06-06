@@ -954,6 +954,6 @@ exports.commands = {
 		'/ssb custom - Shows all the default custom moves, with details.',
 		'/ssb log - Shows purchase details for SSBFFA.',
 		'/ssb [validate|validateall] (user) - validate a users SSBFFA pokemon, or validate all SSBFFA pokemon. If the pokemon is invalid it will be fixed and decativated. Requires: &, ~',
-		'Programed by HoeenHero.',
+		'Programmed by HoeenHero.',
 	],
 };
