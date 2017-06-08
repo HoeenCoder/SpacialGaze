@@ -1144,7 +1144,8 @@ exports.commands = {
 			"- <a href=\"https://github.com/Zarel/Pokemon-Showdown/commits/master\">What's new?</a><br />" +
 			"- <a href=\"https://github.com/Zarel/Pokemon-Showdown\">Server source code</a><br />" +
 			"- <a href=\"https://github.com/Zarel/Pokemon-Showdown-Client\">Client source code</a><br />" +
-			"- <a href=\"https://github.com/Zarel/Pokemon-Showdown-Dex\">Dex source code</a>"
+			"- <a href=\"https://github.com/Zarel/Pokemon-Showdown-Dex\">Dex source code</a><br />" +
+			"- <a href=\"https://github.com/HoeenCoder/SpacialGaze\">SpacialGaze Server Source Code</a>"
 		);
 	},
 	opensourcehelp: ["/opensource - Links to PS's source code repository.",
