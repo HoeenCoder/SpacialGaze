@@ -8,6 +8,10 @@
 
 'use strict';
 
+let newsRequests = {};
+
+const fs = require('fs');
+
 const notifiedUsers = {};
 
 function generateNews() {
@@ -36,6 +40,19 @@ SG.showNews = function (userid, user) {
 		return user.send(`|pm| SG Server|${user.getIdentity()}|/raw ${newsDisplay}`);
 	}
 };
+
+function loadNewsRequests() {
+	try {
+		newsRequests = JSON.parse(fs.readFileSync('config/newsrequests.json'));
+	} catch (e) {
+		newsRequests = {};
+	}
+}
+loadNewsRequests();
+
+function saveNewsRequests() {
+	fs.writeFile('config/newsrequests.json', JSON.stringify(newsRequests));
+}
 
 exports.commands = {
 	news: 'serverannouncements',
@@ -93,11 +110,35 @@ exports.commands = {
 			this.sendReply("You have unsubscribed SpacialGaze News.");
 			this.popupReply("|wide||html|You will no longer automatically receive SpacialGaze News.<br><hr><center><button class='button' name='send' value='/news'>View News</button></center>");
 		},
+		request: function (target, room, user) {
+			if (!user.named) return this.errorReply('You must have a name before requesting an announcement.');
+			if (!this.canTalk()) return this.errorReply("You can't use this command while unable to speak.");
+			if (!target) return this.sendReply("/news request [message] - Requests a news announcement from SG Staff.");
+			if (target.length < 1) return this.sendReply("/news request [message] - Requests a news announcement from SG Staff.");
+			let newsId = (Object.keys(newsRequests).length + 1);
+			let d = new Date();
+			let MonthNames = ["January", "February", "March", "April", "May", "June",
+				"July", "August", "September", "October", "November", "December",
+			];
+			while (newsRequests[newsId]) newsId--;
+			newsRequests[newsId] = {};
+			newsRequests[newsId].reporter = user.name;
+			newsRequests[newsId].message = target.trim();
+			newsRequests[newsId].id = newsId;
+			newsRequests[newsId].status = 'Pending';
+			newsRequests[newsId].reportTime = MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + "th, " + d.getUTCFullYear() + ", " + (d.getUTCHours() < 10 ? "0" + d.getUTCHours() : d.getUTCHours()) + ":" + (d.getUTCMinutes() < 10 ? "0" + d.getUTCMinutes() : d.getUTCMinutes()) + " UTC";
+			saveNewsRequests();
+			Rooms('staff').add('A news request has been submitted by ' + user.name + '. ID: ' + newsId + ' Request Message: ' + target.trim());
+			Rooms('staff').update();
+			SG.messageSeniorStaff('A news requested has been submitted by ' + user.name + '. ID: ' + newsId + ' Request Message: ' + target.trim());
+			return this.sendReply("Your request has been sent to SG global authorities..");
+		},
 	},
 	serverannouncementshelp: ["/news view - Views current SpacialGaze news.",
 		"/news delete [news title] - Deletes announcement with the [title]. Requires @, &, ~",
 		"/news add [news title], [news desc] - Adds news [news]. Requires @, &, ~",
 		"/news subscribe - Subscribes to SpacialGaze News.",
 		"/news unsubscribe - Unsubscribes to SpacialGaze News.",
+		"/news request [message] - A user may request for a news announcement to be made.",
 	],
 };
