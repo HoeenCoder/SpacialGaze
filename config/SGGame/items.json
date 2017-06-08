@@ -589,8 +589,8 @@
         "slot": "berries"
     },
     "roseliberry": {
-        "id": "roseliberry"
-        "name": "Roseli Berry"
+        "id": "roseliberry",
+        "name": "Roseli Berry",
         "slots": "berries"
     }, 
     "rowapberry": {
