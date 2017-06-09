@@ -201,7 +201,6 @@ exports.commands = {
 		});
 	},
 
-	transfer: 'transferstardust',
 	confirmtransferstardust: 'transfercurrency', //You can change "transferstardust" and "confirmtransferstardust" to your currency name for an alias that applies to your currency Example: AwesomeBucks could be "transferawesomebucks" and "confirmtransferawesomebucks"
 	transferstardust: 'transfercurrency',
 	confirmtransfercurrency: 'transfercurrency',
@@ -327,7 +326,7 @@ exports.commands = {
 	stardust: 'economystats',
 	economystats: function (target, room, user) {
 		if (!this.runBroadcast()) return;
-		const users = Object.keys(Db.currency.object);
+		const users = Object.keys(Db.currency.keys());
 		const total = users.reduce(function (acc, cur) {
 			return acc + Db.currency.get(cur);
 		}, 0);
