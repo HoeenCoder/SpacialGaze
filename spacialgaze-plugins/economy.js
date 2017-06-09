@@ -200,7 +200,7 @@ exports.commands = {
 			});
 		});
 	},
-	
+
 	transfer: 'transferstardust',
 	confirmtransferstardust: 'transfercurrency', //You can change "transferstardust" and "confirmtransferstardust" to your currency name for an alias that applies to your currency Example: AwesomeBucks could be "transferawesomebucks" and "confirmtransferawesomebucks"
 	transferstardust: 'transfercurrency',
@@ -321,7 +321,7 @@ exports.commands = {
 		user.updateIdentity();
 		this.sendReply('Your symbol has been removed.');
 	},
-	
+
 	economy: 'economystats',
 	currency: 'economystats',
 	stardust: 'economystats',
