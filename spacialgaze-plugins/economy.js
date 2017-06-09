@@ -321,11 +321,12 @@ exports.commands = {
 		this.sendReply('Your symbol has been removed.');
 	},
 
+	economy: 'economystats',
 	currency: 'economystats',
 	stardust: 'economystats',
 	economystats: function (target, room, user) {
 		if (!this.runBroadcast()) return;
-		const users = Object.keys(Db.currency.object());
+		const users = Object.keys(Db.currency.keys());
 		const total = users.reduce(function (acc, cur) {
 			return acc + Db.currency.get(cur);
 		}, 0);
