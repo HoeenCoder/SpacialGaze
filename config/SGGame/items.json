@@ -788,6 +788,15 @@
             "triggerEvo": true
         }
     },
+    "mossystone": {
+        "id": "mossystone",
+        "name": "Mossy Stone",
+        "slot": "items",
+        "use": {
+            "noBattle": true,
+            "triggerEvo": true
+        }
+    },
      "linkcable": {
         "id": "linkcable",
         "name": "Link Cable",
