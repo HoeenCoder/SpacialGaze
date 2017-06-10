@@ -155,7 +155,6 @@ exports.BattleStatuses = {
 			this.add('c', '&Kraken Mare', 'Even though I fall, I\'m sure I took a few down with me.');
 		},
 	},
-	},
 	almightybronzong: {
 		exists: true,
 		onStart: function () {
