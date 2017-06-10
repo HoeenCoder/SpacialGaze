@@ -110,12 +110,11 @@ exports.BattleAbilities = {
 		id: "wavecall",
 		name: "Wave Call",
 	},
-	"no": {
-		desc: "This Pokemon can only be damaged by indirect attacks. Curse and Substitute on use, Belly Drum, Pain Split, Struggle recoil, and confusion damage are considered direct damage.",
-		shortDesc: "This Pokemon can only be damaged by direct attacks.",
+	no: {
 		onDamage: function (damage, target, source, effect) {
 			if (effect.effectType === 'Move') {
-				return false;
+				this.add('-immune', target, '[msg]', '[from] ability: No');
+				return null;
 			}
 		},
 		id: "no",
