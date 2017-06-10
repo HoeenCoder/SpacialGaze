@@ -146,7 +146,7 @@ exports.BattleAbilities = {
 
 			this.boost(boost);
 		},
-			onModifyAccuracy: function (accuracy, target, source, move) {
+		onModifyAccuracy: function (accuracy, target, source, move) {
 			if (move && (source === this.effectData.target || target === this.effectData.target)) {
 				return true;
 			}
