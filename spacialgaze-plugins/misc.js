@@ -8,6 +8,27 @@
  */
 'use strict';
 
+let fs = require('fs');
+
+let monData;
+
+try {
+	monData = fs.readFileSync("data/sgssb-data.txt").toString().split("\n\n");
+} catch (e) {
+	console.error(e);
+}
+
+function getMonData(target) {
+	let returnData = null;
+	monData.forEach(function (data) {
+		if (toId(data.split("\n")[0].split(" - ")[0] || " ") === target) {
+			returnData = data.split("\n").map(function (line) {
+				return Chat.escapeHTML(line);
+			}).join("<br />");
+		}
+	});
+	return returnData;
+}
 const https = require('https');
 
 function clearRoom(room) {
@@ -150,7 +171,6 @@ exports.commands = {
 			"- " + SG.nameColor('Opple', true) + " (Policy and Media)<br />" +
 			"- " + SG.nameColor('Kraken Mare', true) + " (Development)<br />" +
 			"- " + SG.nameColor('HiroZ', true) + " (Policy)<br />" +
-			"- " + SG.nameColor('AeonLucid', true) + " (Development)<br />" +
 			"- " + SG.nameColor('Ashley the Pikachu', true) + " (CSS, Spriting)<br />" +
 			"- " + SG.nameColor('Insist', true) + " (Development)<br />" +
 			"- " + SG.nameColor('VXN', true) + " (Development)<br />" +
@@ -435,6 +455,15 @@ exports.commands = {
 		Db.disabledScrolls.remove(target);
 	},
 	enableintroscrollhelp: ["/enableintroscroll [room] - Enables scroll bar preset in the room's roomintro."],
+
+	sgssb: function (target, room, user) {
+		if (!this.runBroadcast()) return false;
+		if (!target || target === 'help') return this.parse('/help sgssb');
+		let targetData = getMonData(toId(target));
+		if (!targetData) return this.errorReply("The staffmon '" + toId(target) + "' could not be found.");
+		return this.sendReplyBox(targetData);
+	},
+	sgssbhelp: ["/sgssb (staffmon name) - Gives details on a staffmon from SGSSB."],
 
 	pmroom: 'rmall',
 	roompm: 'rmall',

@@ -121,26 +121,25 @@ exports.BattleMovedex = {
 		},
 	},
 	// Kraken Mare
-	megarage: {
+	revengeofkrakenmare: {
 		category: "Special",
-		basePower: 150,
-		id: "megarage",
+		accuracy: true,
+		basePower: 77000,
+		id: "revengeofkrakenmare",
 		isNonstandard: true,
-		name: "Mega Rage",
-		pp: 15,
-		priority: 0,
-		self: {
-			boosts: {
-				def: -1,
-				spd: -1,
-			},
-		},
+		name: "Revenge of Kraken Mare",
+		pp: 0.625,
+		priority: 5,
+		selfdestruct: "always",
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Hyper Voice", source);
+			this.add('-anim', source, "Surf", target);
+		},
+		onHit: function (target, source, move) {
+			this.add('c| Kraken Mare ☭|If I go down I\'m taking you with me!');
 		},
 		target: "Normal",
-		type: "Fairy",
+		type: "Water",
 	},
 	// C733937 123
 	lightshotgigalance: {
@@ -600,7 +599,11 @@ exports.BattleMovedex = {
 			this.add('raw|<div class=\"broadcast-red\"><b>The server has crashed:</b><br/>TypeError: Cannot read property \'Overpowered\' of undefined at CommandContext.meme (./SpacialGaze/spacialgaze-plugins/hoeenhero/spellcheck.js:420:69)</div>');
 		},
 		onPrepareHit: function (target, source) {
-			this.add('-anim', source, "Hex", source);
+			this.add('-anim', source, "All-Out Pummeling", target);
+			this.add('-anim', source, "Black Hole Eclipse", target);
+			this.add('-anim', source, "Breakneck Blitz", target);
+			this.add('-anim', source, "Continental Crush", target);
+			this.add('-anim', source, "Never-Ending Nightmare", target);
 		},
 		flags: {},
 		secondary: false,
@@ -625,7 +628,7 @@ exports.BattleMovedex = {
 		secondary: false,
 		category: "Special",
 		onHit: function (target, source, move) {
-			this.add('c|+Insist|Subscribe to http://youtube.com/DeathlyPlays');
+			this.add('c|%Insist|Subscribe to http://youtube.com/DeathlyPlays');
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -638,5 +641,39 @@ exports.BattleMovedex = {
 		type: "Water",
 		zMovePower: 140,
 		contestType: "Cool",
+	},
+	//Insist
+	"exiledfromallothers": {
+		id: "exiledfromallothers",
+		name: "Exiled From All Others",
+		basePower: 140,
+		accuracy: 100,
+		pp: 0.625,
+		secondary: false,
+		category: "Special",
+		isNonStandard: true,
+		isZ: "playniumz",
+		priority: 1,
+		flags: {
+			protect: 1,
+		},
+		self: {
+			boosts: {
+				atk: 1,
+				def: 1,
+				spa: 1,
+				spd: 1,
+				spe: 1,
+			},
+		},
+		onHit: function (target, source, move) {
+			this.add('c|%Insist|Exiled from all others, we shall become greater than ever before.');
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Hydro Pump", target);
+		},
+		target: "normal",
+		type: "Water",
 	},
 };
