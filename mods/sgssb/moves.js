@@ -585,31 +585,6 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Water",
 	},
-	// VXN
-	crash: {
-		accuracy: true,
-		category: "Status",
-		id: "crash",
-		inNonstandard: true,
-		name: "Crash",
-		pp: 5,
-		priority: 0,
-		onHit: function (pokemon) {
-			pokemon.faint();
-			this.add('raw|<div class=\"broadcast-red\"><b>The server has crashed:</b><br/>TypeError: Cannot read property \'Overpowered\' of undefined at CommandContext.meme (./SpacialGaze/spacialgaze-plugins/hoeenhero/spellcheck.js:420:69)</div>');
-		},
-		onPrepareHit: function (target, source) {
-			this.add('-anim', source, "All-Out Pummeling", target);
-			this.add('-anim', source, "Black Hole Eclipse", target);
-			this.add('-anim', source, "Breakneck Blitz", target);
-			this.add('-anim', source, "Continental Crush", target);
-			this.add('-anim', source, "Never-Ending Nightmare", target);
-		},
-		flags: {},
-		secondary: false,
-		target: "self",
-		type: "Dragon",
-	},
 	// Insist
 	aquasubscribe: {
 		id: "aquasubscribe",

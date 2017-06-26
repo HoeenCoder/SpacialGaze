@@ -359,21 +359,6 @@ exports.BattleScripts = {
 				},
 				nature: 'Adamant',
 			},
-			'+VXN': {
-				species: "Rayquaza",
-				ability: "No",
-				item: "Normalium Z",
-				gender: "M",
-				moves: ['Splash', 'Happy Hour', 'Celebrate',
-				],
-				signatureMove: "Crash",
-				evs: {
-					atk: 252,
-					spe: 252,
-					spd: 4,
-				},
-				nature: "Jolly",
-			},
 			'+Mimiroppu': {
 				species: 'Lopunny',
 				ability: 'Limber',
