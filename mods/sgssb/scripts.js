@@ -368,7 +368,7 @@ exports.BattleScripts = {
 				evs: {
 					atk: 172,
 					def: 84,
-					spd: 4,
+					spd: 252,
 				},
 				nature: "Adamant",
 			},
