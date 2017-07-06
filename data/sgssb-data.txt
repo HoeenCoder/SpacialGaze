@@ -3,11 +3,12 @@ HoeenHero
 @ Leftovers
 EVs: 252 SpA / 252 Spe / 4 HP
 Modest Nature
-Ability: Swift Swim
+Ability: Programmer's Domain
+	- Primordial Sea, Swift Swim, Adaptability, and Rain Dish.
 Moves: Scald/Hydro Pump, Giga Drain, Ice Beam
 Signature Move: Scripting
 	- Psychic type, Status, 10 PP, Confuses target, Rain Dance and boosts the user's SpA by 2 stages and SpD for 1 stage.
-Notes: idk
+Notes: N/A.
 Rank: N/A.
 
 Mystifi
@@ -46,8 +47,8 @@ Ability: Crippling Depression
 Moves: Giga Drain, Focus Blast, Freeze-Dry
 Signature Move: Aqua Subscribe
 	- Water Type, Special, 90 BP, 100% Accuracy, 15 PP and boosts own SpA and Spe by 1 stage and +1 priority.
-Notes: idk
-Rank: N/A
+Notes: Fast Rain Abuser with priority.
+Rank: S.
 
 HiroZ
 (Genesect)
