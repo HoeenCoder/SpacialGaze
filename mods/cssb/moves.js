@@ -27,6 +27,7 @@ exports.BattleMovedex = {
 		},
 		target: "Self",
 		type: "Normal",
+		desc: "Raises the user's Attack and Sp. Attack by 1."
 	},
 	//Fire
 	flametower: {
@@ -53,12 +54,13 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fire",
+		desc: "Traps and damages the target for 4-5 turns and 50% chance to burn the target."
 	},
 	//Water
 	rainspear: {
 		category: "Special",
 		accuracy: 100,
-		basePower: 70,
+		basePower: 50,
 		id: "rainspear",
 		name: "Rain Spear",
 		isNonstandard: true,
@@ -79,6 +81,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Water",
+		desc: "For 5 turns, heavy rain powers Water moves and 20% chance to flinch the target."
 	},
 	//Grass
 	healingherbs: {
@@ -105,6 +108,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "Self",
 		type: "Grass",
+		desc: "Cures the user's party of all status conditions and heals the user by 25% of its max HP.
 	},
 	//Electric
 	electrodrive: {
@@ -149,6 +153,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Electric",
+		desc: "More power the faster the user is than the target and raises the user's speed by 1."
 	},
 	//Ice
 	hailstorm: {
@@ -172,6 +177,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Ice",
+		desc: "For 5 turns, hail crashes down."
 	},
 	//Fighting
 	beatdown: {
@@ -201,6 +207,7 @@ exports.BattleMovedex = {
 		priority: -1,
 		target: "normal",
 		type: "Fighting",
+		desc: "50% chance to paralyze the target and user cannot move next turn."
 	},
 	//Poison
 	nuclearwaste: {
@@ -226,6 +233,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Poison",
+		desc: "Badly poisons the target and lowers the foe's attack by 1."
 	},
 	//Ground
 	terratremor: {
