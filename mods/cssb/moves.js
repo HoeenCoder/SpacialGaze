@@ -81,7 +81,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Water",
-		desc: "For 5 turns, heavy rain powers Water moves and 20% chance to flinch the target."
+		desc: "Summons Rain and has 20% chance to flinch the target."
 	},
 	//Grass
 	healingherbs: {
@@ -177,7 +177,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Ice",
-		desc: "For 5 turns, hail crashes down."
+		desc: "Summons Hail and uses Blizzard."
 	},
 	//Fighting
 	beatdown: {
