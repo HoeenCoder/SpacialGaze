@@ -53,44 +53,52 @@ Rank: S.
 HiroZ
 (Genesect)
 @ Choice Scarf
-Ability: Download
-Hasty Nature
 EVs: 252 Atk / 4 SpA / 252 Spe
+Hasty Nature
+Ability: Download
 Moves: Explosion, Ice Beam, U-Turn
 Signature Move: Crystallized Ukaku
-Signature Move Effects: Dark type, Special, 140 BP, 30% chance to badly poison it's target.
+	- Dark Type, Special, 140 BP, 100% Accuracy, 10 PP and 30% chance to badly poison the target.
+Notes: N/A.
+Rank: N/A.
 
 Kraken Mare
 (Gardevoir-Mega)
 @ Focus Sash
-Ability: Kraken's Boosts
-	- No Guard + Moody
 EVs: 248 HP / 8 Def / 252 SpA
 Modest Nature
+Ability: Kraken's Boosts
+	- No Guard and Moody.
 Moves: Moonblast, Calm Mind, Psychic
-Special Move: Revenge of Kraken Mare
-Special Move Effects: Water Type, Special, 77,000 BP, Always selfdestructs after usage, +5 priority, Always hits.
+Signature Move: Revenge of Kraken Mare
+	- Water Type, Special, 77,000 BP, Always hits, Self-Destruct and +5 priority.
+Notes: N/A.
+Rank: N/A.
 
 Opple
 (Dragonite)
 @ Weakness Policy
-Ability: Multiscale
-Adamant Nature
 EVs: 252 Atk / 4 HP / 252 Spe
+Adamant Nature
+Ability: Multiscale
 Moves: Dragon Claw, Fire Punch, Waterfall
-Special Move: Ancient Orb
-Special Move Effects: Dragon type, Status, Boosts user's Attack and Speed by one stage, and heals the user by 1/4th maximum health.
+Signature Move: Ancient Orb
+	- Dragon Type, Status, Boosts user's Attack and Speed by 1 stage and heals the user by 1/4th of its max HP.
+Notes: N/A.
+Rank: N/A.
 
 Desokoro
 (Gyarados)
 @ Leftovers
-Ability: Wave Call
-    - If either the user is statused or its HP is below 1/2 of its maximum hp, the user's Water type moves get boosted by 2x.
-Adamant Nature
 EVs: 252 Atk / 4 HP / 252 Spe
+Adamant Nature
+Ability: Wave Call
+    - If either the user is statused or its HP is below 1/2 of its max HP, the user's Water type moves get boosted by 2x.
 Moves: Dragon Dance, Bounce, Substitute
-Special Move: Tsunami Crash
-Special Move Effects: Water Type, Physical, 150 BP, 35% chance to flinch target.
+Signature Move: Tsunami Crash
+	- Water Type, Physical, 150 BP, 5 PP and 35% chance to flinch the target.
+Notes: N/A.
+Rank: N/A.
 
 BDH93
 (Dunsparce)
