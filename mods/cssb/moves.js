@@ -530,7 +530,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		target: "normal",
 		type: "Fairy",
-		desc: "10% chance to paralyze the target and a power based move."
+		desc: "10% chance to paralyze the target."
 	},
 	// CUSTOM MADE CUSTOM MOVES
 	// Ashley the Pikachu
