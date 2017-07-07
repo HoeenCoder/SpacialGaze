@@ -108,7 +108,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "Self",
 		type: "Grass",
-		desc: "Cures the user's party of all status conditions and heals the user by 25% of its max HP.
+		desc: "Cures the user's party of all status conditions and heals the user by 25% of its max HP."
 	},
 	//Electric
 	electrodrive: {
@@ -258,6 +258,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Ground",
+		desc: "15% chance to flinch the target."
 	},
 	//Flying
 	ventilation: {
@@ -307,6 +308,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Flying",
+		desc: "Clears user and target side's hazards and sets the weather to clear skies."
 	},
 	//Psychic
 	psychicshield: {
@@ -326,6 +328,7 @@ exports.BattleMovedex = {
 		pp: 5,
 		target: "Self",
 		type: "Psychic",
+		desc: "For 5 turns, damage to allies is halved and protects allies from priority attacks this turn."
 	},
 	//Bug
 	swarmcharge: {
@@ -355,6 +358,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		target: "normal",
 		type: "Bug",
+		desc: "30% chance to raise the user's Attack and Speed by 1."
 	},
 	//Rock
 	rockcannon: {
@@ -380,6 +384,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Rock",
+		desc: "30% chance to flinch the target."
 	},
 	//Ghost
 	spook: {
@@ -406,6 +411,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Ghost",
+		desc: "10% chance to flinch the target and always crits."
 	},
 	//Dragon
 	imperialrampage: {
@@ -439,6 +445,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Dragon",
+		desc: "Lasts 2-3 turns, confuses the user afterwards and lowers the user's Attack by 2."
 	},
 	//Dark
 	shadowrun: {
@@ -470,6 +477,7 @@ exports.BattleMovedex = {
 		priority: 1,
 		target: "normal",
 		type: "Dark",
+		desc: "1.5x damage if foe holds an item. Removes item."
 	},
 	//Steel
 	magnorang: {
@@ -497,6 +505,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Steel",
+		desc: "Traps Steel Types from choosing to switch."
 	},
 	//Fairy
 	majesticdust: {
@@ -521,6 +530,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		target: "normal",
 		type: "Fairy",
+		desc: "10% chance to paralyze the target and a power based move."
 	},
 	// CUSTOM MADE CUSTOM MOVES
 	// Ashley the Pikachu
