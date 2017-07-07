@@ -1146,7 +1146,7 @@ exports.Formats = [
 				this.add('-start', pokemon, 'typechange', 'Dark/Fairy');
 				pokemon.types = ["Dragon", "Fairy"];
 			}
-			if (name === 'pixie shield' && !pokemon.illusion) {
+			if (name === 'pixieshield' && !pokemon.illusion) {
 				this.add('-start', pokemon, 'typechange', 'Steel/Fairy');
 				pokemon.types = ["Steel", "Fairy"];
 			}
