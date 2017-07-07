@@ -411,7 +411,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Ghost",
-		desc: "10% chance to flinch the target and always crits."
+		desc: "30% chance to flinch the target and always crits."
 	},
 	//Dragon
 	imperialrampage: {
