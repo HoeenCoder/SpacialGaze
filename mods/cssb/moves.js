@@ -27,7 +27,7 @@ exports.BattleMovedex = {
 		},
 		target: "Self",
 		type: "Normal",
-		desc: "Raises the user's Attack, Sp. Attack and Speed by 1."
+		desc: "Raises the user's Attack, Sp. Attack and Speed by 1.",
 	},
 	//Fire
 	flametower: {
@@ -54,7 +54,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Fire",
-		desc: "Traps and damages the target for 4-5 turns and 50% chance to burn the target."
+		desc: "Traps and damages the target for 4-5 turns and 50% chance to burn the target.",
 	},
 	//Water
 	rainspear: {
@@ -81,7 +81,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Water",
-		desc: "Summons Rain and has 20% chance to flinch the target."
+		desc: "Summons Rain and has 20% chance to flinch the target.",
 	},
 	//Grass
 	healingherbs: {
@@ -108,7 +108,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "Self",
 		type: "Grass",
-		desc: "Cures the user's party of all status conditions and heals the user by 25% of its max HP."
+		desc: "Cures the user's party of all status conditions and heals the user by 25% of its max HP.",
 	},
 	//Electric
 	electrodrive: {
@@ -153,7 +153,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Electric",
-		desc: "More power the faster the user is than the target and raises the user's speed by 1."
+		desc: "More power the faster the user is than the target and raises the user's speed by 1.",
 	},
 	//Ice
 	hailstorm: {
@@ -177,7 +177,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Ice",
-		desc: "Summons Hail and uses Blizzard."
+		desc: "Summons Hail and uses Blizzard.",
 	},
 	//Fighting
 	beatdown: {
@@ -207,7 +207,7 @@ exports.BattleMovedex = {
 		priority: -1,
 		target: "normal",
 		type: "Fighting",
-		desc: "50% chance to paralyze the target and user cannot move next turn."
+		desc: "50% chance to paralyze the target and user cannot move next turn.",
 	},
 	//Poison
 	nuclearwaste: {
@@ -217,8 +217,8 @@ exports.BattleMovedex = {
 		name: "Nuclear Waste",
 		isNonstandard: true,
 		flags: {
-			protect: true,
-			reflectable: true,
+			protect: 1,
+			reflectable: 1,
 		},
 		status: 'tox',
 		onPrepareHit: function (target, source, move) {
@@ -233,7 +233,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Poison",
-		desc: "Badly poisons the target and lowers the foe's attack by 1."
+		desc: "Badly poisons the target and lowers the foe's attack by 1.",
 	},
 	//Ground
 	terratremor: {
@@ -244,7 +244,7 @@ exports.BattleMovedex = {
 		name: "Terratremor",
 		isNonstandard: true,
 		flags: {
-			protect: true,
+			protect: 1,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -258,7 +258,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Ground",
-		desc: "15% chance to flinch the target."
+		desc: "15% chance to flinch the target.",
 	},
 	//Flying
 	ventilation: {
@@ -308,7 +308,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Flying",
-		desc: "Clears user and target side's hazards and sets the weather to clear skies."
+		desc: "Clears user and target side's hazards and sets the weather to clear skies.",
 	},
 	//Psychic
 	psychicshield: {
@@ -326,9 +326,9 @@ exports.BattleMovedex = {
 			this.useMove('Reflect', pokemon);
 		},
 		pp: 5,
-		target: "Self",
+		target: "self",
 		type: "Psychic",
-		desc: "For 5 turns, damage to allies is halved and protects allies from priority attacks this turn."
+		desc: "For 5 turns, damage to allies is halved and protects allies from priority attacks this turn.",
 	},
 	//Bug
 	swarmcharge: {
@@ -358,7 +358,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		target: "normal",
 		type: "Bug",
-		desc: "30% chance to raise the user's Attack and Speed by 1."
+		desc: "30% chance to raise the user's Attack and Speed by 1.",
 	},
 	//Rock
 	rockcannon: {
@@ -384,7 +384,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Rock",
-		desc: "30% chance to flinch the target."
+		desc: "30% chance to flinch the target.",
 	},
 	//Ghost
 	spook: {
@@ -411,7 +411,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Ghost",
-		desc: "30% chance to flinch the target and always crits."
+		desc: "30% chance to flinch the target and always crits.",
 	},
 	//Dragon
 	imperialrampage: {
@@ -445,7 +445,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "normal",
 		type: "Dragon",
-		desc: "Lasts 2-3 turns, confuses the user afterwards and lowers the user's Attack by 2."
+		desc: "Lasts 2-3 turns, confuses the user afterwards and lowers the user's Attack by 2.",
 	},
 	//Dark
 	shadowrun: {
@@ -477,7 +477,7 @@ exports.BattleMovedex = {
 		priority: 1,
 		target: "normal",
 		type: "Dark",
-		desc: "1.5x damage if foe holds an item. Removes item."
+		desc: "1.5x damage if foe holds an item. Removes item.",
 	},
 	//Steel
 	magnorang: {
@@ -505,7 +505,7 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Steel",
-		desc: "Traps Steel Types from choosing to switch."
+		desc: "Traps Steel Types from choosing to switch.",
 	},
 	//Fairy
 	majesticdust: {
@@ -516,8 +516,8 @@ exports.BattleMovedex = {
 		name: "Majestic Dust",
 		isNonstandard: true,
 		flags: {
-			protect: true,
-			powder: true,
+			protect: 1,
+			powder: 1,
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -530,7 +530,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		target: "normal",
 		type: "Fairy",
-		desc: "10% chance to paralyze the target."
+		desc: "10% chance to paralyze the target.",
 	},
 	// CUSTOM MADE CUSTOM MOVES
 	// Ashley the Pikachu
@@ -541,12 +541,13 @@ exports.BattleMovedex = {
 		id: "rocketpunch",
 		isNonstandard: true,
 		flags: {
-			protect: true,
+			protect: 1,
+			punch: 1,
 		},
 		name: "Rocket Punch",
 		pp: 10,
 		priority: 1,
-		target: "Normal",
+		target: "normal",
 		type: "Fire",
 		zMovePower: 180,
 		onPrepareHit: function (target, source) {
@@ -554,6 +555,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Flare Blitz", source);
 			this.add('-anim', source, "Mach Punch", target);
 		},
+		desc: "No additional effects.",
 	},
 	// Stellation
 	toxicendeavors: {
@@ -565,7 +567,8 @@ exports.BattleMovedex = {
 		category: "Physical",
 		id: "toxicendeavors",
 		name: "Toxic Endeavors",
-		pp: 0.625,
+		pp: 1,
+		noPPBoosts: true,
 		isNonstandard: true,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
@@ -583,6 +586,7 @@ exports.BattleMovedex = {
 			chance: 33,
 			status: 'tox',
 		},
+		desc: "Sets foe's HP to the user's HP, 33% chance to badly poison.",
 		target: "normal",
 		type: "Bug",
 		zMovePower: 180,
@@ -625,6 +629,7 @@ exports.BattleMovedex = {
 				}
 			},
 		},
+		desc: "Fire type Effectiveness, Takes foe's item, 20% chance to burn or paralyze.",
 		target: "normal",
 		type: "Electric",
 		zMovePower: 180,
@@ -644,6 +649,7 @@ exports.BattleMovedex = {
 			chance: 30,
 			status: "frz",
 		},
+		desc: "30% chance to freeze",
 		target: "normal",
 		type: "Ice",
 		zMovePower: 210,
