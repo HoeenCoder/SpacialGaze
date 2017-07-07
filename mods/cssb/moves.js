@@ -27,7 +27,7 @@ exports.BattleMovedex = {
 		},
 		target: "Self",
 		type: "Normal",
-		desc: "Raises the user's Attack and Sp. Attack by 1."
+		desc: "Raises the user's Attack, Sp. Attack and Speed by 1."
 	},
 	//Fire
 	flametower: {
