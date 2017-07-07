@@ -473,7 +473,6 @@ exports.Formats = [
 		mod: "gen7",
 		ruleset: ['[Gen 7] OU'],
 		banlist: ["Shedinja"],
-		allowTies: true,
 		desc: [
 			"&bullet; Coded by flufi. Completed by Mewth",
 			"Type Illusion has finally left it's beta stage! Credit to Mewth for completing unfinished work.",
