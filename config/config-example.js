@@ -408,6 +408,14 @@ exports.grouplist = [
 		broadcast: true,
 	},
 	{
+		symbol: '( ͡° ͜ʖ ͡°)',
+		id: "meme",
+		name: "Meme",
+		inherit: '',
+		alts: 's',
+		broadcast: true,
+	},
+	{
 		symbol: ' ',
 		ip: 's',
 	},
