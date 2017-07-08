@@ -411,9 +411,7 @@ exports.grouplist = [
 		symbol: '♿',
 		id: "retired",
 		name: "Retired",
-		inherit: ' ',
-		alts: 's',
-		broadcast: true,
+		inherit: '+',
 	},
 	{
 		symbol: ' ',
