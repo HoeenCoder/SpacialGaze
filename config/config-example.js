@@ -408,6 +408,14 @@ exports.grouplist = [
 		broadcast: true,
 	},
 	{
+		symbol: '♿',
+		id: "retired",
+		name: "Retired",
+		inherit: ' ',
+		alts: 's',
+		broadcast: true,
+	},
+	{
 		symbol: ' ',
 		ip: 's',
 	},
