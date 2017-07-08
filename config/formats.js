@@ -498,7 +498,6 @@ exports.Formats = [
 	},
 	{
 		name: "[Gen 7] Type Illusion",
-		section: "SpacialGaze Metagames",
 		mod: "gen7",
 		ruleset: ['[Gen 7] OU'],
 		banlist: ["Shedinja"],
