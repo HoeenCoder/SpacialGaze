@@ -1172,7 +1172,7 @@ exports.Formats = [
 			}
 			if (name === 'taintedfairy' && !pokemon.illusion) {
 				this.add('-start', pokemon, 'typechange', 'Dark/Fairy');
-				pokemon.types = ["Dragon", "Fairy"];
+				pokemon.types = ["Dark", "Fairy"];
 			}
 			if (name === 'pixieshield' && !pokemon.illusion) {
 				this.add('-start', pokemon, 'typechange', 'Steel/Fairy');
@@ -1843,7 +1843,7 @@ exports.Formats = [
 			}
 			if (name === 'taintedfairy' && !pokemon.illusion) {
 				this.add('-start', pokemon, 'typechange', 'Dark/Fairy');
-				pokemon.types = ["Dragon", "Fairy"];
+				pokemon.types = ["Dark", "Fairy"];
 			}
 			if (name === 'pixieshield' && !pokemon.illusion) {
 				this.add('-start', pokemon, 'typechange', 'Steel/Fairy');
