@@ -235,7 +235,7 @@ exports.BattleMovedex = {
 		category: "Physical",
 		id: "gettingtrolled",
 		isNonstandard: true,
-		basePower: 40,
+		basePower: 90,
 		name: "Getting Trolled",
 		pp: 20,
 		secondary: {
@@ -418,12 +418,24 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		name: "Mewtation",
 		pp: 10,
+		secondary: {
+			chance: 100,
+			status: 'tox',
+		},
+		self: {
+			boosts: {
+				accuracy: 1,
+			},
+		},
 		priority: 0,
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Transform", source);
+			this.add('-anim', source, "Agility", source);
+			this.add('-anim', source, "Psychic", target);
+			this.add('-anim', source, "Night Shade", target);
 		},
-		desc: "No additional effects",
+		desc: "Boosts accuracy by 1 and poisons target.",
+		shortDesc: "Boosts accuracy by 1 and poisons target.",
 		target: "normal",
 		type: "Dark",
 	},
