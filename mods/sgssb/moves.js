@@ -432,8 +432,8 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Psychic", target);
 			this.add('-anim', source, "Night Shade", target);
 		},
-		desc: "Boosts evasion by 1 and poisons target.",
-		shortDesc: "Boosts evasion by 1 and poisons target.",
+		desc: "Boosts evasion by 1 and badly poisons target.",
+		shortDesc: "Boosts evasion by 1 and badly poisons target.",
 		target: "normal",
 		type: "Dark",
 	},
