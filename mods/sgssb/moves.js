@@ -418,14 +418,12 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		name: "Mewtation",
 		pp: 10,
-		secondary: {
-			chance: 100,
-			status: 'tox',
-		},
+		status: 'tox',
+		secondary: false,
 		self: {
 			boosts: {
-				accuracy: 1,
-			},
+				evasion: 1,
+			},	
 		},
 		priority: 0,
 		onPrepareHit: function (target, source) {
