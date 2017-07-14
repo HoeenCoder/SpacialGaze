@@ -11,6 +11,8 @@ let allowRequests = true;
 
 exports.commands = {
 	confirmrequestroom: 'requestroom',
+	roomrequest: 'requestroom',
+	rr: 'requestroom',
 	requestroom: function (target, room, user, connection, cmd) {
 		if (!user.named) return this.errorReply(`Please choose a name before requesting a room`);
 		if (!user.registered) return this.errorReply(`Unregistered names cannot be promoted, so they cannot request rooms.`);
