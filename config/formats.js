@@ -1860,10 +1860,7 @@ exports.Formats = [
 	{
 		name: "[Gen 7] Doubles Monotype",
 		desc: [
-			"All the Pok&eacute;mon on a team must share a type. The battle is fought in the Doubles Format."
-			"Banlist is the same as Doubles OU.",
-			"Requested by Ashley the Pikachu.",
-			"\"Coded\" by Gligars.",
+			"All the Pok&eacute;mon on a team must share a type. The battle is fought in the Doubles Format. Banlist is the same as Doubles OU. Requested by Ashley the Pikachu. \"Coded\" by Gligars.",
 		],
 
 		mod: 'gen7',
