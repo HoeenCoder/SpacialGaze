@@ -1863,7 +1863,7 @@ exports.Formats = [
 			"All the Pok&eacute;mon on a team must share a type. The battle is fought in the Doubles Format."
 			"&bullet; Banlist is the same as Doubles OU.",
 			"&bullet; Requested by Ashley the Pikachu.",
-			"&bullet; \"Coded\" by Gligars",
+			"&bullet; \"Coded\" by Gligars.",
 		],
 
 		mod: 'gen7',
