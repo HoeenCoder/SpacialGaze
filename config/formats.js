@@ -1861,18 +1861,14 @@ exports.Formats = [
 		name: "[Gen 7] Doubles Monotype",
 		desc: [
 			"All the Pok&eacute;mon on a team must share a type. The battle is fought in the Doubles Format."
-			"&bullet; Banlist is the same as Doubles OU.",
-			"&bullet; Requested by Ashley the Pikachu.",
-			"&bullet; \"Coded\" by Gligars.",
+			"Banlist is the same as Doubles OU.",
+			"Requested by Ashley the Pikachu.",
+			"\"Coded\" by Gligars.",
 		],
 
 		mod: 'gen7',
 		gameType: 'doubles',
-		ruleset: ['Pokemon', 'Standard Doubles', 'Same Type Clause', 'Team Preview'],
-		banlist: ['Arceus', 'Dialga', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Jirachi', 'Kyogre', 'Kyurem-White',
-			'Lugia', 'Lunala', 'Magearna', 'Mewtwo', 'Palkia', 'Rayquaza', 'Reshiram', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zekrom',
-			'Power Construct', 'Eevium Z', 'Kangaskhanite', 'Dark Void', 'Gravity ++ Grass Whistle', 'Gravity ++ Hypnosis', 'Gravity ++ Lovely Kiss', 'Gravity ++ Sing', 'Gravity ++ Sleep Powder',
-		],
+		ruleset: ['[Gen 7] Doubles OU', 'Same Type Clause'],
 	},
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
