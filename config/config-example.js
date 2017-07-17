@@ -402,7 +402,7 @@ exports.grouplist = [
 	{
 		symbol: '^',
 		id: "retired",
-		name: "Retired",
+		name: "Retired Auth",
 		inherit: '+',
 	},
 	{
