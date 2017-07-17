@@ -400,6 +400,12 @@ exports.grouplist = [
 		minigame: true,
 	},
 	{
+		symbol: '^',
+		id: "retired",
+		name: "Retired",
+		inherit: '+',
+	},
+	{
 		symbol: '+',
 		id: "voice",
 		name: "Voice",
