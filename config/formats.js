@@ -1873,7 +1873,7 @@ exports.Formats = [
 			"Gen 2 in Doubles! Banlist is the same as [Gen 2] OU.",
 		],
 
-		mod: 'gen7',
+		mod: 'gen2',
 		gameType: 'doubles',
 		ruleset: ['[Gen 2] OU'],
 	},
