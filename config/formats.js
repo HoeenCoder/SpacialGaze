@@ -1870,7 +1870,7 @@ exports.Formats = [
 	{
 		name: "[Gen 2] Doubles",
 		desc: [
-			"Gen 2 in Doubles! Banlist is the same as [Gen 2] OU.,
+			"Gen 2 in Doubles! Banlist is the same as [Gen 2] OU.",
 		],
 
 		mod: 'gen7',
