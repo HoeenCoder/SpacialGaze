@@ -1,7 +1,8 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  Digimon Showdown                                             *
  *  Created By:                                                  *
- *  Insist + Ashley the Pikachu + Stellation + AlfaStorm		 *
+ *  Insist + Ashley the Pikachu + Gligars + AlfaStorm            *
+ *  + Kraken Mare                                                *              
  *  Special Thanks to:                                           *
  *  HoeenCoder (Assisted with Mechanics)                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
