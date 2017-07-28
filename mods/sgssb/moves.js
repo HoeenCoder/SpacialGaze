@@ -421,7 +421,6 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		name: "Mewtation",
 		pp: 10,
-		status: 'tox',
 		secondary: false,
 		self: {
 			boosts: {
@@ -434,6 +433,9 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Agility", source);
 			this.add('-anim', source, "Psychic", target);
 			this.add('-anim', source, "Night Shade", target);
+		},
+		onAfterMoveSecondary: function (target, source) {
+			target.trySetStatus('tox', source);
 		},
 		desc: "Boosts evasion by 1 and badly poisons target.",
 		shortDesc: "Boosts evasion by 1 and badly poisons target.",
