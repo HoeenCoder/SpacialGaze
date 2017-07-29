@@ -326,7 +326,7 @@ exports.BattleMovedex = {
 		name: "Ancient Orb",
 		pp: 10,
 		priority: 0,
-			boosts: {
+		boosts: {
 			spe: 1,
 			atk: 1,
 		},
@@ -370,8 +370,8 @@ exports.BattleMovedex = {
 		pp: 5,
 		priority: 0,
 		boosts: {
-				spa: 8,
-				spd: 8,
+			spa: 8,
+			spd: 8,
 		},
 		desc: "Boosts user's SpA and SpD by 8 stages, and sets Rain Dance",
 		onPrepareHit: function (target, source) {
