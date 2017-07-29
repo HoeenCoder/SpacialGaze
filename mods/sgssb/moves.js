@@ -92,12 +92,10 @@ exports.BattleMovedex = {
 		name: "Blast Furnace",
 		pp: 10,
 		priority: 0,
-		self: {
-			boosts: {
-				def: 1,
-			},
-			heal: [7, 20],
+		boosts: {
+			def: 1,
 		},
+		heal: [7, 20],
 		desc: "Boosts user's Defense by 1 stage, Heals 35% of maximum health",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -261,12 +259,10 @@ exports.BattleMovedex = {
 		id: "mysticmirage",
 		isNonstandard: true,
 		name: "Mystic Mirage",
-		self: {
-			boosts: {
-				def: 1,
-				spa: 1,
-				spd: 1,
-			},
+		boosts: {
+			def: 1,
+			spa: 1,
+			spd: 1,
 		},
 		desc: "Boosts user's Defense, SpA, and SpD by 1 stage",
 		pp: 10,
@@ -330,13 +326,11 @@ exports.BattleMovedex = {
 		name: "Ancient Orb",
 		pp: 10,
 		priority: 0,
-		self: {
 			boosts: {
-				spe: 1,
-				atk: 1,
-			},
-			heal: [5, 20],
+			spe: 1,
+			atk: 1,
 		},
+		heal: [5, 20],
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Morning Sun", source);
@@ -354,11 +348,9 @@ exports.BattleMovedex = {
 		name: "Ancient Ritual",
 		pp: 10,
 		priority: 0,
-		self: {
-			boosts: {
-				spe: 2,
-				atk: 1,
-			},
+		boosts: {
+			spe: 2,
+			atk: 1,
 		},
 		desc: "Boosts user's Atk by 1 stage, and Spe by 2 stages",
 		onPrepareHit: function (target, source) {
@@ -377,11 +369,9 @@ exports.BattleMovedex = {
 		name: "Duck Power",
 		pp: 5,
 		priority: 0,
-		self: {
-			boosts: {
+		boosts: {
 				spa: 8,
 				spd: 8,
-			},
 		},
 		desc: "Boosts user's SpA and SpD by 8 stages, and sets Rain Dance",
 		onPrepareHit: function (target, source) {
@@ -434,7 +424,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Psychic", target);
 			this.add('-anim', source, "Night Shade", target);
 		},
-		onAfterMoveSecondary: function (target, source) {
+		onHit: function (target, source) {
 			target.trySetStatus('tox', source);
 		},
 		desc: "Boosts evasion by 1 and badly poisons target.",
