@@ -106,7 +106,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Recover", source);
 		},
 		drain: [7, 20], //35%
-		target: "normal",
+		target: "self",
 		type: "Fire",
 	},
 	// HiroZ
@@ -343,7 +343,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Agility", source);
 		},
 		desc: "Raises user's Attack and Speed by 1 stage, and heals health by 5/20 maximum HP",
-		target: "normal",
+		target: "self",
 		type: "Dragon",
 	},
 	// Spacial Bot
@@ -366,7 +366,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Stone Edge", source);
 			this.add('-anim', source, "Geomancy", source);
 		},
-		target: "normal",
+		target: "self",
 		type: "Rock",
 	},
 	// ducktown
@@ -389,7 +389,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Calm Mind", source);
 		},
 		weather: 'raindance',
-		target: "normal",
+		target: "self",
 		type: "Water",
 	},
 	// Hurricane'd
