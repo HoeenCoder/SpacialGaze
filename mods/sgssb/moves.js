@@ -265,7 +265,7 @@ exports.BattleMovedex = {
 			spa: 3,
 			spd: 3,
 		},
-		desc: "Boosts user's Defense, SpA, and SpD by 3 stage",
+		desc: "Boosts user's Defense, SpA, and SpD by 3 stages.",
 		pp: 10,
 		priority: 0,
 		onHit: function (target, source) {
