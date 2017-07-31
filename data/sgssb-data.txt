@@ -19,7 +19,7 @@ Bold Nature
 Ability: Analytic
 Moves: Cosmic Power/Calm Mind, Soft-Boiled and Stored Power.
 Signature Move: Mystic Mirage
-	- Fairy Type, Status, 10 PP and boosts the user's Def, SpA, and SpD by 3 stage.
+	- Fairy Type, Status, 10 PP and boosts the user's Def, SpA, and SpD by 3 stages.
 Notes: idk
 Rank: N/A.
 
