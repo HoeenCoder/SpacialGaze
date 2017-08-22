@@ -256,7 +256,7 @@ exports.commands = {
 		this.sendReply("You are now exempt from exp");
 	},
 
-    '!xpladder': true,
+	'!xpladder': true,
 	expladder: 'xpladder',
 	xpladder: function (target, room, user) {
 		if (!target) target = 100;
