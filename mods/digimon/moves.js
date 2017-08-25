@@ -1,9 +1,9 @@
 'use strict';
 
 exports.BattleMovedex = {
-	"bubble": {
-		id: "bubble",
-		name: "Bubble",
+	"acidbubble": {
+		id: "acidbubble",
+		name: "Acid Bubble",
 		basePower: 30,
 		category: "Special",
 		secondary: false,
@@ -25,7 +25,7 @@ exports.BattleMovedex = {
 	"firetower": {
 		id: "firetower",
 		name: "Fire Tower",
-		basePower: 69,
+		basePower: 65,
 		category: "Physical",
 		secondary: {
 			chance: 25,
@@ -46,7 +46,7 @@ exports.BattleMovedex = {
 	"prominencebeam": {
 		id: "prominencebeam",
 		name: "Prominence Beam",
-		basePower: 133,
+		basePower: 105,
 		category: "Special",
 		secondary: {
 			self: {
@@ -71,7 +71,7 @@ exports.BattleMovedex = {
 	"spitfire": {
 		id: "spitfire",
 		name: "Spit Fire",
-		basePower: 43,
+		basePower: 45,
 		category: "Special",
 		secondary: false,
 		priority: 0,
@@ -88,7 +88,7 @@ exports.BattleMovedex = {
 	"redinferno": {
 		id: "redinferno",
 		name: "Red Inferno",
-		basePower: 100,
+		basePower: 75,
 		category: "Special",
 		secondary: false,
 		priority: 0,
@@ -105,11 +105,11 @@ exports.BattleMovedex = {
 	"magmabomb": {
 		id: "magmabomb",
 		name: "Magma Bomb",
-		basePower: 101,
+		basePower: 85,
 		category: "Physical",
 		secondary: {
 			chance: 25,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		priority: 0,
 		target: "any",
@@ -126,7 +126,7 @@ exports.BattleMovedex = {
 	"heatlaser": {
 		id: "heatlaser",
 		name: "Heat Laser",
-		basePower: 48,
+		basePower: 55,
 		category: "Special",
 		secondary: {
 			chance: 50,
@@ -150,7 +150,7 @@ exports.BattleMovedex = {
 	"infinityburn": {
 		id: "infinityburn",
 		name: "Infinity Burn",
-		basePower: 146,
+		basePower: 110,
 		accuracy: 100,
 		pp: 5,
 		target: "any",
@@ -171,7 +171,7 @@ exports.BattleMovedex = {
 	"meltdown": {
 		id: "meltdown",
 		name: "Meltdown",
-		basePower: 120,
+		basePower: 95,
 		accuracy: 100,
 		pp: 5,
 		target: "allAdjacent",
@@ -192,7 +192,7 @@ exports.BattleMovedex = {
 	"tremar": {
 		id: "tremar",
 		name: "Tremar",
-		basePower: 78,
+		basePower: 75,
 		accuracy: 85,
 		pp: 20,
 		target: "allAdjacent",
@@ -254,7 +254,7 @@ exports.BattleMovedex = {
 	"sonicjab": {
 		id: "sonicjab",
 		name: "Sonic Jab",
-		basePower: 40,
+		basePower: 65,
 		category: "Physical",
 		accuracy: 100,
 		secondary: false,
@@ -271,7 +271,7 @@ exports.BattleMovedex = {
 	"dynamitekick": {
 		id: "dynamitekick",
 		name: "Dynamite Kick",
-		basePower: 79,
+		basePower: 85,
 		accuracy: 100,
 		pp: 5,
 		category: "Special",
@@ -288,13 +288,13 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Battle",
 	},
-	"counter": {
-		id: "counter",
-		name: "Counter",
-		basePower: 101,
+	"reboundstrike": {
+		id: "reboundstrike",
+		name: "Rebound Strike",
+		basePower: 95,
 		secondary: {
 			chance: 30,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		damageCallback: function (pokemon) {
 			if (!pokemon.volatiles['counter']) return 0;
@@ -341,7 +341,7 @@ exports.BattleMovedex = {
 	"megatonpunch": {
 		id: "megatonpunch",
 		name: "Megaton Punch",
-		basePower: 103,
+		basePower: 105,
 		category: "Physical",
 		accuracy: 100,
 		pp: 10,
@@ -361,15 +361,14 @@ exports.BattleMovedex = {
 	"busterdrive": {
 		id: "busterdrive",
 		name: "Buster Drive",
-		basePower: 150,
+		basePower: 110,
 		secondary: {
-			chance: 10,
-			volatileStatus: "confusion",
+			chance: 5,
+			volatileStatus: "panic",
 		},
 		category: "Physical",
 		pp: 5,
 		accuracy: 100,
-		recoil: [1, 10],
 		flags: {protect: 1, contact: 1, distance: 1, punch: 1},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -382,19 +381,18 @@ exports.BattleMovedex = {
 	"thunderjustice": {
 		id: "thunderjustice",
 		name: "Thunder Justice",
-		basePower: 176,
+		basePower: 105,
 		accuracy: true,
 		pp: 5,
 		category: "Special",
 		priority: 0,
-		recoil: [1, 4],
 		flags: {protect: 1, distance: 1},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Thunder", target);
 		},
 		secondary: {
-			chance: 10,
+			chance: 5,
 			volatileStatus: "flinch",
 		},
 		type: "Air",
@@ -403,7 +401,7 @@ exports.BattleMovedex = {
 	"spinningshot": {
 		id: "spinningshot",
 		name: "Spinning Shot",
-		basePower: 125,
+		basePower: 110,
 		pp: 10,
 		accuracy: 100,
 		secondary: false,
@@ -420,7 +418,7 @@ exports.BattleMovedex = {
 	"electriccloud": {
 		id: "electriccloud",
 		name: "Electric Cloud",
-		basePower: 58,
+		basePower: 55,
 		category: "Special",
 		secondary: {
 			chance: 40,
@@ -440,7 +438,7 @@ exports.BattleMovedex = {
 	"megalospark": {
 		id: "megalospark",
 		name: "Megalo Spark",
-		basePower: 122,
+		basePower: 95,
 		secondary: {
 			chance: 15,
 			volatileStatus: "flinch",
@@ -460,7 +458,7 @@ exports.BattleMovedex = {
 	"staticelect": {
 		id: "staticelect",
 		name: "Static Elect",
-		basePower: 48,
+		basePower: 45,
 		accuracy: 100,
 		pp: 40,
 		secondary: {
@@ -480,7 +478,7 @@ exports.BattleMovedex = {
 	"windcutter": {
 		id: "windcutter",
 		name: "Wind Cutter",
-		basePower: 78,
+		basePower: 65,
 		accuracy: 100,
 		category: "Special",
 		secondary: false,
@@ -497,13 +495,13 @@ exports.BattleMovedex = {
 	"confusedstorm": {
 		id: "confusedstorm",
 		name: "Confused Storm",
-		basePower: 91,
+		basePower: 75,
 		secondary: {
 			self: {
 				volatileStatus: "confusion",
 			},
 			chance: 20,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		accuracy: 100,
 		category: "Special",
@@ -517,13 +515,13 @@ exports.BattleMovedex = {
 		target: "allAdjacent",
 		type: "Air",
 	},
-	"hurricane": {
-		id: "hurricane",
-		name: "Hurricane",
-		basePower: 117,
+	"typhoon": {
+		id: "typhoon",
+		name: "Typhoon",
+		basePower: 85,
 		secondary: {
 			chance: 15,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		category: "Special",
 		pp: 10,
@@ -537,10 +535,10 @@ exports.BattleMovedex = {
 		target: "allAdjacent",
 		type: "Air",
 	},
-	"poisonpowder": {
-		id: "poisonpowder",
-		name: "Poison Powder",
-		basePower: 57,
+	"toxicpowder": {
+		id: "toxicpowder",
+		name: "Toxic Powder",
+		basePower: 65,
 		pp: 15,
 		category: "Special",
 		secondary: {
@@ -560,7 +558,7 @@ exports.BattleMovedex = {
 	"bug": {
 		id: "bug",
 		name: "Bug",
-		basePower: 150,
+		basePower: 110,
 		accuracy: 100,
 		secondary: {
 			chance: 5,
@@ -570,7 +568,7 @@ exports.BattleMovedex = {
 			},
 		},
 		category: "Physical",
-		pp:  3.75,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, distance: 1},
 		onPrepareHit: function (target, source) {
@@ -608,7 +606,7 @@ exports.BattleMovedex = {
 	"insectplague": {
 		id: "insectplague",
 		name: "Insect Plague",
-		basePower: 78,
+		basePower: 95,
 		accuracy: 100,
 		category: "Special",
 		pp: 10,
@@ -628,10 +626,10 @@ exports.BattleMovedex = {
 	"charmperfume": {
 		id: "charmperfume",
 		name: "Charm Perfume",
-		basePower: 78,
+		basePower: 95,
 		secondary: {
 			chance: 40,
-			status: "psn",
+			volatileStatus: "panic",
 		},
 		category: "Special",
 		pp: 15,
@@ -648,7 +646,7 @@ exports.BattleMovedex = {
 	"poisonclaw": {
 		id: "poisonclaw",
 		name: "Poison Claw",
-		basePower: 41,
+		basePower: 55,
 		category: "Physical",
 		secondary: {
 			chance: 50,
@@ -668,7 +666,7 @@ exports.BattleMovedex = {
 	"dangersting": {
 		id: "dangersting",
 		name: "Danger Sting",
-		basePower: 70,
+		basePower: 75,
 		accuracy: 100,
 		category: "Physical",
 		pp: 15,
@@ -691,7 +689,7 @@ exports.BattleMovedex = {
 	"greentrap": {
 		id: "greentrap",
 		name: "Green Trap",
-		basePower: 102,
+		basePower: 105,
 		accuracy: 100,
 		pp: 10,
 		secondary: {
@@ -711,7 +709,7 @@ exports.BattleMovedex = {
 	"gigafreeze": {
 		id: "gigafreeze",
 		name: "Giga Freeze",
-		basePower: 100,
+		basePower: 95,
 		category: "Physical",
 		pp: 10,
 		secondary: {
@@ -731,7 +729,7 @@ exports.BattleMovedex = {
 	"icestatue": {
 		id: "icestatue",
 		name: "Ice Statue",
-		basePower: 127,
+		basePower: 105,
 		accuracy: 100,
 		pp: 10,
 		secondary: {
@@ -751,7 +749,7 @@ exports.BattleMovedex = {
 	"winterblast": {
 		id: "winterblast",
 		name: "Winter Blast",
-		basePower: 58,
+		basePower: 65,
 		accuracy: 100,
 		secondary: {
 			chance: 30,
@@ -771,7 +769,7 @@ exports.BattleMovedex = {
 	"iceneedle": {
 		id: "iceneedle",
 		name: "Ice Needle",
-		basePower: 126,
+		basePower: 75,
 		accuracy: 50,
 		secondary: {
 			chance: 35,
@@ -791,7 +789,7 @@ exports.BattleMovedex = {
 	"waterblit": {
 		id: "waterblit",
 		name: "Water Blit",
-		basePower: 86,
+		basePower: 85,
 		accuracy: 100,
 		category: "Special",
 		pp: 20,
@@ -816,7 +814,6 @@ exports.BattleMovedex = {
 			spa: 1,
 			spd: 1,
 			spe: 1,
-			accuracy: 1,
 		},
 		pp: 20,
 		secondary: false,
@@ -832,7 +829,7 @@ exports.BattleMovedex = {
 	"aurorafreeze": {
 		id: "aurorafreeze",
 		name: "Aurora Freeze",
-		basePower: 129,
+		basePower: 110,
 		accuracy: 100,
 		category: "Special",
 		secondary: {
@@ -868,7 +865,7 @@ exports.BattleMovedex = {
 	"teardrop": {
 		id: "teardrop",
 		name: "Tear Drop",
-		basePower: 40,
+		basePower: 55,
 		accuracy: 90,
 		secondary: {
 			chance: 50,
@@ -891,7 +888,7 @@ exports.BattleMovedex = {
 	"powercrane": {
 		id: "powercrane",
 		name: "Power Crane",
-		basePower: 91,
+		basePower: 65,
 		accuracy: 100,
 		secondary: false,
 		category: "Physical",
@@ -908,7 +905,7 @@ exports.BattleMovedex = {
 	"allrangebeam": {
 		id: "allrangebeam",
 		name: "All-Range Beam",
-		basePower: 172,
+		basePower: 105,
 		pp: 5,
 		accuracy: 100,
 		category: "Special",
@@ -926,7 +923,7 @@ exports.BattleMovedex = {
 	"metalsprinter": {
 		id: "metalsprinter",
 		name: "Metal Sprinter",
-		basePower: 67,
+		basePower: 55,
 		accuracy: 100,
 		category: "Physical",
 		secondary: false,
@@ -940,10 +937,10 @@ exports.BattleMovedex = {
 		target: "allAdjacent",
 		type: "Mech",
 	},
-	"pulselazer": {
-		id: "pulselazer",
-		name: "Pulse Lazer",
-		basePower: 125,
+	"pulselaser": {
+		id: "pulselaser",
+		name: "Pulse Laser",
+		basePower: 85,
 		accuracy: 100,
 		category: "Special",
 		pp: 10,
@@ -960,7 +957,7 @@ exports.BattleMovedex = {
 	"deleteprogram": {
 		id: "deleteprogram",
 		name: "Delete Program",
-		basePower: 129,
+		basePower: 95,
 		accuracy: 100,
 		category: "Special",
 		pp: 10,
@@ -983,12 +980,11 @@ exports.BattleMovedex = {
 	"dgdimension": {
 		id: "dgdimension",
 		name: "DG Dimension",
-		basePower: 200,
+		basePower: 110,
 		category: "Special",
-		pp: 3.75,
+		pp: 5,
 		accuracy: 100,
 		secondary: false,
-		recoil: [1, 3],
 		flags: {protect: 1, distance: 1},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -1003,7 +999,7 @@ exports.BattleMovedex = {
 		id: "fullpotential",
 		name: "Full Potential",
 		basePower: 0,
-		accuracy: 100,
+		accuracy: 0,
 		category: "Status",
 		pp: 20,
 		boosts: {
@@ -1027,7 +1023,7 @@ exports.BattleMovedex = {
 	"reverseprogram": {
 		id: "reverseprogram",
 		name: "Reverse Program",
-		basePower: 97,
+		basePower: 75,
 		accuracy: 100,
 		category: "Special",
 		pp: 5,
@@ -1051,7 +1047,7 @@ exports.BattleMovedex = {
 	"orderspray": {
 		id: "orderspray",
 		name: "Order Spray",
-		basePower: 50,
+		basePower: 65,
 		category: "Special",
 		pp: 40,
 		secondary: {
@@ -1071,7 +1067,7 @@ exports.BattleMovedex = {
 	"poopspdtoss": {
 		id: "poopspdtoss",
 		name: "Poop Spd Toss",
-		basePower: 59,
+		basePower: 75,
 		category: "Physical",
 		pp: 20,
 		secondary: {
@@ -1091,12 +1087,12 @@ exports.BattleMovedex = {
 	"bigpooptoss": {
 		id: "bigpooptoss",
 		name: "Big Poop Toss",
-		basePower: 86,
+		basePower: 95,
 		category: "Physical",
 		pp: 15,
 		secondary: {
 			chance: 30,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		accuracy: 100,
 		flags: {protect: 1, distance: 1},
@@ -1111,12 +1107,12 @@ exports.BattleMovedex = {
 	"bigrndtoss": {
 		id: "bigrndtoss",
 		name: "Big Rnd Toss",
-		basePower: 86,
+		basePower: 105,
 		category: "Physical",
 		pp: 5,
 		secondary: {
 			chance: 30,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		accuracy: 100,
 		flags: {protect: 1, distance: 1},
@@ -1131,7 +1127,7 @@ exports.BattleMovedex = {
 	"pooprndtoss": {
 		id: "pooprndtoss",
 		name: "Poop RND Toss",
-		basePower: 48,
+		basePower: 55,
 		category: "Physical",
 		pp: 15,
 		secondary: {
@@ -1151,7 +1147,7 @@ exports.BattleMovedex = {
 	"rndspdtoss": {
 		id: "rndspdtoss",
 		name: "Rnd Spd Toss",
-		basePower: 59,
+		basePower: 75,
 		category: "Physical",
 		pp: 10,
 		secondary: {
@@ -1171,7 +1167,7 @@ exports.BattleMovedex = {
 	"horizontalkick": {
 		id: "horizontalkick",
 		name: "Horizontal Kick",
-		basePower: 40,
+		basePower: 45,
 		category: "Special",
 		pp: 5,
 		accuracy: 100,
@@ -1188,7 +1184,7 @@ exports.BattleMovedex = {
 	"ultpoophell": {
 		id: "ultpoophell",
 		name: "Ult Poop Hell",
-		basePower: 106,
+		basePower: 110,
 		category: "Physical",
 		pp: 5,
 		accuracy: 100,
@@ -1579,7 +1575,7 @@ exports.BattleMovedex = {
 	"pepperbreath": {
 		id: "pepperbreath",
 		name: "Pepper Breath",
-		basePower: 129,
+		basePower: 89,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1600,7 +1596,7 @@ exports.BattleMovedex = {
 	"blueblaster": {
 		id: "blueblaster",
 		name: "Blue Blaster",
-		basePower: 130,
+		basePower: 90,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1621,7 +1617,7 @@ exports.BattleMovedex = {
 	"boombubble": {
 		id: "boombubble",
 		name: "Boom Bubble",
-		basePower: 125,
+		basePower: 85,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1642,7 +1638,7 @@ exports.BattleMovedex = {
 	"superthunderstrike": {
 		id: "superthunderstrike",
 		name: "Super Thunder Strike",
-		basePower: 140,
+		basePower: 100,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -1663,7 +1659,7 @@ exports.BattleMovedex = {
 	"spiraltwister": {
 		id: "spiraltwister",
 		name: "Spiral Twister",
-		basePower: 131,
+		basePower: 91,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1684,7 +1680,7 @@ exports.BattleMovedex = {
 	"electricthread": {
 		id: "electricthread",
 		name: "Electric Thread",
-		basePower: 134,
+		basePower: 94,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1705,7 +1701,7 @@ exports.BattleMovedex = {
 	"poisonivy": {
 		id: "poisonivy",
 		name: "Poison Ivy",
-		basePower: 141,
+		basePower: 101,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -1726,7 +1722,7 @@ exports.BattleMovedex = {
 	"electricshock": {
 		id: "electricshock",
 		name: "Electric Shock",
-		basePower: 132,
+		basePower: 92,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1747,7 +1743,7 @@ exports.BattleMovedex = {
 	"superslap": {
 		id: "superslap",
 		name: "Super Slap",
-		basePower: 131,
+		basePower: 91,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -1918,7 +1914,7 @@ exports.BattleMovedex = {
 	"partytime": {
 		id: "partytime",
 		name: "Party Time",
-		basePower: 140,
+		basePower: 100,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2026,7 +2022,7 @@ exports.BattleMovedex = {
 	"sweetbreath": {
 		id: "sweetbreath",
 		name: "Sweet Breath",
-		basePower: 145,
+		basePower: 130,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2260,7 +2256,7 @@ exports.BattleMovedex = {
 	"darkclaw": {
 		id: "darkclaw",
 		name: "Dark Claw",
-		basePower: 145,
+		basePower: 143,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2347,7 +2343,7 @@ exports.BattleMovedex = {
 	"gigablaster": {
 		id: "gigablaster",
 		name: "Giga Blaster",
-		basePower: 205,
+		basePower: 215,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2390,7 +2386,7 @@ exports.BattleMovedex = {
 	"deadlybomb": {
 		id: "deadlybomb",
 		name: "Deadly Bomb",
-		basePower: 240,
+		basePower: 260,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2412,7 +2408,7 @@ exports.BattleMovedex = {
 	"highelectricshocker": {
 		id: "highelectricshocker",
 		name: "High Electric Shocker",
-		basePower: 208,
+		basePower: 218,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2434,7 +2430,7 @@ exports.BattleMovedex = {
 	"smileybomb": {
 		id: "smileybomb",
 		name: "Smiley Bomb",
-		basePower: 235,
+		basePower: 255,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2456,7 +2452,7 @@ exports.BattleMovedex = {
 	"mailstorm": {
 		id: "mailstorm",
 		name: "Mail Storm",
-		basePower: 201,
+		basePower: 211,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2478,7 +2474,7 @@ exports.BattleMovedex = {
 	"abductionbeam": {
 		id: "abductionbeam",
 		name: "Abduction Beam",
-		basePower: 212,
+		basePower: 222,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2499,7 +2495,7 @@ exports.BattleMovedex = {
 	"darknetwork": {
 		id: "darknetwork",
 		name: "Dark Network",
-		basePower: 199,
+		basePower: 202,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2521,7 +2517,7 @@ exports.BattleMovedex = {
 	"spiralsword": {
 		id: "spiralsword",
 		name: "Spiral Sword",
-		basePower: 200,
+		basePower: 210,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2543,7 +2539,7 @@ exports.BattleMovedex = {
 	"genocideattack": {
 		id: "genocideattack",
 		name: "Genocide Attack",
-		basePower: 205,
+		basePower: 215,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2565,7 +2561,7 @@ exports.BattleMovedex = {
 	"crimsonflare": {
 		id: "crimsonflare",
 		name: "Crimson Flare",
-		basePower: 203,
+		basePower: 213,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2587,7 +2583,7 @@ exports.BattleMovedex = {
 	"bitbomb": {
 		id: "bitbomb",
 		name: "Bit Bomb",
-		basePower: 222,
+		basePower: 232,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2609,7 +2605,7 @@ exports.BattleMovedex = {
 	"energybomb": {
 		id: "energybomb",
 		name: "Energy Bomb",
-		basePower: 204,
+		basePower: 214,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2631,7 +2627,7 @@ exports.BattleMovedex = {
 	"lovelyattack": {
 		id: "lovelyattack",
 		name: "Lovely Attack",
-		basePower: 220,
+		basePower: 230,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2652,7 +2648,7 @@ exports.BattleMovedex = {
 	"nightmaresyndrome": {
 		id: "nightmaresyndrome",
 		name: "Nightmare Syndrome",
-		basePower: 212,
+		basePower: 222,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2674,7 +2670,7 @@ exports.BattleMovedex = {
 	"infinitycannon": {
 		id: "infinitycannon",
 		name: "Infinity Cannon",
-		basePower: 300,
+		basePower: 777,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2691,5 +2687,32 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "any",
 		type: "Mech",
+	},
+	//Status Attacks
+	"panicattack": {
+		accuracy: true,
+		basePower: 40,
+		category: "Physical",
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
+		secondary: false,
+		onModifyMove: function(move, pokemon, target) {
+			move.type = '???';
+			if (this.random(2) === 1) {
+				move.target = 'self';
+			}
+		},
+		onPrepareHit: function(target, source) {
+			this.attrLastMove('[still]');
+			this.add('-message', 'A panic is going on!');
+			this.add('-anim', source, "Tackle", target);
+		},
+		id: "panicattack",
+		name: "Panic Attack",
+		pp: 35,
+		priority: 0,
+		flags: {protect: 1},
+		target: "Random",
+		type: "Battle",
 	},
 };
