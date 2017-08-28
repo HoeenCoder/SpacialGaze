@@ -408,6 +408,12 @@ exports.grouplist = [
 		minigame: true,
 	},
 	{
+		symbol: '^',
+		id: "retired",
+		name: "Retired Auth",
+		inherit: '+',
+	},
+	{
 		symbol: '+',
 		id: "voice",
 		name: "Voice",
