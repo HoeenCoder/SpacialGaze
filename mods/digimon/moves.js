@@ -1,15 +1,16 @@
 'use strict';
 
 exports.BattleMovedex = {
-	"bubble": {
-		id: "bubble",
-		name: "Bubble",
+	"acidbubble": {
+		id: "acidbubble",
+		name: "Acid Bubble",
 		basePower: 30,
 		category: "Special",
 		secondary: false,
 		priority: 0,
 		target: "any",
 		pp: 40,
+		shortDesc: "No additional effects.",
 		onModifyMove: function (move, pokemon, target) {
 			move.type = '???';
 			this.add('-activate', pokemon, 'move: Bubble');
@@ -25,7 +26,7 @@ exports.BattleMovedex = {
 	"firetower": {
 		id: "firetower",
 		name: "Fire Tower",
-		basePower: 69,
+		basePower: 65,
 		category: "Physical",
 		secondary: {
 			chance: 25,
@@ -40,13 +41,14 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Inferno", target);
 			this.add('-anim', source, "Precipice Blades", target);
 		},
+		shortDesc: "25% chance to flinch.",
 		accuracy: 100,
 		type: "Fire",
 	},
 	"prominencebeam": {
 		id: "prominencebeam",
 		name: "Prominence Beam",
-		basePower: 133,
+		basePower: 105,
 		category: "Special",
 		secondary: {
 			self: {
@@ -64,6 +66,8 @@ exports.BattleMovedex = {
 		priority: 0,
 		target: "any",
 		pp: 5,
+		desc: "Has a 20% chance to lower the user's Attack and Special Attack by two stages.",
+		shortDesc: "20% chance to lower user's Atk & SpA by 2.",
 		flags: {protect: 1, distance: 1},
 		accuracy: 100,
 		type: "Fire",
@@ -71,7 +75,7 @@ exports.BattleMovedex = {
 	"spitfire": {
 		id: "spitfire",
 		name: "Spit Fire",
-		basePower: 43,
+		basePower: 45,
 		category: "Special",
 		secondary: false,
 		priority: 0,
@@ -82,13 +86,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flamethrower", target);
 		},
+		shortDesc: "No additional effects.",
 		accuracy: 100,
 		type: "Fire",
 	},
 	"redinferno": {
 		id: "redinferno",
 		name: "Red Inferno",
-		basePower: 100,
+		basePower: 75,
 		category: "Special",
 		secondary: false,
 		priority: 0,
@@ -99,17 +104,18 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fire Blast", target);
 		},
+		shortDesc: "No additional effects.",
 		accuracy: 100,
 		type: "Fire",
 	},
 	"magmabomb": {
 		id: "magmabomb",
 		name: "Magma Bomb",
-		basePower: 101,
+		basePower: 85,
 		category: "Physical",
 		secondary: {
 			chance: 25,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		priority: 0,
 		target: "any",
@@ -120,13 +126,14 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Egg Bomb", target);
 			this.add('-anim', source, "Sunny Day", target);
 		},
+		shortDesc: "25% chance to cause the target to panic.",
 		accuracy: 100,
 		type: "Fire",
 	},
 	"heatlaser": {
 		id: "heatlaser",
 		name: "Heat Laser",
-		basePower: 48,
+		basePower: 55,
 		category: "Special",
 		secondary: {
 			chance: 50,
@@ -144,13 +151,15 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Roar", target);
 			this.add('-anim', source, "Sunny Day", target);
 		},
+		desc: "Has a 50% chance to lower the target's Attack and Special Attack by three stages.",
+		shortDesc: "50% chance to lower Atk & SpA by 3.",
 		accuracy: 100,
 		type: "Fire",
 	},
 	"infinityburn": {
 		id: "infinityburn",
 		name: "Infinity Burn",
-		basePower: 146,
+		basePower: 110,
 		accuracy: 100,
 		pp: 5,
 		target: "any",
@@ -166,12 +175,13 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Inferno", target);
 			this.add('-anim', source, "Precipice Blades", target);
 		},
+		desc: "5% chance to flinch.",
 		type: "Fire",
 	},
 	"meltdown": {
 		id: "meltdown",
 		name: "Meltdown",
-		basePower: 120,
+		basePower: 95,
 		accuracy: 100,
 		pp: 5,
 		target: "allAdjacent",
@@ -187,12 +197,13 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Sunny Day", target);
 			this.add('-anim', source, "Lava Plume", target);
 		},
+		desc: "10% chance to flinch.",
 		type: "Fire",
 	},
 	"tremar": {
 		id: "tremar",
 		name: "Tremar",
-		basePower: 78,
+		basePower: 75,
 		accuracy: 85,
 		pp: 20,
 		target: "allAdjacent",
@@ -204,6 +215,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Ancient Power", target);
 		},
+		shortDesc: "No additional effects.",
 		type: "Battle",
 	},
 	"musclecharge": {
@@ -225,6 +237,7 @@ exports.BattleMovedex = {
 		secondary: false,
 		category: "Status",
 		flags: {snatch: 1},
+		shortDesc: "Raises the user's Atk & SpA by 2.",
 		type: "Battle",
 	},
 	"warcry": {
@@ -246,6 +259,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dragon Dance", source);
 		},
+		shortDesc: "Raises all user's stats by 1 (except eva & acc).",
 		priority: 0,
 		flags: {snatch: 1},
 		target: "self",
@@ -254,7 +268,7 @@ exports.BattleMovedex = {
 	"sonicjab": {
 		id: "sonicjab",
 		name: "Sonic Jab",
-		basePower: 40,
+		basePower: 65,
 		category: "Physical",
 		accuracy: 100,
 		secondary: false,
@@ -264,6 +278,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dizzy Punch", target);
 		},
+		shortDesc: "No additional effects.",
 		pp: 40,
 		target: "normal",
 		type: "Battle",
@@ -271,7 +286,7 @@ exports.BattleMovedex = {
 	"dynamitekick": {
 		id: "dynamitekick",
 		name: "Dynamite Kick",
-		basePower: 79,
+		basePower: 85,
 		accuracy: 100,
 		pp: 5,
 		category: "Special",
@@ -285,16 +300,17 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Mega Kick", target);
 		},
+		shortDesc: "20% chance to flinch.",
 		target: "normal",
 		type: "Battle",
 	},
-	"counter": {
-		id: "counter",
-		name: "Counter",
-		basePower: 101,
+	"reboundstrike": {
+		id: "reboundstrike",
+		name: "Rebound Strike",
+		basePower: 95,
 		secondary: {
 			chance: 30,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		damageCallback: function (pokemon) {
 			if (!pokemon.volatiles['counter']) return 0;
@@ -335,13 +351,15 @@ exports.BattleMovedex = {
 				}
 			},
 		},
+		desc: "Deals damage to the last foe to hit the user with a physical attack this turn equal to twice the HP lost by the user from that attack. If the user did not lose HP from the attack, this move deals damage with a Base Power of 1 instead. If that foe's position is no longer in use, the damage is done to a random foe in range. Only the last hit of a multi-hit attack is counted. Fails if the user was not hit by a foe's physical attack this turn. 30% chance to make the target panic.",
+		shortDesc: "If hit by physical attack, returns double damage. 30% chance to panic.",
 		target: "normal",
 		type: "Battle",
 	},
 	"megatonpunch": {
 		id: "megatonpunch",
 		name: "Megaton Punch",
-		basePower: 103,
+		basePower: 105,
 		category: "Physical",
 		accuracy: 100,
 		pp: 10,
@@ -354,6 +372,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Dizzy Punch", target);
 		},
+		shortDesc: "15% chance to flinch.",
 		priority: 0,
 		target: "normal",
 		type: "Battle",
@@ -361,20 +380,20 @@ exports.BattleMovedex = {
 	"busterdrive": {
 		id: "busterdrive",
 		name: "Buster Drive",
-		basePower: 150,
+		basePower: 110,
 		secondary: {
-			chance: 10,
-			volatileStatus: "confusion",
+			chance: 5,
+			volatileStatus: "panic",
 		},
 		category: "Physical",
 		pp: 5,
 		accuracy: 100,
-		recoil: [1, 10],
 		flags: {protect: 1, contact: 1, distance: 1, punch: 1},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fire Punch", target);
 		},
+		shortDesc: "5% chance to make the target panic.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -382,28 +401,28 @@ exports.BattleMovedex = {
 	"thunderjustice": {
 		id: "thunderjustice",
 		name: "Thunder Justice",
-		basePower: 176,
+		basePower: 105,
 		accuracy: true,
 		pp: 5,
 		category: "Special",
 		priority: 0,
-		recoil: [1, 4],
 		flags: {protect: 1, distance: 1},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Thunder", target);
 		},
 		secondary: {
-			chance: 10,
+			chance: 5,
 			volatileStatus: "flinch",
 		},
+		shortDesc: "5% chance to flinch.",
 		type: "Air",
 		target: "any",
 	},
 	"spinningshot": {
 		id: "spinningshot",
 		name: "Spinning Shot",
-		basePower: 125,
+		basePower: 110,
 		pp: 10,
 		accuracy: 100,
 		secondary: false,
@@ -415,17 +434,19 @@ exports.BattleMovedex = {
 		},
 		category: "Special",
 		type: "Air",
+		shortDesc: "No additional effects.",
 		target: "allAdjacent",
 	},
 	"electriccloud": {
 		id: "electriccloud",
 		name: "Electric Cloud",
-		basePower: 58,
+		basePower: 55,
 		category: "Special",
 		secondary: {
 			chance: 40,
 			volatileStatus: "flinch",
 		},
+		shortDesc: "40% chance to flinch.",
 		accuracy: true,
 		flags: {protect: 1, distance: 1},
 		onPrepareHit: function (target, source) {
@@ -440,7 +461,7 @@ exports.BattleMovedex = {
 	"megalospark": {
 		id: "megalospark",
 		name: "Megalo Spark",
-		basePower: 122,
+		basePower: 95,
 		secondary: {
 			chance: 15,
 			volatileStatus: "flinch",
@@ -453,6 +474,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Shock Wave", target);
 		},
+		shortDesc: "15% chance to flinch.",
 		category: "Physical",
 		target: "any",
 		type: "Air",
@@ -460,7 +482,7 @@ exports.BattleMovedex = {
 	"staticelect": {
 		id: "staticelect",
 		name: "Static Elect",
-		basePower: 48,
+		basePower: 45,
 		accuracy: 100,
 		pp: 40,
 		secondary: {
@@ -473,6 +495,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Thunder Punch", target);
 		},
+		shortDesc: "50% chance to flinch.",
 		category: "Physical",
 		target: "normal",
 		type: "Air",
@@ -480,7 +503,7 @@ exports.BattleMovedex = {
 	"windcutter": {
 		id: "windcutter",
 		name: "Wind Cutter",
-		basePower: 78,
+		basePower: 65,
 		accuracy: 100,
 		category: "Special",
 		secondary: false,
@@ -490,6 +513,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Gust", target);
 		},
+		shortDesc: "No additional effects.",
 		pp: 15,
 		target: "any",
 		type: "Air",
@@ -497,13 +521,13 @@ exports.BattleMovedex = {
 	"confusedstorm": {
 		id: "confusedstorm",
 		name: "Confused Storm",
-		basePower: 91,
+		basePower: 75,
 		secondary: {
 			self: {
 				volatileStatus: "confusion",
 			},
 			chance: 20,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		accuracy: 100,
 		category: "Special",
@@ -513,17 +537,18 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Prismatic Laser", target);
 		},
+		shortDesc: "20% chance to make target panic; confuses the user.",
 		pp: 10,
 		target: "allAdjacent",
 		type: "Air",
 	},
-	"hurricane": {
-		id: "hurricane",
-		name: "Hurricane",
-		basePower: 117,
+	"typhoon": {
+		id: "typhoon",
+		name: "Typhoon",
+		basePower: 85,
 		secondary: {
 			chance: 15,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		category: "Special",
 		pp: 10,
@@ -534,13 +559,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hurricane", target);
 		},
+		shortDesc: "15% chance to make the target panic.",
 		target: "allAdjacent",
 		type: "Air",
 	},
-	"poisonpowder": {
-		id: "poisonpowder",
-		name: "Poison Powder",
-		basePower: 57,
+	"toxicpowder": {
+		id: "toxicpowder",
+		name: "Toxic Powder",
+		basePower: 65,
 		pp: 15,
 		category: "Special",
 		secondary: {
@@ -554,13 +580,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Powder", target);
 		},
+		desc: "50% chance to poison the target.",
 		target: "allAdjacent",
 		type: "Earth",
 	},
 	"bug": {
 		id: "bug",
 		name: "Bug",
-		basePower: 150,
+		basePower: 110,
 		accuracy: 100,
 		secondary: {
 			chance: 5,
@@ -570,13 +597,14 @@ exports.BattleMovedex = {
 			},
 		},
 		category: "Physical",
-		pp:  3.75,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, distance: 1},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Magnet Bomb", target);
 		},
+		shortDesc: "5% chance to lower target's Atk & SpA by 1.",
 		target: "any",
 		type: "Earth",
 	},
@@ -593,6 +621,7 @@ exports.BattleMovedex = {
 			spe: 1,
 			accuracy: 1,
 		},
+		desc: "Boosts all stats by 1 (except evasion); Def by 2.",
 		accuracy: 100,
 		pp: 40,
 		priority: 0,
@@ -608,7 +637,7 @@ exports.BattleMovedex = {
 	"insectplague": {
 		id: "insectplague",
 		name: "Insect Plague",
-		basePower: 78,
+		basePower: 95,
 		accuracy: 100,
 		category: "Special",
 		pp: 10,
@@ -622,16 +651,17 @@ exports.BattleMovedex = {
 			chance: 40,
 			status: "psn",
 		},
+		shortDesc: "40% chance to poison.",
 		target: "any",
 		type: "Earth",
 	},
 	"charmperfume": {
 		id: "charmperfume",
 		name: "Charm Perfume",
-		basePower: 78,
+		basePower: 95,
 		secondary: {
 			chance: 40,
-			status: "psn",
+			volatileStatus: "panic",
 		},
 		category: "Special",
 		pp: 15,
@@ -642,13 +672,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Gas", target);
 		},
+		shortDesc: "40% chance to make the target panic.",
 		target: "allAdjacent",
 		type: "Earth",
 	},
 	"poisonclaw": {
 		id: "poisonclaw",
 		name: "Poison Claw",
-		basePower: 41,
+		basePower: 55,
 		category: "Physical",
 		secondary: {
 			chance: 50,
@@ -662,13 +693,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Jab", target);
 		},
+		shortDesc: "50% chance to poison.",
 		target: "normal",
 		type: "Earth",
 	},
 	"dangersting": {
 		id: "dangersting",
 		name: "Danger Sting",
-		basePower: 70,
+		basePower: 75,
 		accuracy: 100,
 		category: "Physical",
 		pp: 15,
@@ -685,13 +717,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Sting", target);
 		},
+		shortDesc: "35% chance to lower Atk & SpA by 3.",
 		target: "normal",
 		type: "Earth",
 	},
 	"greentrap": {
 		id: "greentrap",
 		name: "Green Trap",
-		basePower: 102,
+		basePower: 105,
 		accuracy: 100,
 		pp: 10,
 		secondary: {
@@ -704,6 +737,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Grass Knot", target);
 		},
+		shortDesc: "15% chance to flinch.",
 		priority: 0,
 		target: "any",
 		type: "Earth",
@@ -711,7 +745,7 @@ exports.BattleMovedex = {
 	"gigafreeze": {
 		id: "gigafreeze",
 		name: "Giga Freeze",
-		basePower: 100,
+		basePower: 95,
 		category: "Physical",
 		pp: 10,
 		secondary: {
@@ -724,6 +758,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Frost Breath", target);
 		},
+		shortDesc: "20% chance to flinch.",
 		priority: 0,
 		target: "allAdjacentFoes",
 		type: "Ice",
@@ -731,7 +766,7 @@ exports.BattleMovedex = {
 	"icestatue": {
 		id: "icestatue",
 		name: "Ice Statue",
-		basePower: 127,
+		basePower: 105,
 		accuracy: 100,
 		pp: 10,
 		secondary: {
@@ -744,6 +779,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Avalanche", target);
 		},
+		shortDesc: "10% chance to flinch.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -751,7 +787,7 @@ exports.BattleMovedex = {
 	"winterblast": {
 		id: "winterblast",
 		name: "Winter Blast",
-		basePower: 58,
+		basePower: 65,
 		accuracy: 100,
 		secondary: {
 			chance: 30,
@@ -765,13 +801,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Blizzard", target);
 		},
+		shortDesc: "30% chance to flinch.",
 		target: "allAdjacent",
 		type: "Ice",
 	},
 	"iceneedle": {
 		id: "iceneedle",
 		name: "Ice Needle",
-		basePower: 126,
+		basePower: 75,
 		accuracy: 50,
 		secondary: {
 			chance: 35,
@@ -784,6 +821,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Ice Shard", target);
 		},
+		shortDesc: "35% chance to flinch.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -791,7 +829,7 @@ exports.BattleMovedex = {
 	"waterblit": {
 		id: "waterblit",
 		name: "Water Blit",
-		basePower: 86,
+		basePower: 85,
 		accuracy: 100,
 		category: "Special",
 		pp: 20,
@@ -802,6 +840,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aqua Ring", target);
 		},
+		shortDesc: "No additional effects.",
 		target: "normal",
 		type: "Ice",
 	},
@@ -816,7 +855,6 @@ exports.BattleMovedex = {
 			spa: 1,
 			spd: 1,
 			spe: 1,
-			accuracy: 1,
 		},
 		pp: 20,
 		secondary: false,
@@ -826,13 +864,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bubble", source);
 		},
+		shortDesc: "Raises all stats by 1 (except acc and eva).",
 		target: "self",
 		type: "Ice",
 	},
 	"aurorafreeze": {
 		id: "aurorafreeze",
 		name: "Aurora Freeze",
-		basePower: 129,
+		basePower: 110,
 		accuracy: 100,
 		category: "Special",
 		secondary: {
@@ -862,13 +901,14 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Moonlight", target);
 			this.add('-anim', source, "Power Gem", target);
 		},
+		shortdesc: "10% chance to lower Atk & SpA by 3.",
 		target: "allAdjacent",
 		type: "Ice",
 	},
 	"teardrop": {
 		id: "teardrop",
 		name: "Tear Drop",
-		basePower: 40,
+		basePower: 55,
 		accuracy: 90,
 		secondary: {
 			chance: 50,
@@ -885,13 +925,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Water Pulse", target);
 		},
+		shortdesc: "50% chance to lower Atk & SpA by 3.",
 		target: "any",
 		type: "Ice",
 	},
 	"powercrane": {
 		id: "powercrane",
 		name: "Power Crane",
-		basePower: 91,
+		basePower: 65,
 		accuracy: 100,
 		secondary: false,
 		category: "Physical",
@@ -902,13 +943,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Metal Claw", target);
 		},
+		shortDesc: "No additional effects.",
 		target: "any",
 		type: "Mech",
 	},
 	"allrangebeam": {
 		id: "allrangebeam",
 		name: "All-Range Beam",
-		basePower: 172,
+		basePower: 105,
 		pp: 5,
 		accuracy: 100,
 		category: "Special",
@@ -920,13 +962,14 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Gear Up", target);
 			this.add('-anim', source, "Hyper Beam", target);
 		},
+		shortDesc: "No additional effects.",
 		target: "allAdjacent",
 		type: "Mech",
 	},
 	"metalsprinter": {
 		id: "metalsprinter",
 		name: "Metal Sprinter",
-		basePower: 67,
+		basePower: 55,
 		accuracy: 100,
 		category: "Physical",
 		secondary: false,
@@ -936,14 +979,15 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Metal Burst", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "allAdjacent",
 		type: "Mech",
 	},
-	"pulselazer": {
-		id: "pulselazer",
-		name: "Pulse Lazer",
-		basePower: 125,
+	"pulselaser": {
+		id: "pulselaser",
+		name: "Pulse Laser",
+		basePower: 85,
 		accuracy: 100,
 		category: "Special",
 		pp: 10,
@@ -953,6 +997,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Flash Cannon", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
@@ -960,7 +1005,7 @@ exports.BattleMovedex = {
 	"deleteprogram": {
 		id: "deleteprogram",
 		name: "Delete Program",
-		basePower: 129,
+		basePower: 95,
 		accuracy: 100,
 		category: "Special",
 		pp: 10,
@@ -976,6 +1021,7 @@ exports.BattleMovedex = {
 				spa: -3,
 			},
 		},
+		shortDesc: "10% chance to lower Atk & SpA by 3.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
@@ -983,18 +1029,18 @@ exports.BattleMovedex = {
 	"dgdimension": {
 		id: "dgdimension",
 		name: "DG Dimension",
-		basePower: 200,
+		basePower: 110,
 		category: "Special",
-		pp: 3.75,
+		pp: 5,
 		accuracy: 100,
 		secondary: false,
-		recoil: [1, 3],
 		flags: {protect: 1, distance: 1},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Moonlight", target);
 			this.add('-anim', source, "Sonic Boom", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
@@ -1003,7 +1049,7 @@ exports.BattleMovedex = {
 		id: "fullpotential",
 		name: "Full Potential",
 		basePower: 0,
-		accuracy: 100,
+		accuracy: 0,
 		category: "Status",
 		pp: 20,
 		boosts: {
@@ -1021,13 +1067,14 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Gear Grind", target);
 		},
 		priority: 0,
+		shortDesc: "Raises all stats by 2 (except acc and eva).",
 		target: "self",
 		type: "Mech",
 	},
 	"reverseprogram": {
 		id: "reverseprogram",
 		name: "Reverse Program",
-		basePower: 97,
+		basePower: 75,
 		accuracy: 100,
 		category: "Special",
 		pp: 5,
@@ -1044,6 +1091,7 @@ exports.BattleMovedex = {
 				spa: -3,
 			},
 		},
+		shortDesc: "20% chance to lower Atk & SpA by 3.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
@@ -1051,7 +1099,7 @@ exports.BattleMovedex = {
 	"orderspray": {
 		id: "orderspray",
 		name: "Order Spray",
-		basePower: 50,
+		basePower: 65,
 		category: "Special",
 		pp: 40,
 		secondary: {
@@ -1064,6 +1112,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Gas", target);
 		},
+		shortDesc: "50% chance to flinch.",
 		priority: 0,
 		target: "any",
 		type: "Filth",
@@ -1071,7 +1120,7 @@ exports.BattleMovedex = {
 	"poopspdtoss": {
 		id: "poopspdtoss",
 		name: "Poop Spd Toss",
-		basePower: 59,
+		basePower: 75,
 		category: "Physical",
 		pp: 20,
 		secondary: {
@@ -1084,6 +1133,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Throw", target);
 		},
+		shortDesc: "30% chance to poison.",
 		priority: 0,
 		target: "any",
 		type: "Filth",
@@ -1091,12 +1141,12 @@ exports.BattleMovedex = {
 	"bigpooptoss": {
 		id: "bigpooptoss",
 		name: "Big Poop Toss",
-		basePower: 86,
+		basePower: 95,
 		category: "Physical",
 		pp: 15,
 		secondary: {
 			chance: 30,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		accuracy: 100,
 		flags: {protect: 1, distance: 1},
@@ -1104,6 +1154,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Wrecker", target);
 		},
+		shortDesc: "30% chance to make the target to panic.",
 		priority: 0,
 		target: "any",
 		type: "Filth",
@@ -1111,12 +1162,12 @@ exports.BattleMovedex = {
 	"bigrndtoss": {
 		id: "bigrndtoss",
 		name: "Big Rnd Toss",
-		basePower: 86,
+		basePower: 105,
 		category: "Physical",
 		pp: 5,
 		secondary: {
 			chance: 30,
-			volatileStatus: "confusion",
+			volatileStatus: "panic",
 		},
 		accuracy: 100,
 		flags: {protect: 1, distance: 1},
@@ -1124,6 +1175,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Tomb", target);
 		},
+		shortDesc: "30% chance to make the target panic.",
 		priority: 0,
 		target: "allAdjacentFoes",
 		type: "Filth",
@@ -1131,7 +1183,7 @@ exports.BattleMovedex = {
 	"pooprndtoss": {
 		id: "pooprndtoss",
 		name: "Poop RND Toss",
-		basePower: 48,
+		basePower: 55,
 		category: "Physical",
 		pp: 15,
 		secondary: {
@@ -1144,6 +1196,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Slide", target);
 		},
+		shortDesc: "40% chance to poison.",
 		priority: 0,
 		target: "allAdjacent",
 		type: "Filth",
@@ -1151,7 +1204,7 @@ exports.BattleMovedex = {
 	"rndspdtoss": {
 		id: "rndspdtoss",
 		name: "Rnd Spd Toss",
-		basePower: 59,
+		basePower: 75,
 		category: "Physical",
 		pp: 10,
 		secondary: {
@@ -1164,6 +1217,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Rock Blast", target);
 		},
+		shortDesc: "30% chance to poison.",
 		priority: 0,
 		target: "allAdjacent",
 		type: "Filth",
@@ -1171,7 +1225,7 @@ exports.BattleMovedex = {
 	"horizontalkick": {
 		id: "horizontalkick",
 		name: "Horizontal Kick",
-		basePower: 40,
+		basePower: 45,
 		category: "Special",
 		pp: 5,
 		accuracy: 100,
@@ -1181,6 +1235,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Poison Gas", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "normal",
 		type: "Filth",
@@ -1188,7 +1243,7 @@ exports.BattleMovedex = {
 	"ultpoophell": {
 		id: "ultpoophell",
 		name: "Ult Poop Hell",
-		basePower: 106,
+		basePower: 110,
 		category: "Physical",
 		pp: 5,
 		accuracy: 100,
@@ -1204,6 +1259,7 @@ exports.BattleMovedex = {
 				spa: -3,
 			},
 		},
+		shortDesc: "10% chance to lower Atk & SpA by 3.",
 		priority: 0,
 		target: "allAdjacent",
 		type: "Filth",
@@ -1228,6 +1284,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		desc: "Heals 1/4 of max HP.",
 	},
 	//Medium Recovery
 	mediumrecovery: {
@@ -1247,6 +1304,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		desc: "Heals 1/3 of max HP.",
 	},
 	//Large Recovery
 	largerecovery: {
@@ -1266,6 +1324,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		desc: "Heals 1/2 of max HP.",
 	},
 	//Super Recovery Floppy
 	superrecoveryfloppy: {
@@ -1285,6 +1344,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		desc: "Heals all of user's HP.",
 	},
 	//Various
 	various: {
@@ -1306,6 +1366,7 @@ exports.BattleMovedex = {
 				side.pokemon[i].cureStatus();
 			}
 		},
+		desc: "Cures user of status conditions.",
 		secondary: false,
 		target: "adjacentAllyOrSelf",
 	},
@@ -1379,6 +1440,7 @@ exports.BattleMovedex = {
 		},
 		secondary: false,
 		heal: [1, 1],
+		desc: "Heals all of the user's HP.",
 		target: "adjacentAllyOrSelf",
 	},
 	//Restore Floppy
@@ -1399,6 +1461,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		desc: "Restores 1/2 of the user's max HP.",
 	},
 	//Super Restore Floppy
 	superrestorefloppy: {
@@ -1418,6 +1481,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		desc: "Restores all of the user's max HP.",
 	},
 	//Stat Boosting Items
 	//Offense Disk
@@ -1441,6 +1505,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		shortDesc: "Raises the user's Atk & SpA by 1.",
 	},
 	//Defense Disk
 	defensedisk: {
@@ -1463,6 +1528,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		shortDesc: "Raises the user's Def & SpD by 1.",
 	},
 	//Hi Speed Disk
 	hispeeddisk: {
@@ -1484,6 +1550,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		shortDesc: "Raises the user's Spe by 1.",
 	},
 	//Super Defense Disk
 	superdefensedisk: {
@@ -1506,6 +1573,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		shortDesc: "Raises the user's Def & SpD by 2.",
 	},
 	//Super Offense Disk
 	superoffensedisk: {
@@ -1528,6 +1596,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		shortDesc: "Raises the user's Atk & SpA by 2.",
 	},
 	//Super Speed Disk
 	superspeeddisk: {
@@ -1549,6 +1618,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		shortDesc: "Raises the user's Spe by 2.",
 	},
 	//Omnipotent Disk
 	omnipotentdisk: {
@@ -1573,13 +1643,13 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Recover", source);
 		},
+		shortDesc: "Raises the user's Atk, Def, SpA & SpD by 1.",
 	},
-	//End of items
 	//Finishers
 	"pepperbreath": {
 		id: "pepperbreath",
 		name: "Pepper Breath",
-		basePower: 129,
+		basePower: 89,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1593,6 +1663,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Inferno Overdrive", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Fire",
@@ -1600,7 +1671,7 @@ exports.BattleMovedex = {
 	"blueblaster": {
 		id: "blueblaster",
 		name: "Blue Blaster",
-		basePower: 130,
+		basePower: 90,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1614,6 +1685,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Blue Flare", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -1621,7 +1693,7 @@ exports.BattleMovedex = {
 	"boombubble": {
 		id: "boombubble",
 		name: "Boom Bubble",
-		basePower: 125,
+		basePower: 85,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1635,6 +1707,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Aeroblast", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -1642,7 +1715,7 @@ exports.BattleMovedex = {
 	"superthunderstrike": {
 		id: "superthunderstrike",
 		name: "Super Thunder Strike",
-		basePower: 140,
+		basePower: 100,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -1652,6 +1725,7 @@ exports.BattleMovedex = {
 			move.type = '???';
 			this.add('-activate', pokemon, 'move: Super Thunder Strike');
 		},
+		shortDesc: "No additional effects.",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Gigavolt Havoc", target);
@@ -1663,7 +1737,7 @@ exports.BattleMovedex = {
 	"spiraltwister": {
 		id: "spiraltwister",
 		name: "Spiral Twister",
-		basePower: 131,
+		basePower: 91,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1677,6 +1751,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fire Spin", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Air",
@@ -1684,7 +1759,7 @@ exports.BattleMovedex = {
 	"electricthread": {
 		id: "electricthread",
 		name: "Electric Thread",
-		basePower: 134,
+		basePower: 94,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1698,6 +1773,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Electroweb", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Air",
@@ -1705,7 +1781,7 @@ exports.BattleMovedex = {
 	"poisonivy": {
 		id: "poisonivy",
 		name: "Poison Ivy",
-		basePower: 141,
+		basePower: 101,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -1715,6 +1791,7 @@ exports.BattleMovedex = {
 			move.type = '???';
 			this.add('-activate', pokemon, 'move: Poison Ivy');
 		},
+		shortDesc: "No additional effects.",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Toxic", target);
@@ -1726,7 +1803,7 @@ exports.BattleMovedex = {
 	"electricshock": {
 		id: "electricshock",
 		name: "Electric Shock",
-		basePower: 132,
+		basePower: 92,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -1740,6 +1817,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Thunderbolt", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Air",
@@ -1747,7 +1825,7 @@ exports.BattleMovedex = {
 	"superslap": {
 		id: "superslap",
 		name: "Super Slap",
-		basePower: 131,
+		basePower: 91,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -1761,6 +1839,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Ice Punch", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -1783,6 +1862,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Overheat", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Fire",
@@ -1805,6 +1885,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Eruption", target);
 		},
 		priority: 0,
+		shortDesc: "No additional effects.",
 		target: "any",
 		type: "Fire",
 	},
@@ -1827,6 +1908,7 @@ exports.BattleMovedex = {
 		},
 		priority: 0,
 		target: "any",
+		shortDesc: "No additional effects.",
 		type: "Battle",
 	},
 	"spinningneedle": {
@@ -1847,6 +1929,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Whirlwind", target);
 			this.add('-anim', source, "Ice Shard", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -1868,6 +1951,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Smart Strike", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
@@ -1889,6 +1973,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Water Spout", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -1911,6 +1996,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Autotomize", target);
 			this.add('-anim', source, "Ice Punch", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -1918,7 +2004,7 @@ exports.BattleMovedex = {
 	"partytime": {
 		id: "partytime",
 		name: "Party Time",
-		basePower: 140,
+		basePower: 100,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -1932,6 +2018,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Continental Crush", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -1954,6 +2041,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Autotomize", source);
 			this.add('-anim', source, "Fire Punch", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Fire",
@@ -1975,6 +2063,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Drill Run", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
@@ -1997,6 +2086,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Roar", target);
 			this.add('-anim', source, "Fire Punch", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -2019,6 +2109,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Frost Breath", target);
 			this.add('-anim', source, "Stone Edge", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Fire",
@@ -2026,7 +2117,7 @@ exports.BattleMovedex = {
 	"sweetbreath": {
 		id: "sweetbreath",
 		name: "Sweet Breath",
-		basePower: 145,
+		basePower: 130,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2040,6 +2131,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sweet Kiss", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -2061,6 +2153,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Hydro Pump", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -2082,6 +2175,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Bonemerang", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -2103,6 +2197,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Heat Wave", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
@@ -2124,6 +2219,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Overheat", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Fire",
@@ -2145,6 +2241,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Zap Cannon", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -2166,6 +2263,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Supersonic Skystrike", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Air",
@@ -2188,6 +2286,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Autotomize", target);
 			this.add('-anim', source, "Power Gem", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
@@ -2209,6 +2308,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Ice Hammer", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -2231,6 +2331,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Charge", target);
 			this.add('-anim', source, "Electro Ball", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Earth",
@@ -2253,6 +2354,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Hone Claws", target);
 			this.add('-anim', source, "Night Slash", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Filth",
@@ -2260,7 +2362,7 @@ exports.BattleMovedex = {
 	"darkclaw": {
 		id: "darkclaw",
 		name: "Dark Claw",
-		basePower: 145,
+		basePower: 143,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2275,6 +2377,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Hone Claws", target);
 			this.add('-anim', source, "Shadow Claw", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Filth",
@@ -2297,6 +2400,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Charge", target);
 			this.add('-anim', source, "Discharge", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Air",
@@ -2318,6 +2422,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Subzero Slammer", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Ice",
@@ -2340,6 +2445,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Sacred Fire", target);
 		},
 		priority: 0,
+		shortDesc: "No additional effects.",
 		target: "any",
 		type: "Battle",
 	},
@@ -2347,7 +2453,7 @@ exports.BattleMovedex = {
 	"gigablaster": {
 		id: "gigablaster",
 		name: "Giga Blaster",
-		basePower: 205,
+		basePower: 215,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2361,6 +2467,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Sunsteel Strike", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -2383,6 +2490,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Autotomize", target);
 			this.add('-anim', source, "Flare Blitz", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Filth",
@@ -2390,7 +2498,7 @@ exports.BattleMovedex = {
 	"deadlybomb": {
 		id: "deadlybomb",
 		name: "Deadly Bomb",
-		basePower: 240,
+		basePower: 260,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2405,6 +2513,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Autotomize", target);
 			this.add('-anim', source, "Egg Bomb", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Filth",
@@ -2412,7 +2521,7 @@ exports.BattleMovedex = {
 	"highelectricshocker": {
 		id: "highelectricshocker",
 		name: "High Electric Shocker",
-		basePower: 208,
+		basePower: 218,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2427,6 +2536,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Charge", target);
 			this.add('-anim', source, "Discharge", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Air",
@@ -2434,7 +2544,7 @@ exports.BattleMovedex = {
 	"smileybomb": {
 		id: "smileybomb",
 		name: "Smiley Bomb",
-		basePower: 235,
+		basePower: 255,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2449,6 +2559,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Autotomize", target);
 			this.add('-anim', source, "Inferno Overdrive", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -2456,7 +2567,7 @@ exports.BattleMovedex = {
 	"mailstorm": {
 		id: "mailstorm",
 		name: "Mail Storm",
-		basePower: 201,
+		basePower: 211,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2471,6 +2582,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Autotomize", target);
 			this.add('-anim', source, "Subzero Slammer", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Battle",
@@ -2478,7 +2590,7 @@ exports.BattleMovedex = {
 	"abductionbeam": {
 		id: "abductionbeam",
 		name: "Abduction Beam",
-		basePower: 212,
+		basePower: 222,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2493,13 +2605,14 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Signal Beam", target);
 		},
 		priority: 0,
+		shortDesc: "No additional effects.",
 		target: "any",
 		type: "Mech",
 	},
 	"darknetwork": {
 		id: "darknetwork",
 		name: "Dark Network",
-		basePower: 199,
+		basePower: 202,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2515,13 +2628,14 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Nightmare", target);
 		},
 		priority: 0,
+		shortDesc: "No additional effects.",
 		target: "any",
 		type: "Filth",
 	},
 	"spiralsword": {
 		id: "spiralsword",
 		name: "Spiral Sword",
-		basePower: 200,
+		basePower: 210,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2538,12 +2652,13 @@ exports.BattleMovedex = {
 		},
 		priority: 0,
 		target: "any",
+		shortDesc: "No additional effects.",
 		type: "Battle",
 	},
 	"genocideattack": {
 		id: "genocideattack",
 		name: "Genocide Attack",
-		basePower: 205,
+		basePower: 215,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2560,12 +2675,13 @@ exports.BattleMovedex = {
 		},
 		priority: 0,
 		target: "any",
+		shortDesc: "No additional effects.",
 		type: "Battle",
 	},
 	"crimsonflare": {
 		id: "crimsonflare",
 		name: "Crimson Flare",
-		basePower: 203,
+		basePower: 213,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2582,12 +2698,13 @@ exports.BattleMovedex = {
 		},
 		priority: 0,
 		target: "any",
+		shortDesc: "No additional effects.",
 		type: "Fire",
 	},
 	"bitbomb": {
 		id: "bitbomb",
 		name: "Bit Bomb",
-		basePower: 222,
+		basePower: 232,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2604,12 +2721,13 @@ exports.BattleMovedex = {
 		},
 		priority: 0,
 		target: "any",
+		shortDesc: "No additional effects.",
 		type: "Battle",
 	},
 	"energybomb": {
 		id: "energybomb",
 		name: "Energy Bomb",
-		basePower: 204,
+		basePower: 214,
 		accuracy: 100,
 		category: "Physical",
 		pp: 0.625,
@@ -2626,12 +2744,13 @@ exports.BattleMovedex = {
 		},
 		priority: 0,
 		target: "any",
+		shortDesc: "No additional effects.",
 		type: "Earth",
 	},
 	"lovelyattack": {
 		id: "lovelyattack",
 		name: "Lovely Attack",
-		basePower: 220,
+		basePower: 230,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2646,13 +2765,14 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Lovely Kiss", target);
 		},
 		priority: 0,
+		shortDesc: "No additional effects.",
 		target: "any",
 		type: "Ice",
 	},
 	"nightmaresyndrome": {
 		id: "nightmaresyndrome",
 		name: "Nightmare Syndrome",
-		basePower: 212,
+		basePower: 222,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2666,6 +2786,7 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Black Hole Eclipse", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Filth",
@@ -2674,7 +2795,7 @@ exports.BattleMovedex = {
 	"infinitycannon": {
 		id: "infinitycannon",
 		name: "Infinity Cannon",
-		basePower: 300,
+		basePower: 777,
 		accuracy: 100,
 		category: "Special",
 		pp: 0.625,
@@ -2688,8 +2809,36 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Fleur Cannon", target);
 		},
+		shortDesc: "No additional effects.",
 		priority: 0,
 		target: "any",
 		type: "Mech",
+	},
+	//Status Attacks
+	"panicattack": {
+		accuracy: true,
+		basePower: 40,
+		category: "Physical",
+		desc: "No additional effects.",
+		shortDesc: "No additional effects.",
+		secondary: false,
+		onModifyMove: function (move, pokemon, target) {
+			move.type = '???';
+			if (this.random(2) === 1) {
+				move.target = 'self';
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-message', 'A panic is going on!');
+			this.add('-anim', source, "Tackle", target);
+		},
+		id: "panicattack",
+		name: "Panic Attack",
+		pp: 35,
+		priority: 0,
+		flags: {protect: 1},
+		target: "random",
+		type: "Battle",
 	},
 };
