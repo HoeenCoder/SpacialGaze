@@ -598,65 +598,6 @@ exports.BattleMovedex = {
 		zMovePower: 140,
 		contestType: "Cool",
 	},
-	// Insist
-	aquasubscribe: {
-		id: "aquasubscribe",
-		name: "Aqua Subscribe",
-		priority: 1,
-		self: {
-			boosts: {
-				spa: 1,
-				spe: 1,
-			},
-		},
-		flags: {
-			protect: 1,
-			mirror: 1,
-		},
-		desc: "Boosts user's SpA and Spe by 1 stage",
-		secondary: false,
-		category: "Special",
-		onHit: function (target, source, move) {
-			this.add('c|@Insist|Subscribe to http://youtube.com/DeathlyPlays');
-		},
-		onPrepareHit: function (target, source) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Hydro Pump", target);
-		},
-		basePower: 90,
-		pp: 15,
-		accuracy: 100,
-		target: "normal",
-		type: "Water",
-		zMovePower: 140,
-		contestType: "Cool",
-	},
-	//Insist
-	"exiledfromallothers": {
-		id: "exiledfromallothers",
-		name: "Exiled From All Others",
-		basePower: 150,
-		accuracy: 100,
-		pp: 1,
-		noPPBoosts: true,
-		secondary: false,
-		category: "Special",
-		isNonStandard: true,
-		isZ: "playniumz",
-		priority: 1,
-		flags: {
-			protect: 1,
-		},
-		onHit: function (target, source, move) {
-			this.add('c|@Insist|Exiled from all others, we shall become greater than ever before.');
-		},
-		onPrepareHit: function (target, source) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Hydro Pump", target);
-		},
-		target: "normal",
-		type: "Water",
-	},
 	//Stabby the Krabby
 	"stabstab": {
 		category: "Physical",
