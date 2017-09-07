@@ -544,7 +544,9 @@ exports.commands = {
 	},
 	'desokoro': true,
 	desokoros: 'desokoro',
-	desokoro: function (room, user, cmd) {
-		return this.parse('/hotpatch validator');
+	desokoro: function (room, user, cmd, target) {
+		if (!target) return this.parse('/help desokoro');
+		return this.parse('/me desokoros' + target);
 	},
+	desokorohelp: ["/desokoro [target] - Deskoros a user."],
 };
