@@ -35,21 +35,6 @@ Signature Move: Daredevil
 Notes: idk
 Rank: N/A.
 
-Insist
-(Ludicolo)
-@ Playnium Z
-	- Allows user to use Exiled From All Others.
-		- Exiled From All Others: Water Type, Special, 150 BP, Z-Move.
-EVs: 252 SpA / 252 Spe / 4 HP
-Timid Nature
-Ability: Crippling Depression
-	- Primordial Sea, Rain Dish and Swift Swim.
-Moves: Giga Drain, Focus Blast and Freeze-Dry.
-Signature Move: Aqua Subscribe
-	- Water Type, Special, 90 BP, 100% Accuracy, 15 PP and boosts own SpA and Spe by 1 stage and +1 Priority.
-Notes: Fast Rain Abuser with priority.
-Rank: S.
-
 Kraken Mare
 (Gardevoir-Mega)
 @ Focus Sash
