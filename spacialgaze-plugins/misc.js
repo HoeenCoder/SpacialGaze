@@ -542,11 +542,4 @@ exports.commands = {
 		if (!this.runBroadcast()) return;
 		this.sendReplyBox("<a href=\"https://discord.gg/cwfAqdN\">The Official SpacialGaze Discord</a>");
 	},
-	'!desokoro': true,
-	desokoros: 'desokoro',
-	desokoro: function (room, user, cmd, target) {
-		if (!target) return this.parse('/help desokoro');
-		return this.parse('/me desokoros' + target);
-	},
-	desokorohelp: ["/desokoro [target] - Deskoros a user."],
 };
