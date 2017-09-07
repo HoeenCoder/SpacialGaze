@@ -100,6 +100,11 @@ function validate(me, targetUser, quiet) {
 			if (!quiet) me.errorReply(targetUser.name + '\'s move "' + targetUser.movepool[i] + '" does not exist.');
 			targetUser.removeMove(targetUser.movepool[i]);
 		}
+		if (Dex.getMove(targetUser.movepool[i].ohko) {
+			valid = false;
+			if (!quiet) me.errorReply(targetUser.name + '\'s move "' + targetUser.movepool[i] + '" is banned because its an OHKO move.');
+			targetUser.removeMove(targetUser.movepool[i]);
+		}
 	}
 	//Check customs to make sure the user can use them.
 	if (targetUser.cMove) {
@@ -393,14 +398,10 @@ class SSB {
 		move = Dex.getMove(toId(move));
 		if (!move.exists) return false; //Only normal moves here.
 		if (this.movepool.length + (this.cMove === false ? 0 : 1) >= MAX_MOVEPOOL_SIZE) return false;
-		/*let learnpool = [];
-		for(let i in Tools.getTemplate(this.species).learnset) {
-		  learnpool.push(i);
-		}
-		if (learnpool.indexOf(move.id) === -1) return false;*/
 		if (TeamValidator('gen7ou').checkLearnset(move, this.species, {
 			set: {},
 		})) return false;
+		if (move.ohko) return false;
 		if (this.movepool.indexOf(move.name) > -1) return false;
 		this.movepool.push(move.name);
 		return true;
