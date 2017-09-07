@@ -100,7 +100,7 @@ function validate(me, targetUser, quiet) {
 			if (!quiet) me.errorReply(targetUser.name + '\'s move "' + targetUser.movepool[i] + '" does not exist.');
 			targetUser.removeMove(targetUser.movepool[i]);
 		}
-		if (Dex.getMove(targetUser.movepool[i].ohko) {
+		if (Dex.getMove(targetUser.movepool[i].ohko)) {
 			valid = false;
 			if (!quiet) me.errorReply(targetUser.name + '\'s move "' + targetUser.movepool[i] + '" is banned because its an OHKO move.');
 			targetUser.removeMove(targetUser.movepool[i]);
