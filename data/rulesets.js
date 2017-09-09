@@ -83,6 +83,7 @@ exports.BattleFormats = {
 			let problems = [];
 			let totalEV = 0;
 			let allowCAP = !!(format && this.getRuleTable(format).has('allowcap'));
+			let fivemove = !!(format && this.getRuleTable(format).has('fivemoverule'));
 
 			if (set.species === set.name) delete set.name;
 			if (template.gen > this.gen) {
@@ -111,8 +112,14 @@ exports.BattleFormats = {
 			if (item.gen > this.gen) {
 				problems.push(item.name + ' does not exist in gen ' + this.gen + '.');
 			}
-			if (set.moves && set.moves.length > 4) {
-				problems.push((set.name || set.species) + ' has more than four moves.');
+			if (fivemove) {
+				if (set.moves && set.moves.length > 5) {
+					problems.push((set.name || set.species) + ' has more than five moves.');
+				}
+			} else {
+				if (set.moves && set.moves.length > 4) {
+					problems.push((set.name || set.species) + ' has more than four moves.');
+				}
 			}
 			if (set.level && set.level > 100) {
 				problems.push((set.name || set.species) + ' is higher than level 100.');
@@ -762,5 +769,11 @@ exports.BattleFormats = {
 		name: 'Allow CAP',
 		desc: ["Allows the use of Pok&eacute;mon, abilities, moves, and items made by the Create-A-Pok&eacute;mon project"],
 		// Implemented in the 'pokemon' ruleset
+	},
+	fivemoverule: {
+		effectType: 'ValidatorRule',
+		name: 'Five Move Rule',
+		desc: ["Allows Pok&eacute;mon to use five moves instead of four"],
+		// Implemented in the 'pokemon' ruleset and in teamvalidator.js
 	},
 };
