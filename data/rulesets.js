@@ -774,6 +774,6 @@ exports.BattleFormats = {
 		effectType: 'ValidatorRule',
 		name: 'Five Move Rule',
 		desc: ["Allows Pok&eacute;mon to use five moves instead of four"],
-		// Implemented in the 'pokemon' ruleset and in teamvalidator.js
+		// Implemented in the 'pokemon' ruleset
 	},
 };
