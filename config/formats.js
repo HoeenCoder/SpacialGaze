@@ -1893,17 +1893,17 @@ exports.Formats = [
 		onValidateTeam: function (team) {
 			let itemTable = {};
 			for (let i = 0; i < team.length; i++) {
- 				let item = this.getItem(team[i].item);
- 				if (!item) continue;
- 				if (!(item in itemTable)) {
- 					itemTable[item] = 1;
- 				} else if (itemTable[item] < 2) {
- 					itemTable[item]++;
- 				} else {
- 					if (item.megaStone) return ["You are limited to two of each Mega Stone.", "(You have more than two " + this.getItem(item).name + ")"];
- 					if (item.id === 'blueorb' || item.id === 'redorb') return ["You are limited to two of each Primal Orb.", "(You have more than two " + this.getItem(item).name + ")"];
- 				}
- 			}
+				let item = this.getItem(team[i].item);
+				if (!item) continue;
+				if (!(item in itemTable)) {
+					itemTable[item] = 1;
+				} else if (itemTable[item] < 2) {
+					itemTable[item]++;
+				} else {
+					if (item.megaStone) return ["You are limited to two of each Mega Stone.", "(You have more than two " + this.getItem(item).name + ")"];
+					if (item.id === 'blueorb' || item.id === 'redorb') return ["You are limited to two of each Primal Orb.", "(You have more than two " + this.getItem(item).name + ")"];
+				}
+			}
 		},
 		onValidateSet: function (set) {
 			let template = this.getTemplate(set.species || set.name);
