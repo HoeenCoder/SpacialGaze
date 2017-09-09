@@ -1883,6 +1883,15 @@ exports.Formats = [
 		gameType: 'doubles',
 		ruleset: ['[Gen 7] Doubles OU', 'Same Type Clause'],
 	},
+	{
+		name: "[Gen 7] Five Move Frenzy",
+		desc: [
+			"Pokemon can use 5 moves instead of four! Coded by Glgars",
+		],
+
+		mod: 'gen7',
+		ruleset: ['[Gen 7] OU', 'Five Move Rule'],
+	},
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
 	{
