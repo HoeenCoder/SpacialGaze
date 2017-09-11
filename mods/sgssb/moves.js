@@ -617,7 +617,7 @@ exports.BattleMovedex = {
 		secondary: false,
 		category: "Special",
 		onHit: function (target, source, move) {
-			this.add('c|@Insist|Subscribe to http://youtube.com/DeathlyPlays');
+			this.add('c|+Insist|Subscribe to http://youtube.com/DeathlyPlays');
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -648,7 +648,7 @@ exports.BattleMovedex = {
 			protect: 1,
 		},
 		onHit: function (target, source, move) {
-			this.add('c|@Insist|Exiled from all others, we shall become greater than ever before.');
+			this.add('c|+Insist|Exiled from all others, we shall become greater than ever before.');
 		},
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
