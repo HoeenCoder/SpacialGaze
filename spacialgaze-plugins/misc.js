@@ -178,7 +178,7 @@ exports.commands = {
 			"- " + SG.nameColor('The Run', true) + " (Former Server Owner, Development)<br />" +
 			"- " + SG.nameColor('Vulcaron', true) + " (Former Policy Leader)<br />" +
 			"- " + SG.nameColor('HiroZ', true) + " (Former Policy Leader)<br />" +
-		    	"- " + SG.nameColor('Insist', true) + " (Former Developer)<br />" +
+			"- " + SG.nameColor('Insist', true) + " (Former Developer)<br />" +
 			"<br />" +
 			"<u><b>Special Thanks:</b></u><br />" +
 			"- Our Staff Members<br />" +
