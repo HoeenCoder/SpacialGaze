@@ -1956,7 +1956,7 @@ exports.Formats = [
 	{
 		name: "[Gen 7] Five Move Frenzy",
 		desc: [
-			"Pokemon can use 5 moves instead of four! Coded by Glgars",
+			"Pokemon can use five moves instead of four! Coded by Glgars",
 		],
 
 		mod: 'fivemovefrenzy',
