@@ -1899,6 +1899,15 @@ exports.Formats = [
 		ruleset: ['[Gen 7] Doubles OU', 'Same Type Clause'],
 	},
 	{
+		name: "[Gen 7] Five Move Frenzy",
+		desc: [
+			"Pokemon can use 5 moves instead of four! Coded by Glgars",
+		],
+
+		mod: 'gen7',
+		ruleset: ['[Gen 7] OU', 'Five Move Rule'],
+	},
+	{
 		name: "[Gen 7] Mix and Mega SG Draft League Edition",
 		desc: ["A special Version of Mix and Mega created by Gligar Specifically For the SG Draft League on SpacialGaze. Changes include: Rayquaza can mega Evolve to Mega Rayquaza, Marshadow, Regigigas, Dragonite, Black Kyurem, LC Pokemon, and NFE pokemon can mega evolve."],
 
