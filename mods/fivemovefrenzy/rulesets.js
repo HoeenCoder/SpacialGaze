@@ -175,7 +175,7 @@ exports.BattleFormats = {
 					iciclecrash: 'Pikachu-Belle',
 					drainingkiss: 'Pikachu-Pop-Star',
 					electricterrain: 'Pikachu-PhD',
-					flyingpress: 'Pikachu-Libre'
+					flyingpress: 'Pikachu-Libre',
 				};
 				for (let i = 0; i < set.moves.length; i++) {
 					if (set.moves[i] in cosplay) {
