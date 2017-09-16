@@ -1953,6 +1953,15 @@ exports.Formats = [
 			}
 		},
 	},
+	{
+		name: "[Gen 7] Five Move Frenzy",
+		desc: [
+			"Pokemon can use 5 moves instead of four! Coded by Glgars",
+		],
+
+		mod: 'fivemovefrenzy',
+		ruleset: ['[Gen 7] OU'],
+	},
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
 	{
