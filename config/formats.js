@@ -1897,6 +1897,7 @@ exports.Formats = [
 		mod: 'gen7',
 		gameType: 'doubles',
 		ruleset: ['[Gen 7] Doubles OU', 'Same Type Clause'],
+		banlist: ['Terrain Extender', 'Smooth Rock', 'Damp Rock'],
 	},
 	{
 		name: "[Gen 7] Mix and Mega SG Draft League Edition",
