@@ -522,7 +522,7 @@ exports.Formats = [
 		desc: [
 			"You may have thought this was Pokemon Showdown, but I must reassure you that you were mistaken, welcome to DIGIMON SHOWDOWN",
 			"Ahem, but in all seriousness, the following developers listed below created Digimon in Pokemon Showdown, so why not just try it out :D",
-			"Ashley the Pikachu (Head Researcher, Began the project, Attack Manual, Type Chart Manual, Music Selection and Music HTML, Sprite Selection), Insist (Head Developer), AlphaStorm (Animations), Gligars (Assisted other developers), HoeenHero (Assisted with Mechanics)",
+			"Ashley the Pikachu (Head Researcher, Began the project, Attack Manual, Type Chart Manual, Music Selection and Music HTML, Sprite Selection), Insist (Head Developer), Alfastorm (Animations), Lycanium Z (Assisted other developers), HoeenHero (Assisted with Mechanics)",
 		],
 
 		mod: "digimon",
@@ -1891,16 +1891,17 @@ exports.Formats = [
 	{
 		name: "[Gen 7] Doubles Monotype",
 		desc: [
-			"All the Pok&eacute;mon on a team must share a type. The battle is fought in the Doubles Format. Banlist is the same as Doubles OU. Requested by Ashley the Pikachu. \"Coded\" by Gligars.",
+			"All the Pok&eacute;mon on a team must share a type. The battle is fought in the Doubles Format. Banlist is the same as Doubles OU. Requested by Ashley the Pikachu.",
 		],
 
 		mod: 'gen7',
 		gameType: 'doubles',
 		ruleset: ['[Gen 7] Doubles OU', 'Same Type Clause'],
+		banlist: ['Terrain Extender', 'Smooth Rock', 'Damp Rock'],
 	},
 	{
 		name: "[Gen 7] Mix and Mega SG Draft League Edition",
-		desc: ["A special Version of Mix and Mega created by Gligar Specifically For the SG Draft League on SpacialGaze. Changes include: Rayquaza can mega Evolve to Mega Rayquaza, Marshadow, Regigigas, Dragonite, Black Kyurem, LC Pokemon, and NFE pokemon can mega evolve."],
+		desc: ["A special Version of Mix and Mega created by Lycanium Z Specifically For the SG Draft League on SpacialGaze. Changes include: Rayquaza can mega Evolve to Mega Rayquaza, Marshadow, Regigigas, Dragonite, Black Kyurem, LC Pokemon, and NFE pokemon can mega evolve."],
 
 		mod: 'sgmnm',
 		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
@@ -1952,6 +1953,15 @@ exports.Formats = [
 				this.add('-end', pokemon, oMegaTemplate.requiredItem || oMegaTemplate.requiredMove, '[silent]');
 			}
 		},
+	},
+	{
+		name: "[Gen 7] Five Move Frenzy",
+		desc: [
+			"Pokemon can use five moves instead of four! Coded by Lycanium Z.",
+		],
+
+		mod: 'fivemovefrenzy',
+		ruleset: ['[Gen 7] OU'],
 	},
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
