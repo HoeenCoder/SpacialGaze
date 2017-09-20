@@ -569,34 +569,77 @@ exports.BattleMovedex = {
 		type: "Water",
 	},
 	// Gligars
-	daredevil: {
+	altstorm: {
 		accuracy: 100,
-		basePower: 70,
-		basePowerCallback: function (pokemon, target, move) {
-			if (this.willMove(target)) {
-				this.debug("Power doubled for going first");
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
+		basePower: 30,
 		category: "Physical",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Giga Impact", target);
+			this.add('-anim', source, "Uproar", target);
 		},
-		desc: "Power doubles if the user goes first.",
-		shortDesc: "Power doubles if the user goes first.",
-		id: "daredevil",
+		onAfterHit: function (target, source) {
+			target.trySetVolatileStatus('confusion', source);
+		},
+		desc: "Hits 10 times. Confuses the target after.",
+		id: "altstorm",
 		isNonStandard: true,
-		name: "Daredevil",
+		name: "Alt Storm",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		multihit: [10],
 		secondary: false,
 		target: "normal",
-		type: "Flying",
-		zMovePower: 140,
+		type: "Fairy",
+		zMovePower: 100,
 		contestType: "Cool",
+	},
+	
+	sidechange: {
+		//Shamelessly stole from QTRX's ssb melee move
+		accuracy: true,
+		basePower: 1,
+		category: "Physical",
+		id: "sidechange",
+		isNonstandard: true,
+		name: "Side Change",
+		pp: 1,
+		isZ: "lycaniumz",
+		noPPBoosts: true,
+		priority: 0,
+		flags: {snatch: 1, authentic: 1},
+		onModifyMove: function (move, source) {
+			if (this.p1.pokemon.filter(mon => !mon.fainted).length > 1 && this.p2.pokemon.filter(mon => !mon.fainted).length > 1) {
+				source.addVolatile('switch');
+				move.forceSwitch = true;
+				move.selfSwitch = true;
+			}
+		},
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Bounce", target);
+		},
+		onHit: function (target, source) {
+			if (source.volatiles['ingrain'] || target.volatiles['ingrain']) {
+				// Avoid weirdness with trade prompts when trading is not possible
+				this.useMove("splash", source, target);
+				source.removeVolatile('switch');
+				this.useMove("perishsong", source, target);
+			} else if (source.volatiles['switch']) {
+				for (let i in source.moveset) {
+					if (source.moveset[i].id === 'aurora veil') {
+						source.moveset[i].pp = 0;
+					},
+				}
+				target.swapping = true;
+				source.swapping = true;
+			} else {
+				this.useMove("splash", source, target);
+			}
+		},
+		secondary: false,
+		target: "normal",
+		type: "Fairy",
 	},
 	// Insist
 	aquasubscribe: {
