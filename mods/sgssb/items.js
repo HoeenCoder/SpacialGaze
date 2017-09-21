@@ -18,9 +18,9 @@ exports.BattleItems = {
 		id: "lycaniumz",
 		name: "Lycanium Z",
 		isNonStandard: true,
-		zMove: "Change Teams",
+		zMove: "Wreak Havoc",
 		zMoveFrom: "Alt Storm",
 		zMoveUser: ["Lycanroc"],
-		desc: "If holder is a Lycanroc with Alt Storm, it can use Change Teams.",
+		desc: "If holder is a Lycanroc with Alt Storm, it can use Wreak Havoc.",
 	},
 };
