@@ -233,8 +233,7 @@ exports.BattleAbilities = {
 
 	//In Tandem with Lycanium Z's Wreck Havoc Move
 	virus: {
-		desc: "Pokemon making contact with this Pokemon have their Ability changed to Mummy. Does not affect the Abilities Multitype or Stance Change.",
-		shortDesc: "Pokemon making contact with this Pokemon have their Ability changed to Mummy.",
+		shortDesc: "Transforms the pokemon to unown and other odd effects.",
 		id: "virus",
 		name: "Virus",
 		onAfterDamage: function (damage, target, source, move) {
