@@ -568,7 +568,7 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Water",
 	},
-	// Gligars
+	// Lycanium Z
 	altstorm: {
 		accuracy: 100,
 		basePower: 30,
@@ -576,9 +576,6 @@ exports.BattleMovedex = {
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Uproar", target);
-		},
-		onAfterHit: function (target, source) {
-			target.trySetVolatileStatus('confusion', source);
 		},
 		desc: "Hits 10 times. Confuses the target after.",
 		id: "altstorm",
@@ -588,54 +585,35 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		multihit: [10],
-		secondary: false,
+		secondary: {
+			chance: 100,
+			volatileStatus: 'confusion',
+		},
 		target: "normal",
 		type: "Fairy",
 		zMovePower: 100,
 		contestType: "Cool",
 	},
 	
-	sidechange: {
-		//Shamelessly stole from QTRX's ssb melee move
+	wreakhavoc: {
 		accuracy: true,
-		basePower: 1,
-		category: "Physical",
-		id: "sidechange",
+		basePower: 0,
+		category: "Status",
+		id: "wreakhavoc",
 		isNonstandard: true,
-		name: "Side Change",
+		name: "Wreak Havoc",
 		pp: 1,
 		isZ: "lycaniumz",
 		noPPBoosts: true,
 		priority: 0,
-		flags: {snatch: 1, authentic: 1},
-		onModifyMove: function (move, source) {
-			if (this.p1.pokemon.filter(mon => !mon.fainted).length > 1 && this.p2.pokemon.filter(mon => !mon.fainted).length > 1) {
-				source.addVolatile('switch');
-				move.forceSwitch = true;
-				move.selfSwitch = true;
+		flags: {authentic: 1},
+		onHit: function (pokemon) {
+			let oldAbility = pokemon.setAbility('virus');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Virus', '[from] move: Wreak Havoc');
+				return;
 			}
-		},
-		onPrepareHit: function (target, source) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Bounce", target);
-		},
-		onHit: function (target, source) {
-			if (source.volatiles['ingrain'] || target.volatiles['ingrain']) {
-				// Avoid weirdness with trade prompts when trading is not possible
-				this.useMove("splash", source, target);
-				source.removeVolatile('switch');
-				this.useMove("perishsong", source, target);
-			} else if (source.volatiles['switch']) {
-				for (let i in source.moveset) {
-					if (source.moveset[i].id === 'aurora veil') {
-						source.moveset[i].pp = 0;
-					},
-				}
-				target.swapping = true;
-				source.swapping = true;
-			} else {
-				this.useMove("splash", source, target);
-			}
+			return false;
 		},
 		secondary: false,
 		target: "normal",
