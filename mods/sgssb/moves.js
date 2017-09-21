@@ -577,14 +577,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Uproar", target);
 		},
-		desc: "Hits 5 times. Confuses the target after.",
+		desc: "Hits 3-5 times. Confuses the target after.",
 		id: "altstorm",
 		isNonStandard: true,
 		name: "Alt Storm",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		multihit: 5,
+		multihit: [3, 5],
 		secondary: {
 			chance: 100,
 			volatileStatus: 'confusion',
