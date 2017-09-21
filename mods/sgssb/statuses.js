@@ -239,16 +239,16 @@ exports.BattleStatuses = {
 			this.add('c', '+Ranfen', 'No Fair flygon cant be beat D:');
 		},
 	},
-	gligars: {
+	lycaniumz: {
 		exists: true,
 		onStart: function () {
-			this.add('c', '%Gligars', 'Smokin\'!');
+			this.add('c', '%Lycanium Z', 'Hi. Im that random guy noone thinks about');
 		},
 		onSwitchOut: function (pokemon) {
-			this.add('c', '%Gligars', 'Gotta go. I gotta pick up more of that green stuff, ya know what I\'m sayin\'?');
+			this.add('c', '%Autograph', 'brb gonna change alts');
 		},
 		onFaint: function (pokemon) {
-			this.add('c', '%Gligars', 'Look, ma! I\'m roadkill!');
+			this.add('c', '%Bellhop', 'lol im dead. Back to alt hunting');
 		},
 	},
 	insist: {

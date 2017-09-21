@@ -568,35 +568,56 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Water",
 	},
-	// Gligars
-	daredevil: {
+	// Lycanium Z
+	altstorm: {
 		accuracy: 100,
-		basePower: 70,
-		basePowerCallback: function (pokemon, target, move) {
-			if (this.willMove(target)) {
-				this.debug("Power doubled for going first");
-				return move.basePower * 2;
-			}
-			return move.basePower;
-		},
+		basePower: 30,
 		category: "Physical",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Giga Impact", target);
+			this.add('-anim', source, "Uproar", target);
 		},
-		desc: "Power doubles if the user goes first.",
-		shortDesc: "Power doubles if the user goes first.",
-		id: "daredevil",
+		desc: "Hits 3-5 times. Confuses the target after.",
+		id: "altstorm",
 		isNonStandard: true,
-		name: "Daredevil",
+		name: "Alt Storm",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		multihit: [3, 5],
+		secondary: {
+			chance: 100,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Fairy",
+		zMovePower: 100,
+		contestType: "Cool",
+	},
+	// Lycanium Z
+	wreakhavoc: {
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		id: "wreakhavoc",
+		isNonstandard: true,
+		name: "Wreak Havoc",
+		pp: 1,
+		isZ: "notthelycaniumziswear",
+		noPPBoosts: true,
+		priority: 0,
+		flags: {authentic: 1},
+		onHit: function (pokemon) {
+			let oldAbility = pokemon.setAbility('virus');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'Virus', '[from] move: Wreak Havoc');
+				return;
+			}
+			return false;
+		},
 		secondary: false,
 		target: "normal",
-		type: "Flying",
-		zMovePower: 140,
-		contestType: "Cool",
+		type: "Fairy",
 	},
 	// Insist
 	aquasubscribe: {

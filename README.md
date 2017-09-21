@@ -112,7 +112,7 @@ Owners
 Contributors
 
 - [Insist](https://github.com/DeathlyPlays)
-- [Gligars](https://github.com/Lycanium-Z)
+- [Lycanium Z](https://github.com/Lycanium-Z)
 
 Special thanks
 
