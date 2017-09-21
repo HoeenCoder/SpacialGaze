@@ -577,14 +577,14 @@ exports.BattleMovedex = {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Uproar", target);
 		},
-		desc: "Hits 10 times. Confuses the target after.",
+		desc: "Hits 5 times. Confuses the target after.",
 		id: "altstorm",
 		isNonStandard: true,
 		name: "Alt Storm",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		multihit: 10,
+		multihit: 5,
 		secondary: {
 			chance: 100,
 			volatileStatus: 'confusion',
@@ -603,7 +603,7 @@ exports.BattleMovedex = {
 		isNonstandard: true,
 		name: "Wreak Havoc",
 		pp: 1,
-		isZ: "lycaniumz",
+		isZ: "notthelycaniumziswear",
 		noPPBoosts: true,
 		priority: 0,
 		flags: {authentic: 1},
