@@ -33,7 +33,7 @@ Adamant Nature
 Ability: Snow Warning
 Moves: Earthquake, Diamond Storm and Aurora Veil.
 Signature Move: Alt Storm
-	- Fairy Type, Physical, 30 BP, 100% Accuracy, 10 PP, hits 10 times, always confuses the opponent.
+	- Fairy Type, Physical, 30 BP, 100% Accuracy, 10 PP, hits 5 times, always confuses the opponent.
 Notes: Watch out for the virus.
 Rank: N/A.
 
