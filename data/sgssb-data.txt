@@ -25,7 +25,7 @@ Rank: N/A.
 
 Lycanium Z
 (Lycanroc)
-@ Playnium Z
+@ Lycanium Z
 	- Allows user to use Wreak Havoc.
 		- Wreak Havoc: Changes the pokemon's ability to Virus, Z-Move.
 EVs: 252 Atk / 4 Def / 252 Spe
