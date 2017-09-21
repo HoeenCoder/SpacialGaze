@@ -202,7 +202,7 @@ class RandomSeasonalRegStaffTeams extends RandomTeams {
 				ability: "Snow Warning",
 				item: "Lycanium Z",
 				gender: "M",
-				moves: ['Accelrock', 'Earthquake', 'Aurora Veil'],
+				moves: ['Diamond Storm', 'Earthquake', 'Aurora Veil'],
 				signatureMove: "Alt Storm",
 				evs: {
 					atk: 252,
