@@ -594,7 +594,7 @@ exports.BattleMovedex = {
 		zMovePower: 100,
 		contestType: "Cool",
 	},
-	
+	// Lycanium Z
 	wreakhavoc: {
 		accuracy: true,
 		basePower: 0,
