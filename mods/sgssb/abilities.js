@@ -237,7 +237,7 @@ exports.BattleAbilities = {
 		id: "virus",
 		name: "Virus",
 		onAfterDamage: function (damage, target, source, move) {
-			if (source && source !== target && move) {
+			if (source && source !== target && move && move.flags['contact']) {
 				let oldAbility = source.setAbility('virus', source, 'virus', true);
 				if (oldAbility) {
 					this.add('-activate', target, 'ability: Virus', this.getAbility(oldAbility).name, '[of] ' + source);
