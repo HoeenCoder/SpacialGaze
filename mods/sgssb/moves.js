@@ -584,7 +584,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		multihit: [10],
+		multihit: 10,
 		secondary: {
 			chance: 100,
 			volatileStatus: 'confusion',
