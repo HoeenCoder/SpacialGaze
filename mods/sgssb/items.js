@@ -12,11 +12,11 @@ exports.BattleItems = {
 		zMoveUser: ["Ludicolo"],
 		desc: "If holder is a Ludicolo with Aqua Subscribe, it can use Exiled From All Others.",
 	},
-	lycaniumz: {
+	notthelycaniumziswear: {
 		spritenum: 656,
 		onTakeItem: false,
-		id: "lycaniumz",
-		name: "Lycanium Z",
+		id: "notthelycaniumziswear",
+		name: "Not the Lycanium Z i swear",
 		isNonStandard: true,
 		zMove: "Wreak Havoc",
 		zMoveFrom: "Alt Storm",
