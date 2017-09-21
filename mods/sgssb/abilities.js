@@ -233,7 +233,7 @@ exports.BattleAbilities = {
 
 	//In Tandem with Lycanium Z's Wreck Havoc Move
 	virus: {
-		shortDesc: "Transforms the pokemon to unown and other odd effects.",
+		shortDesc: "Transforms the pokemon to unown and other odd effects. Gain ability on contact with a pokemon with ability virus.",
 		id: "virus",
 		name: "Virus",
 		onAfterDamage: function (damage, target, source, move) {
