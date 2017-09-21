@@ -245,14 +245,14 @@ exports.BattleAbilities = {
 			}
 		},
 		onStart: function (source, effect) {
-				this.add('-activate', source, 'ability: Virus');
-				let template = this.getTemplate('Unown');
-				source.formeChange(template);
-				source.baseTemplate = template;
-				source.ability = "virus";
-				source.details = template.species + (source.level === 100 ? '' : ', L' + source.level) + (source.gender === '' ? '' : ', ' + source.gender) + (source.set.shiny ? ', shiny' : '');
-				this.add('detailschange', source, source.details);
-				source.addVolatile('flinch');
+			this.add('-activate', source, 'ability: Virus');
+			let template = this.getTemplate('Unown');
+			source.formeChange(template);
+			source.baseTemplate = template;
+			source.ability = "virus";
+			source.details = template.species + (source.level === 100 ? '' : ', L' + source.level) + (source.gender === '' ? '' : ', ' + source.gender) + (source.set.shiny ? ', shiny' : '');
+			this.add('detailschange', source, source.details);
+			source.addVolatile('flinch');
 		},
 		onBeforeMove: function (pokemon) {
 			this.useMove('pound', pokemon);
