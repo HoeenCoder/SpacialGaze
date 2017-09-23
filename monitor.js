@@ -143,14 +143,14 @@ const Monitor = module.exports = {
 	 */
 	countConnection(ip, name = '') {
 		let [count, duration] = this.connections.increment(ip, 30 * 60 * 1000);
-		if (count === 500) {
+		if (count === 100) {
 			this.adminlog(`[ResourceMonitor] IP ${ip} banned for cflooding (${count} times in ${Chat.toDurationString(duration)}${name ? `: ${name}` : ''})`);
 			return true;
 		}
 
-		if (count > 500) {
-			if (count % 500 === 0) {
-				let c = count / 500;
+		if (count > 100) {
+			if (count % 100 === 0) {
+				let c = count / 100;
 				if (c === 2 || c === 4 || c === 10 || c === 20 || c % 40 === 0) {
 					this.adminlog(`[ResourceMonitor] IP ${ip} still cflooding (${count} times in ${Chat.toDurationString(duration)}${name ? `: ${name}` : ''})`);
 				}
