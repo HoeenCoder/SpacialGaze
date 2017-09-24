@@ -172,7 +172,7 @@ exports.commands = {
 			"- " + SG.nameColor('Opple', true) + " (Policy Leader, Media Leader)<br />" +
 			"- " + SG.nameColor('C733937 123', true) + " (Policy Leader)<br />" +
 			"- " + SG.nameColor('Ashley the Pikachu', true) + " (CSS, Spriting, Digimon Project)<br />" +
-			"- " + SG.nameColor('Gligars', true) + " (Development)<br />" +
+			"- " + SG.nameColor('Lycanium Z', true) + " (Development)<br />" +
 			"<br />" +
 			"<u><b>Retired Staff:</b></u><br />" +
 			"- " + SG.nameColor('The Run', true) + " (Former Server Owner, Development)<br />" +

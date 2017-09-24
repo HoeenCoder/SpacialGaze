@@ -23,16 +23,18 @@ Signature Move: Mystic Mirage
 Notes: idk
 Rank: N/A.
 
-Gligars
-(Gligar)
-@ Eviolite
-EVs: 172 Atk / 84 Def / 252 SpD
+Lycanium Z
+(Lycanroc)
+@ Not the Lycanium Z i swear
+	- Allows user to use Wreak Havoc.
+		- Wreak Havoc: Changes the pokemon's ability to Virus, Z-Move.
+EVs: 252 Atk / 4 Def / 252 Spe
 Adamant Nature
-Ability: Regenerator
-Moves: Thousand Arrows, U-Turn and Sacred Fire/Bolt Strike.
-Signature Move: Daredevil
-	- Flying Type, Physical, 70 BP, 100% Accuracy, 10 PP, and Power doubles if the user goes first.
-Notes: idk
+Ability: Snow Warning
+Moves: Earthquake, Diamond Storm and Aurora Veil.
+Signature Move: Alt Storm
+	- Fairy Type, Physical, 30 BP, 100% Accuracy, 10 PP, hits 3-5 times, always confuses the opponent.
+Notes: Watch out for the virus.
 Rank: N/A.
 
 Insist

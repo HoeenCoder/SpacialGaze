@@ -345,7 +345,7 @@ exports.Formats = [
 		defaultLevel: 100,
 		debug: true,
 		teamLength: {
-			validate: [1, 24],
+			validate: [2, 24],
 			battle: 24,
 		},
 		// no restrictions, for serious (other than team preview)
@@ -512,13 +512,17 @@ exports.Formats = [
 			this.add("raw|<h3>1</h3>");
 			this.add("raw|<h1>BATTLE!</h1>");
 		},
+		onSwitchInPriority: 1,
+		onSwitchIn: function (pokemon) {
+			if (!pokemon.template.isMega) pokemon.canMegaEvo = this.canMegaEvo(pokemon);
+		},
 	},
 	{
 		name: "[Gen 7] Digimon Showdown",
 		desc: [
 			"You may have thought this was Pokemon Showdown, but I must reassure you that you were mistaken, welcome to DIGIMON SHOWDOWN",
 			"Ahem, but in all seriousness, the following developers listed below created Digimon in Pokemon Showdown, so why not just try it out :D",
-			"Ashley the Pikachu (Head Researcher, Began the project, Attack Manual, Type Chart Manual, Music Selection and Music HTML, Sprite Selection), Insist (Head Developer), AlphaStorm (Animations), Gligars (Assisted other developers), HoeenHero (Assisted with Mechanics)",
+			"Ashley the Pikachu (Head Researcher, Began the project, Attack Manual, Type Chart Manual, Music Selection and Music HTML, Sprite Selection), Insist (Head Developer), Alfastorm (Animations), Lycanium Z (Assisted other developers), HoeenHero (Assisted with Mechanics)",
 		],
 
 		mod: "digimon",
@@ -1887,12 +1891,77 @@ exports.Formats = [
 	{
 		name: "[Gen 7] Doubles Monotype",
 		desc: [
-			"All the Pok&eacute;mon on a team must share a type. The battle is fought in the Doubles Format. Banlist is the same as Doubles OU. Requested by Ashley the Pikachu. \"Coded\" by Gligars.",
+			"All the Pok&eacute;mon on a team must share a type. The battle is fought in the Doubles Format. Banlist is the same as Doubles OU. Requested by Ashley the Pikachu.",
 		],
 
 		mod: 'gen7',
 		gameType: 'doubles',
 		ruleset: ['[Gen 7] Doubles OU', 'Same Type Clause'],
+		banlist: ['Terrain Extender', 'Smooth Rock', 'Damp Rock'],
+	},
+	{
+		name: "[Gen 7] Mix and Mega SG Draft League Edition",
+		desc: ["A special Version of Mix and Mega created by Lycanium Z Specifically For the SG Draft League on SpacialGaze. Changes include: Rayquaza can mega Evolve to Mega Rayquaza, Marshadow, Regigigas, Dragonite, Black Kyurem, LC Pokemon, and NFE pokemon can mega evolve."],
+
+		mod: 'sgmnm',
+		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
+		banlist: ['Baton Pass', 'Electrify + Sceptilite', 'Electrify + Lightning Rod'],
+		onValidateTeam: function (team) {
+			let itemTable = {};
+			for (let i = 0; i < team.length; i++) {
+				let item = this.getItem(team[i].item);
+				if (!item) continue;
+				if (!(item in itemTable)) {
+					itemTable[item] = 1;
+				} else if (itemTable[item] < 2) {
+					itemTable[item]++;
+				} else {
+					if (item.megaStone) return ["You are limited to two of each Mega Stone.", "(You have more than two " + this.getItem(item).name + ")"];
+					if (item.id === 'blueorb' || item.id === 'redorb') return ["You are limited to two of each Primal Orb.", "(You have more than two " + this.getItem(item).name + ")"];
+				}
+			}
+		},
+		onValidateSet: function (set) {
+			let template = this.getTemplate(set.species || set.name);
+			let item = this.getItem(set.item);
+			if (!item.megaEvolves && item.id !== 'blueorb' && item.id !== 'redorb') return;
+			if (template.baseSpecies === item.megaEvolves || (template.baseSpecies === 'Groudon' && item.id === 'redorb') || (template.baseSpecies === 'Kyogre' && item.id === 'blueorb')) return;
+			let uberStones = ['beedrillite', 'blazikenite', 'gengarite', 'kangaskhanite', 'mawilite', 'medichamite'];
+			if (template.tier === 'Uber' || set.ability === 'Power Construct' || uberStones.includes(item.id)) return ["" + template.species + " is not allowed to hold " + item.name + "."];
+		},
+		onBegin: function () {
+			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
+			for (let i = 0, len = allPokemon.length; i < len; i++) {
+				let pokemon = allPokemon[i];
+				pokemon.originalSpecies = pokemon.baseTemplate.species;
+			}
+		},
+		onSwitchIn: function (pokemon) {
+			let oMegaTemplate = this.getTemplate(pokemon.template.originalMega);
+			if (oMegaTemplate.exists && pokemon.originalSpecies !== oMegaTemplate.baseSpecies) {
+				// Place volatiles on the Pokémon to show its mega-evolved condition and details
+				this.add('-start', pokemon, oMegaTemplate.requiredItem || oMegaTemplate.requiredMove, '[silent]');
+				let oTemplate = this.getTemplate(pokemon.originalSpecies);
+				if (oTemplate.types.length !== pokemon.template.types.length || oTemplate.types[1] !== pokemon.template.types[1]) {
+					this.add('-start', pokemon, 'typechange', pokemon.template.types.join('/'), '[silent]');
+				}
+			}
+		},
+		onSwitchOut: function (pokemon) {
+			let oMegaTemplate = this.getTemplate(pokemon.template.originalMega);
+			if (oMegaTemplate.exists && pokemon.originalSpecies !== oMegaTemplate.baseSpecies) {
+				this.add('-end', pokemon, oMegaTemplate.requiredItem || oMegaTemplate.requiredMove, '[silent]');
+			}
+		},
+	},
+	{
+		name: "[Gen 7] Five Move Frenzy",
+		desc: [
+			"Pokemon can use five moves instead of four! Coded by Lycanium Z.",
+		],
+
+		mod: 'fivemovefrenzy',
+		ruleset: ['[Gen 7] OU'],
 	},
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
@@ -2026,7 +2095,6 @@ exports.Formats = [
 		],
 
 		mod: 'mixandmega',
-		searchShow: false,
 		ruleset: ['Pokemon', 'Standard', 'Mega Rayquaza Clause', 'Team Preview'],
 		banlist: ['Baton Pass', 'Electrify'],
 		onValidateTeam: function (team) {
@@ -2047,57 +2115,6 @@ exports.Formats = [
 			if (template.evos.length) return ["" + template.species + " is not allowed to hold " + item.name + " because it's not fully evolved."];
 			let uberStones = ['beedrillite', 'blazikenite', 'gengarite', 'kangaskhanite', 'mawilite', 'medichamite'];
 			if (template.tier === 'Uber' || set.ability === 'Power Construct' || uberStones.includes(item.id)) return ["" + template.species + " is not allowed to hold " + item.name + "."];
-		},
-		onBegin: function () {
-			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
-			for (let i = 0, len = allPokemon.length; i < len; i++) {
-				let pokemon = allPokemon[i];
-				pokemon.originalSpecies = pokemon.baseTemplate.species;
-			}
-		},
-		onSwitchIn: function (pokemon) {
-			let oMegaTemplate = this.getTemplate(pokemon.template.originalMega);
-			if (oMegaTemplate.exists && pokemon.originalSpecies !== oMegaTemplate.baseSpecies) {
-				// Place volatiles on the Pokémon to show its mega-evolved condition and details
-				this.add('-start', pokemon, oMegaTemplate.requiredItem || oMegaTemplate.requiredMove, '[silent]');
-				let oTemplate = this.getTemplate(pokemon.originalSpecies);
-				if (oTemplate.types.length !== pokemon.template.types.length || oTemplate.types[1] !== pokemon.template.types[1]) {
-					this.add('-start', pokemon, 'typechange', pokemon.template.types.join('/'), '[silent]');
-				}
-			}
-		},
-		onSwitchOut: function (pokemon) {
-			let oMegaTemplate = this.getTemplate(pokemon.template.originalMega);
-			if (oMegaTemplate.exists && pokemon.originalSpecies !== oMegaTemplate.baseSpecies) {
-				this.add('-end', pokemon, oMegaTemplate.requiredItem || oMegaTemplate.requiredMove, '[silent]');
-			}
-		},
-	},
-	{
-		name: "[Gen 7] Mix and Mega (suspect test)",
-		desc: ["&bullet; <a href=\"https://www.smogon.com/forums/threads/3587740/\">Mix and Mega Suspect #5: Marshadow</a>"],
-
-		mod: 'mixandmega',
-		challengeShow: false,
-		ruleset: ['[Gen 7] Mix and Mega'],
-		onValidateTeam: function (team) {
-			let itemTable = {};
-			for (let i = 0; i < team.length; i++) {
-				let item = this.getItem(team[i].item);
-				if (!item) continue;
-				if (itemTable[item] && item.megaStone) return ["You are limited to one of each Mega Stone.", "(You have more than one " + this.getItem(item).name + ")"];
-				if (itemTable[item] && (item.id === 'blueorb' || item.id === 'redorb')) return ["You are limited to one of each Primal Orb.", "(You have more than one " + this.getItem(item).name + ")"];
-				itemTable[item] = true;
-			}
-		},
-		onValidateSet: function (set) {
-			let template = this.getTemplate(set.species || set.name);
-			let item = this.getItem(set.item);
-			if (!item.megaEvolves && item.id !== 'blueorb' && item.id !== 'redorb') return;
-			if (template.baseSpecies === item.megaEvolves || (template.baseSpecies === 'Groudon' && item.id === 'redorb') || (template.baseSpecies === 'Kyogre' && item.id === 'blueorb')) return;
-			if (template.evos.length) return ["" + template.species + " is not allowed to hold " + item.name + " because it's not fully evolved."];
-			let uberStones = ['beedrillite', 'blazikenite', 'gengarite', 'kangaskhanite', 'mawilite', 'medichamite'];
-			if (template.tier === 'Uber' || template.species === 'Marshadow' || set.ability === 'Power Construct' || uberStones.includes(item.id)) return ["" + template.species + " is not allowed to hold " + item.name + "."];
 		},
 		onBegin: function () {
 			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
