@@ -24,6 +24,8 @@ const MAX_REASON_LENGTH = 300;
 const MUTE_LENGTH = 7 * 60 * 1000;
 const HOURMUTE_LENGTH = 60 * 60 * 1000;
 
+const MAX_CHATROOM_ID_LENGTH = 225;
+
 exports.commands = {
 
 	'!version': true,
@@ -600,9 +602,10 @@ exports.commands = {
 
 		let id = toId(target);
 		if (!id) return this.parse('/help makechatroom');
+		if (id.length > MAX_CHATROOM_ID_LENGTH) return this.errorReply("The given room title is too long.");
 		// Check if the name already exists as a room or alias
-		if (Rooms.search(id)) return this.errorReply("The room '" + target + "' already exists.");
-		if (!Rooms.global.addChatRoom(target)) return this.errorReply("An error occurred while trying to create the room '" + target + "'.");
+		if (Rooms.search(id)) return this.errorReply(`The room '${target}' already exists.`);
+		if (!Rooms.global.addChatRoom(target)) return this.errorReply(`An error occurred while trying to create the room '${target}'.`);
 
 		if (cmd === 'makeprivatechatroom') {
 			let targetRoom = Rooms.search(target);
@@ -610,17 +613,17 @@ exports.commands = {
 			targetRoom.chatRoomData.isPrivate = true;
 			Rooms.global.writeChatRoomData();
 			if (Rooms.get('upperstaff')) {
-				Rooms.get('upperstaff').add('|raw|<div class="broadcast-green">Private chat room created: <b>' + Chat.escapeHTML(target) + '</b></div>').update();
+				Rooms.get('upperstaff').add(`|raw|<div class="broadcast-green">Private chat room created: <b>${Chat.escapeHTML(target)}</b></div>`).update();
 			}
-			this.sendReply("The private chat room '" + target + "' was created.");
+			this.sendReply(`The private chat room '${target}' was created.`);
 		} else {
 			if (Rooms.get('staff')) {
-				Rooms.get('staff').add('|raw|<div class="broadcast-green">Public chat room created: <b>' + Chat.escapeHTML(target) + '</b></div>').update();
+				Rooms.get('staff').add(`|raw|<div class="broadcast-green">Public chat room created: <b>${Chat.escapeHTML(target)}</b></div>`).update();
 			}
 			if (Rooms.get('upperstaff')) {
-				Rooms.get('upperstaff').add('|raw|<div class="broadcast-green">Public chat room created: <b>' + Chat.escapeHTML(target) + '</b></div>').update();
+				Rooms.get('upperstaff').add(`|raw|<div class="broadcast-green">Public chat room created: <b>${Chat.escapeHTML(target)}</b></div>`).update();
 			}
-			this.sendReply("The chat room '" + target + "' was created.");
+			this.sendReply(`The chat room '${target}' was created.`);
 		}
 	},
 	makechatroomhelp: ["/makechatroom [roomname] - Creates a new room named [roomname]. Requires: & ~"],
@@ -2191,6 +2194,7 @@ exports.commands = {
 	unnamelockhelp: ["/unnamelock [username] - Unnamelocks the user. Requires: % @ * & ~"],
 
 	hidetextalts: 'hidetext',
+	hidealttext: 'hidetext',
 	hidealtstext: 'hidetext',
 	hidetext: function (target, room, user, connection, cmd) {
 		if (!target) return this.parse('/help hidetext');
@@ -2209,7 +2213,7 @@ exports.commands = {
 			return this.errorReply("User '" + name + "' is not banned from this room or locked.");
 		}
 
-		if (cmd === 'hidealtstext' || cmd === 'hidetextalts') {
+		if (cmd === 'hidealtstext' || cmd === 'hidetextalts' || cmd === 'hidealttext') {
 			this.addModCommand(`${targetUser.name}'s alts' messages were cleared from ${room.title} by ${user.name}.`);
 			this.add(`|unlink|${hidetype}${userid}`);
 
@@ -2228,7 +2232,7 @@ exports.commands = {
 	},
 	hidetexthelp: [
 		"/hidetext [username] - Removes a locked or banned user's messages from chat (includes users banned from the room). Requires: % (global only), @ * # & ~",
-		"/hidealtstext OR /hidetextalts [username] - Removes a locked or banned user's messages, and their alternate account's messages from the chat (includes users banned from the room).  Requires: % (global only), @ * # & ~",
+		"/hidealtstext [username] - Removes a locked or banned user's messages, and their alternate account's messages from the chat (includes users banned from the room).  Requires: % (global only), @ * # & ~",
 	],
 
 	ab: 'blacklist',
