@@ -602,6 +602,7 @@ exports.BattleMovedex = {
 		id: "wreakhavoc",
 		isNonstandard: true,
 		name: "Wreak Havoc",
+		desc: "Changes the pokemon's ability to Virus.",
 		pp: 1,
 		isZ: "notthelycaniumziswear",
 		noPPBoosts: true,
