@@ -1049,7 +1049,7 @@ exports.BattleMovedex = {
 		id: "fullpotential",
 		name: "Full Potential",
 		basePower: 0,
-		accuracy: 0,
+		accuracy: 100,
 		category: "Status",
 		pp: 20,
 		boosts: {

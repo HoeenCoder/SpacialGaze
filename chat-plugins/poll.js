@@ -447,7 +447,7 @@ exports.commands = {
 			if (!Dex.formats[key].mod) continue;
 			if (!Dex.formats[key].searchShow) continue;
 			if (toId(target) !== 'all') {
-				let commonMods = ['gen7', 'sgssb', 'pmd', 'cssb', 'metronome', 'digimon'];
+				let commonMods = ['gen7', 'sgssb', 'pmd', 'cssb', 'metronome', 'digimon', 'fivemovefrenzy'];
 				if (commonMods.indexOf(Dex.formats[key].mod) === -1) continue;
 			}
 			options.push(Dex.formats[key].name);
