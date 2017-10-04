@@ -8,6 +8,7 @@
 /spacialgaze-plugins/shop.js
 /spacialgaze-plugins/leagues.js
 /spacialgaze-plugins/auth2.js
+/chat-plugins/*-private.js
 npm-debug.log
 .eslintcache
 
