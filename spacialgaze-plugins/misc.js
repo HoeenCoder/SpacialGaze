@@ -542,4 +542,17 @@ exports.commands = {
 		if (!this.runBroadcast()) return;
 		this.sendReplyBox("<a href=\"https://discord.gg/cwfAqdN\">The Official SpacialGaze Discord</a>");
 	},
+	'!digidex': true,
+	dd: 'digidex',
+	dg: 'digidex',
+	digidex: function (target) {
+		if (!this.runBroadcast()) return;
+		if (!target) return this.parse("/help digidex");
+		if (this.broadcasting) {
+			this.parse("!dt " + target + ", digimon");
+		} else {
+			this.parse("/dt " + target + ", digimon");
+		}
+	},
+	digidexhelp: ["/digidex [Digimon] - Checks for a Digimon's data from Digimon Showdown."],
 };
