@@ -388,6 +388,7 @@ class SSB {
 			for (let i in Dex.getTemplate(this.species).abilities) {
 				if (toId(Dex.getTemplate(this.species).abilities[i]) === ability.id) {
 					this.ability = ability.name;
+					if (ability.id === 'powerconstruct') return false;
 					return true;
 				}
 			}
@@ -693,7 +694,7 @@ exports.commands = {
 					if (cmd !== 'abilityq') this.sendReply('Your pokemon\'s ability is now ' + target + '.');
 					return user.sendTo(room, '|uhtmlchange|ssb' + user.userid + '|' + buildMenu(user.userid));
 				} else {
-					this.errorReply(target + ' could not be set as your pokemon\'s ability because it is not a legal ability for ' + targetUser.species + ', and it is not your custom ability.');
+					this.errorReply(target + ' could not be set as your pokemon\'s ability because it is either banned or not a legal ability for ' + targetUser.species + ', and it is not your custom ability.');
 				}
 			},
 			itemq: 'item',
