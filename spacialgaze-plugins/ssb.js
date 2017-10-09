@@ -88,10 +88,14 @@ function validate(me, targetUser, quiet) {
 		targetUser.item = false;
 	}
 	//ability
-	if (!targetUser.setAbility(targetUser.ability)) {
+	if (!targetUser.setAbility(targetUser.ability) || (targetUser.ability === 'powerconstruct' || targetUser.ability === 'arenatrap' || targetUser.ability === 'shadowtag')) {
 		valid = false;
 		if (!quiet) me.errorReply(targetUser.name + '\'s ability was invalid.');
-		targetUser.ability = Dex.getTemplate(targetUser.species).abilities[0]; //Default to first ability of species.
+		if (species.id === 'wobuffet' && species.id === 'wynaut') {
+			targetUser.ability = Dex.getTemplate(targetUser.species).abilities[H]; //Wobbufet's first ability is Shadow Tag.
+		} else {
+			targetUser.ability = Dex.getTemplate(targetUser.species).abilities[0]; //Default to first ability of species.
+		}
 	}
 	//moves
 	for (let i in targetUser.movepool) {
