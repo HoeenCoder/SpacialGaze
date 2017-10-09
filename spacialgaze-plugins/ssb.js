@@ -91,7 +91,7 @@ function validate(me, targetUser, quiet) {
 	if (!targetUser.setAbility(targetUser.ability) || (targetUser.ability === 'powerconstruct' || targetUser.ability === 'arenatrap' || targetUser.ability === 'shadowtag')) {
 		valid = false;
 		if (!quiet) me.errorReply(targetUser.name + '\'s ability was invalid.');
-		if (species.id === 'wobbuffet' && species.id === 'wynaut') {
+		if (species.id === 'wobbuffet' || species.id === 'wynaut') {
 			targetUser.ability = Dex.getTemplate(targetUser.species).abilities['H']; //Wobbufet's first ability is Shadow Tag.
 		} else {
 			targetUser.ability = Dex.getTemplate(targetUser.species).abilities[0]; //Default to first ability of species.
@@ -471,7 +471,7 @@ class SSB {
 		return true;
 	}
 	activate() {
-		if (this.species && (this.movepool.length > 0 || this.cMove) && this.ability) {
+		if (this.species && (this.movepool.length > 0 || this.cMove) && (this.ability && ability.id !== 'shadowtag')) {
 			this.active = !this.active;
 			return true;
 		}
@@ -821,7 +821,7 @@ exports.commands = {
 					return this.sendReply('Your pokemon was deactivated. Your pokemon will no longer appear in battles once the server restarts.');
 				}
 			} else {
-				return this.errorReply('Could not activate your pokemon, all pokemon must have at least 1 move.');
+				return this.errorReply('Could not activate your pokemon, all pokemon must have at least 1 move or you have an illegal ability.');
 			}
 		},
 		custommoves: 'custom',
