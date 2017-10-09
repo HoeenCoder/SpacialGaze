@@ -246,13 +246,11 @@ exports.commands = {
 	},
 
 	expon: function (target, room, user) {
-		if (!this.can('root')) return false;
 		Db.expoff.remove(user.userid);
 		this.sendReply("You are no longer exempt from exp");
 	},
 
 	expoff: function (target, room, user) {
-		if (!this.can('root')) return false;
 		Db.expoff.set(user.userid, true);
 		this.sendReply("You are now exempt from exp");
 	},
