@@ -92,7 +92,7 @@ function validate(me, targetUser, quiet) {
 		valid = false;
 		if (!quiet) me.errorReply(targetUser.name + '\'s ability was invalid.');
 		if (species.id === 'wobuffet' && species.id === 'wynaut') {
-			targetUser.ability = Dex.getTemplate(targetUser.species).abilities[H]; //Wobbufet's first ability is Shadow Tag.
+			targetUser.ability = Dex.getTemplate(targetUser.species).abilities['H']; //Wobbufet's first ability is Shadow Tag.
 		} else {
 			targetUser.ability = Dex.getTemplate(targetUser.species).abilities[0]; //Default to first ability of species.
 		}
