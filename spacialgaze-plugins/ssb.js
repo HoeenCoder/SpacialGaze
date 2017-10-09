@@ -388,7 +388,7 @@ class SSB {
 			for (let i in Dex.getTemplate(this.species).abilities) {
 				if (toId(Dex.getTemplate(this.species).abilities[i]) === ability.id) {
 					this.ability = ability.name;
-					if (ability.id === 'powerconstruct' || ability.id === 'arenatrap') return false;
+					if (ability.id === 'powerconstruct' || ability.id === 'arenatrap' || ability.id === 'shadowtag') return false;
 					return true;
 				}
 			}
