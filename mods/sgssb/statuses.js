@@ -262,6 +262,11 @@ exports.BattleStatuses = {
 		onFaint: function (pokemon) {
 			this.add('c', '+Insist', 'I\'m gonna go report you to HoeenNub real quick for hax0ring');
 		},
+		onSourceFaint: function (pokemon) {
+			this.add('c', '+Insist', 'How to win the game 101:');
+			this.addRaw('<ol><li>Use my signature move</li>');
+			this.addRaw('<li>GG</li><ol>');
+		},
 	},
 	celestialtater: {
 		exists: true,
