@@ -17,8 +17,8 @@ class Voucher {
 		this.goodFor = voucher;
 		this.expires = (expires ? expires : (expiresIn !== false ? (expiresIn * 24 * 60 * 60 * 1000 + Date.now()) : null));
 		this.item = (item ? item : null); //item from shop / amount of currency
-		this.id = (id ? id : SG.vouchers.storageForVocuherIds);
-		if (!id) SG.vouchers.storageForVocuherIds++;
+		this.id = (id ? id : SG.vouchers.storageForVoucherIds);
+		if (!id) SG.vouchers.storageForVoucherIds++;
 	}
 
 	redeem() {
@@ -89,7 +89,7 @@ class Voucher {
 			Users(this.userid).gameBoost = true;
 			break;
 		default:
-			return false; //Unrecoginzed voucher
+			return false; //unrecognized voucher
 		}
 		//Redeemed, delete this voucher
 		return true;
@@ -109,7 +109,7 @@ try {
 		if (err) {
 			console.error('Error while loading vouchers: ' + err);
 			SG.vouchers = {
-				storageForVocuherIds: -1,
+				storageForVoucherIds: -1,
 			};
 			writeJSON = false;
 		} else {
@@ -125,8 +125,8 @@ try {
 		let raw = JSON.parse(fs.readFileSync('config/vouchers.json', 'utf8'));
 		SG.vouchers = {};
 		for (let key in raw) {
-			if (key === 'storageForVocuherIds') {
-				SG.vouchers.storageForVocuherIds = raw[key];
+			if (key === 'storageForVoucherIds') {
+				SG.vouchers.storageForVoucherIds = raw[key];
 				continue;
 			}
 			SG.vouchers[key] = [];
@@ -135,16 +135,16 @@ try {
 				SG.vouchers[key].push(reVouch);
 			}
 		}
-		if (!SG.vouchers.storageForVocuherIds) SG.vouchers.storageForVocuherIds = 1;
+		if (!SG.vouchers.storageForVoucherIds) SG.vouchers.storageForVoucherIds = 1;
 	} else {
 		SG.vouchers = {
-			storageForVocuherIds: 1,
+			storageForVoucherIds: 1,
 		};
 	}
 } catch (e) {
 	console.error('Error loading Vouchers: ' + e.stack);
 	SG.vouchers = {
-		storageForVocuherIds: -1,
+		storageForVoucherIds: -1,
 	};
 	writeJSON = false;
 }
@@ -155,7 +155,7 @@ exports.commands = {
 	vouchers: 'voucher',
 	voucher: {
 		give: function (target, room, user, connection, cmd, message) {
-			if (SG.storageForVocuherIds === -1) return this.errorReply('An error occured while loading vouchers. They cannot be used at this time.');
+			if (SG.storageForVoucherIds === -1) return this.errorReply('An error occured while loading vouchers. They cannot be used at this time.');
 			if (!user.can('roomowner')) {
 				if (eventLeaders.indexOf(user.userid) === -1) return false;
 			}
@@ -215,7 +215,7 @@ exports.commands = {
 		givehelp: ['/voucher give [user], [voucher], (item/amount) - Give a user a voucher. Valid vouchers are: currency, item, boostUno, boostTour, and boostGame. Valid items are Custom Symbol, Custom Avatar, Custom Title, Custom Icon, and Custom Color. Requires Server Event Leader, &, or ~.'],
 
 		take: function (target, room, user, connection, cmd, message) {
-			if (SG.storageForVocuherIds === -1) return this.errorReply('An error occured while loading vouchers. They cannot be used at this time.');
+			if (SG.storageForVoucherIds === -1) return this.errorReply('An error occured while loading vouchers. They cannot be used at this time.');
 			if (!user.can('roomowner')) {
 				if (eventLeaders.indexOf(user.userid) === -1) return false;
 			}
@@ -239,7 +239,7 @@ exports.commands = {
 		takehelp: ['/voucher take [user], [id] - Take a user\'s voucher away. Requires Server Event Leader, &, or ~'],
 
 		list: function (target, room, user, connection, cmd, message) {
-			if (SG.storageForVocuherIds === -1) return this.errorReply('An error occured while loading vouchers. They cannot be used at this time.');
+			if (SG.storageForVoucherIds === -1) return this.errorReply('An error occured while loading vouchers. They cannot be used at this time.');
 			if (!target) target = user.userid;
 			if (user.userid === toId(target)) {
 				if (!this.runBroadcast()) return;
@@ -263,7 +263,7 @@ exports.commands = {
 		listhelp: ['/voucher list (user) - List the vouchers of a user, requires Server Event Leader, &, or ~ for viewing vouchers for other users.'],
 
 		redeem: function (target, room, user, connection, cmd, message) {
-			if (SG.storageForVocuherIds === -1) return this.errorReply('An error occured while loading vouchers. They cannot be used at this time.');
+			if (SG.storageForVoucherIds === -1) return this.errorReply('An error occured while loading vouchers. They cannot be used at this time.');
 			if (!target) return this.parse('/help voucher redeem');
 			target = Number(target);
 			if (isNaN(target)) return this.errorReply('Ids must be a number.');
@@ -285,7 +285,7 @@ exports.commands = {
 				return true;
 				//break;
 			case false:
-				console.error('Voucher ID ' + target + '\'s goodFor value was Unrecoginzed.');
+				console.error('Voucher ID ' + target + '\'s goodFor value was unrecognized.');
 				return this.errorReply('An error occured while redeeming. Contact an Upper Staff member.');
 				//break;
 			case 'expired':
