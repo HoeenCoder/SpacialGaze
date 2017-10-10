@@ -264,8 +264,7 @@ exports.BattleStatuses = {
 		},
 		onSourceFaint: function (pokemon) {
 			this.add('c', '+Insist', 'How to win the game 101:');
-			this.addRaw('<ol><li>Use my signature move</li>');
-			this.addRaw('<li>GG</li><ol>');
+			this.addRaw('<ol><li>Use my signature move</li><li>GG</li></ol>');
 		},
 	},
 	celestialtater: {
