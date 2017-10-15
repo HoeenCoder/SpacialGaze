@@ -59,7 +59,7 @@ exports.commands = {
 			'<b>/roomrequests</b> - Manage room requests, use /help roomrequests for more info.<br />' +
 			'<b>/checkroomrequest [user]</b> - Check a room request.<br />' +
 			'<b>/giveexp [user], [amount]</b> - gives a special amount of exp to a user.<br />' +
-			'<b>/takeexp [user], [amount]</b> - removes a special amount of exp from a user.<br />' +	
+			'<b>/takeexp [user], [amount]</b> - removes a special amount of exp from a user.<br />' +
 			'& all lower commands.</font>'
 		);
 	},
