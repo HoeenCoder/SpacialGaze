@@ -286,21 +286,27 @@ class SSB {
 			if (species.id !== 'aegislash' && species.id !== 'blaziken') return false;
 		}
 		this.species = species.species;
-		while (true) /*This is really hacky but hopefully does the trick*/ {
-			if (species.abilities['0'] !== 'powerconstruct' || species.abilities['0'] !== 'arenatrap' || species.abilities['0'] !== 'shadowtag') {
-				this.ability = species.abilities['0']; //Force legal ability
-				break;
-			} else if (species.abilities['1'] !== 'powerconstruct' || species.abilities['1'] !== 'arenatrap' || species.abilities['1'] !== 'shadowtag') {
-				this.ability = species.abilities['1']; //Force legal ability
-				break;
-			} else if (species.abilities['H'] !== 'powerconstruct' || species.abilities['H'] !== 'arenatrap' || species.abilities['H'] !== 'shadowtag') {
-				this.ability = species.abilities['H']; //Force legal ability
-				break;
-			} else {
-				this.ability = species.abilities['0']; //Force legal ability
-				return this.errorReply('An error occurred. Defaulting to first ability.'); //This shouldn't happen
-				break;
+		//Ability
+		let AbilityCheck = true
+		if (AbilityCheck = true) {
+			while (AbilityCheck = true) /*This is really hacky but hopefully does the trick*/ {
+				if (species.abilities['0'] !== 'powerconstruct' || species.abilities['0'] !== 'arenatrap' || species.abilities['0'] !== 'shadowtag') {
+					this.ability = species.abilities['0']; //Force legal ability
+					break;
+				} else if (species.abilities['1'] !== 'powerconstruct' || species.abilities['1'] !== 'arenatrap' || species.abilities['1'] !== 'shadowtag') {
+					this.ability = species.abilities['1']; //Force legal ability
+					break;
+				} else if (species.abilities['H'] !== 'powerconstruct' || species.abilities['H'] !== 'arenatrap' || species.abilities['H'] !== 'shadowtag') {
+					this.ability = species.abilities['H']; //Force legal ability
+					break;
+				} else {
+					this.ability = species.abilities['0']; //Force legal ability
+					return this.errorReply('An error occurred. Defaulting to first ability.'); //This shouldn't happen
+					break;
+				}
 			}
+		} else {
+			this.ability = species.abilities['0']; //Force legal ability
 		}
 		this.movepool = []; //force legal normal moves
 		for (let i in this.evs) this.evs[i] = 0; //Reset
