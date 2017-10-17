@@ -402,6 +402,7 @@ class SSB {
 			set: {},
 		})) return false;
 		if (move.ohko) return false;
+		if (move.id === "batonpass") return false;
 		if (this.movepool.indexOf(move.name) > -1) return false;
 		this.movepool.push(move.name);
 		return true;
