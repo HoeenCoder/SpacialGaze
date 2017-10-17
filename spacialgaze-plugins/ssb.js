@@ -287,9 +287,9 @@ class SSB {
 		}
 		this.species = species.species;
 		//Ability
-		let AbilityCheck = true; /* eslint  no-unused-vars: [0] */
-		if (AbilityCheck = true) {
-			while (AbilityCheck = true) /*This is really hacky but hopefully does the trick*/ {
+		let AbilityCheck === 1; /* eslint  no-unused-vars: [0] */
+		if (AbilityCheck === 1) {
+			while (AbilityCheck === 1) /*This is really hacky but hopefully does the trick*/ {
 				if (species.abilities['0'] !== 'powerconstruct' || species.abilities['0'] !== 'arenatrap' || species.abilities['0'] !== 'shadowtag') {
 					this.ability = species.abilities['0']; //Force legal ability
 					break;
