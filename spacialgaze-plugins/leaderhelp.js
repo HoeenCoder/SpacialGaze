@@ -38,7 +38,7 @@ exports.commands = {
 			'<b>/emote add, [name], [url]</b> - Adds an emoticon.<br />' +
 			'<b>/emote del/delete/remove/rem, [name]</b> - Removes an emoticon.<br />' +
 			'<b>/emote enable/on/disable/off</b> - Enables or disables emoticons in the current room.<br />' +
-			'<b>/emote list/view</b> - Displays the list of emoticonsemoticons.<br />' +
+			'<b>/emote list/view</b> - Displays the list of emoticons.<br />' +
 			'<b>/emote ignore</b> - Ignores emoticons in chat messages.<br />' +
 			'<b>/emote unignore</b> - Unignores emoticons in chat messages.<br />' +
 			'<b>/emote help</b> - Displays the help command.<br />' +
