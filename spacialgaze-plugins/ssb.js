@@ -286,7 +286,22 @@ class SSB {
 			if (species.id !== 'aegislash' && species.id !== 'blaziken') return false;
 		}
 		this.species = species.species;
-		this.ability = species.abilities['0']; //Force legal ability
+		while (true) /*This is really hacky but hopefully does the trick*/ {
+			if (species.abilities['0'] !== 'powerconstruct' || species.abilities['0'] !== 'arenatrap' || species.abilities['0'] !== 'shadowtag') {
+				this.ability = species.abilities['0']; //Force legal ability
+				break;
+			} else if (species.abilities['1'] !== 'powerconstruct' || species.abilities['1'] !== 'arenatrap' || species.abilities['1'] !== 'shadowtag') {
+				this.ability = species.abilities['1']; //Force legal ability
+				break;
+			} else if (species.abilities['H'] !== 'powerconstruct' || species.abilities['H'] !== 'arenatrap' || species.abilities['H'] !== 'shadowtag') {
+				this.ability = species.abilities['H']; //Force legal ability
+				break;
+			} else {
+				this.ability = species.abilities['0']; //Force legal ability
+				return this.errorReply('An error occurred. Defaulting to first ability.'); //This shouldn't happen
+				break;
+			}
+		}
 		this.movepool = []; //force legal normal moves
 		for (let i in this.evs) this.evs[i] = 0; //Reset
 		for (let j in this.ivs) this.ivs[j] = 31; //Reset
