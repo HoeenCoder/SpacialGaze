@@ -234,7 +234,7 @@ class SSB {
 		this.species = 'Unown';
 		this.item = false; //false = no item
 		this.cItem = false; //set this to the users cItem when its purchased and implemented.
-		this.bought = {}; //Did you buy something, but not recieve it yet? prevents duplicate purchases.
+		this.bought = {}; //Did you buy something, but not receive it yet? prevents duplicate purchases.
 		this.ability = 'Levitate'; //Default to the first ability of the selected species
 		this.cAbility = false; //set this to the users cAbility when its purchased and implemented.
 		this.movepool = []; //Pool of normal moves, draw 3 from here (4 if no c move).
@@ -288,7 +288,7 @@ class SSB {
 		for (let j in this.ivs) this.ivs[j] = 31; //Reset
 		this.level = 100; //Reset
 		this.happiness = 255; //Reset
-		this.nature = 'Serious'; //Rest
+		this.nature = 'Serious'; //Reset
 		this.item = false; //Reset
 		this.cMove = false; //Reset
 		this.active = false; //0 moves, so cannot be active.
@@ -938,7 +938,7 @@ exports.commands = {
 				return this.sendReply('All SSBFFA pokemon have been validated.');
 			}
 		},
-		validatehelp: ['/ssb validate [user] - Validate a users SSBFFA pokemon and if anything invalid is found, set ti to its default value. Requires: &, ~'],
+		validatehelp: ['/ssb validate [user] - Validate a user\'s SSBFFA pokemon and if anything invalid is found, it sets to its default value. Requires: &, ~'],
 		'': function (target, room, user, connection, cmd, message) {
 			return this.parse('/help ssb');
 		},
