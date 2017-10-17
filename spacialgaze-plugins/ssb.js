@@ -471,7 +471,7 @@ class SSB {
 		return true;
 	}
 	activate() {
-		if (this.species && (this.movepool.length > 0 || this.cMove) && (this.ability && ability.id !== 'shadowtag')) {
+		if (this.species && (this.movepool.length > 0 || this.cMove) && this.ability) {
 			this.active = !this.active;
 			return true;
 		}
@@ -821,7 +821,7 @@ exports.commands = {
 					return this.sendReply('Your pokemon was deactivated. Your pokemon will no longer appear in battles once the server restarts.');
 				}
 			} else {
-				return this.errorReply('Could not activate your pokemon, all pokemon must have at least 1 move or you have an illegal ability.');
+				return this.errorReply('Could not activate your pokemon, all pokemon must have at least 1 move.');
 			}
 		},
 		custommoves: 'custom',
