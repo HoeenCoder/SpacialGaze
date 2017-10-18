@@ -1,12 +1,13 @@
-Spacialgaze Server @ Pokémon Showdown
+SpacialGaze Server @ Pokémon Showdown
 ========================================================================
 
-Navigation: [Spacialgaze][1] | [PS Server repository][10] | [PS Client repository][2] | [PS Dex repository][3]
+Navigation: [SpacialGaze][1] | [PS Server repository][2] | [PS Client repository][3] | [PS Dex repository][4] | [Log Viewer][5]
 
   [1]: http://spacialgaze.psim.us/
-  [2]: https://github.com/Zarel/Pokemon-Showdown-Client
-  [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
-  [10]: https://github.com/Zarel/Pokemon-Showdown
+  [2]: https://github.com/Zarel/Pokemon-Showdown
+  [3]: https://github.com/Zarel/Pokemon-Showdown-Client
+  [4]: https://github.com/Zarel/Pokemon-Showdown-Dex
+  [5]: https://github.com/HoeenCoder/PS-Log-Viewer
 
 [![Build Status](https://travis-ci.org/HoeenCoder/SpacialGaze.svg?branch=master)](https://travis-ci.org/HoeenCoder/SpacialGaze)
 [![dependencies Status](https://david-dm.org/HoeenCoder/SpacialGaze/status.svg)](https://david-dm.org/HoeenCoder/SpacialGaze)
@@ -17,14 +18,13 @@ Navigation: [Spacialgaze][1] | [PS Server repository][10] | [PS Client repositor
 Introduction
 ------------------------------------------------------------------------
 
-This is the source code for the Pokémon Showdown server [Spacialgaze][4], a website for Pokémon battling. Pokémon Showdown simulates singles, doubles and triples battles in all the games out so far (Generations 1 through 7).
+This is the source code for the Pokémon Showdown server [Spacialgaze][1], a website for Pokémon battling. Pokémon Showdown simulates singles, doubles and triples battles in all the games out so far (Generations 1 through 7).
 
-This repository contains the files needed to set up your own Pokémon Showdown server. The Spacialgaze server also comes with some custom additions not found on the main repo. This repo will still have all the features from the main server. Note that to set up a server, you'll also need a server computer.
+This repository contains the files needed to set up your own Pokémon Showdown server. The SpacialGaze server also comes with some custom additions not found on the main repo. This repo will still have all the features from the main server. Note that to set up a server, you'll also need a server computer.
 
-You can use your own computer as a server, but for other people to connect to your computer, you'll need to expose a port (default is 8000 but you can choose a different one) to connect to, which sometimes requires [port forwarding][5] (note that this isn't possible on certain internet connections).
+You can use your own computer as a server, but for other people to connect to your computer, you'll need to expose a port (default is 8000 but you can choose a different one) to connect to, which sometimes requires [port forwarding][6] (note that this isn't possible on certain internet connections).
 
-  [4]: http://spacialgaze.psim.us/
-  [5]: http://en.wikipedia.org/wiki/Port_forwarding
+  [6]: http://en.wikipedia.org/wiki/Port_forwarding
 
 
 Installing
@@ -38,7 +38,7 @@ Installing
 Detailed installation instructions
 ------------------------------------------------------------------------
 
-Pokémon Showdown requires you to have [Node.js][6] installed, 8.x or later (7.7 or later can work, but you might as well be on the latest stable).
+Pokémon Showdown requires you to have [Node.js][7] installed, 8.x or later (7.7 or later can work, but you might as well be on the latest stable).
 
 ```bash
 $ git clone https://github.com/HoeenCoder/SpacialGaze.git
@@ -46,19 +46,19 @@ cd spacialgaze && npm install
 node app.js
 ```
 
-Next, obtain a copy of Pokémon Showdown. If you're reading this outside of GitHub, you've probably already done this. If you're reading this in GitHub, there's a "Clone or download" button near the top right (it's green). I recommend the "Open in Desktop" method - you need to install GitHub Desktop which is more work than "Download ZIP", but it makes it much easier to update in the long run (it lets you use the `/updateserver` command).
+Next, obtain a copy of SpacialGaze. If you're reading this outside of GitHub, you've probably already done this. If you're reading this in GitHub, there's a "Clone or download" button near the top right (it's green). I recommend the "Open in Desktop" method - you need to install GitHub Desktop which is more work than "Download ZIP", but it makes it much easier to update in the long run (it lets you use the `/updateserver` command).
 
 Pokémon Showdown is installed and run using a command line. In Mac OS X, open `Terminal` (it's in Utilities). In Windows, open `Command Prompt` (type `cmd` into the Start menu and it should be the first result). Type this into the command line:
 
     cd LOCATION
 
-Replace `LOCATION` with the location Pokémon Showdown is in (ending up with, for instance, `cd "~/Downloads/Pokemon-Showdown"` or `cd "C:\Users\Bob\Downloads\Pokemon-Showdown\"`).
+Replace `LOCATION` with the location SpacialGaze is in (ending up with, for instance, `cd "~/Downloads/SpacialGaze"` or `cd "C:\Users\Bob\Downloads\SpacialGaze\"`).
 
-This will set your command line's location to Pokémon Showdown's folder. You'll have to do this each time you open a command line to run commands for Pokémon Showdown.
+This will set your command line's location to  SpacialGaze's folder. You'll have to do this each time you open a command line to run commands for SpacialGaze.
 
 Copy `config/config-example.js` into `config/config.js`, and edit as you please.
 
-  [6]: https://nodejs.org/
+  [7]: https://nodejs.org/
 
 Configuring your server
 ------------------------------------------------------------------------
@@ -72,7 +72,7 @@ Heres some of the configurations you can change in `config/config.js`
 
 - tellrank - The minimum rank to use /tell for offline messaging.
 
-- SGbackdoor - The backdoor for Spacialgaze Sysops. Defaults to false.
+- SGbackdoor - The backdoor for SpacialGaze Sysops. Defaults to false.
 
 Setting up an Administrator account
 ------------------------------------------------------------------------
@@ -87,16 +87,16 @@ To become an Administrator, create a file named `config/usergroups.csv` containi
 
 Replace `USER` with the username that you would like to become an Administrator. Do not put a space between the comma and the tilde.
 
-This username must be registered. If you do not have a registered account, you can create one using the Register button in the settings menu (it looks like a gear) in the upper-right of Pokémon Showdown.
+This username must be registered. If you do not have a registered account, you can create one using the Register button in the settings menu (it looks like a gear) in the upper-right of SpacialGaze.
 
 Once you're an administrator, you can promote/demote others easily with the `/globaladmin`, `/globalleader`, `/globalmod`, etc commands.
 
 License
 ------------------------------------------------------------------------
 
-Spacialgaze's and Pokémon Showdown's server is distributed under the terms of the [MIT License][9].
+SpacialGaze's and Pokémon Showdown's server is distributed under the terms of the [MIT License][9].
 
-  [9]: https://github.com/HoeenCoder/Spacialgaze/blob/master/LICENSE
+  [9]: https://github.com/HoeenCoder/SpacialGaze/blob/master/LICENSE
 
 
 Maintainers
