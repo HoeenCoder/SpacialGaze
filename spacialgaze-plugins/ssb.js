@@ -302,7 +302,6 @@ class SSB {
 				} else {
 					this.ability = species.abilities['0']; //Force legal ability
 					return this.errorReply('An error occurred. Defaulting to first ability.'); //This shouldn't happen
-					abilityCheck = 0;
 				}
 			}
 		} else {
