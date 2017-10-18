@@ -5,7 +5,7 @@ Navigation: [Spacialgaze][1] | [PS Server repository][2] | [PS Client repository
 
   [1]: http://spacialgaze.psim.us/
   [2]: https://github.com/Zarel/Pokemon-Showdown
-  [3]: https://github.com/Zarel/Pokemon-Showdown-Client
+  [3]: https://github.com/Zarel/Pokemon-Showdown-Client
   [4]: https://github.com/Zarel/Pokemon-Showdown-Dex
   [5]: https://github.com/HoeenCoder/PS-Log-Viewer
 
