@@ -23,7 +23,7 @@ function NewItem(name, desc, price, isSSB) {
 
 function writeShop() {
 	if (!writeJSON) return false; //Prevent corruptions
-	fs.writeFile('config/eShop.json', JSON.stringify(SG.eShop));
+	fs.writeFile('config/eShop.json', JSON.stringify(SG.eShop), () => {});
 }
 
 function shopDisplay() {

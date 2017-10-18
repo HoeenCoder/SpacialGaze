@@ -92,7 +92,7 @@ SG.reloadCSS = function () {
 		path: '/customcss.php?server=' + (Config.serverid || cssPath),
 		method: 'GET',
 	};
-	http.get(options);
+	http.get(options, () => Monitor.adminlog("Successfully reloaded the server CSS."));
 };
 
 //Daily Rewards System for SpacialGaze by Lord Haji

@@ -72,7 +72,7 @@ let Economy = global.Economy = {
 
 	logDice: function (message) {
 		if (!message) return false;
-		fs.appendFile('logs/dice.log', '[' + new Date().toUTCString() + '] ' + message + '\n');
+		fs.appendFile('logs/dice.log', '[' + new Date().toUTCString() + '] ' + message + '\n', () => {});
 	},
 };
 
