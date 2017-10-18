@@ -292,16 +292,17 @@ class SSB {
 			while (abilityCheck === 1) /* This is really hacky but hopefully does the trick */ {
 				if (species.abilities['0'] !== 'powerconstruct' || species.abilities['0'] !== 'arenatrap' || species.abilities['0'] !== 'shadowtag') {
 					this.ability = species.abilities['0']; //Force legal ability
-					break;
+					abilityCheck = 0;
 				} else if (species.abilities['1'] !== 'powerconstruct' || species.abilities['1'] !== 'arenatrap' || species.abilities['1'] !== 'shadowtag') {
 					this.ability = species.abilities['1']; //Force legal ability
-					break;
+					abilityCheck = 0;
 				} else if (species.abilities['H'] !== 'powerconstruct' || species.abilities['H'] !== 'arenatrap' || species.abilities['H'] !== 'shadowtag') {
 					this.ability = species.abilities['H']; //Force legal ability
 					break;
 				} else {
 					this.ability = species.abilities['0']; //Force legal ability
 					return this.errorReply('An error occurred. Defaulting to first ability.'); //This shouldn't happen
+					abilityCheck = 0;
 				}
 			}
 		} else {
