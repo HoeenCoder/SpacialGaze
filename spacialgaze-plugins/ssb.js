@@ -4,7 +4,7 @@ let fs = require('fs');
 let ssbWrite = true; //if false, do not write to json
 let noRead = false; //if true, do not read from json
 const MAX_MOVEPOOL_SIZE = 4;
-let customMovepool = ['Stretch', 'Flame Tower', 'Rain Spear', 'Healing Herbs', 'Electro Drive', 'Hailstorm', 'Beat Down', 'Nuclear Waste', 'Terratremor', 'Ventilation', 'Psychic Shield', 'Swarm Charge', 'Rock Cannon', 'Spook', 'Imperial Rampage', 'Shadow Run', 'Magnorang', 'Majestic Dust']; //Add defual custom move names here.
+let customMovepool = ['Stretch', 'Flame Tower', 'Rain Spear', 'Healing Herbs', 'Electro Drive', 'Hailstorm', 'Beat Down', 'Nuclear Waste', 'Terratremor', 'Ventilation', 'Psychic Shield', 'Swarm Charge', 'Rock Cannon', 'Spook', 'Imperial Rampage', 'Shadow Run', 'Magnorang', 'Majestic Dust']; //Add default custom move names here.
 let typeList = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy'];
 
 global.writeSSB = function () {
@@ -88,10 +88,14 @@ function validate(me, targetUser, quiet) {
 		targetUser.item = false;
 	}
 	//ability
-	if (!targetUser.setAbility(targetUser.ability)) {
+	if (!targetUser.setAbility(targetUser.ability) || (targetUser.ability === 'powerconstruct' || targetUser.ability === 'arenatrap' || targetUser.ability === 'shadowtag')) {
 		valid = false;
 		if (!quiet) me.errorReply(targetUser.name + '\'s ability was invalid.');
-		targetUser.ability = Dex.getTemplate(targetUser.species).abilities[0]; //Default to first ability of species.
+		if (species.id === 'wobbuffet' || species.id === 'wynaut') {
+			targetUser.ability = Dex.getTemplate(targetUser.species).abilities['H']; //Wobbufet's first ability is Shadow Tag.
+		} else {
+			targetUser.ability = Dex.getTemplate(targetUser.species).abilities[0]; //Default to first ability of species.
+		}
 	}
 	//moves
 	for (let i in targetUser.movepool) {
@@ -282,7 +286,27 @@ class SSB {
 			if (species.id !== 'aegislash' && species.id !== 'blaziken') return false;
 		}
 		this.species = species.species;
-		this.ability = species.abilities['0']; //Force legal ability
+		//Ability
+		let abilityCheck = 1;
+		if (abilityCheck === 1) {
+			while (abilityCheck === 1) /* This is really hacky but hopefully does the trick */ {
+				if (species.abilities['0'] !== 'powerconstruct' || species.abilities['0'] !== 'arenatrap' || species.abilities['0'] !== 'shadowtag') {
+					this.ability = species.abilities['0']; //Force legal ability
+					abilityCheck = 0;
+				} else if (species.abilities['1'] !== 'powerconstruct' || species.abilities['1'] !== 'arenatrap' || species.abilities['1'] !== 'shadowtag') {
+					this.ability = species.abilities['1']; //Force legal ability
+					abilityCheck = 0;
+				} else if (species.abilities['H'] !== 'powerconstruct' || species.abilities['H'] !== 'arenatrap' || species.abilities['H'] !== 'shadowtag') {
+					this.ability = species.abilities['H']; //Force legal ability
+					break;
+				} else {
+					this.ability = species.abilities['0']; //Force legal ability
+					return this.errorReply('An error occurred. Defaulting to first ability.'); //This shouldn't happen
+				}
+			}
+		} else {
+			this.ability = species.abilities['0']; //Force legal ability
+		}
 		this.movepool = []; //force legal normal moves
 		for (let i in this.evs) this.evs[i] = 0; //Reset
 		for (let j in this.ivs) this.ivs[j] = 31; //Reset
@@ -388,6 +412,7 @@ class SSB {
 			for (let i in Dex.getTemplate(this.species).abilities) {
 				if (toId(Dex.getTemplate(this.species).abilities[i]) === ability.id) {
 					this.ability = ability.name;
+					if (ability.id === 'powerconstruct' || ability.id === 'arenatrap' || ability.id === 'shadowtag') return false;
 					return true;
 				}
 			}
@@ -517,7 +542,7 @@ exports.commands = {
 			main: '',
 			'': function (target, room, user, connection, cmd, message) {
 				if (!user.named) return this.errorReply('You must choose a name first.');
-				if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+				if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 				if (!SG.ssb[user.userid]) {
 					this.sendReply('Could not find your SSB pokemon, creating a new one...');
 					SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -534,7 +559,7 @@ exports.commands = {
 			speciesq: 'species',
 			species: function (target, room, user, connection, cmd, message) {
 				if (!user.named) return this.errorReply('You must choose a name first.');
-				if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+				if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 				if (!SG.ssb[user.userid]) {
 					this.sendReply('Could not find your SSB pokemon, creating a new one...');
 					SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -555,7 +580,7 @@ exports.commands = {
 			moveq: 'move',
 			move: function (target, room, user, connection, cmd, message) {
 				if (!user.named) return this.errorReply('You must choose a name first.');
-				if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+				if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 				if (!SG.ssb[user.userid]) {
 					this.sendReply('Could not find your SSB pokemon, creating a new one...');
 					SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -583,7 +608,7 @@ exports.commands = {
 						if (cmd !== 'moveq') this.sendReply('Removed the move ' + target[1] + ' from your movepool.');
 						if (targetUser.movepool.length === 0 && !targetUser.cMove && targetUser.active) {
 							targetUser.active = false;
-							this.sendReply('Your pokemon was deactivated becuase it now has 0 moves.');
+							this.sendReply('Your pokemon was deactivated because it now has 0 moves.');
 						}
 						return user.sendTo(room, '|uhtmlchange|ssb' + user.userid + '|' + buildMenu(user.userid));
 					} else {
@@ -607,7 +632,7 @@ exports.commands = {
 			statsq: 'stats',
 			stats: function (target, room, user, connection, cmd, message) {
 				if (!user.named) return this.errorReply('You must choose a name first.');
-				if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+				if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 				if (!SG.ssb[user.userid]) {
 					this.sendReply('Could not find your SSB pokemon, creating a new one...');
 					SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -679,7 +704,7 @@ exports.commands = {
 			abilityq: 'ability',
 			ability: function (target, room, user, connection, cmd, message) {
 				if (!user.named) return this.errorReply('You must choose a name first.');
-				if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+				if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 				if (!SG.ssb[user.userid]) {
 					this.sendReply('Could not find your SSB pokemon, creating a new one...');
 					SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -693,13 +718,13 @@ exports.commands = {
 					if (cmd !== 'abilityq') this.sendReply('Your pokemon\'s ability is now ' + target + '.');
 					return user.sendTo(room, '|uhtmlchange|ssb' + user.userid + '|' + buildMenu(user.userid));
 				} else {
-					this.errorReply(target + ' could not be set as your pokemon\'s ability because it is not a legal ability for ' + targetUser.species + ', and it is not your custom ability.');
+					this.errorReply(target + ' could not be set as your pokemon\'s ability because it is either banned or not a legal ability for ' + targetUser.species + ', and it is not your custom ability.');
 				}
 			},
 			itemq: 'item',
 			item: function (target, room, user, connection, cmd, message) {
 				if (!user.named) return this.errorReply('You must choose a name first.');
-				if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+				if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 				if (!SG.ssb[user.userid]) {
 					this.sendReply('Could not find your SSB pokemon, creating a new one...');
 					SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -725,7 +750,7 @@ exports.commands = {
 			detailsq: 'details',
 			details: function (target, room, user, connection, cmd, message) {
 				if (!user.named) return this.errorReply('You must choose a name first.');
-				if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+				if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 				if (!SG.ssb[user.userid]) {
 					this.sendReply('Could not find your SSB pokemon, creating a new one...');
 					SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -797,7 +822,7 @@ exports.commands = {
 		},
 		toggle: function (target, room, user, connection, cmd, message) {
 			if (!user.named) return this.errorReply('You must choose a name first.');
-			if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+			if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 			if (!SG.ssb[user.userid]) {
 				this.sendReply('Could not find your SSB pokemon, creating a new one...');
 				SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -823,7 +848,7 @@ exports.commands = {
 		cmoves: 'custom',
 		custom: function (target, room, user, connection, cmd, message) {
 			if (!user.named) return this.errorReply('You must choose a name first.');
-			if (user.locked) return this.errorReply('You cannot edit you SSB pokemon while locked.');
+			if (user.locked) return this.errorReply('You cannot edit your SSB pokemon while locked.');
 			if (!SG.ssb[user.userid]) {
 				this.sendReply('Could not find your SSB pokemon, creating a new one...');
 				SG.ssb[user.userid] = new SSB(user.userid, user.name);
@@ -950,7 +975,7 @@ exports.commands = {
 		'/ssb edit ability - pulls up the ability selection menu, showing the pokemons legal abilities and (if purchased) your custom ability for you to choose from.',
 		'/ssb edit item - pulls up the item editing menu, giving instructions for setting a normal item, and (if purchased) a button to set your custom item.',
 		'/ssb edit details - pulls up the editing menu for level, gender, (if purchased) shinyness, and (if purchased or if global auth) symbol.',
-		'/ssb toggle - Attempts to active or deactive your pokemon. Acitve pokemon can be seen in the tier. If your pokemon cannot be activated, you will see a popup explaining why.',
+		'/ssb toggle - Attempts to active or deactive your pokemon. Active pokemon can be seen in the tier. If your pokemon cannot be activated, you will see a popup explaining why.',
 		'/ssb custom - Shows all the default custom moves, with details.',
 		'/ssb log - Shows purchase details for SSBFFA.',
 		'/ssb [validate|validateall] (user) - validates a user\'s SSBFFA pokemon, or validates all SSBFFA pokemon. If the pokemon is invalid it will be fixed and deactivated. Requires: &, ~',
