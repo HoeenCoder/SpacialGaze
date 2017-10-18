@@ -1,12 +1,13 @@
 Spacialgaze Server @ Pokémon Showdown
 ========================================================================
 
-Navigation: [Spacialgaze][1] | [PS Server repository][10] | [PS Client repository][2] | [PS Dex repository][3]
+Navigation: [Spacialgaze][1] | [PS Server repository][2] | [PS Client repository][3] | [PS Dex repository][4] | [View-Log System][5]
 
   [1]: http://spacialgaze.psim.us/
-  [2]: https://github.com/Zarel/Pokemon-Showdown-Client
-  [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
-  [10]: https://github.com/Zarel/Pokemon-Showdown
+  [2]: https://github.com/Zarel/Pokemon-Showdown
+  [3]: https://github.com/Zarel/Pokemon-Showdown-Client
+  [4]: https://github.com/Zarel/Pokemon-Showdown-Dex
+  [5]: https://github.com/HoeenCoder/PS-Log-Viewer
 
 [![Build Status](https://travis-ci.org/HoeenCoder/SpacialGaze.svg?branch=master)](https://travis-ci.org/HoeenCoder/SpacialGaze)
 [![dependencies Status](https://david-dm.org/HoeenCoder/SpacialGaze/status.svg)](https://david-dm.org/HoeenCoder/SpacialGaze)
