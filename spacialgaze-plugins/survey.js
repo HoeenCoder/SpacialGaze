@@ -144,8 +144,16 @@ class Survey {
 	}
 }
 
-function validateAnswer(room, message) {
+function validateAnswer(room, message, connection, user) {
+	let answer = this.repliers[i];
 	if (!room) return true;
+	if (Config.chatfilter) {
+		let filterResult = Config.chatfilter.call(this, answer, user, null, connection);
+		if (!filterResult) return;
+		if (answer !== filterResult) {
+			return this.errorReply("Your answer contains a globally banned word.");
+		}
+	}
 	if (!room.banwordRegex) {
 		if (room.banwords && room.banwords.length) {
 			room.banwordRegex = new RegExp('(?:\\b|(?!\\w))(?:' + room.banwords.join('|') + ')(?:\\b|\\B(?!\\w))', 'i');
