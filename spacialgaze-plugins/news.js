@@ -81,16 +81,16 @@ exports.commands = {
 		},
 		subscribe: function (target, room, user) {
 			if (!user.named) return this.errorReply('You must choose a name before subscribing');
-			if (Db.NewsSubscribers.has(user.userid)) return this.errorReply("You are alreading subscribing SpacialGaze News.");
+			if (Db.NewsSubscribers.has(user.userid)) return this.errorReply("You are already subscribing to SpacialGaze News.");
 			Db.NewsSubscribers.set(user.userid, true);
-			this.sendReply("You have subscribed SpacialGaze News.");
-			this.popupReply("|wide||html|You will receive SpacialGaze News automatically once you connect to the SpacialGaze next time.<br><hr><center><button class='button' name='send' value ='/news'>View News</button></center>");
+			this.sendReply("You have subscribed to SpacialGaze News.");
+			this.popupReply("|wide||html|You will receive SpacialGaze News automatically once you connect to SpacialGaze next time.<br><hr><center><button class='button' name='send' value ='/news'>View News</button></center>");
 		},
 		unsubscribe: function (target, room, user) {
 			if (!user.named) return this.errorReply('You must choose a name before unsubscribing');
-			if (!Db.NewsSubscribers.has(user.userid)) return this.errorReply("You have not subscribed SpacialGaze News.");
+			if (!Db.NewsSubscribers.has(user.userid)) return this.errorReply("You have not subscribed to SpacialGaze News.");
 			Db.NewsSubscribers.remove(user.userid);
-			this.sendReply("You have unsubscribed SpacialGaze News.");
+			this.sendReply("You have unsubscribed to SpacialGaze News.");
 			this.popupReply("|wide||html|You will no longer automatically receive SpacialGaze News.<br><hr><center><button class='button' name='send' value='/news'>View News</button></center>");
 		},
 	},
