@@ -146,7 +146,7 @@ class Survey {
 
 function validateAnswer(room, message, connection, user, reply) {
 	let answer = reply;
-	if (!room) return false;
+	if (!room) return true;
 	if (Config.chatfilter) {
 		let filterResult = Config.chatfilter.call(this, answer, user, null, connection);
 		if (!filterResult) return false;
