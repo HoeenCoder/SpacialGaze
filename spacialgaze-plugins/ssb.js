@@ -938,7 +938,7 @@ exports.commands = {
 				return this.sendReply('All SSBFFA pokemon have been validated.');
 			}
 		},
-		validatehelp: ['/ssb validate [user] - Validate a user\'s SSBFFA pokemon and if anything invalid is found, it sets to its default value. Requires: &, ~'],
+		validatehelp: ['/ssb validate [user] - Validate a user\'s SSBFFA pokemon and if anything invalid is found, sets it to its default value. Requires: &, ~'],
 		'': function (target, room, user, connection, cmd, message) {
 			return this.parse('/help ssb');
 		},
