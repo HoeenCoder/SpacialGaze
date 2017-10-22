@@ -81,10 +81,10 @@ exports.commands = {
 		},
 		subscribe: function (target, room, user) {
 			if (!user.named) return this.errorReply('You must choose a name before subscribing');
-			if (Db.NewsSubscribers.has(user.userid)) return this.errorReply("You are alreading subscribing to SpacialGaze News.");
+			if (Db.NewsSubscribers.has(user.userid)) return this.errorReply("You are already subscribing to SpacialGaze News.");
 			Db.NewsSubscribers.set(user.userid, true);
 			this.sendReply("You have subscribed to SpacialGaze News.");
-			this.popupReply("|wide||html|You will receive SpacialGaze News automatically once you connect to the SpacialGaze next time.<br><hr><center><button class='button' name='send' value ='/news'>View News</button></center>");
+			this.popupReply("|wide||html|You will receive SpacialGaze News automatically once you connect to SpacialGaze next time.<br><hr><center><button class='button' name='send' value ='/news'>View News</button></center>");
 		},
 		unsubscribe: function (target, room, user) {
 			if (!user.named) return this.errorReply('You must choose a name before unsubscribing');
