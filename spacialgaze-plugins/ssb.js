@@ -390,7 +390,7 @@ class SSB {
 				return false;
 			}
 		} else {
-			if (ability.id === "arenatrap" || ability.id === "powerconstruct" || ability.id === "shadowtag") return false;
+			if (ability.id === "arenatrap" || ability.id === "powerconstruct" || ability.id === "shadowtag" || ability.id === "moody") return false;
 			for (let i in Dex.getTemplate(this.species).abilities) {
 				if (toId(Dex.getTemplate(this.species).abilities[i]) === ability.id) {
 					this.ability = ability.name;
