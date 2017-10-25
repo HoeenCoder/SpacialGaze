@@ -243,6 +243,9 @@ exports.commands = {
 		if (!this.can('roomowner')) return;
 		DOUBLE_XP = !DOUBLE_XP;
 		return this.sendReply('Double XP was turned ' + (DOUBLE_XP ? 'ON' : 'OFF') + '.');
+		Rooms.rooms.forEach((curRoom, id) => {
+			if (id !== 'global') curRoom.addRaw(`<div class="broadcast-blue"><b>Double XP is turned ` + (DOUBLE_XP ? `on! You will now ` : `off! You will no longer `) +`receive more XP by talking.</b></div>`).update();
+		}
 	},
 
 	expon: function (target, room, user) {
