@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 let fs = require('fs');
 let ssbWrite = true; //if false, do not write to json
@@ -9,7 +9,7 @@ let typeList = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting
 
 global.writeSSB = function () {
 	if (!ssbWrite) return false; //Prevent corruptions
-	fs.writeFile('config/ssb.json', JSON.stringify(SG.ssb));
+	fs.writeFile('config/ssb.json', JSON.stringify(SG.ssb), () => {});
 };
 
 //Shamlessly ripped from teambuilder client.

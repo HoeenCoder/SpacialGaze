@@ -98,7 +98,7 @@ class Voucher {
 
 function writeFile() {
 	if (!writeJSON) return false; //Prevent corruptions
-	fs.writeFile('config/vouchers.json', JSON.stringify(SG.vouchers));
+	fs.writeFile('config/vouchers.json', JSON.stringify(SG.vouchers), () => {});
 }
 
 //load JSON
