@@ -243,7 +243,7 @@ exports.commands = {
 		if (!this.can('roomowner')) return;
 		DOUBLE_XP = !DOUBLE_XP;
 		Rooms.rooms.forEach((curRoom, id) => {
-			if (id !== 'global') curRoom.addRaw('<div class="broadcast-' + (DOUBLE_XP ? 'green' : 'red') + '"><b>Double XP is turned ' + (DOUBLE_XP ? 'on! You will now ' : 'off! You will no longer ') + 'receive more XP by talking.</b></div>').update();
+			if (id !== 'global') curRoom.addRaw('<div class="broadcast-' + (DOUBLE_XP ? 'green' : 'red') + '"><b>Double XP is turned ' + (DOUBLE_XP ? 'on! You will now ' : 'off! You will no longer ') + 'receive double XP.</b></div>').update();
 		});
 		return this.sendReply('Double XP was turned ' + (DOUBLE_XP ? 'ON' : 'OFF') + '.');
 	},
