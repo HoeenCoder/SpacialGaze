@@ -803,7 +803,7 @@ class User {
 		if (this.forceRename(name, registered)) {
 			Rooms.global.checkAutojoin(this);
 			if (Config.loginfilter) Config.loginfilter(this, null, userType);
-			WL.giveDailyReward(this);
+			SG.giveDailyReward(this);
 			return true;
 		}
 		return false;
