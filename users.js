@@ -704,7 +704,6 @@ class User {
 		if (Tells.inbox[userid]) Tells.sendTell(userid, this);
 		Ontime[userid] = Date.now();
 		SG.showNews(userid, this);
-		SG.giveDailyReward(this);
 		return false;
 	}
 	validateRename(name, tokenData, newlyRegistered, challenge) {
@@ -804,6 +803,7 @@ class User {
 		if (this.forceRename(name, registered)) {
 			Rooms.global.checkAutojoin(this);
 			if (Config.loginfilter) Config.loginfilter(this, null, userType);
+			WL.giveDailyReward(this);
 			return true;
 		}
 		return false;
