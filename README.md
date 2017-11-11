@@ -17,6 +17,8 @@ Navigation: [Spacialgaze][1] | [PS Server repository][10] | [PS Client repositor
 Introduction
 ------------------------------------------------------------------------
 
+We are now called [Wavelength](http://wavelength.psim.us) and our new repository is [here](https://github.com/HoeenCoder/Wavelength). Thank you to everyone who has contributed to SpacialGaze, and consider visiting us and/or contributing to Wavelength.
+
 This is the source code for the Pokémon Showdown server [Spacialgaze][4], a website for Pokémon battling. Pokémon Showdown simulates singles, doubles and triples battles in all the games out so far (Generations 1 through 7).
 
 This repository contains the files needed to set up your own Pokémon Showdown server. The Spacialgaze server also comes with some custom additions not found on the main repo. This repo will still have all the features from the main server. Note that to set up a server, you'll also need a server computer.
